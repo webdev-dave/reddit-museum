@@ -1,0 +1,20 @@
+:root {
+    --main-text-color: #141c3a;
+    --blue: #3069f0;
+    --red: #fd4d3f;
+    --gray: rgba(20, 28, 58, 0.5);
+    --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
+    --white: #ffffff;
+  }
+  
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    padding: 2%;
+  }
+
+
+h1 {
+    font-size: 5rem;
+    text-align: center;
+}
