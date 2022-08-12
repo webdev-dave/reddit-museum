@@ -1,45 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {
   fetchRedditInfo,
   selectLoadedStatus,
-  selectIsGallery,
-  selectExpImg,
-  selectThumbnail,
+  selectChildren,
 } from "./expSlice";
 import { useDispatch, useSelector } from "react-redux";
-//import placeholderImg from '../../assets/images/placeholder.png';
+
 
 const Exp = () => {
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectLoadedStatus);
-  const importedImg = useSelector(selectExpImg);
-  const importedThumbnail = useSelector(selectThumbnail);
-  const [imgUrl, setImgUrl] = useState("");
-  const [thumbnailUrl, setThumbnailUrl] = useState("");
-  const isGallery = useSelector(selectIsGallery);
-  //uncommited bla blab blabel
-  const setupGallery = () => {
-    console.log("isGallery!!");
-  };
+  const childrenArr = useSelector(selectChildren);
 
   useEffect(() => {
     !isLoaded && dispatch(fetchRedditInfo("/r/aiArt/"));
-  }, [dispatch, isLoaded]);
+    //isLoaded && console.log(childrenArr);
+  }, [dispatch, isLoaded, childrenArr]);
 
-  useEffect(() => {
-    isGallery ? setupGallery() : setImgUrl(importedImg);
-    setThumbnailUrl(importedThumbnail);
-    console.log(importedImg);
-  }, [isLoaded, imgUrl, importedImg, importedThumbnail, isGallery]);
 
-  const generalSearch = () => {};
 
   return (
     <section>
       <h1>Reddit</h1>
-      <img src={imgUrl} alt="redditPic" width="400" />
-      <img src={thumbnailUrl} alt="" />
-      {/* <img src='https://a.thumbs.redditmedia.com/01wY3159BM1xdqNWsbdvxW6CwPPPxKpBrnnCXRGHq10.jpg' alt="" /> */}
+      {childrenArr.map((child, index) => {
+        const isGallery = child.isGallery;
+        const gallery =
+          isGallery &&
+          Object.values(child.gallery).map((img, index) => {
+            return {
+              fileType: img.m,
+              id: img.id,
+            };
+          });
+
+        return (
+          <div key={`img-container-${index}`}>
+            <img
+              src={child.thumbnail}
+              alt="thumbnail"
+              width="100"
+              key={`thumbnail-${index}`}
+            />
+            {!isGallery ? (
+              <img
+                src={child.imgUrl}
+                alt="main-img"
+                width="400"
+                key={`main-img-${index}`}
+              />
+            ) : (
+              gallery.map((media, i) => {
+                const imgId = media.id;
+                const fileExtension = "." + media.fileType.slice(-3);
+                //console.log(`https://i.redd.it/${imgId}${fileExtension}`);
+                return (
+                  <img
+                    src={`https://i.redd.it/${imgId}${fileExtension}`}
+                    alt="mainImg"
+                    width="400"
+                    key={`gal-${index}-img${i}`}
+                  />
+                );
+              })
+            )}
+          </div>
+        );
+      })}
     </section>
   );
 };

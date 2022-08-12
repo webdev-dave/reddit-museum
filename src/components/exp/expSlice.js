@@ -4,14 +4,14 @@ const initialState = {
   isLoading: false,
   hasError: false,
   isLoaded: false,
-  errorMessage: '',
   redditData: {
-    kind: '',
-    isGallery: '',
-    expImg: '',
-    thumbnail: '',
-    children: '',
-    initObj: '',
+    experiment: "",
+    kind: "",
+    childrenArrLength: "",
+    children: [],
+    isGallery: "",
+    thumbnail: "",
+    initObj: "",
   },
 };
 
@@ -40,14 +40,24 @@ const expSlice = createSlice({
       state.hasError = false;
       state.isLoaded = true;
 
-      state.redditData.initObj = action.payload;
+      //state.redditData.experiment = action.payload.data.children[8].data.gallery_data;
+      state.redditData.initObj = action.payload.data;
+
       state.redditData.kind = action.payload.kind;
-      state.redditData.isGallery = action.payload.data.children[18].data.is_gallery
-      state.redditData.children = action.payload.data.children[18]
-      state.redditData.expImg = action.payload.data.children[18].data.url_overridden_by_dest;
-      state.redditData.thumbnail = action.payload.data.children[18].data.thumbnail;
-
-
+      state.redditData.childrenArrLength = action.payload.data.dist;
+      state.redditData.children = action.payload.data.children.map(
+        (element) => {
+          return {
+            isGallery: element.data.is_gallery
+              ? element.data.is_gallery
+              : false,
+            thumbnail: element.data.thumbnail,
+            imgUrl: element.data.url_overridden_by_dest,
+            gallery: element.data.media_metadata,
+            //extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
+          };
+        }
+      );
     },
     [fetchRedditInfo.rejected]: (state, action) => {
       state.isLoading = false;
@@ -60,7 +70,7 @@ const expSlice = createSlice({
 
 export const selectLoadedStatus = (state) => state.exp.isLoaded;
 export const selectExpImg = (state) => state.exp.redditData.expImg;
-export const selectThumbnail = (state) => state.exp.redditData.thumbnail;
+export const selectChildren = (state) => state.exp.redditData.children;
 export const selectIsGallery = (state) => state.exp.redditData.isGallery;
 
 export default expSlice.reducer;
