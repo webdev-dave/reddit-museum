@@ -25,8 +25,8 @@ export const fetchRedditInfo = createAsyncThunk(
   }
 );
 
-const expSlice = createSlice({
-  name: "exp",
+const mainSlice = createSlice({
+  name: "main",
   initialState: initialState,
   reducers: {},
   extraReducers: {
@@ -54,7 +54,7 @@ const expSlice = createSlice({
             thumbnail: element.data.thumbnail,
             imgUrl: element.data.url_overridden_by_dest,
             gallery: element.data.media_metadata,
-            //extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
+            //=extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
           };
         }
       );
@@ -68,9 +68,9 @@ const expSlice = createSlice({
   },
 });
 
-export const selectLoadedStatus = (state) => state.exp.isLoaded;
-export const selectExpImg = (state) => state.exp.redditData.expImg;
-export const selectChildren = (state) => state.exp.redditData.children;
-export const selectIsGallery = (state) => state.exp.redditData.isGallery;
+export const selectLoadedStatus = (state) => state.main.isLoaded;
+export const selectExpImg = (state) => state.main.redditData.expImg;
+export const selectChildren = (state) => state.main.redditData.children;
+export const selectIsGallery = (state) => state.main.redditData.isGallery;
 
-export default expSlice.reducer;
+export default mainSlice.reducer;

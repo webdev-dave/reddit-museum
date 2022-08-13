@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import expReducer from '../components/exp/expSlice';
+import mainReducer from '../components/main/mainSlice';
 
 
 const store = configureStore({
   reducer: {
-    exp: expReducer
+    main: mainReducer
   }
 });
 

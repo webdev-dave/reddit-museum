@@ -1,4 +1,4 @@
-import Exp from '../components/exp/Exp';
+import Main from '../components/main/Main';
 
 
 function App() {
@@ -7,7 +7,8 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <Exp/>
+        <h1>Reddit</h1>
+        <Main />
       </main>
     </div>
   );
