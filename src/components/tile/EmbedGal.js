@@ -1,12 +1,7 @@
 import Tile from "./Tile";
 
 const EmbedGal = ({ child, index }) => {
-    const gallery = Object.values(child.gallery).map((img) => {
-        return {
-          fileType: img.m,
-          id: img.id,
-        };
-      });
+  const gallery = child.gallery;
    
   return gallery.map((media, i) => {
     const imgId = media.id;
@@ -16,8 +11,9 @@ const EmbedGal = ({ child, index }) => {
       <Tile
         src={`https://i.redd.it/${imgId}${fileExtension}`}
         alt="mainImg"
+        isVideo={child.isVideo}
+        videoUrl={child.videoUrl}
         key={`gal-${index}-img${i}`}
-        type="gal"
       />
     );
   });

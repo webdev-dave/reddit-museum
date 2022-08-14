@@ -5,12 +5,9 @@ const initialState = {
   hasError: false,
   isLoaded: false,
   redditData: {
-    experiment: "",
     kind: "",
     childrenArrLength: "",
     children: [],
-    isGallery: "",
-    thumbnail: "",
     initObj: "",
   },
 };
@@ -48,13 +45,24 @@ const mainSlice = createSlice({
       state.redditData.children = action.payload.data.children.map(
         (element) => {
           return {
-            isGallery: element.data.is_gallery
-              ? element.data.is_gallery
-              : false,
+            isGallery: element.data.is_gallery ? true : false,
+            isVideo: element.data.secure_media ? true : false,
+            
             thumbnail: element.data.thumbnail,
             imgUrl: element.data.url_overridden_by_dest,
-            gallery: element.data.media_metadata,
-            //=extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
+            videoUrl:
+              element.data.secure_media &&
+              element.data.secure_media.reddit_video.fallback_url,
+            
+            gallery: element.data.is_gallery && Object.values(element.data.media_metadata).map((img) => {
+              return {
+                fileType: img.m,
+                id: img.id,
+              };
+            }),
+
+            //extendedGallery: element.data.media_metadata,
+            //extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
           };
         }
       );
