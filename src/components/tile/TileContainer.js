@@ -24,7 +24,7 @@ const TileContainer = () => {
     const isGallery = child.isGallery;
     const isVideo = child.isVideo;
     return (
-      <div className={`post-container ${isGallery ? 'gallery' : isVideo ? 'video' :''}`} key={`post-container-${index}`}>
+      <div className={`post-container ${isGallery ? 'gallery' : isVideo ? 'video' : ''}`} key={`post-container-${index}`}>
         <h3>Post #{index}</h3>
         <Tile
           src={child.thumbnail}
@@ -45,6 +45,7 @@ const TileContainer = () => {
         ) : (
           <EmbedGal child={child} index={index} key={`gal-${index}`} />
         )}
+        <a href={child.redditPostUrl} target="_blank" rel="noreferrer noopener">View on Reddit</a>
       </div>
     );
   });

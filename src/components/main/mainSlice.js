@@ -46,22 +46,38 @@ const mainSlice = createSlice({
         (element) => {
           return {
             isGallery: element.data.is_gallery ? true : false,
-            isVideo: element.data.secure_media ? true : false,
-            
+            isVideo: element.data.is_video,
             thumbnail: element.data.thumbnail,
             imgUrl: element.data.url_overridden_by_dest,
             videoUrl:
-              element.data.secure_media &&
+              element.data.is_video &&
               element.data.secure_media.reddit_video.fallback_url,
-            
-            gallery: element.data.is_gallery && Object.values(element.data.media_metadata).map((img) => {
-              return {
-                fileType: img.m,
-                id: img.id,
-              };
-            }),
+            extendedGallery: element.data.is_gallery && element.data.gallery_data,
+            gallery: 
+              element.data.is_gallery && 
+              Object.values(element.data.media_metadata).map((img, i) => {
+                return {
+                  fileType: img.m,
+                  id: img.id,
+                  imgIndex: i,
+                  headerImg: 'unknown',
+                  isVideo: false,
+                  videoUrl: null,
+                  mediaType: img.e,
+                  y: img.s.y,
+                  x: img.s.x,
+                  backupUrl: img.s.u,
+                };
+              }),
+            title: element.data.title,
+            voteCount: element.data.ups,
+            subreddit: element.data.subreddit_name_prefixed,
+            author: element.data.author,
+            authorUrl: "https://www.reddit.com/user/" + element.data.author,
+            date: element.data.created_utc,
+            redditPostUrl: "https://www.reddit.com" + element.data.permalink,
+            redditMediaViewer: element.data.url,
 
-            //extendedGallery: element.data.media_metadata,
             //extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
           };
         }
