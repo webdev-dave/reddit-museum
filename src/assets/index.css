@@ -34,3 +34,20 @@ img {
  max-width: 60%;
  margin: 0 auto;
 }
+
+/* -------------------------------------------------------- gallery */
+
+.gallery-container {
+  display: flex;
+  background-color: lightblue;
+  
+}
+
+.gallery-container .media {
+  
+}
+
+.gallery-container button {
+  
+}
+

@@ -10,10 +10,11 @@
 
 ## Must Fix
 
-- detect videos embedded inside galleries
-- gallery loading images in random order (dosen't match default thumbnail img)
-
+- detect embedded videos inside galleries
+- gallery loading images in random order (doesn't match default thumbnail img)
+  
 ## Features to Add
 
 - change image resolution from default
 - download img button
+- once webpage finishes loading, load all gallery images in cue so that when user decides to browse galleries, images are already there

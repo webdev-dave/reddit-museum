@@ -48,18 +48,21 @@ const mainSlice = createSlice({
             isGallery: element.data.is_gallery ? true : false,
             isVideo: element.data.is_video,
             thumbnail: element.data.thumbnail,
+            title: element.data.title,
             imgUrl: element.data.url_overridden_by_dest,
             videoUrl:
               element.data.is_video &&
               element.data.secure_media.reddit_video.fallback_url,
-            extendedGallery: element.data.is_gallery && element.data.gallery_data,
+              redditGalleryOrder: element.data.is_gallery && element.data.gallery_data.items.map(img => img.media_id), 
+            //extendedGallery: element.data.is_gallery && element.data.gallery_data.items.map(img => img.media_id),
             gallery: 
               element.data.is_gallery && 
               Object.values(element.data.media_metadata).map((img, i) => {
                 return {
+                  
                   fileType: img.m,
                   id: img.id,
-                  imgIndex: i,
+                  imgIndex: null,
                   headerImg: 'unknown',
                   isVideo: false,
                   videoUrl: null,
@@ -69,7 +72,7 @@ const mainSlice = createSlice({
                   backupUrl: img.s.u,
                 };
               }),
-            title: element.data.title,
+            
             voteCount: element.data.ups,
             subreddit: element.data.subreddit_name_prefixed,
             author: element.data.author,
