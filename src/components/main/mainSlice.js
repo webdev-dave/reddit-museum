@@ -7,38 +7,7 @@ const initialState = {
   redditData: {
     kind: "",
     childrenArrLength: "",
-    children: [
-      // {
-      //   isGallery: null,
-      //   isVideo: null,
-      //   thumbnail: null,
-      //   title: null,
-
-      //   imgUrl: "",
-      //   videoUrl: "",
-      //   redditGalleryOrder: null,
-      //   gallery: {
-      //     fileType: null,
-      //     id: null,
-      //     imgIndex: null,
-      //     headerImg: null,
-      //     isVideo: null,
-      //     videoUrl: null,
-      //     mediaType: null,
-      //     y: null,
-      //     x: null,
-      //     backupUrl: null,
-      //   },
-
-      //   voteCount: null,
-      //   subreddit: null,
-      //   author: null,
-      //   authorUrl: null,
-      //   date: null,
-      //   redditPostUrl: null,
-      //   redditMediaViewer: null,
-      // },
-    ],
+    children: [],
   },
 };
 
@@ -73,24 +42,24 @@ const mainSlice = createSlice({
       state.redditData.kind = action.payload.kind;
       state.redditData.childrenArrLength = action.payload.data.dist;
       state.redditData.children = action.payload.data.children.map(
-        (element) => {
+        (child) => {
           return {
-            isGallery: element.data.is_gallery ? true : false,
-            isVideo: element.data.is_video,
-            thumbnail: element.data.thumbnail,
-            title: element.data.title,
+            isGallery: child.data.is_gallery ? true : false,
+            isVideo: child.data.is_video,
+            thumbnail: child.data.thumbnail,
+            title: child.data.title,
 
-            imgUrl: element.data.url_overridden_by_dest,
+            imgUrl: child.data.url_overridden_by_dest,
             videoUrl:
-              element.data.is_video &&
-              element.data.secure_media.reddit_video.fallback_url,
+              child.data.is_video &&
+              child.data.secure_media.reddit_video.fallback_url,
             redditGalleryOrder:
-              element.data.is_gallery &&
-              element.data.gallery_data.items.map((img) => img.media_id),
-            //extendedGallery: element.data.is_gallery && element.data.gallery_data.items.map(img => img.media_id),
-            gallery:
-              element.data.is_gallery &&
-              Object.values(element.data.media_metadata).map((img, i) => {
+              child.data.is_gallery &&
+              child.data.gallery_data.items.map((img) => img.media_id),
+            //extendedGallery: child.data.is_gallery && child.data.gallery_data.items.map(img => img.media_id),
+            initialGallery:
+              child.data.is_gallery &&
+              Object.values(child.data.media_metadata).map((img, i) => {
                 return {
                   fileType: img.m,
                   id: img.id,
@@ -105,15 +74,15 @@ const mainSlice = createSlice({
                 };
               }),
 
-            voteCount: element.data.ups,
-            subreddit: element.data.subreddit_name_prefixed,
-            author: element.data.author,
-            authorUrl: "https://www.reddit.com/user/" + element.data.author,
-            date: element.data.created_utc,
-            redditPostUrl: "https://www.reddit.com" + element.data.permalink,
-            redditMediaViewer: element.data.url,
+            voteCount: child.data.ups,
+            subreddit: child.data.subreddit_name_prefixed,
+            author: child.data.author,
+            authorUrl: "https://www.reddit.com/user/" + child.data.author,
+            date: child.data.created_utc,
+            redditPostUrl: "https://www.reddit.com" + child.data.permalink,
+            redditMediaViewer: child.data.url,
 
-            //extraTGallery: element.data.is_gallery && element.data.gallery_data.items,
+            //extraTGallery: child.data.is_gallery && child.data.gallery_data.items,
           };
         }
       );
@@ -131,6 +100,5 @@ export const selectLoadedStatus = (state) => state.main.isLoaded;
 export const selectExpImg = (state) => state.main.redditData.expImg;
 export const selectChildren = (state) => state.main.redditData.children;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;
-
 
 export default mainSlice.reducer;

@@ -3,9 +3,12 @@
   --blue: #3069f0;
   --red: #fd4d3f;
   --gray: rgba(20, 28, 58, 0.5);
+  --lightgray: #efefef;
   --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
   --white: #ffffff;
 }
+
+
 
 html {
   font-size: 62.5%;
@@ -31,23 +34,59 @@ img {
 /* -------------------------------------------------------- posts section */
 
 .posts-section {
- max-width: 60%;
- margin: 0 auto;
+ 
+
+}
+
+.post-container {
+  max-width: 55%;
+  margin: 0 auto;
+}
+
+.post-container .media {
+  width: 100%;
+  height: auto;
+  border: 30px solid var(--lightgray);
+  margin: 0 auto;
+}
+
+.post-container.gallery .media {
+  border-left: 0;
+  border-right: 0;
 }
 
 /* -------------------------------------------------------- gallery */
 
+
+
 .gallery-container {
   display: flex;
-  background-color: lightblue;
+  max-width: 100%;
   
 }
 
 .gallery-container .media {
+  flex: 1 1 auto;
+  max-width: 84%;
+  min-width: none;
+  height: auto;
+  border-left: 0;
+  border-right: 0;
   
 }
 
+.post-container.gallery .media.hidden {
+  display: none;
+}
+
 .gallery-container button {
+  flex: 1 1 0;
+  border: none;
+}
+
+.gallery-container button .icon {
   
 }
+
+
 

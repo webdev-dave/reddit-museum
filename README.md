@@ -2,19 +2,20 @@
 
 [View Live WebApp](https://redditmuseum.netlify.app/)
 
-
 ## To Do List
 
-- animate gallery (useing css animations)
+- animate gallery (using css animations)
+- add cute logo/ico
+- add title/artist-description
 - add searchBar
 - add browseArtByGenre menu (selector)
-
 
 ## Must-Fix/Bugs
 
 - detect embedded videos inside galleries
 - gallery loading images in random order (doesn't match default thumbnail img)
 - sound in videos
+
 ## Features
 
 - filter through art by genre
@@ -26,8 +27,6 @@
 - current version skips/blocks posts with externally hosted media (embedded youtube videos etc.)
 - current version skips/blocks pure text posts (with no img/video media)
 
-
-  
 ## Features to Add
 
 - change image resolution from default

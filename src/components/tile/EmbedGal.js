@@ -2,21 +2,20 @@ import { useState } from "react";
 import Tile from "./Tile";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-const EmbedGal = ({ child }) => {
-  let gallery = child.gallery;
-  //add gallery-img-objects by order of default reddit order
-  const redditGalleryOrder = child.redditGalleryOrder.map((orderId, i) => {
-    const newImgObj = gallery.find((imgObj) => imgObj.id === orderId);
-    return { ...newImgObj, imgIndex: i };
+const EmbedGal = ({ child, postIndex }) => {
+  const initialGallery = child.initialGallery;
+  /*   
+  - 1 the map function bellow overwrites the initial store gallery (which comes in a randomized order) and reorganizes all imgObj based on the default redditGalleryOrder (as it appears on reddit).
+  - 2 child.redditGalleryOrder is an array of gallery-media-id's in default reddit order
+  - 3 the map function below maps over all the id's inside redditGalleryOrder, searches through the initial store gallery (that comes in a randomized order) and finds the the img object that has a matching id
+  - 4 once the matching imgObj is found, it is pushed into the new gallery array only this time, all the imgObj appear in order of redditGalleryOrder */
+  const gallery = child.redditGalleryOrder.map((orderId, index) => {
+    const newImgObj = initialGallery.find((imgObj) => imgObj.id === orderId);
+    return { ...newImgObj, imgIndex: index };
   });
-  gallery = redditGalleryOrder;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  let finalImg = gallery.length - 1;
-  let imgId = gallery[currentImageIndex].id;
-  let imgIndex = gallery[currentImageIndex].imgIndex;
-  let fileExtension = gallery[currentImageIndex].fileType.slice(-3);
-  let srcUrl = `https://i.redd.it/${imgId}.${fileExtension}`;
+  const finalImg = gallery.length - 1;
 
   const handleNext = () => {
     if (currentImageIndex === finalImg) return;
@@ -31,37 +30,33 @@ const EmbedGal = ({ child }) => {
   return (
     <div className="gallery-container">
       <button onClick={handlePrevious}>
-        <FaAngleLeft className="icon" />{" "}
+        <FaAngleLeft className="icon" />
       </button>
-      <Tile
-        src={srcUrl}
-        alt="mainImg"
-        id={imgIndex}
-        isVideo={gallery[currentImageIndex].isVideo}
-        videoUrl={gallery[currentImageIndex].videoUrl}
-        key={`gal-${imgIndex}-img${imgIndex}`}
-      />
+      {gallery.map((media, index) => {
+        const imgIndex = index;
+        const fileExtension = media.fileType.slice(-3);
+        const srcUrl = `https://i.redd.it/${media.id}.${fileExtension}`;
+
+        return (
+          <Tile
+            src={srcUrl}
+            alt="mainImg"
+            isVideo={media.isVideo}
+            videoUrl={media.videoUrl}
+            key={`gal-${postIndex}-img${imgIndex}`}
+            className={
+              imgIndex === currentImageIndex ? "current-media" : "hidden"
+            }
+            id={imgIndex}
+          />
+        );
+      })}
+
       <button onClick={handleNext}>
-        <FaAngleRight className="icon" />{" "}
+        <FaAngleRight className="icon" />
       </button>
     </div>
   );
-
-  // return gallery.map((media, i) => {
-  //   const imgId = media.id;
-  //   const fileExtension = "." + media.fileType.slice(-3);
-  //   //console.log(`https://i.redd.it/${imgId}${fileExtension}`);
-  //   return (
-  //     <Tile
-  //       src={`https://i.redd.it/${imgId}${fileExtension}`}
-  //       alt="mainImg"
-  //       id={i}
-  //       isVideo={child.isVideo}
-  //       videoUrl={child.videoUrl}
-  //       key={`gal-${index}-img${i}`}
-  //     />
-  //   );
-  // });
 };
 
 export default EmbedGal;

@@ -43,12 +43,12 @@ const TileContainer = () => {
         key={`post-container-${index}`}
       >
         <h3>Post #{index}</h3>
-        <Tile
+        {/* <Tile
           src={child.thumbnail}
           alt="thumbnail"
           type="thumbnail"
           key={`thumbnail-${index}`}
-        />
+        /> */}
 
         {!isHostedOnReddit() ? null : !isGallery ? (
           <Tile
@@ -58,9 +58,10 @@ const TileContainer = () => {
             isVideo={isVideo}
             videoUrl={child.videoUrl}
             key={`main-img-${index}`}
+            className=""
           />
         ) : (
-          <EmbedGal child={child} key={`gal-${index}`} />
+          <EmbedGal child={child} postIndex={index} key={`gal-${index}`} />
         )}
         <a href={child.redditPostUrl} target="_blank" rel="noreferrer noopener">
           View on Reddit

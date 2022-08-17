@@ -1,10 +1,10 @@
 //if type img return img, if type = video, return video
-const Tile = ({ src, alt, isVideo, videoUrl }) => {
+const Tile = ({ src, alt, isVideo, videoUrl, className }) => {
 
 
 
   return !isVideo ? (
-    <img src={src} alt={alt} className='media' />
+    <img src={src} alt={alt} className={`media ${className}`} />
   ) : (
     <video
       src={videoUrl}
