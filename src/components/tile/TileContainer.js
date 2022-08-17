@@ -13,18 +13,35 @@ const TileContainer = () => {
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectLoadedStatus);
   const childrenArr = useSelector(selectChildren);
-  //console.log(childrenArr);
 
+  //fetch data from reddit
   useEffect(() => {
     !isLoaded && dispatch(fetchRedditInfo("/r/aiArt/"));
-    //isLoaded && console.log(childrenArr);
   }, [dispatch, isLoaded, childrenArr]);
 
   return childrenArr.map((child, index) => {
     const isGallery = child.isGallery;
     const isVideo = child.isVideo;
+
+    //func returns false if media is externally hosted
+    const isHostedOnReddit = () => {
+      if (!isGallery && (child.imgUrl || child.videoUrl)) {
+        const host = !isVideo
+          ? child.imgUrl.slice(10, 17)
+          : child.videoUrl.slice(10, 17);
+        return host === "redd.it";
+      } else if (isGallery) {
+        return true;
+      }
+    };
+
     return (
-      <div className={`post-container ${isGallery ? 'gallery' : isVideo ? 'video' : ''}`} key={`post-container-${index}`}>
+      <div
+        className={`post-container ${
+          isGallery ? "gallery" : isVideo ? "video" : ""
+        }`}
+        key={`post-container-${index}`}
+      >
         <h3>Post #{index}</h3>
         <Tile
           src={child.thumbnail}
@@ -33,7 +50,7 @@ const TileContainer = () => {
           key={`thumbnail-${index}`}
         />
 
-        {!isGallery ? (
+        {!isHostedOnReddit() ? null : !isGallery ? (
           <Tile
             src={child.imgUrl}
             alt="main-img"
@@ -43,9 +60,11 @@ const TileContainer = () => {
             key={`main-img-${index}`}
           />
         ) : (
-          <EmbedGal child={child} index={index} key={`gal-${index}`} />
+          <EmbedGal child={child} key={`gal-${index}`} />
         )}
-        <a href={child.redditPostUrl} target="_blank" rel="noreferrer noopener">View on Reddit</a>
+        <a href={child.redditPostUrl} target="_blank" rel="noreferrer noopener">
+          View on Reddit
+        </a>
       </div>
     );
   });

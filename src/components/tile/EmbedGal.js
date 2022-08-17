@@ -2,7 +2,7 @@ import { useState } from "react";
 import Tile from "./Tile";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
-const EmbedGal = ({ child, index }) => {
+const EmbedGal = ({ child }) => {
   let gallery = child.gallery;
   //add gallery-img-objects by order of default reddit order
   const redditGalleryOrder = child.redditGalleryOrder.map((orderId, i) => {
@@ -39,7 +39,7 @@ const EmbedGal = ({ child, index }) => {
         id={imgIndex}
         isVideo={gallery[currentImageIndex].isVideo}
         videoUrl={gallery[currentImageIndex].videoUrl}
-        key={`gal-${index}-img${imgIndex}`}
+        key={`gal-${imgIndex}-img${imgIndex}`}
       />
       <button onClick={handleNext}>
         <FaAngleRight className="icon" />{" "}

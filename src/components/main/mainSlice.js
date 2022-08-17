@@ -7,8 +7,38 @@ const initialState = {
   redditData: {
     kind: "",
     childrenArrLength: "",
-    children: [],
-    initObj: "",
+    children: [
+      // {
+      //   isGallery: null,
+      //   isVideo: null,
+      //   thumbnail: null,
+      //   title: null,
+
+      //   imgUrl: "",
+      //   videoUrl: "",
+      //   redditGalleryOrder: null,
+      //   gallery: {
+      //     fileType: null,
+      //     id: null,
+      //     imgIndex: null,
+      //     headerImg: null,
+      //     isVideo: null,
+      //     videoUrl: null,
+      //     mediaType: null,
+      //     y: null,
+      //     x: null,
+      //     backupUrl: null,
+      //   },
+
+      //   voteCount: null,
+      //   subreddit: null,
+      //   author: null,
+      //   authorUrl: null,
+      //   date: null,
+      //   redditPostUrl: null,
+      //   redditMediaViewer: null,
+      // },
+    ],
   },
 };
 
@@ -49,21 +79,23 @@ const mainSlice = createSlice({
             isVideo: element.data.is_video,
             thumbnail: element.data.thumbnail,
             title: element.data.title,
+
             imgUrl: element.data.url_overridden_by_dest,
             videoUrl:
               element.data.is_video &&
               element.data.secure_media.reddit_video.fallback_url,
-              redditGalleryOrder: element.data.is_gallery && element.data.gallery_data.items.map(img => img.media_id), 
+            redditGalleryOrder:
+              element.data.is_gallery &&
+              element.data.gallery_data.items.map((img) => img.media_id),
             //extendedGallery: element.data.is_gallery && element.data.gallery_data.items.map(img => img.media_id),
-            gallery: 
-              element.data.is_gallery && 
+            gallery:
+              element.data.is_gallery &&
               Object.values(element.data.media_metadata).map((img, i) => {
                 return {
-                  
                   fileType: img.m,
                   id: img.id,
                   imgIndex: null,
-                  headerImg: 'unknown',
+                  headerImg: "unknown",
                   isVideo: false,
                   videoUrl: null,
                   mediaType: img.e,
@@ -72,7 +104,7 @@ const mainSlice = createSlice({
                   backupUrl: img.s.u,
                 };
               }),
-            
+
             voteCount: element.data.ups,
             subreddit: element.data.subreddit_name_prefixed,
             author: element.data.author,
@@ -99,5 +131,6 @@ export const selectLoadedStatus = (state) => state.main.isLoaded;
 export const selectExpImg = (state) => state.main.redditData.expImg;
 export const selectChildren = (state) => state.main.redditData.children;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;
+
 
 export default mainSlice.reducer;
