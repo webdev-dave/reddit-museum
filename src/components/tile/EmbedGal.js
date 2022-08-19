@@ -15,16 +15,30 @@ const EmbedGal = ({ child, postIndex }) => {
   });
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [slideOutImgIndex, setSlideOutImgIndex] = useState('');
+/*   slideInClassName is preset to next-slide-in in order to fix a bug.
+  By pre-setting slideInClassName, the main img starts off having been animated upon loading.
+  This helps prevent the main-img from freezing (sometimes) upon the first iteration of clicking the next img-btn. */
+  const [slideInClassName, setSlideInClassName] = useState('next-slide-in');
+  const [slideOutClassName, setSlideOutClassName] = useState('');
   const finalImg = gallery.length - 1;
+  
+
 
   const handleNext = () => {
     if (currentImageIndex === finalImg) return;
+    setSlideOutImgIndex(currentImageIndex);
     setCurrentImageIndex(currentImageIndex + 1);
+    setSlideInClassName('next-slide-in');
+    setSlideOutClassName('next-slide-out');
   };
 
   const handlePrevious = () => {
     if (currentImageIndex === 0) return;
+    setSlideOutImgIndex(currentImageIndex);
     setCurrentImageIndex(currentImageIndex - 1);
+    setSlideInClassName('prev-slide-in');
+    setSlideOutClassName('prev-slide-out');
   };
 
   return (
@@ -32,10 +46,13 @@ const EmbedGal = ({ child, postIndex }) => {
       <button onClick={handlePrevious}>
         <FaAngleLeft className="icon" />
       </button>
+      <div className="sliding-stack">
+        
       {gallery.map((media, index) => {
         const imgIndex = index;
         const fileExtension = media.fileType.slice(-3);
         const srcUrl = `https://i.redd.it/${media.id}.${fileExtension}`;
+        
 
         return (
           <Tile
@@ -44,14 +61,13 @@ const EmbedGal = ({ child, postIndex }) => {
             isVideo={media.isVideo}
             videoUrl={media.videoUrl}
             key={`gal-${postIndex}-img${imgIndex}`}
-            className={
-              imgIndex === currentImageIndex ? "current-media" : "hidden"
-            }
+            className={` ${imgIndex === 0 ? "main" : ''} ${imgIndex === currentImageIndex ? `displayed ${slideInClassName}` : imgIndex === slideOutImgIndex ?  "hidden " + slideOutClassName : "hidden"}  `}
             id={imgIndex}
           />
         );
       })}
 
+      </div>
       <button onClick={handleNext}>
         <FaAngleRight className="icon" />
       </button>

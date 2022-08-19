@@ -25,13 +25,13 @@ const TileContainer = () => {
 
     //func returns false if media is externally hosted
     const isHostedOnReddit = () => {
-      if (!isGallery && (child.imgUrl || child.videoUrl)) {
+      if (isGallery) {
+        return true;
+      } else if (child.imgUrl || child.videoUrl) {
         const host = !isVideo
           ? child.imgUrl.slice(10, 17)
           : child.videoUrl.slice(10, 17);
         return host === "redd.it";
-      } else if (isGallery) {
-        return true;
       }
     };
 
@@ -43,6 +43,7 @@ const TileContainer = () => {
         key={`post-container-${index}`}
       >
         <h3>Post #{index}</h3>
+        
         {/* <Tile
           src={child.thumbnail}
           alt="thumbnail"
@@ -50,7 +51,7 @@ const TileContainer = () => {
           key={`thumbnail-${index}`}
         /> */}
 
-        {!isHostedOnReddit() ? null : !isGallery ? (
+        {!isHostedOnReddit() ? <p>{child.title + child.isGallery}</p> : !isGallery ? (
           <Tile
             src={child.imgUrl}
             alt="main-img"

@@ -5,9 +5,11 @@
 ## To Do List
 
 - animate gallery (using css animations)
+- gallery buttons should change style if there are no more prev/next images
 - add cute logo/ico
 - add title/artist-description
 - add searchBar
+- create an array of search keywords out of every individual title word
 - add browseArtByGenre menu (selector)
 
 ## Must-Fix/Bugs
@@ -27,7 +29,7 @@
 - current version skips/blocks posts with externally hosted media (embedded youtube videos etc.)
 - current version skips/blocks pure text posts (with no img/video media)
 
-## Features to Add
+## Potential Extra Features
 
 - change image resolution from default
 - download img button

@@ -57,6 +57,10 @@ html {
 	box-sizing: inherit;
   }
 
+img {
+	line-height: 0;
+}
+
 
 /* my additions for this project */
 
