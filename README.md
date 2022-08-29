@@ -39,7 +39,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - download img button
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading
 
-# Project Details and Specs
+# Details and Specs
 ### Concepts Applied:
 
 - Making HTTP fetch requests to an external web API (the Reddit API)
