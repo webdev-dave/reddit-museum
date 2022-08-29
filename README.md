@@ -58,11 +58,11 @@ A digital art gallery that displays art collected from the various artistic encl
 - HTML5
 - CSS3
 - JavaScript
--React
--Redux & Redux-Toolkit
--Git and GitHub
--Command line
--Chrome DevTools, React DevTools, Redux DevTools
--React-Icons library
+- React
+- Redux & Redux-Toolkit
+- Git and GitHub
+- Command line
+- Chrome DevTools, React DevTools, Redux DevTools
+- React-Icons library
 - Netlify
 
