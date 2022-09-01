@@ -11,12 +11,20 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  padding: 2%;
+  
+}
+
+body {
+  background-color: #b0cdce;
+  padding: 4% 0;
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 6rem;
+  font-weight: 600;
   text-align: center;
+  margin-bottom: 8rem;
+
 }
 
 h3 {
@@ -29,6 +37,23 @@ img {
   max-width: 100%;
 }
 
+/* -------------------------------------------------------- temporary */
+.userAlert {
+  background-color: orange;
+  padding: 5%;
+}
+.userAlert h3 {
+  padding-top: 1rem;
+
+  text-align: center;
+}
+.userAlert p {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+
+
 /* -------------------------------------------------------- posts section */
 
 /* .posts-section {
@@ -36,7 +61,7 @@ img {
 } */
 
 .post-container {
-  max-width: 55%;
+  max-width: 75%;
   margin: 0 auto;
 }
 

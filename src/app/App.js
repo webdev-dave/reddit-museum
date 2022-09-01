@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <h1>Reddit</h1>
+        <h1>Reddit Museum</h1>
         <Main />
       </main>
     </div>
