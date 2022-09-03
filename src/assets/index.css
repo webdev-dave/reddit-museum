@@ -11,7 +11,6 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -24,13 +23,17 @@ h1 {
   font-weight: 600;
   text-align: center;
   margin-bottom: 8rem;
-
 }
 
 h3 {
   font-size: 3.5rem;
   text-align: center;
-  padding: 120px 0 15px 0;
+  padding: 0 0 1rem 0;
+}
+
+h5 {
+  font-size: 2rem;
+  text-align: center;
 }
 
 img {
@@ -52,38 +55,43 @@ img {
   text-align: center;
 }
 
-
-
 /* -------------------------------------------------------- posts section */
-
-/* .posts-section {
-  
-} */
 
 .post-container {
   max-width: 75%;
-  margin: 0 auto;
+  margin: 50px auto;
+  background-color: var(--lightgray);
+  padding: 30px;
+}
+
+.post-container h5 {
+  padding-top: 2rem;
 }
 
 .post-container .media {
   width: 100%;
   height: auto;
-  border: 30px solid var(--lightgray);
+  /* border: 30px solid var(--lightgray); */
   margin: 0 auto;
 }
 
-.post-container.gallery .media {
-  border-left: 0;
-  border-right: 0;
+.post-container .credits {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
 }
 
 /* ----------------------------------------------------------------------------- gallery */
 
+.post-container.gallery {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .gallery-container {
   display: flex;
   width: 100%;
-  border-top: 30px solid var(--lightgray);
-  border-bottom: 30px solid var(--lightgray);
 }
 
 .gallery-container .sliding-stack {
@@ -95,6 +103,7 @@ img {
 .gallery-container button {
   flex: 1 1 4%;
   border: none;
+  cursor: pointer;
 }
 
 /* .gallery-container button .icon {
@@ -120,20 +129,13 @@ the opacity is set to 0 effectively creating/mocking the hidden behavior */
   opacity: 0;
 }
 
-
-
-
-
-
-
-
 /* ---------------------------------------------------------- gallery animation */
 
 .media.next-slide-in {
   animation: next-slide-in ease 0.4s forwards;
 }
 
-.media.next-slide-out  {
+.media.next-slide-out {
   animation: next-slide-out ease 0.4s forwards;
 }
 
@@ -188,6 +190,3 @@ the opacity is set to 0 effectively creating/mocking the hidden behavior */
     opacity: 60%;
   }
 }
-
-
-

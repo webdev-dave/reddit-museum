@@ -1,4 +1,4 @@
-import TileContainer from "../tile/TileContainer";
+import PostContainer from "../tile/PostContainer";
 
 const Main = () => {
   return (
@@ -11,7 +11,7 @@ const Main = () => {
           daily. All features are subject to change.
         </p>
       </div>
-      <TileContainer />
+      <PostContainer />
     </section>
   );
 };

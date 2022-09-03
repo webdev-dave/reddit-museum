@@ -6,10 +6,10 @@ import {
   selectChildren,
 } from "../main/mainSlice";
 
-import Tile from "./Tile";
+import Media from "./Media";
 import EmbedGal from "./EmbedGal";
 
-const TileContainer = () => {
+const PostContainer = () => {
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectLoadedStatus);
   const childrenArr = useSelector(selectChildren);
@@ -42,17 +42,10 @@ const TileContainer = () => {
         }`}
         key={`post-container-${index}`}
       >
-        <h3>Post #{index}</h3>
-        
-        {/* <Tile
-          src={child.thumbnail}
-          alt="thumbnail"
-          type="thumbnail"
-          key={`thumbnail-${index}`}
-        /> */}
+        <p>Post #{index}</p>
 
-        {!isHostedOnReddit() ? <p>{child.title + child.isGallery}</p> : !isGallery ? (
-          <Tile
+        {!isHostedOnReddit() ? null : !isGallery ? (
+          <Media
             src={child.imgUrl}
             alt="main-img"
             type="main"
@@ -64,12 +57,17 @@ const TileContainer = () => {
         ) : (
           <EmbedGal child={child} postIndex={index} key={`gal-${index}`} />
         )}
+        <h5>{child.title}</h5>
+        <div className="credits">
+
+        <p>By: <a href={child.authorUrl} target="_blank" rel="noreferrer noopener">{child.author}</a></p>
         <a href={child.redditPostUrl} target="_blank" rel="noreferrer noopener">
           View on Reddit
         </a>
+        </div>
       </div>
     );
   });
 };
 
-export default TileContainer;
+export default PostContainer;

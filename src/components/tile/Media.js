@@ -1,8 +1,5 @@
 //if type img return img, if type = video, return video
-const Tile = ({ src, alt, isVideo, videoUrl, className }) => {
-
-
-
+const Media = ({ src, alt, isVideo, videoUrl, className }) => {
   return !isVideo ? (
     <img src={src} alt={alt} className={`media ${className}`} />
   ) : (
@@ -16,4 +13,4 @@ const Tile = ({ src, alt, isVideo, videoUrl, className }) => {
   );
 };
 
-export default Tile;
+export default Media;
