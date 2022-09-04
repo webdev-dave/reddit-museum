@@ -36,6 +36,10 @@ h5 {
   text-align: center;
 }
 
+p {
+  font-size: 1.6rem;
+}
+
 img {
   max-width: 100%;
 }
@@ -70,9 +74,6 @@ header img {
   padding: 30px;
 }
 
-.post-container h5 {
-  padding: 3.5rem 0 1rem 0;
-}
 
 .post-container .media {
   width: 100%;
@@ -81,11 +82,28 @@ header img {
   margin: 0 auto;
 }
 
+.post-container h5 {
+  font-size: 2.4rem;
+  line-height: 3rem;
+  padding: 4rem 0 4.5rem 0;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
+
+
 .post-container .credits {
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+}
+
+
+
+.credits  p, .credits a {
+  font-size: 1.4rem;
 }
 
 @media only screen and (min-width: 900px) {

@@ -45,14 +45,10 @@ const mainSlice = createSlice({
         (child) => {
           return {
             isGallery: child.data.is_gallery ? true : false,
-            isVideo: child.data.is_video,
             thumbnail: child.data.thumbnail,
             title: child.data.title,
-
-            imgUrl: child.data.url_overridden_by_dest,
-            videoUrl:
-              child.data.is_video &&
-              child.data.secure_media.reddit_video.fallback_url,
+            //child: child,
+            srcUrl: child.data.url_overridden_by_dest,
             redditGalleryOrder:
               child.data.is_gallery &&
               child.data.gallery_data.items.map((img) => img.media_id),
