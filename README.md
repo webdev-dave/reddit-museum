@@ -11,10 +11,10 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- animate gallery (using css animations)
+- add load more button
 - gallery buttons should change style if there are no more prev/next images
 - add cute logo/ico
-- add title/artist-description
+
 - add searchBar
 - create an array of search keywords out of every individual title word
 - add browseArtByGenre menu (selector)

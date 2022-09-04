@@ -1,3 +1,4 @@
+import Header from '../components/header/Header';
 import Main from '../components/main/Main';
 
 
@@ -7,7 +8,7 @@ function App() {
       <header className="App-header">
       </header>
       <main>
-        <h1>Reddit Museum</h1>
+        <Header />
         <Main />
       </main>
     </div>
