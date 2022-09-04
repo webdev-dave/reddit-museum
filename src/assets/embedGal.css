@@ -1,0 +1,109 @@
+
+
+.post-container.gallery {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .gallery-container {
+    display: flex;
+    width: 100%;
+  }
+  
+  .gallery-container .sliding-stack {
+    flex: 1 1 92%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .gallery-container button {
+    flex: 1 1 4%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* .gallery-container button .icon {
+  } */
+  
+  .sliding-stack .media {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    border: 0;
+    list-style: 0;
+  }
+  
+  /* img-header must be relative.
+  If all images were absolute, then image height:auto; would be ignored and all images would collapse.
+  img-header is always present however when in a "hidden" state, 
+  the opacity is set to 0 effectively creating/mocking the hidden behavior */
+  
+  .sliding-stack .media.main {
+    position: relative;
+  }
+  .sliding-stack .media.main.hidden {
+    opacity: 0;
+  }
+  
+  /* ---------------------------------------------------------- gallery animation */
+
+.media.next-slide-in {
+    animation: next-slide-in ease 0.4s forwards;
+  }
+  
+  .media.next-slide-out {
+    animation: next-slide-out ease 0.4s forwards;
+  }
+  
+  .media.prev-slide-in {
+    animation: prev-slide-in ease 0.4s forwards;
+  }
+  
+  .media.prev-slide-out {
+    animation: prev-slide-out ease 0.4s forwards;
+  }
+  
+  @keyframes next-slide-in {
+    0% {
+      right: -100%;
+      opacity: 60%;
+    }
+    100% {
+      right: 0;
+      opacity: 100%;
+    }
+  }
+  
+  @keyframes next-slide-out {
+    0% {
+      left: 0;
+      opacity: 100%;
+    }
+    100% {
+      left: -100%;
+      opacity: 60%;
+    }
+  }
+  
+  @keyframes prev-slide-in {
+    0% {
+      left: -100%;
+      opacity: 60%;
+    }
+    100% {
+      left: 0;
+      opacity: 100%;
+    }
+  }
+  
+  @keyframes prev-slide-out {
+    0% {
+      right: 0;
+      opacity: 100%;
+    }
+    100% {
+      right: -100%;
+      opacity: 60%;
+    }
+  }
+  

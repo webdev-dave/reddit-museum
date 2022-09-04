@@ -1,8 +1,11 @@
+import headerImg from "../../assets/images/headerImg.png"
+
 const Header = () => {
+
   return (
     <header>
       <h1>Reddit Museum</h1>
-      <img src="https://i.redd.it/msrify3mu0i91.png" alt="" />
+      <img src={headerImg} alt="" />
       <div className="userAlert">
         <h3>Be aware!!</h3>
         <p>

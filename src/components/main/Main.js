@@ -1,10 +1,16 @@
+import Header from "../header/Header";
 import PostContainer from "../tile/PostContainer";
 
 const Main = () => {
   return (
-    <section className="posts-section">
-      <PostContainer />
-    </section>
+    <div className="main-container">
+      <header>
+        <Header />
+      </header>
+      <main className="posts-section">
+        <PostContainer />
+      </main>
+    </div>
   );
 };
 
