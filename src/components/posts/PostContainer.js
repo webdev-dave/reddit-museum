@@ -29,8 +29,8 @@ const PostContainer = () => {
     const credits = {
       author: child.author,
       authorUrl: child.authorUrl,
-      redditPostUrl: child.redditPostUrl
-    }
+      redditPostUrl: child.redditPostUrl,
+    };
 
     //func returns false if media is externally hosted (for example, an embedded YouTube video link)
     const isHostedOnReddit = () => {
@@ -38,13 +38,11 @@ const PostContainer = () => {
         return true;
       } else if (child.srcUrl) {
         const host = child.srcUrl.slice(10, 17);
-        console.log(child.srcUrl);
-        console.log( host === ("redd.it" || "imgur.c") ? true : false)
+        // console.log(child.srcUrl);
+        // console.log(host === ("redd.it" || "imgur.c") ? true : false);
         return host === ("redd.it" || "imgur.c") ? true : false;
       }
     };
-
-
 
     return !isHostedOnReddit() ? null : !isGallery ? (
       <div className={className} key={key}>
@@ -59,13 +57,13 @@ const PostContainer = () => {
         />
 
         <h5>{child.title}</h5>
-        <Credits  credits={credits} />
+        <Credits credits={credits} />
       </div>
     ) : (
       <div className={className} key={key}>
         <EmbedGal child={child} postIndex={index} key={`gal-${index}`} />
         <h5>{child.title}</h5>
-        <Credits  credits={credits} />
+        <Credits credits={credits} />
       </div>
     );
   });
