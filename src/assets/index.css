@@ -1,10 +1,10 @@
 :root {
+ 
+  --darkblue: #141826;
+  --bluegreen: #127373;
+  --yellow: #F2C777;
+  --pink: #BF3475;
   --main-text-color: #141c3a;
-  --blue: #0476d9;
-  --darkblue: #010440;
-  --yellow: #f29f05;
-  --lime: #09a603;
-  --orange: #f25c05;
   --gray: rgba(20, 28, 58, 0.5);
   --lightgray: #efefef;
   --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
@@ -17,14 +17,14 @@ html {
 }
 
 body {
-  background-color: var(--blue);
+  background-color: var(--pink);
 }
 
 h1 {
   display: block;
   width: fit-content;
-  color: var(--darkblue);
-  background-color: var(--white);
+  color: black;
+ 
   font-size: 6rem;
   font-weight: 600;
   text-align: center;
@@ -58,7 +58,6 @@ img {
 }
 .userAlert h3 {
   padding-top: 1rem;
-
   text-align: center;
 }
 .userAlert p {
@@ -91,6 +90,7 @@ nav {
 
 header {
   width: 100%;
+
 }
 
 header img {
