@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 ## To Do List
 
 - gallery buttons should change style if there are no more prev/next images
+- add box shadow to posts
 - gallery should display a count (img x/of y imgs)
 - add browseArtByGenre menu (selector)
 - add load more button

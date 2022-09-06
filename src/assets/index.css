@@ -1,7 +1,10 @@
 :root {
   --main-text-color: #141c3a;
-  --blue: #3069f0;
-  --red: #fd4d3f;
+  --blue: #0476d9;
+  --darkblue: #010440;
+  --yellow: #f29f05;
+  --lime: #09a603;
+  --orange: #f25c05;
   --gray: rgba(20, 28, 58, 0.5);
   --lightgray: #efefef;
   --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
@@ -14,15 +17,19 @@ html {
 }
 
 body {
-  background-color: #b0cdce;
-  padding: 4% 0;
+  background-color: var(--blue);
 }
 
 h1 {
+  display: block;
+  width: fit-content;
+  color: var(--darkblue);
+  background-color: var(--white);
   font-size: 6rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 8rem;
+  padding: 2rem;
+  margin: 8rem auto;
 }
 
 h3 {
@@ -46,7 +53,7 @@ img {
 
 /* -------------------------------------------------------- temporary */
 .userAlert {
-  background-color: orange;
+  background-color: var(--yellow);
   padding: 5%;
 }
 .userAlert h3 {
@@ -59,7 +66,32 @@ img {
   text-align: center;
 }
 
+/* ------------------------------------------------------------- Nav */
+
+nav {
+  min-height: 80px;
+  padding: 1vmax 1rem;
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--yellow);
+
+  box-shadow: 0 6px 8px 2px rgb(0 0 0 / 0.2);
+}
+
+#genre {
+  width: 200px;
+}
+
 /* -------------------------------------------------------- header */
+
+header {
+  width: 100%;
+}
 
 header img {
   width: 100%;
@@ -73,7 +105,6 @@ header img {
   background-color: var(--lightgray);
   padding: 30px;
 }
-
 
 .post-container .media {
   width: 100%;
@@ -97,9 +128,8 @@ header img {
   margin: 0 auto;
 }
 
-
-
-.credits  p, .credits a {
+.credits p,
+.credits a {
   font-size: 1.4rem;
 }
 
@@ -109,5 +139,5 @@ header img {
   }
 }
 
-/* ----------------------------------------------------------------------------- gallery */
+/* -------------------------------- gallery */
 /* for gallery animation go to embedGal.css */

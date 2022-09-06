@@ -1,7 +1,6 @@
-import headerImg from "../../assets/images/headerImg.png"
+import headerImg from "../../assets/images/headerImg.png";
 
 const Header = () => {
-
   return (
     <header>
       <h1>Reddit Museum</h1>
