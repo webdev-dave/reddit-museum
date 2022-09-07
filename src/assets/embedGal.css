@@ -1,5 +1,4 @@
 
-
 .post-container.gallery {
     padding-left: 0;
     padding-right: 0;
@@ -20,6 +19,10 @@
     flex: 1 1 4%;
     border: none;
     cursor: pointer;
+  }
+  
+  button .icon.first, button .icon.last  {
+    color: #aca6a6;
   }
   
   /* .gallery-container button .icon {

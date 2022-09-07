@@ -25,8 +25,11 @@ const EmbedGal = ({ child, postIndex }) => {
   const [slideOutClassName, setSlideOutClassName] = useState("");
   const finalImg = gallery.length - 1;
 
+
   const handleNext = () => {
-    if (currentImageIndex === finalImg) return;
+    if (currentImageIndex === finalImg){
+      return;
+    };
     setSlideOutImgIndex(currentImageIndex);
     setCurrentImageIndex(currentImageIndex + 1);
     setSlideInClassName("next-slide-in");
@@ -34,17 +37,22 @@ const EmbedGal = ({ child, postIndex }) => {
   };
 
   const handlePrevious = () => {
-    if (currentImageIndex === 0) return;
+    if (currentImageIndex === 0){
+      return;
+    }
+
     setSlideOutImgIndex(currentImageIndex);
     setCurrentImageIndex(currentImageIndex - 1);
     setSlideInClassName("prev-slide-in");
     setSlideOutClassName("prev-slide-out");
   };
 
+  console.log("img count: " + currentImageIndex + "/" + finalImg)
+
   return (
     <div className="gallery-container">
       <button onClick={handlePrevious}>
-        <FaAngleLeft className="icon" />
+        <FaAngleLeft className={`icon ${currentImageIndex === 0 ? 'first' : ''}`} />
       </button>
       <div className="sliding-stack">
         {gallery.map((media, index) => {
@@ -72,7 +80,7 @@ const EmbedGal = ({ child, postIndex }) => {
         })}
       </div>
       <button onClick={handleNext}>
-        <FaAngleRight className="icon" />
+        <FaAngleRight className={`icon ${currentImageIndex === finalImg ? 'last' : ''}`} />
       </button>
     </div>
   );
