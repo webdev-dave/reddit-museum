@@ -4,20 +4,23 @@ import {
   fetchRedditInfo,
   selectLoadedStatus,
   selectChildren,
+  selectGenrePath
 } from "../main/mainSlice";
 
 import Media from "./Media";
 import EmbedGal from "./EmbedGal";
 import Credits from "./Credits";
 
+//move this to main js
 const PostContainer = () => {
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectLoadedStatus);
   const childrenArr = useSelector(selectChildren);
+  const genrePath = useSelector(selectGenrePath);
   //fetch data from reddit
   useEffect(() => {
-    !isLoaded && dispatch(fetchRedditInfo("/r/aiArt/"));
-  }, [dispatch, isLoaded, childrenArr]);
+    !isLoaded && dispatch(fetchRedditInfo(genrePath));
+  }, [dispatch, genrePath, isLoaded, childrenArr]);
 
   return childrenArr.map((child, index) => {
     const isGallery = child.isGallery;

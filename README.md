@@ -2,7 +2,6 @@
 
 [View Live WebApp](https://redditmuseum.netlify.app/)
 
-
 ### Please note!!
 This project is currently in development mode and is being updated daily 
 ## Overview
@@ -11,6 +10,8 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- work on main slice reducer "changeGenre"
+- move useEffect on fetch request from PostContainer.js to Main.js
 - add box shadow to posts
 - gallery should display a count (img x/of y imgs). This requires building a new store slice for posts
 - add browseArtByGenre menu (selector)

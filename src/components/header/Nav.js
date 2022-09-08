@@ -1,9 +1,9 @@
-import GenresSelector from "./GenresSelector";
+import Genres from "./Genres";
 
 const Nav = () => {
   return (
     <nav>
-      <GenresSelector />
+      <Genres />
     </nav>
   );
 };

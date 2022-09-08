@@ -4,6 +4,8 @@ const initialState = {
   isLoading: false,
   hasError: false,
   isLoaded: false,
+  genreName: 'AI',
+  genrePath: "/r/aiArt/",
   redditData: {
     kind: "",
     childrenArrLength: "",
@@ -24,7 +26,12 @@ export const fetchRedditInfo = createAsyncThunk(
 const mainSlice = createSlice({
   name: "main",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    changeGenre: (state, action) => {
+      state.genreName = action.payload.name;
+      state.genrePath = action.payload.path;
+    }
+  },
   extraReducers: {
     [fetchRedditInfo.pending]: (state, action) => {
       state.isLoading = true;
@@ -93,7 +100,7 @@ const mainSlice = createSlice({
 });
 
 export const selectLoadedStatus = (state) => state.main.isLoaded;
-export const selectExpImg = (state) => state.main.redditData.expImg;
+export const selectGenrePath = (state) => state.main.genrePath;
 export const selectChildren = (state) => state.main.redditData.children;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;
 
