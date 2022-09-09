@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   fetchRedditInfo,
   selectLoadedStatus,
+
   selectChildren,
   selectGenrePath
 } from "../main/mainSlice";
@@ -15,11 +16,14 @@ import Credits from "./Credits";
 const PostContainer = () => {
   const dispatch = useDispatch();
   const isLoaded = useSelector(selectLoadedStatus);
+
   const childrenArr = useSelector(selectChildren);
   const genrePath = useSelector(selectGenrePath);
   //fetch data from reddit
   useEffect(() => {
-    !isLoaded && dispatch(fetchRedditInfo(genrePath));
+    if(!isLoaded){
+      dispatch(fetchRedditInfo(genrePath));
+    } 
   }, [dispatch, genrePath, isLoaded, childrenArr]);
 
   return childrenArr.map((child, index) => {

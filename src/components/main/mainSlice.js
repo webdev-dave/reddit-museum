@@ -14,10 +14,10 @@ const initialState = {
 };
 
 export const fetchRedditInfo = createAsyncThunk(
-  "exp/fetchRedditInfo",
+  "main/fetchRedditInfo",
   async (searchTerm, thunkAPI) => {
     const data = await fetch(`https://www.reddit.com${searchTerm}.json`);
-    //console.log(`https://www.reddit.com${searchTerm}.json`)
+    console.log(`https://www.reddit.com${searchTerm}`)
     const json = await data.json();
     return json;
   }
@@ -30,13 +30,15 @@ const mainSlice = createSlice({
     changeGenre: (state, action) => {
       state.genreName = action.payload.name;
       state.genrePath = action.payload.path;
+      console.log(action.payload.path)
+      console.log('changeGenre')
     }
   },
   extraReducers: {
     [fetchRedditInfo.pending]: (state, action) => {
       state.isLoading = true;
       state.hasError = false;
-      state.isLoaded = false;
+     
     },
     [fetchRedditInfo.fulfilled]: (state, action) => {
       state.isLoading = false;
@@ -100,6 +102,7 @@ const mainSlice = createSlice({
 });
 
 export const selectLoadedStatus = (state) => state.main.isLoaded;
+
 export const selectGenrePath = (state) => state.main.genrePath;
 export const selectChildren = (state) => state.main.redditData.children;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;

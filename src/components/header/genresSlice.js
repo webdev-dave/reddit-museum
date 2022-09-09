@@ -1,17 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  "AI",
-  "Surrealist (unavailable)",
-  "Steampunk (unavailable)",
-  "Romantic (unavailable)",
-  "Modern (unavailable)",
-  "Abstract (unavailable)",
-  "Digital (unavailable)",
-  "Anime (unavailable)",
-  "Kanagawa (unavailable)",
-  "Impressionist (unavailable)",
-];
+const initialState = {
+    AI: '/r/aiArt/',
+    Surrealist: '/r/surrealism/',
+    // Steampunk: 'subreddit',
+    // Romantic: 'subreddit',
+    // Modern: 'subreddit',
+    // Abstract: 'subreddit',
+    // Digital: 'subreddit',
+    // Anime: 'subreddit',
+    // Kanagawa: 'subreddit',
+    // Impressionist: 'subreddit'
+
+}
+
 
 const genresSlice = createSlice({
     name: 'genres',

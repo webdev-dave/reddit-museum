@@ -10,6 +10,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- genre selector bug (loads new genre but stays stuck on AI)
 - work on main slice reducer "changeGenre"
 - move useEffect on fetch request from PostContainer.js to Main.js
 - add box shadow to posts
