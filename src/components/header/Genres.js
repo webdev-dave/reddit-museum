@@ -13,7 +13,7 @@ const Genres = () => {
     genres[i] = g.replace(/_/g, ' ');
   })
  
-  const [genre, setGenre] = useState("AI");
+  const [genre, setGenre] = useState(genres[0]);
 
   console.log(genresObject[genre]);
 
@@ -26,7 +26,7 @@ const Genres = () => {
       payload: { name: genreName, path: genrePath },
     });
     dispatch(fetchRedditInfo(genrePath));
-    setGenre(genreName);
+    setGenre(genreName.replace(/_/, " "));
   };
 
   return (

@@ -9,6 +9,7 @@ This project is currently in development mode and is being updated daily
 A digital art gallery that displays art collected from the various artistic enclaves that exist in the world of Subreddits, and Redditors. This project was inspired by the need for more opportunities to explore the creative content of the internet without the advertisements, data collection, and distractions that are usually present on prominent social media platforms. Artists are credited and their profiles are linked along with links to the original Reddit post. The content/art can be curated/filtered by the user based on (pre-defined) art genre categories or (custom) search terms. There is no need to log in and the user is not required to have a Reddit account.
 
 ## To Do List
+
 - fix selector bug (when selecting new genre selector still displays "AI")
 - add a loading style for during a genre change when new content is loading
 - move useEffect on fetch request from PostContainer.js to Main.js
