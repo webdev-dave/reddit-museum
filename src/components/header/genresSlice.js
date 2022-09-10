@@ -2,15 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     AI: '/r/aiArt/',
-    Surrealist: '/r/surrealism/',
-    // Steampunk: 'subreddit',
-    // Romantic: 'subreddit',
+    Architecture: '/r/ArchitecturePorn/',
+    Design: '/r/DesignPorn/',
+    Impressionism: '/r/impressionism/',
+    Pop_Art: '/r/PopArt/',
+    Psychedelic: '/r/PsychedelicArt/',
+    Street_Art: '/r/StreetArtPorn/', 
+    Street_Photography: '/r/streetphotography/',
+    Surrealism: '/r/surrealism/',
+    
+    //Medieval_Art: 'subreddit',
+    //Steampunk: 'subreddit',
     // Modern: 'subreddit',
     // Abstract: 'subreddit',
     // Digital: 'subreddit',
     // Anime: 'subreddit',
     // Kanagawa: 'subreddit',
-    // Impressionist: 'subreddit'
 
 }
 

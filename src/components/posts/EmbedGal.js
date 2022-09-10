@@ -47,7 +47,7 @@ const EmbedGal = ({ child, postIndex }) => {
     setSlideOutClassName("prev-slide-out");
   };
 
-  console.log("img count: " + currentImageIndex + "/" + finalImg)
+  //console.log("img count: " + currentImageIndex + "/" + finalImg)
 
   return (
     <div className="gallery-container">

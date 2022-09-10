@@ -6,20 +6,27 @@ import { selectGenres } from "./genresSlice";
 const Genres = () => {
   const dispatch = useDispatch();
   const genresObject = useSelector(selectGenres);
-  const genrePath = useSelector(selectGenrePath)
+  //const genrePath = useSelector(selectGenrePath)
   const genres = Object.keys(genresObject);
-  let genre = "AI";
+  //get rid of spaces in genre names
+  genres.forEach((g, i) => {
+    genres[i] = g.replace(/_/g, ' ');
+  })
+ 
+  const [genre, setGenre] = useState("AI");
 
   console.log(genresObject[genre]);
 
   const handleSelect = (e) => {
-    genre = e.currentTarget.value;
+    const genreName = e.currentTarget.value.replace(/ /g, "_");
+    const genrePath = genresObject[genreName];
+    console.log('genreName ' + genreName)
     dispatch({
       type: "main/changeGenre",
-      payload: { name: genre, path: genresObject[genre] },
+      payload: { name: genreName, path: genrePath },
     });
     dispatch(fetchRedditInfo(genrePath));
-
+    setGenre(genreName);
   };
 
   return (

@@ -10,9 +10,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- genre selector bug (loads new genre but stays stuck on AI)
 - work on main slice reducer "changeGenre"
 - move useEffect on fetch request from PostContainer.js to Main.js
+- Oraganize and clean up Redux
 - add box shadow to posts
 - gallery should display a count (img x/of y imgs). This requires building a new store slice for posts
 - add browseArtByGenre menu (selector)
@@ -39,6 +39,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## Potential Extra Features
 
+- merge and multiple subreddits of similar genres in same "genre page"
 - change image resolution from default
 - download img button
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading
