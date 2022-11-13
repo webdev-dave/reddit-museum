@@ -1,9 +1,9 @@
-import PostContainer from "../posts/PostContainer";
+import Posts from "../posts/Posts";
 
 const Main = () => {
   return (
     <main className="posts-section">
-      <PostContainer />
+      <Posts />
     </main>
   );
 };

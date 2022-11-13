@@ -6,7 +6,6 @@ import { selectGenres } from "./genresSlice";
 const Genres = () => {
   const dispatch = useDispatch();
   const genresObject = useSelector(selectGenres);
-  //const genrePath = useSelector(selectGenrePath)
   const genres = Object.keys(genresObject);
   //get rid of spaces in genre names
   genres.forEach((g, i) => {
@@ -14,8 +13,6 @@ const Genres = () => {
   })
  
   const [genre, setGenre] = useState(genres[0]);
-
-  console.log(genresObject[genre]);
 
   const handleSelect = (e) => {
     const genreName = e.currentTarget.value.replace(/ /g, "_");

@@ -8,8 +8,8 @@ const initialState = {
   genrePath: "/r/aiArt/",
   redditData: {
     kind: "",
-    childrenArrLength: "",
-    children: [],
+    postsArrLength: "",
+    posts: [],
   },
 };
 
@@ -17,7 +17,7 @@ export const fetchRedditInfo = createAsyncThunk(
   "main/fetchRedditInfo",
   async (searchTerm, thunkAPI) => {
     const data = await fetch(`https://www.reddit.com${searchTerm}.json`);
-    console.log(`https://www.reddit.com${searchTerm}`)
+    //console.log(`https://www.reddit.com${searchTerm}`)
     const json = await data.json();
     return json;
   }
@@ -30,8 +30,6 @@ const mainSlice = createSlice({
     changeGenre: (state, action) => {
       state.genreName = action.payload.name;
       state.genrePath = action.payload.path;
-      console.log(action.payload.path)
-      console.log('changeGenre')
     }
   },
   extraReducers: {
@@ -49,8 +47,8 @@ const mainSlice = createSlice({
       state.redditData.initObj = action.payload.data;
 
       state.redditData.kind = action.payload.kind;
-      state.redditData.childrenArrLength = action.payload.data.dist;
-      state.redditData.children = action.payload.data.children.map(
+      state.redditData.postsArrLength = action.payload.data.dist;
+      state.redditData.posts = action.payload.data.children.map(
         (child) => {
           return {
             isGallery: child.data.is_gallery ? true : false,
@@ -104,7 +102,7 @@ const mainSlice = createSlice({
 export const selectLoadedStatus = (state) => state.main.isLoaded;
 
 export const selectGenrePath = (state) => state.main.genrePath;
-export const selectChildren = (state) => state.main.redditData.children;
+export const selectPosts = (state) => state.main.redditData.posts;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;
 
 export default mainSlice.reducer;
