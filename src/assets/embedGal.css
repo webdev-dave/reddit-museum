@@ -1,112 +1,141 @@
-
 .post-container.gallery {
-    padding-left: 0;
-    padding-right: 0;
-  }
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.gallery-container {
+  display: flex;
+  width: 100%;
+}
+
+.gallery-container .sliding-stack {
+  flex: 1 1 92%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-container button {
+  flex: 1 1 4%;
+  border: none;
+  cursor: pointer;
+  font-size: 3rem;
+}
+
+.gallery-container button.icon {
   
-  .gallery-container {
-    display: flex;
-    width: 100%;
-  }
-  
-  .gallery-container .sliding-stack {
-    flex: 1 1 92%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .gallery-container button {
-    flex: 1 1 4%;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button .icon.first, button .icon.last  {
-    color: #aca6a6;
-  }
-  
-  /* .gallery-container button .icon {
+}
+
+button .icon.first,
+button .icon.last {
+  color: #aca6a6;
+}
+
+/* .gallery-container button .icon {
   } */
-  
-  .sliding-stack .media {
-    position: absolute;
-    width: 100%;
-    height: auto;
-    border: 0;
-    list-style: 0;
-  }
-  
-  /* img-header must be relative.
+
+.sliding-stack .media {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  border: 0;
+  list-style: 0;
+}
+
+/* img-header must be relative.
   If all images were absolute, then image height:auto; would be ignored and all images would collapse.
   img-header is always present however when in a "hidden" state, 
   the opacity is set to 0 effectively creating/mocking the hidden behavior */
-  
-  .sliding-stack .media.main {
-    position: relative;
-  }
-  .sliding-stack .media.main.hidden {
-    opacity: 0;
-  }
-  
-  /* ---------------------------------------------------------- gallery animation */
+
+.sliding-stack .media.main {
+  position: relative;
+}
+.sliding-stack .media.main.hidden {
+  opacity: 0;
+}
+
+
+/* ------------------------------------------------------------ Media Counter  */
+
+.media-counter {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.media-counter .circle-icon {
+  border-radius: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  background-color: #ececec;
+  border: 0.8px solid black;
+  margin: 0 0.3rem;
+}
+
+.media-counter .circle-icon.current {
+  background-color: #4285f4;
+}
+
+
+
+
+/* ---------------------------------------------------------- gallery animation */
 
 .media.next-slide-in {
-    animation: next-slide-in ease 0.4s forwards;
+  animation: next-slide-in ease 0.4s forwards;
+}
+
+.media.next-slide-out {
+  animation: next-slide-out ease 0.4s forwards;
+}
+
+.media.prev-slide-in {
+  animation: prev-slide-in ease 0.4s forwards;
+}
+
+.media.prev-slide-out {
+  animation: prev-slide-out ease 0.4s forwards;
+}
+
+@keyframes next-slide-in {
+  0% {
+    right: -100%;
+    opacity: 60%;
   }
-  
-  .media.next-slide-out {
-    animation: next-slide-out ease 0.4s forwards;
+  100% {
+    right: 0;
+    opacity: 100%;
   }
-  
-  .media.prev-slide-in {
-    animation: prev-slide-in ease 0.4s forwards;
+}
+
+@keyframes next-slide-out {
+  0% {
+    left: 0;
+    opacity: 100%;
   }
-  
-  .media.prev-slide-out {
-    animation: prev-slide-out ease 0.4s forwards;
+  100% {
+    left: -100%;
+    opacity: 60%;
   }
-  
-  @keyframes next-slide-in {
-    0% {
-      right: -100%;
-      opacity: 60%;
-    }
-    100% {
-      right: 0;
-      opacity: 100%;
-    }
+}
+
+@keyframes prev-slide-in {
+  0% {
+    left: -100%;
+    opacity: 60%;
   }
-  
-  @keyframes next-slide-out {
-    0% {
-      left: 0;
-      opacity: 100%;
-    }
-    100% {
-      left: -100%;
-      opacity: 60%;
-    }
+  100% {
+    left: 0;
+    opacity: 100%;
   }
-  
-  @keyframes prev-slide-in {
-    0% {
-      left: -100%;
-      opacity: 60%;
-    }
-    100% {
-      left: 0;
-      opacity: 100%;
-    }
+}
+
+@keyframes prev-slide-out {
+  0% {
+    right: 0;
+    opacity: 100%;
   }
-  
-  @keyframes prev-slide-out {
-    0% {
-      right: 0;
-      opacity: 100%;
-    }
-    100% {
-      right: -100%;
-      opacity: 60%;
-    }
+  100% {
+    right: -100%;
+    opacity: 60%;
   }
-  
+}

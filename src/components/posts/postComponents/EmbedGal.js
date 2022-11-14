@@ -1,15 +1,16 @@
 import '../../../assets/embedGal.css';
 import { useState } from "react";
 import Media from "./Media";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight, FaRegCircle } from "react-icons/fa";
 
 const EmbedGal = ({ child, postIndex }) => {
   const initialGallery = child.initialGallery;
   /*   
-  - 1 the map function bellow overwrites the initial store gallery (which comes in a randomized order) and reorganizes all imgObj based on the default redditGalleryOrder (as it appears on reddit).
+  - 1 the map function bellow overwrites the default reddit api galleryArray (which comes in a randomized order) and reorganizes all imgObj based on the default redditGalleryOrder (as it appears on reddit).
   - 2 child.redditGalleryOrder is an array of gallery-media-id's in default reddit order
-  - 3 the map function below maps over all the id's inside redditGalleryOrder, searches through the initial store gallery (that comes in a randomized order) and finds the the img object that has a matching id
-  - 4 once the matching imgObj is found, it is pushed into the new gallery array only this time, all the imgObj appear in order of redditGalleryOrder */
+  - 3 the map function below maps over all the id's inside redditGalleryOrder. It then parses the initial store gallery (that comes in a randomized order) and finds the the img object that have a matching id
+  - 4 once the matching imgObj is found, it is pushed into the new gallery array, only this time, all the imgObj's appear in order of redditGalleryOrder */
+
   const gallery = child.redditGalleryOrder.map((orderId, index) => {
     const newImgObj = initialGallery.find((imgObj) => imgObj.id === orderId);
 
@@ -50,6 +51,7 @@ const EmbedGal = ({ child, postIndex }) => {
   //console.log("img count: " + currentImageIndex + "/" + finalImg)
 
   return (
+    <div className="outer-gallery-container">
     <div className="gallery-container">
       <button onClick={handlePrevious}>
         <FaAngleLeft className={`icon ${currentImageIndex === 0 ? 'first' : ''}`} />
@@ -82,6 +84,10 @@ const EmbedGal = ({ child, postIndex }) => {
       <button onClick={handleNext}>
         <FaAngleRight className={`icon ${currentImageIndex === finalImg ? 'last' : ''}`} />
       </button>
+    </div>
+        <div className="media-counter">
+        {gallery.map((media, index) => (<div className={`circle-icon ${(index === currentImageIndex) ? "current" : ""}` }></div>))}
+        </div>
     </div>
   );
 };

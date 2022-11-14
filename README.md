@@ -12,10 +12,10 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- fix selector bug (when selecting new genre selector still displays "AI")
-- add a loading style for during a genre change when new content is loading
+- add gallery button on click effect
+- make sure that gallery and non gallery media share the same size
+- create loading effect when genre change occurs (or on original loading)
 - move useEffect on fetch request from PostContainer.js to Main.js
-- create loading effect when genre change occurs
 - Oraganize and clean up Redux
 - add box shadow to posts
 - gallery should display a count (img x/of y imgs). This requires building a new store slice for posts
