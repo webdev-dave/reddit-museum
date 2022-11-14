@@ -1,3 +1,11 @@
+:root {
+  --grey: #aca6a6;
+  --light-grey: #ececec;
+  --google-blue: #4285f4;
+  --black: #000;
+  --white: #fff;
+}
+
 .post-container.gallery {
   padding-left: 0;
   padding-right: 0;
@@ -21,13 +29,16 @@
   font-size: 3rem;
 }
 
-.gallery-container button.icon {
-  
+.gallery-container button:active {
+  font-size: 3rem;
+  color: var(--google-blue);
 }
+
+
 
 button .icon.first,
 button .icon.last {
-  color: #aca6a6;
+  color: var(--grey);
 }
 
 /* .gallery-container button .icon {
@@ -66,13 +77,13 @@ button .icon.last {
   border-radius: 50%;
   width: 0.7rem;
   height: 0.7rem;
-  background-color: #ececec;
-  border: 0.8px solid black;
+  background-color: var(--light-grey);
+  border: 0.8px solid #000;
   margin: 0 0.3rem;
 }
 
 .media-counter .circle-icon.current {
-  background-color: #4285f4;
+  background-color: var(--google-blue);
 }
 
 

@@ -1,7 +1,7 @@
 import '../../../assets/embedGal.css';
 import { useState } from "react";
 import Media from "./Media";
-import { FaAngleLeft, FaAngleRight, FaRegCircle } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const EmbedGal = ({ child, postIndex }) => {
   const initialGallery = child.initialGallery;
