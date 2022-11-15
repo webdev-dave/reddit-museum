@@ -49,6 +49,7 @@ p {
 
 img {
   max-width: 100%;
+  vertical-align: bottom;
 }
 
 /* -------------------------------------------------------- temporary */
@@ -99,10 +100,10 @@ header img {
 /* -------------------------------------------------------- posts section */
 
 .post-container {
-  max-width: 75%;
+  max-width: 85%;
   margin: 50px auto;
   background-color: var(--off-white);
-  padding: 30px;
+  padding: 1rem;
   /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
 }
 

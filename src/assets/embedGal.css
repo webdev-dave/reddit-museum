@@ -34,21 +34,32 @@
   font-size: 2rem;
   background-color: #fff;
   border-radius: 50%;
-  min-width: 4rem;
-  min-height: 4rem;
+  min-width: 3rem;
+  min-height: 3rem;
   box-shadow: 0 4px 14px rgba(0,0,0,.1);
   opacity: 1;
   transition: 0.8s;
 }
 
 
+
+@media only screen and (min-width: 900px) {
+/* Desktop */
+  .gallery-container button .icon {
+    font-size: 2rem;
+    min-width: 4rem;
+    min-height: 4rem;
+  }
+}
+
+
 .gallery-container button .icon.left {
 
-  left: -2rem;
+  left: -1.7rem;
 }
 
 .gallery-container button .icon.right {
-  right: -2rem;
+  right: -1.7rem;
 }
 
 

@@ -1,6 +1,7 @@
 import '../../../assets/embedGal.css';
 import { useState } from "react";
 import Media from "./Media";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 const EmbedGal = ({ child, postIndex }) => {
@@ -55,6 +56,7 @@ const EmbedGal = ({ child, postIndex }) => {
     <div className="gallery-container">
       <button onClick={handlePrevious}>
         <FaAngleLeft className={`icon left ${currentImageIndex === 0 ? 'first' : ''}`} />
+        
       </button>
       <div className="sliding-stack">
         {gallery.map((media, index) => {

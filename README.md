@@ -35,7 +35,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 - filter through art by genre
 - filter through art using the search bar
-- smooth transitioning built in gallery for posts with multiple images
+- figure out how to load photos 4 times a day to a server and host from there
 
 ### User Guide
 
