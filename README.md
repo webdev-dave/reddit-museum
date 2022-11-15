@@ -12,12 +12,13 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- add gallery button on click effect
+- make gal button icon lighter (less bold)
 - make sure that gallery and non gallery media share the same size
 - create loading effect when genre change occurs (or on original loading)
 - move useEffect on fetch request from PostContainer.js to Main.js
 - Oraganize and clean up Redux
 - add box shadow to posts
+- rename mene selector to "Museum Map" (also add cute map style and name banner)
 - gallery should display a count (img x/of y imgs). This requires building a new store slice for posts
 - add browseArtByGenre menu (selector)
 - add load more button

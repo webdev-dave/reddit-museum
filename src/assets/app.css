@@ -72,14 +72,13 @@ nav {
   padding: 1vmax 1rem;
   width: 100%;
   position: sticky;
-  z-index: 1;
+  z-index: 5;
   top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--yellow);
-
-  box-shadow: 0 6px 8px 2px rgb(0 0 0 / 0.2);
+  box-shadow: 0px 2px 12.5px 2px rgba(107, 108, 109, 0.062);
 }
 
 #genre {
@@ -104,6 +103,7 @@ header img {
   margin: 50px auto;
   background-color: var(--off-white);
   padding: 30px;
+  /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
 }
 
 .post-container .media {

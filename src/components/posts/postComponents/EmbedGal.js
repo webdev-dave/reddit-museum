@@ -54,7 +54,7 @@ const EmbedGal = ({ child, postIndex }) => {
     <div className="outer-gallery-container">
     <div className="gallery-container">
       <button onClick={handlePrevious}>
-        <FaAngleLeft className={`icon ${currentImageIndex === 0 ? 'first' : ''}`} />
+        <FaAngleLeft className={`icon left ${currentImageIndex === 0 ? 'first' : ''}`} />
       </button>
       <div className="sliding-stack">
         {gallery.map((media, index) => {
@@ -82,11 +82,11 @@ const EmbedGal = ({ child, postIndex }) => {
         })}
       </div>
       <button onClick={handleNext}>
-        <FaAngleRight className={`icon ${currentImageIndex === finalImg ? 'last' : ''}`} />
+        <FaAngleRight className={`icon right ${currentImageIndex === finalImg ? 'last' : ''}`} />
       </button>
     </div>
         <div className="media-counter">
-        {gallery.map((media, index) => (<div className={`circle-icon ${(index === currentImageIndex) ? "current" : ""}` }></div>))}
+        {gallery.map((media, index) => (<div className={`circle-icon ${(index === currentImageIndex) ? "current" : ""}` } key={"circle-"+index}></div>))}
         </div>
     </div>
   );
