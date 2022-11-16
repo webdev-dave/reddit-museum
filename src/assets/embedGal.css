@@ -11,6 +11,7 @@
 .gallery-container {
   display: flex;
   align-content: center;
+  justify-content: center;
   width: 100%;
 }
 
@@ -54,12 +55,14 @@
 
 
 .gallery-container button .icon.left {
-
   left: -1.7rem;
+  padding-right: 2px;
+  
 }
 
 .gallery-container button .icon.right {
   right: -1.7rem;
+  padding-left: 2px;
 }
 
 

@@ -1,6 +1,6 @@
 import Media from "./postComponents/Media";
 import EmbedGal from "./postComponents/EmbedGal";
-import Credits from "./postComponents/Credits";
+import PostMenu from "./postComponents/PostMenu";
 
 //move this to main js
 const PostContainer = ({
@@ -11,33 +11,39 @@ const PostContainer = ({
   credits,
   isHostedOnReddit,
 }) => {
-  const className = `post-container ${isGallery ? "gallery" : isVideo ? "video" : ""}`;
+  const className = `post-container ${
+    isGallery ? "gallery" : isVideo ? "video" : ""
+  }`;
 
   const post = () => {
     if (!isHostedOnReddit) {
       return null;
     } else if (!isGallery) {
       return (
-        <div className={className} >
+        <div className={className}>
           <Media
             src={child.srcUrl}
             alt="main-img"
             type="main"
             isVideo={isVideo}
-            videoUrl={child.videoUrl}
-            key={`main-img-${index}`}
-            className=""
+            videoUrl={child.videoUrl}   
           />
-          <h5>{child.title}</h5>
-          <Credits credits={credits} />
+          <h5>{child.title.toUpperCase()}</h5>
+          <PostMenu
+            credits={credits}
+            src={child.srcUrl}
+            isVideo={isVideo}
+            videoUrl={child.videoUrl}
+            isGallery={false}
+          />
         </div>
       );
     } else {
       return (
-        <div className={className} >
+        <div className={className}>
           <EmbedGal child={child} postIndex={index} key={`gal-${index}`} />
-          <h5>{child.title}</h5>
-          <Credits credits={credits} />
+          <h5>{child.title.toUpperCase()}</h5>
+          <PostMenu credits={credits} isGallery={true} child={child} />
         </div>
       );
     }

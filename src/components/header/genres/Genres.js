@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchRedditInfo } from "../main/mainSlice";
+import { fetchRedditInfo } from "../../main/mainSlice";
 import { selectGenres } from "./genresSlice";
 
 const Genres = () => {

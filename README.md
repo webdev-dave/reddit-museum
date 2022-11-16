@@ -12,7 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- make gal button icon lighter (less bold)
+- make download button downloadUrl work for galleries
+- make download button functional
+- create touch effect for gallery on mobile
 - make sure that gallery and non gallery media share the same size
 - create loading effect when genre change occurs (or on original loading)
 - move useEffect on fetch request from PostContainer.js to Main.js
@@ -23,6 +25,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - add browseArtByGenre menu (selector)
 - add load more button
 - add searchBar
+- make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
 
 ## Must-Fix/Bugs
@@ -35,6 +38,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 - filter through art by genre
 - filter through art using the search bar
+- create a shuffled section which combines a random mix of art from all the galleries
 - figure out how to load photos 4 times a day to a server and host from there
 
 ### User Guide

@@ -11,6 +11,7 @@ const initialState = {
     postsArrLength: "",
     posts: [],
   },
+  processedPosts: [],
 };
 
 export const fetchRedditInfo = createAsyncThunk(
@@ -30,6 +31,10 @@ const mainSlice = createSlice({
     changeGenre: (state, action) => {
       state.genreName = action.payload.name;
       state.genrePath = action.payload.path;
+    },
+    updateSortedGalleries: (state, action) => {
+      const postIndex = action.payload.postIndex;
+      state.processedPosts[postIndex] = action.payload.value;
     }
   },
   extraReducers: {
@@ -104,5 +109,7 @@ export const selectLoadedStatus = (state) => state.main.isLoaded;
 export const selectGenrePath = (state) => state.main.genrePath;
 export const selectPosts = (state) => state.main.redditData.posts;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;
+
+export const {updateSortedGalleries} = mainSlice.actions;
 
 export default mainSlice.reducer;
