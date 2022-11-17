@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { FaDownload } from "react-icons/fa";
 // import { sortGallery } from "../../../utils/helperFunctions";
 
