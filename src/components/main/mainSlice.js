@@ -29,7 +29,7 @@ const mainSlice = createSlice({
   initialState: initialState,
   reducers: {
     changeGenre: (state, action) => {
-      state.genreName = action.payload.name;
+      state.genreName = action.payload.genreName;
       state.genrePath = action.payload.path;
     },
     updateSortedGalleries: (state, action) => {
@@ -67,7 +67,7 @@ const mainSlice = createSlice({
             //extendedGallery: child.data.is_gallery && child.data.gallery_data.items.map(img => img.media_id),
             initialGallery:
               child.data.is_gallery &&
-              Object.values(child.data.media_metadata).map((img, i) => {
+              Object.values(child.data.media_metadata).map((img, idx) => {
                 return {
                   fileType: img.m,
                   id: img.id,
@@ -79,6 +79,7 @@ const mainSlice = createSlice({
                   y: img.s.y,
                   x: img.s.x,
                   backupUrl: img.s.u,
+                  title: child.data.title,
                 };
               }),
 
@@ -105,7 +106,7 @@ const mainSlice = createSlice({
 });
 
 export const selectLoadedStatus = (state) => state.main.isLoaded;
-
+export const selectGenreName = (state) => state.main.genreName;
 export const selectGenrePath = (state) => state.main.genrePath;
 export const selectPosts = (state) => state.main.redditData.posts;
 export const selectIsGallery = (state) => state.main.redditData.isGallery;

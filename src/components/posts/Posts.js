@@ -5,9 +5,11 @@ import {
   selectLoadedStatus,
   selectPosts,
   selectGenrePath,
+  selectGenreName,
 } from "../main/mainSlice";
-
 import PostContainer from "./PostContainer";
+import { isHostedOnReddit, sortGallery } from "../../utils/helperFunctions";
+import { updateGenrePosts } from "./postsSlice";
 
 //move this to main js
 const Posts = () => {
@@ -15,44 +17,48 @@ const Posts = () => {
   const isLoaded = useSelector(selectLoadedStatus);
   const postsArr = useSelector(selectPosts);
   const genrePath = useSelector(selectGenrePath);
+  const genreName = useSelector(selectGenreName);
   //fetch data from reddit
   useEffect(() => {
     if (!isLoaded) {
-      dispatch(fetchRedditInfo(genrePath));
+      dispatch(fetchRedditInfo(genrePath)); 
     }
-  }, [dispatch, genrePath, isLoaded, postsArr]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  return postsArr.map((child, index) => {
-    const isGallery = child.isGallery;
-    const isVideo = child.srcUrl && child.srcUrl.slice(8, 9) === "v";
-    const credits = {
-      author: child.author,
-      authorUrl: child.authorUrl,
-      redditPostUrl: child.redditPostUrl,
-    };
+  const posts = postsArr.filter(post => isHostedOnReddit(post.isGallery, post)).map((post, index) => {
+    const isGallery = post.isGallery;
+    const gallery = isGallery ? sortGallery(post.redditGalleryOrder, post.initialGallery) : [];
+    const isVideo =  post.srcUrl && post.srcUrl.slice(8, 9) === "v";
 
-    //func returns false if media is externally hosted (for example, an embedded YouTube video link)
-    const isHostedOnReddit = () => {
-      if (isGallery) {
-        return true;
-      } else if (child.srcUrl) {
-        const host = child.srcUrl.slice(10, 17);
-        return host === ("redd.it" || "imgur.c") ? true : false;
-      }
-    };
+    return {
+      isGallery: isGallery,
+      isVideo: isVideo ? true : false,
+      srcUrl: post.srcUrl ? post.srcUrl : "",
+      videoUrl: post.videoUrl,
+      gallery: gallery,
+      title: post.title,
+      credits: {
+        author: post.author,
+        authorUrl: post.authorUrl,
+        redditPostUrl: post.redditPostUrl,
+      },
+      genreName: genreName,
+    }
 
-    return (
-      <PostContainer
-        child={child}
-        index={index}
-        isGallery={isGallery}
-        isVideo={isVideo}
-        key={`post-container-${index}`}
-        credits={credits}
-        isHostedOnReddit={isHostedOnReddit()}
-      />
-    );
+    
   });
+  dispatch(updateGenrePosts({genreName: genreName, posts: posts}));
+
+  return posts.map((post, postIndex) => (
+    <PostContainer
+      post={post}
+      postIndex={postIndex}
+      key={`post-container-${postIndex}`}
+    />
+  ))
+
+
 };
 
 export default Posts;

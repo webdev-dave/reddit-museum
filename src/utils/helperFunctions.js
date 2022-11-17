@@ -9,3 +9,16 @@ export const sortGallery = (galleryOrder, initialGal) => {
     return { ...newImgObj, imgIndex: index };
   });
 };
+
+
+// returns false if media is externally hosted (for example, an embedded YouTube video link)
+export const isHostedOnReddit = (isGallery, child) => {
+  if (isGallery) {
+    return true;
+  } else if (child.srcUrl) {
+    const host = child.srcUrl.slice(10, 17);
+    return host === ("redd.it" || "imgur.c") ? true : false;
+  } else {
+    return false;
+  }
+};

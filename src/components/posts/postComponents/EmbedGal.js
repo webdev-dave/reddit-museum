@@ -4,11 +4,11 @@ import Media from "./Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // import { useDispatch } from 'react-redux';
 // import { updateSortedGalleries } from '../../main/mainSlice';
-import { sortGallery } from '../../../utils/helperFunctions';
 
-const EmbedGal = ({ child, postIndex }) => {
+
+const EmbedGal = ({ post, postIndex }) => {
   // const dispatch = useDispatch();
-  const gallery = sortGallery(child.redditGalleryOrder, child.initialGallery);
+  const gallery = post.gallery;
 
 
   //dispatch(updateSortedGalleries({value: gallery, postIndex: postIndex}));
@@ -58,10 +58,11 @@ const EmbedGal = ({ child, postIndex }) => {
           const fileExtension = media.fileType.slice(-3);
           const srcUrl = `https://i.redd.it/${media.id}.${fileExtension}`;
 
+
           return (
             <Media
+              post={media}
               src={srcUrl}
-              alt="mainImg"
               isVideo={media.isVideo}
               videoUrl={media.videoUrl}
               key={`gal-${postIndex}-img${imgIndex}`}

@@ -13,17 +13,16 @@ A digital art gallery that displays art collected from the various artistic encl
 ## To Do List
 
 - make download button downloadUrl work for galleries
+- make sure download button changes when art genre/gallery changes
 - make download button functional
+- create video banner like MET website
 - create touch effect for gallery on mobile
-- make sure that gallery and non gallery media share the same size
+- figure out how to make a 3D art/photo frame with pure css
+- add box shadow/blur to post images
 - create loading effect when genre change occurs (or on original loading)
 - move useEffect on fetch request from PostContainer.js to Main.js
-- Oraganize and clean up Redux
-- add box shadow to posts
-- rename mene selector to "Museum Map" (also add cute map style and name banner)
-- gallery should display a count (img x/of y imgs). This requires building a new store slice for posts
-- add browseArtByGenre menu (selector)
-- add load more button
+- organize and clean up Redux
+- rename menu selector to "Museum Map" (also add cute map style and name banner)
 - add searchBar
 - make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
@@ -31,11 +30,11 @@ A digital art gallery that displays art collected from the various artistic encl
 ## Must-Fix/Bugs
 
 - detect embedded videos inside galleries
-- gallery loading images in random order (doesn't match default thumbnail img)
 - sound in videos
 
 ## Features
 
+- add load more button
 - filter through art by genre
 - filter through art using the search bar
 - create a shuffled section which combines a random mix of art from all the galleries
@@ -80,4 +79,3 @@ A digital art gallery that displays art collected from the various artistic encl
 - Chrome DevTools, React DevTools, Redux DevTools
 - React-Icons library
 - Netlify
-

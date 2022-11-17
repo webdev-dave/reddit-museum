@@ -3,14 +3,15 @@ import { FaDownload } from "react-icons/fa";
 // import { sortGallery } from "../../../utils/helperFunctions";
 
 
-const PostMenu = ({ credits, src, isVideo, videoUrl, isGallery, child }) => {
-  const [downloadUrl, setDownloadUrl] = useState(src);
+const PostMenu = ({post}) => {
+  const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
+  const credits = post.credits;
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
 
 
-  if(isVideo){
-    setDownloadUrl(videoUrl);
-  } 
+  // if(isVideo){
+  //   setDownloadUrl(videoUrl);
+  // } 
 
   return (
     <div>
