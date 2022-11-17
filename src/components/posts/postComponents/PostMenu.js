@@ -4,7 +4,7 @@ import { FaDownload } from "react-icons/fa";
 
 
 const PostMenu = ({post}) => {
-  const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
+  //const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
   const credits = post.credits;
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
 
@@ -29,7 +29,7 @@ const PostMenu = ({post}) => {
           Origin
         </a>
         <button>
-          <a href={downloadUrl} download>
+          <a href={post.srcUrl} download>
             <FaDownload className="download-icon" />
           </a>
           
