@@ -22,3 +22,4 @@ export const isHostedOnReddit = (isGallery, child) => {
     return false;
   }
 };
+
