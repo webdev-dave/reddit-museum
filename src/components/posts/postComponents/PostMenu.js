@@ -7,10 +7,6 @@ const PostMenu = ({ post }) => {
   //const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
   const credits = post.credits;
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
-  const downloadMedia = () => {
-    saveAs(post.srcUrl, "test.jpg")
-    //saveAs("use_current_media_url", "use_current_post_title")
-  }
 
 
   return (
@@ -29,12 +25,12 @@ const PostMenu = ({ post }) => {
           Origin
         </a>
 
-        {/* <a href={post.srcUrl} download onClick={(e) => download(e)}>
+        <a href={post.srcUrl} download={post.srcUrl}>
           <FaDownload className="download-icon" />
-        </a> */}
-        <button onClick={downloadMedia}>
+        </a>
+        {/* <button onClick={downloadMedia}>
           <FaDownload className="download-icon" />
-        </button>
+        </button> */}
       </div>
     </div>
   );

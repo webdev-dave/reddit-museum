@@ -48,7 +48,10 @@ const Posts = () => {
 
     
   });
-  dispatch(updateGenrePosts({genreName: genreName, posts: posts}));
+  useEffect(()=>{
+    dispatch(updateGenrePosts({genreName: genreName, posts: posts}));
+  },[genreName])
+  
 
   return posts.map((post, postIndex) => (
     <PostContainer

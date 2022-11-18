@@ -58,7 +58,6 @@ const EmbedGal = ({ post, postIndex }) => {
           const fileExtension = media.fileType.slice(-3);
           const srcUrl = `https://i.redd.it/${media.id}.${fileExtension}`;
 
-
           return (
             <Media
               post={media}

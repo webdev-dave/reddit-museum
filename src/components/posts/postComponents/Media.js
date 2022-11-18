@@ -5,13 +5,14 @@ const Media = ({ post, src, className }) => {
     <img src={src} alt={alt} className={`media ${className}`} />
   ) : (
     <video
-      src={src+"/DASH_1080.mp4"}
-      alt={alt}
-      width="300"
-      type="video/mp4"
-      className="media"
       controls
-    ></video>
+      width="100%"
+      className="media"
+    >
+      <source src={src+"/DASH_1080.mp4"} type="video/mp4" />
+      <source src={src+"/DASH_720.mp4"} type="video/mp4" />
+      <source src={src+"/DASH_480.mp4"} type="video/mp4" />
+    </video>
   );
 };
 
