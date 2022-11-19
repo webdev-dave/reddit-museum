@@ -1,8 +1,13 @@
 :root {
+    --darkblue: #141826;
+    --bluegreen: #0a3b3b;
     --yellow: #F2C777;
     --pink: #BF3475;
 }
 
+.dropdown-container {
+    z-index: 1;
+}
 
 .dropdown-container button {
     font-size: 3rem;
@@ -24,15 +29,17 @@
     top: 80px;
     min-width: 250px;
     min-height: 0px;
-    background-color: #fff;
+    margin-top: 5px;
+    background-color: var(--bluegreen);
     transition: min-height 0.3s ease;
 }
 
 .dropdown.expanded {
-    min-height: 300px;
+    min-height: 306px;
     padding: 4px;
 }
 
 .dropdown.expanded p {
     margin: 1rem 0;
+    color: #fff;
 }

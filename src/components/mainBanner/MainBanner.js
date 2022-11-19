@@ -3,7 +3,7 @@ import {FaExclamationTriangle} from "react-icons/fa"
 
 const MainBanner = () => {
   return (
-    <header>
+    <div className="main-banner">
       <h1>Reddit Museum</h1>
       <img src={headerImg} alt="" />
       <div className="userAlert">
@@ -13,7 +13,7 @@ const MainBanner = () => {
           daily. All features are subject to sudden changes.
         </p>
       </div>
-    </header>
+    </div>
   );
 };
 

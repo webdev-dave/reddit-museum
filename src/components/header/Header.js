@@ -4,10 +4,12 @@ import SearchBar from "./searchBar/SearchBar";
 const Header = () => {
   return (
     <div>
-      <nav>
-        <MobileMenu/>
-        <SearchBar/>
-      </nav>
+      <header>
+        <nav>
+          <MobileMenu />
+          <SearchBar />
+        </nav>
+      </header>
     </div>
   );
 };
