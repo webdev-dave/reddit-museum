@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- create hover and click effects for all header elements
 - make download button downloadUrl work for galleries
 - make sure download button changes when art genre/gallery changes
 - make download button functional
@@ -51,6 +52,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - change image resolution from default
 - download img button
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading
+- create a weekly newsletter sent via email that curates all the top art from each genre
 
 ## Details and Specs
 

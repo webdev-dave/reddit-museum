@@ -1,4 +1,4 @@
-import '../../../assets/embedGal.css';
+import '../../../assets/styles/embedGal.css';
 import { useState } from "react";
 import Media from "./Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";

@@ -1,0 +1,38 @@
+:root {
+    --yellow: #F2C777;
+    --pink: #BF3475;
+}
+
+
+.dropdown-container button {
+    font-size: 3rem;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0);
+    color: var(--pink);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.dropdown-container button.expanded {
+    transform: rotate(180deg);
+    font-weight: 700;
+}
+
+.dropdown {
+    position: absolute;
+    left: 0px;
+    top: 80px;
+    min-width: 250px;
+    min-height: 0px;
+    background-color: #fff;
+    transition: min-height 0.3s ease;
+}
+
+.dropdown.expanded {
+    min-height: 300px;
+    padding: 4px;
+}
+
+.dropdown.expanded p {
+    margin: 1rem 0;
+}

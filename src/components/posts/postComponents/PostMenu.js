@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { FaDownload } from "react-icons/fa";
-import { saveAs } from "file-saver";
+// import { saveAs } from "file-saver";
 // import { sortGallery } from "../../../utils/helperFunctions";
 
 const PostMenu = ({ post }) => {

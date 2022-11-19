@@ -1,11 +1,14 @@
-import Genres from "./genres/Genres";
-
+import MobileMenu from "./mobileMenu/MobileMenu";
+import SearchBar from "./searchBar/SearchBar";
 
 const Header = () => {
   return (
-    <nav>
-      <Genres />
-    </nav>
+    <div>
+      <nav>
+        <MobileMenu/>
+        <SearchBar/>
+      </nav>
+    </div>
   );
 };
 

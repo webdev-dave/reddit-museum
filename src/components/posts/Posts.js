@@ -21,7 +21,7 @@ const Posts = () => {
   //fetch data from reddit
   useEffect(() => {
     if (!isLoaded) {
-      dispatch(fetchRedditInfo(genrePath)); 
+      dispatch(fetchRedditInfo(genrePath));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,7 +50,7 @@ const Posts = () => {
   });
   useEffect(()=>{
     dispatch(updateGenrePosts({genreName: genreName, posts: posts}));
-  },[genreName])
+  },[dispatch, genreName, posts])
   
 
   return posts.map((post, postIndex) => (
