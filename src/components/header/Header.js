@@ -1,4 +1,5 @@
 import MobileMenu from "./mobileMenu/MobileMenu";
+import NavBar from "./navBar/NavBar";
 import SearchBar from "./searchBar/SearchBar";
 
 const Header = () => {
@@ -7,6 +8,7 @@ const Header = () => {
       <header>
         <nav>
           <MobileMenu />
+          <NavBar/>
           <SearchBar />
         </nav>
       </header>

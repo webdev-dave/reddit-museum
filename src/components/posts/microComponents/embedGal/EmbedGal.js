@@ -1,6 +1,6 @@
-import '../../../assets/styles/embedGal.css';
+import './embedGalStyles.css';
 import { useState } from "react";
-import Media from "./Media";
+import Media from "../Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 // import { useDispatch } from 'react-redux';
 // import { updateSortedGalleries } from '../../main/mainSlice';

@@ -9,8 +9,7 @@ const MainBanner = () => {
       <div className="userAlert">
         <FaExclamationTriangle className="icon" />
         <p>
-          Project is currently in development mode and is being updated almost
-          daily. All features are subject to sudden changes.
+          Project is currently in development mode and is updated frequently. All features are subject to sudden changes.
         </p>
       </div>
     </div>

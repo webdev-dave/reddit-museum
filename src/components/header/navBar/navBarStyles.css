@@ -1,0 +1,49 @@
+:root {
+    --darkblue: #141826;
+    --bluegreen: #127373;
+    --yellow: #F2C777;
+    --pink: #BF3475;
+  }
+
+.nav-bar {
+    display: none;
+}
+
+@media screen and (min-width: 1080px) {
+
+    .nav-bar {
+        /* temporary */
+        display: none;
+        /* temporary */
+        flex: 1 1 75%;
+        /* display: flex; */
+        justify-content: center;
+        column-gap: 3rem;
+    }
+
+    .sub-menu {
+        opacity: 0;
+        position: absolute;
+        top: 80px;
+        background-color: gainsboro;
+        padding: 2rem;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+
+    /* .sub-menu.active {
+        opacity: 1;
+    } */
+
+
+    .option > button:active + .sub-menu,
+    .option > button:hover + .sub-menu {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0px);
+    }
+      
+
+}

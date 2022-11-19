@@ -12,21 +12,25 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- photography, digital art, paintings, cinema, sculptures, architecture
+- photography: portraits, street photography, landscapes, micro photography, Vivian Maier
+- create loading effect when genre change occurs (or on original loading)
+- maybe turn download feature into full-screen viewing feature (just change icon)
 - create hover and click effects for all header elements
 - make download button downloadUrl work for galleries
 - make sure download button changes when art genre/gallery changes
 - make download button functional
 - create video banner like MET website
 - create touch effect for gallery on mobile
+- make videos stop playing automatically when user scrolls out of sight
 - figure out how to make a 3D art/photo frame with pure css
 - add box shadow/blur to post images
-- create loading effect when genre change occurs (or on original loading)
-- move useEffect on fetch request from PostContainer.js to Main.js
 - organize and clean up Redux
 - rename menu selector to "Museum Map" (also add cute map style and name banner)
-- add searchBar
+- make searchBar work
 - make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
+- create footer?
 
 ## Must-Fix/Bugs
 
