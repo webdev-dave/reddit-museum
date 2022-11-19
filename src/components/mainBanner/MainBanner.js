@@ -1,4 +1,5 @@
 import headerImg from "../../assets/images/headerImg.png";
+import {FaExclamationTriangle} from "react-icons/fa"
 
 const MainBanner = () => {
   return (
@@ -6,10 +7,10 @@ const MainBanner = () => {
       <h1>Reddit Museum</h1>
       <img src={headerImg} alt="" />
       <div className="userAlert">
-        <h3>Be aware!!</h3>
+        <FaExclamationTriangle className="icon" />
         <p>
           Project is currently in development mode and is being updated almost
-          daily. All features are subject to change.
+          daily. All features are subject to sudden changes.
         </p>
       </div>
     </header>
