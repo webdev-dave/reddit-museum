@@ -38,12 +38,17 @@
     } */
 
 
-    .option > button:active + .sub-menu,
+    /* .option > button:active + .sub-menu,
     .option > button:hover + .sub-menu {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0px);
     }
-      
+       */
+    .sub-menu.expanded {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0px);
+    }
 
 }
