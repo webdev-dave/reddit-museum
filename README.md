@@ -31,6 +31,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
 - create footer?
+- try to minimize redux store calls, (also look into alternative state management options - react context)
 
 ## Must-Fix/Bugs
 

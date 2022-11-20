@@ -1,57 +1,57 @@
-import React from "react";
-import { useRef } from "react";
+import React, { createRef, useMemo } from "react";
 import { useEffect, useState } from "react";
+import { navOptions, navSubOptions } from "../../../utils/helperArrays";
 import "./navBarStyles.css";
 
 const NavBar = () => {
-const [isCollapsed, setIsCollapsed] = useState(true);
-  const navBarRef = useRef();
-  const navOptions = [
-    "photography",
-    "digital",
-    "ai",
-    "paintings",
-    "cinema",
-    "sculptures",
-    "architecture",
-  ];
-  const optionRefs = useRef([...new Array(navOptions.length)].map(() => React.createRef()));
+  const [isCollapsed, setIsCollapsed] = useState(
+    Array(navOptions.length).fill(true)
+  );
 
-  const navSubOptions = {
-    photography: ["option-1", "option-2"],
-    digital: ["option-1", "option-2"],
-    ai: ["option-1", "option-2"],
-    paintings: ["option-1", "option-2"],
-    cinema: ["option-1", "option-2"],
-    sculptures: ["option-1", "option-2"],
-    architecture: ["option-1", "option-2"],
-  };
+  //console.log(isCollapsed);
 
-  const handleClickInside = () => {
-    setIsCollapsed(isCollapsed ? false : true);
-  };
+  const optionRefs = useMemo(
+    () => Array.from({ length: navOptions.length }).map(() => createRef()),
+    []
+  );
+
   const handleClickOutside = (e) => {
-    if(!navBarRef.current.contains(e.target)){
-        setIsCollapsed(true);
+    //this blocks the handleClickOutside from changing anything based on the mousedown event listener (set on the document via the useEffect below) if the mousedown event occurs inside one of the optionRefs / option buttons.
+    if (optionRefs.every(ref => ref.current.contains(e.target) === false)) {
+      setIsCollapsed(isCollapsed.map(el => true));
     }
-    
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    if(isCollapsed.includes(false)){
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
   });
 
-  
   return (
-    <div className="nav-bar" ref={navBarRef}>
-      {navOptions.map((option, i) => (
-        <div key={"option-" + i} className={`option`} ref={optionRefs.current[i]}>
-          {/* <h5>{option.charAt(0).toUpperCase() + option.substring(1)}</h5> */}
-          <button onClick={handleClickInside}>
+    <div className="nav-bar" >
+      {navOptions.map((option, index) => (
+        <div
+          key={"option-" + index}
+          className={`option`}
+          ref={optionRefs[index]}
+        >
+          <button
+            onClick={() => {
+              //handle click inside
+               setIsCollapsed(
+                isCollapsed.map((el, idx) => (idx === index) ? !el : true)
+              );
+            }}
+          >
             {option.charAt(0).toUpperCase() + option.substring(1)}
           </button>
-          <div className={`sub-menu ${!isCollapsed ? "expanded" : "collapsed"}`}>
+          <div
+            className={`sub-menu ${
+              !isCollapsed[index] ? "expanded" : "collapsed"
+            }`}
+          >
             {navSubOptions[option].map((subOption, i) => (
               <p className="sub-option" key={"sub-option-" + i}>
                 {subOption}
@@ -62,15 +62,9 @@ const [isCollapsed, setIsCollapsed] = useState(true);
       ))}
     </div>
   );
-
 };
 
 export default NavBar;
-
-
-
-
-
 
 // const SampleComponent = () => {
 //     const [clickedOutside, setClickedOutside] = useState(false);
@@ -95,4 +89,3 @@ export default NavBar;
 //         </button>
 //     );
 // };
-

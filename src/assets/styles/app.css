@@ -127,7 +127,7 @@ nav {
   padding: 4rem 0 1.6rem 0;
   max-width: 70%;
   margin: 0 auto;
- 
+  text-overflow: hidden;
 }
 
 .post-container .author-url {
