@@ -3,6 +3,7 @@
     --bluegreen: #0a3b3b;
     --yellow: #F2C777;
     --pink: #BF3475;
+    --blue : #3977CB;
 }
 
 .dropdown-container {
@@ -10,8 +11,9 @@
 }
 
 .dropdown-container button {
+    min-width: 65px;
     font-size: 3rem;
-    padding: 1rem;
+    padding: 1rem 1rem 0.2rem 1rem;
     background-color: rgba(0, 0, 0, 0);
     color: var(--pink);
     border: none;
@@ -20,26 +22,30 @@
 
 .dropdown-container button.expanded {
     transform: rotate(180deg);
+    padding-top: 0;
     font-weight: 700;
 }
 
 .dropdown {
     position: absolute;
-    left: 0px;
+    opacity: 0;
     top: 80px;
-    min-width: 250px;
-    min-height: 0px;
-    margin-top: 5px;
-    background-color: var(--bluegreen);
-    transition: min-height 0.3s ease;
+    background-color: var(--blue);
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    transform: translateX(-200px);
+    transition: transform 150ms ease-in, opacity 150ms ease-in;
 }
 
 .dropdown.expanded {
-    min-height: 306px;
-    padding: 4px;
+    /* height is set inside the MobileMenu react component */
+    opacity: 1;
+    transform: translateX(0px);
 }
 
 .dropdown.expanded p {
     margin: 1rem 0;
     color: #fff;
 }
+
+

@@ -4,9 +4,8 @@ import { navOptions, navSubOptions } from "../../../utils/helperArrays";
 import "./navBarStyles.css";
 
 const NavBar = () => {
-  const [isCollapsed, setIsCollapsed] = useState(
-    Array(navOptions.length).fill(true)
-  );
+  const [isCollapsed, setIsCollapsed] = useState(Array(navOptions.length).fill(true));
+
 
   //console.log(isCollapsed);
 

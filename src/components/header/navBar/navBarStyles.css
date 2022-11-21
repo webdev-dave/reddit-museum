@@ -15,8 +15,8 @@
         /* temporary */
         display: none;
         /* temporary */
-        flex: 1 1 75%;
-        /* display: flex; */
+        /* flex: 1 1 75%; */
+        display: flex;
         justify-content: center;
         column-gap: 3rem;
     }
@@ -33,18 +33,6 @@
         transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     }
 
-    /* .sub-menu.active {
-        opacity: 1;
-    } */
-
-
-    /* .option > button:active + .sub-menu,
-    .option > button:hover + .sub-menu {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translateY(0px);
-    }
-       */
     .sub-menu.expanded {
         opacity: 1;
         pointer-events: auto;
