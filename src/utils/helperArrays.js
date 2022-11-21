@@ -9,7 +9,7 @@ export const navOptions = [
 ];
 
 export const navSubOptions = {
-  photography: ["option-1", "option-2"],
+  photography: ["Street Photography", "Astrophotography","Natural Landscapes", "Drone Photography", "Long Exposure", "Portraits", "Fashion"],
   digital: ["option-1", "option-2"],
   ai: ["option-1", "option-2"],
   paintings: ["option-1", "option-2"],

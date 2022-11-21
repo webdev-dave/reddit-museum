@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- make searchBar close on outside click
 - photography, digital art, paintings, cinema, sculptures, architecture
 - photography: portraits, street photography, landscapes, micro photography, Vivian Maier
 - create loading effect when genre change occurs (or on original loading)

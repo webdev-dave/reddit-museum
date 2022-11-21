@@ -1,4 +1,4 @@
-import headerImg from "../../assets/images/headerImg.png";
+import headerImg from "../../assets/localMedia/headerImg.png";
 import {FaExclamationTriangle} from "react-icons/fa"
 
 const MainBanner = () => {
