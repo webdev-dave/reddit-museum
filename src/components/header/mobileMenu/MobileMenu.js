@@ -21,14 +21,14 @@ const MobileMenu = () => {
   };
 
   return !isExpanded ? (
-    <div className="dropdown-container" >
+    <div className="side-menu-container" >
       <button onClick={handleClick} >
         <FaBars />
       </button>
       <div className="dropdown" style={{height: `100${vh}px`}}></div>
     </div>
   ) : (
-    <div className="dropdown-container">
+    <div className="side-menu-container">
       <button onClick={handleClick} className="expanded">
         X
       </button>

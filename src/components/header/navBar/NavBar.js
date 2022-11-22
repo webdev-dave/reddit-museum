@@ -1,14 +1,11 @@
 import React, { createRef, useMemo } from "react";
 import { useEffect, useState } from "react";
-import { navOptions, navSubOptions } from "../../../utils/helperArrays";
+import { navOptions } from "../../../utils/helperArrays";
 import "./navBarStyles.css";
+import SubMenu from "./SubMenu";
 
 const NavBar = () => {
   const [isCollapsed, setIsCollapsed] = useState(Array(navOptions.length).fill(true));
-
-
-  //console.log(isCollapsed);
-
   const optionRefs = useMemo(
     () => Array.from({ length: navOptions.length }).map(() => createRef()),
     []
@@ -37,6 +34,7 @@ const NavBar = () => {
           ref={optionRefs[index]}
         >
           <button
+            className={isCollapsed[index] ? "" : "expanded"}
             onClick={() => {
               //handle click inside
                setIsCollapsed(
@@ -46,17 +44,7 @@ const NavBar = () => {
           >
             {option.charAt(0).toUpperCase() + option.substring(1)}
           </button>
-          <div
-            className={`sub-menu ${
-              !isCollapsed[index] ? "expanded" : "collapsed"
-            }`}
-          >
-            {navSubOptions[option].map((subOption, i) => (
-              <p className="sub-option" key={"sub-option-" + i}>
-                {subOption}
-              </p>
-            ))}
-          </div>
+          <SubMenu option={option} isCollapsed={isCollapsed} index={index} />
         </div>
       ))}
     </div>
