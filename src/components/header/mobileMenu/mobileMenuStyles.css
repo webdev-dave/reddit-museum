@@ -22,7 +22,6 @@
 
 .side-menu-container button.expanded {
     transform: rotate(180deg);
-    padding-top: 0;
     font-weight: 700;
 }
 

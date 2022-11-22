@@ -10,11 +10,9 @@
     font-size: 3rem;
     margin: 0 1rem;
     color: var(--pink);
-    /* transform: scale(-1, 1); */
   }
   
   .search-container .input-container {
-
     position: absolute;
     right: 0px;
     top: 80px;
@@ -51,10 +49,19 @@
     position: relative;
     height: 60px;
     font-size: 2rem;
+    padding: 0.5rem 1rem;
     border-radius: 3px;
+    color: #36454F;
+    font-weight: 600;
+  }
+
+  .input-container input::-webkit-input-placeholder {
+    font-size: 2rem;
+    color: #d3d3d3;
+    font-weight: 800;
   }
   
   .input-container.expanded input:focus {
-    border: 2px solid var(--yellow);
+    
   }
   

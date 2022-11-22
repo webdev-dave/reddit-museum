@@ -13,11 +13,13 @@ A digital art gallery that displays art collected from the various artistic encl
 ## To Do List
 
 - add search button to activate search, also show amount of search results on the top of the search results page
+- also show notifiaction that current results are search resutls (otherwise, the search section can collapse on outside click and then user can be left only with filtered search results without realizing it )
 - make searchBar close on outside click
 - photography, digital art, paintings, cinema, sculptures, architecture
 - photography: portraits, street photography, landscapes, micro photography, Vivian Maier
 - create loading effect when genre change occurs (or on original loading)
 - maybe turn download feature into full-screen viewing feature (just change icon)
+- add a share link button option
 - create hover and click effects for all header elements
 - make download button downloadUrl work for galleries
 - make sure download button changes when art genre/gallery changes

@@ -1,10 +1,10 @@
 import { navSubOptions } from "../../../utils/helperArrays";
 
-const SubMenu = ({option, isCollapsed, index}) => {
+const SubMenu = ({option, isExpanded, index}) => {
     
   return (
     <ul 
-      className={`sub-menu ${!isCollapsed[index] ? "expanded" : "collapsed"}`}
+      className={`sub-menu ${isExpanded[index] ? "expanded" : "collapsed"}`}
     >
       {navSubOptions[option].map((subOption, i) => (
         <li className="sub-option" key={"sub-option-" + i}>
