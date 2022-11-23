@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+/* 
+font-family: 'IBM Plex Sans', sans-serif;
+ */
+
 :root {
- 
+  /* color pallet */
   --darkblue: #141826;
   --bluegreen: #127373;
   --yellow: #F2C777;
@@ -11,6 +16,8 @@
   --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
   --charcoal: #36454F;
   --white: #ffffff;
+  /* fonts  */
+  --ibm-plex-sans: 'IBM Plex Sans', sans-serif;
 }
 
 html {
@@ -26,9 +33,8 @@ h1 {
   display: block;
   width: fit-content;
   color: black;
- 
-  font-size: 6rem;
-  font-weight: 600;
+  font-size: 7rem;
+  font-weight: 700;
   text-align: center;
   padding: 2rem;
   margin: 8rem auto;
