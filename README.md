@@ -20,7 +20,6 @@ A digital art gallery that displays art collected from the various artistic encl
 - create loading effect when genre change occurs (or on original loading)
 - maybe turn download feature into full-screen viewing feature (just change icon)
 - add a share link button option
-- create hover and click effects for all header elements
 - make download button downloadUrl work for galleries
 - make sure download button changes when art genre/gallery changes
 - make download button functional

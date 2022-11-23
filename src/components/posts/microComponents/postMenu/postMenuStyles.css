@@ -1,0 +1,66 @@
+.post-container .author-url {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.post-container .author-url a {
+  text-decoration: none;
+}
+
+.post-container .post-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.post-container .post-menu a {
+  font-size: 1rem;
+}
+
+.post-menu button {
+  border: none;
+  background-color: aqua;
+  z-index: 11;
+}
+
+.post-menu a .icon {
+  font-size: 1.5rem;
+  border: none;
+}
+
+
+
+/* full screen mode */
+
+body.freeze-scroll {
+  overflow: hidden;
+  position: relative;
+}
+
+
+.full-screen-container {
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    visibility: visible;
+    height: 100%;
+
+
+} 
+
+.media.full-screen {
+    /* display: none; */
+    z-index: 10;
+    width: auto;
+    /* might have to size conditionally based on height or width depending on landscape or portrait  */
+    height: 100%;
+    margin: 0 auto;
+}

@@ -39,7 +39,7 @@ const Posts = () => {
       isGallery: isGallery,
       isVideo: isVideo ? true : false,
       srcUrl: post.srcUrl ? post.srcUrl : "",
-      videoUrl: post.videoUrl,
+      // videoUrl: post.videoUrl,
       gallery: gallery,
       title: post.title,
       credits: {

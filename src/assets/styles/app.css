@@ -77,6 +77,8 @@ img {
   text-align: center;
 }
 
+
+
 /* ------------------------------------------------------------- Header & Nav */
 
 nav {
@@ -138,40 +140,6 @@ nav {
   text-overflow: hidden;
 }
 
-.post-container .author-url {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-.post-container .author-url a {
-  text-decoration: none;
-}
-
-.post-container .menu-buttons-section {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 auto;
-  
-}
-
-.post-container .menu-buttons-section a {
-  font-size: 1rem;
-}
-
-.menu-buttons-section button {
-  border: none;
-}
-
-.menu-buttons-section a .download-icon {
-  font-size: 1.5rem;
-  border: none;
-}
-
-.credits p,
-.credits a {
-  font-size: 1.4rem;
-}
 
 @media only screen and (min-width: 900px) {
   .post-container {

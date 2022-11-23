@@ -1,6 +1,6 @@
 import Media from "./microComponents/Media";
 import EmbedGal from "./microComponents/embedGal/EmbedGal";
-import PostMenu from "./microComponents/PostMenu";
+import PostMenu from "./microComponents/postMenu/PostMenu";
 
 //move this to main js
 const PostContainer = ({ post, postIndex }) => {
@@ -8,7 +8,7 @@ const PostContainer = ({ post, postIndex }) => {
   return (
     <div className={className}>
       {!post.isGallery ? (
-        <Media src={post.srcUrl} post={post} />
+        <Media src={post.srcUrl} post={post} className="" />
       ) : (
         <EmbedGal post={post} postIndex={postIndex} />
       )}

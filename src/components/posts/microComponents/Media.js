@@ -7,7 +7,7 @@ const Media = ({ post, src, className }) => {
     <video
       controls
       width="100%"
-      className="media"
+      className={`media`}
     >
       <source src={src+"/DASH_1080.mp4"} type="video/mp4" />
       <source src={src+"/DASH_720.mp4"} type="video/mp4" />
