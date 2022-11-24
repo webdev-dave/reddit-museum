@@ -1,16 +1,19 @@
 // import { useState } from "react";
 import "./postMenuStyles.css";
-import { useState } from "react";
+import "../../../../features/displayFullScreen/displayFullScreenStyles.css"
 import {BiFullscreen, BiExitFullscreen} from "react-icons/bi";
-import DisplayFullScreen from "./DisplayFullScreen";
-import App from "../../../../app/App";
+import DisplayFullScreen from "../../../../features/displayFullScreen/DisplayFullScreen";
+
+import { useState } from "react";
+
 // import { saveAs } from "file-saver";
 // import { sortGallery } from "../../../utils/helperFunctions";
 
-const PostMenu = ({ post }) => {
-  const [fullScreenMode, SetFullScreenMode] = useState(false);
+const PostMenu = ({post}) => {
+  const [fsModeIsActive, setFsModeIsActive] = useState(false);
   //const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
   const credits = post.credits;
+
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
   // const handleFullScreen = () => {
   //   setFullScreenOn(!fullScreenOn);
@@ -19,9 +22,7 @@ const PostMenu = ({ post }) => {
   //   }
   // }
   const toggleFullScreenMode = () => {
-    SetFullScreenMode(!fullScreenMode)
-    return(<App freezeScroll={!fullScreenMode} />)
-
+    setFsModeIsActive(!fsModeIsActive);
   }
 
   return (
@@ -44,9 +45,9 @@ const PostMenu = ({ post }) => {
           <FaDownload className="download-icon" />
         </a> */}
         <button onClick={toggleFullScreenMode}>
-          {!fullScreenMode ? <BiFullscreen className="icon" /> : <BiExitFullscreen className="icon" />}
+          {!fsModeIsActive ? <BiFullscreen className="icon" /> : <BiExitFullscreen className="icon" />}
         </button>
-        {fullScreenMode && 
+        {fsModeIsActive && 
           <DisplayFullScreen post={post} />
         }
       </div>

@@ -34,14 +34,20 @@ const postsSlice = createSlice({
             state.searchWord = searchWord;
             state.searchResults = currentGenrePosts.map(post => ({...post, title: post.title.toLowerCase()})).filter(post => post.title.includes(searchWord)); 
         },
+        // updateFullScreenMode: (state, action) => {
+        //     const postIndex = action.payload.postIndex;
+        //     state.allPosts[state.currentGenreName][postIndex].fsModeIsActive = action.payload.fsModeIsActive;
+        // }
     }
 })
 
 export const selectAllPosts = (state) => state.posts.allPosts;
+export const selectCurrentGenrePosts = (state) => state.posts.allPosts[state.currentGenreName];
 export const selectIsSearching = (state) => state.posts.isSearching;
 export const selectSearchResults = (state) => state.posts.searchResults;
 export const selectSearchWord = (state) => state.posts.searchWord;
 
-export const {updateGenrePosts, updateIsSearching, search} = postsSlice.actions;
+
+export const {updateGenrePosts, updateIsSearching, search, updateFullScreenMode} = postsSlice.actions;
 
 export default postsSlice.reducer;

@@ -36,10 +36,10 @@ const Posts = () => {
     const isVideo =  post.srcUrl && post.srcUrl.slice(8, 9) === "v";
 
     return {
+      postIndex: index,
       isGallery: isGallery,
       isVideo: isVideo ? true : false,
       srcUrl: post.srcUrl ? post.srcUrl : "",
-      // videoUrl: post.videoUrl,
       gallery: gallery,
       title: post.title,
       credits: {
@@ -48,6 +48,7 @@ const Posts = () => {
         redditPostUrl: post.redditPostUrl,
       },
       genreName: genreName,
+      fsModeIsActive: false,
     }
 
     
