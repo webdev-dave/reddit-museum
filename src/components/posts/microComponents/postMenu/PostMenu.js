@@ -1,19 +1,14 @@
 // import { useState } from "react";
 import "./postMenuStyles.css";
-import "../../../../features/displayFullScreen/displayFullScreenStyles.css"
-import {BiFullscreen, BiExitFullscreen} from "react-icons/bi";
+import "../../../../features/displayFullScreen/displayFullScreenStyles.css";
 import DisplayFullScreen from "../../../../features/displayFullScreen/DisplayFullScreen";
-
-import { useState } from "react";
 
 // import { saveAs } from "file-saver";
 // import { sortGallery } from "../../../utils/helperFunctions";
 
-const PostMenu = ({post}) => {
-  const [fsModeIsActive, setFsModeIsActive] = useState(false);
+const PostMenu = ({ post }) => {
   //const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
   const credits = post.credits;
-
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
   // const handleFullScreen = () => {
   //   setFullScreenOn(!fullScreenOn);
@@ -21,9 +16,6 @@ const PostMenu = ({post}) => {
   //     return <h1>Gotcha</h1>
   //   }
   // }
-  const toggleFullScreenMode = () => {
-    setFsModeIsActive(!fsModeIsActive);
-  }
 
   return (
     <div>
@@ -40,16 +32,7 @@ const PostMenu = ({post}) => {
         >
           Origin
         </a>
-
-        {/* <a href={post.srcUrl} download={post.srcUrl}>
-          <FaDownload className="download-icon" />
-        </a> */}
-        <button onClick={toggleFullScreenMode}>
-          {!fsModeIsActive ? <BiFullscreen className="icon" /> : <BiExitFullscreen className="icon" />}
-        </button>
-        {fsModeIsActive && 
-          <DisplayFullScreen post={post} />
-        }
+        <DisplayFullScreen post={post} />
       </div>
     </div>
   );

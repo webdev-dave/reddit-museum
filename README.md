@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- solution to esc "full screen mod"e might be to use reactRouter and link the esc button to undo/go back to prior state (problem with this is, I don't want full screen to fully exit current page because then i'd have to reload the entire main page upon esc from "full screen mode")
 - add search button to activate search, also show amount of search results on the top of the search results page
 - also show notifiaction that current results are search resutls (otherwise, the search section can collapse on outside click and then user can be left only with filtered search results without realizing it )
 - make searchBar close on outside click
