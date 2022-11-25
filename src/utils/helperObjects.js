@@ -1,6 +1,7 @@
 export const genresObject = {
     ai: '/r/aiArt/',
     architecture: '/r/ArchitecturePorn/',
+    astro_photography: "/r/astrophotography/",
     design: '/r/DesignPorn/',
     impressionism: '/r/impressionism/',
     pop_art: '/r/PopArt/',
@@ -11,7 +12,7 @@ export const genresObject = {
 }
 
 export const navSubOptions = {
-    photography: ["Street Photography", "Astrophotography","Natural Landscapes", "Drone Photography", "Long Exposure", "Portraits", "Fashion"],
+    photography: ["street_photography", "astro_photography","Natural Landscapes", "Drone Photography", "Long Exposure", "Portraits", "Fashion", {historical: ["wild_west", "placeholder_1", "placeholder_2"]}],
     digital: ["option-1", "option-2"],
     ai: ["option-1", "option-2"],
     paintings: ["option-1", "option-2"],

@@ -59,7 +59,7 @@ const apiRequestSlice = createSlice({
             isGallery: child.data.is_gallery ? true : false,
             thumbnail: child.data.thumbnail,
             title: child.data.title,
-            //child: child,
+            child: child,
             srcUrl: child.data.url_overridden_by_dest,
             redditGalleryOrder:
               child.data.is_gallery &&
