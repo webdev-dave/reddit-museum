@@ -12,7 +12,7 @@
 }
 
 
-@media screen and (min-width: 1080px) {
+@media screen and (min-width: 1380px) {
 
     .nav-bar {
         /* temporary */
@@ -69,7 +69,11 @@
     .sub-menu .sub-option {
         font-size: 1.8rem;
         font-weight: 500;
-        margin: 2rem;
+        padding: 2rem;
+    }
+
+    .sub-menu .sub-option:hover {
+        background-color: var(--yellow);
     }
 
 

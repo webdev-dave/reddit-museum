@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BiFullscreen, BiExitFullscreen } from "react-icons/bi";
 
 //if type img return img, if type = video, return video
-const DisplayFullScreen = ({ post }) => {
+const FullScreenMode = ({ post }) => {
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const originRef = useRef();
@@ -74,4 +74,4 @@ const DisplayFullScreen = ({ post }) => {
   );
 };
 
-export default DisplayFullScreen;
+export default FullScreenMode;

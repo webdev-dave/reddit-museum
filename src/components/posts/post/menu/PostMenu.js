@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import "./postMenuStyles.css";
-import "../../../../features/displayFullScreen/displayFullScreenStyles.css";
-import DisplayFullScreen from "../../../../features/displayFullScreen/DisplayFullScreen";
+import "../../../../features/fullScreenMode/fullScreenMode.css";
+import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
 
 // import { saveAs } from "file-saver";
 // import { sortGallery } from "../../../utils/helperFunctions";
@@ -32,7 +32,7 @@ const PostMenu = ({ post }) => {
         >
           Origin
         </a>
-        <DisplayFullScreen post={post} />
+        <FullScreenMode post={post} />
       </div>
     </div>
   );

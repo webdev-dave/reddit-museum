@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import mainReducer from '../components/main/mainSlice';
-import genresReducer from '../components/header/genres/genresSlice';
+import apiRequestReducer from '../features/apiRequest/apiRequestSlice';
 import postsReducer from '../components/posts/postsSlice';
 import featuresReducer from '../features/featuresSlice';
 
@@ -8,9 +7,8 @@ import featuresReducer from '../features/featuresSlice';
 const store = configureStore({
   reducer: {
     features: featuresReducer,
-    genres: genresReducer,
     posts: postsReducer,
-    main: mainReducer,
+    apiRequest: apiRequestReducer,
   }
 });
 

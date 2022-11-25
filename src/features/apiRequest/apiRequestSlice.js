@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export const fetchRedditInfo = createAsyncThunk(
-  "main/fetchRedditInfo",
+  "apiRequest/fetchRedditInfo",
   async (searchTerm, thunkAPI) => {
     const data = await fetch(`https://www.reddit.com${searchTerm}.json`);
     //console.log(`https://www.reddit.com${searchTerm}`)
@@ -24,7 +24,7 @@ export const fetchRedditInfo = createAsyncThunk(
   }
 );
 
-const mainSlice = createSlice({
+const apiRequestSlice = createSlice({
   name: "main",
   initialState: initialState,
   reducers: {
@@ -105,12 +105,12 @@ const mainSlice = createSlice({
   },
 });
 
-export const selectLoadedStatus = (state) => state.main.isLoaded;
-export const selectGenreName = (state) => state.main.genreName;
-export const selectGenrePath = (state) => state.main.genrePath;
-export const selectPosts = (state) => state.main.redditData.posts;
-export const selectIsGallery = (state) => state.main.redditData.isGallery;
+export const selectLoadedStatus = (state) => state.apiRequest.isLoaded;
+export const selectGenreName = (state) => state.apiRequest.genreName;
+export const selectGenrePath = (state) => state.apiRequest.genrePath;
+export const selectPosts = (state) => state.apiRequest.redditData.posts;
+export const selectIsGallery = (state) => state.apiRequest.redditData.isGallery;
 
-export const {updateSortedGalleries} = mainSlice.actions;
+export const {updateSortedGalleries, changeGenre} = apiRequestSlice.actions;
 
-export default mainSlice.reducer;
+export default apiRequestSlice.reducer;

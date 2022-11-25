@@ -1,6 +1,7 @@
 import Header from "../components/header/Header";
-import Main from "../components/main/Main";
-import "../../src/components/posts/microComponents/postMenu/postMenuStyles.css";
+// import "../components/posts/post/postMenu/postMenuStyles.css";
+import MainBanner from "../components/mainBanner/MainBanner";
+import Posts from "../components/posts/Posts";
 
 
 function App() {
@@ -8,7 +9,10 @@ function App() {
   return (
     <div className={`app`}>
       <Header/>
-      <Main />
+      <main className="posts-section">
+      <MainBanner />
+      <Posts />
+    </main>
     </div>
   );
 }

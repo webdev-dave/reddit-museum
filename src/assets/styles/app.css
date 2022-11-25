@@ -17,7 +17,8 @@ font-family: 'IBM Plex Sans', sans-serif;
   --charcoal: #36454F;
   --white: #ffffff;
   /* fonts  */
-  --ibm-plex-sans: 'IBM Plex Sans', sans-serif;
+  --main-font: 'IBM Plex Sans', sans-serif;
+  --poppins: 'Poppins', sans-serif;
 }
 
 html {
@@ -26,6 +27,7 @@ html {
 }
 
 body {
+  font-family: var(--main-font);
   background-color: var(--pink);
 }
 
@@ -114,6 +116,17 @@ nav {
 }
 
 /* -------------------------------------------------------- posts section */
+.posts-section h5 {
+  font-style: italic;
+  margin-top: 4rem;
+  margin-bottom: 15rem;
+  
+}
+
+.posts-section h5 .em {
+  font-style: normal;
+  font-weight: 600;
+}
 
 .post-container {
   max-width: 85%;
@@ -130,7 +143,7 @@ nav {
 }
 
 .post-container h5 {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--poppins);
   font-size: 2.4rem;
   letter-spacing: 0.8px;
   line-height: 4rem;

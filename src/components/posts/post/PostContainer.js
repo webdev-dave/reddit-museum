@@ -1,6 +1,6 @@
-import Media from "./microComponents/Media";
-import EmbedGal from "./microComponents/embedGal/EmbedGal";
-import PostMenu from "./microComponents/postMenu/PostMenu";
+import Media from "./Media";
+import EmbedGal from "./embedGal/EmbedGal";
+import PostMenu from "./menu/PostMenu";
 
 //move this to main js
 const PostContainer = ({ post, postIndex }) => {
