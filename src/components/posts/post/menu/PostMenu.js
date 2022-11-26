@@ -32,6 +32,7 @@ const PostMenu = ({ post }) => {
         >
           Origin
         </a>
+        
         <FullScreenMode post={post} />
       </div>
     </div>

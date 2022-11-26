@@ -4,7 +4,7 @@ const initialState = {
   isLoading: false,
   hasError: false,
   isLoaded: false,
-  genreName: 'AI',
+  genreName: 'ai',
   genrePath: "/r/aiArt/",
   redditData: {
     kind: "",
@@ -25,7 +25,7 @@ export const fetchRedditInfo = createAsyncThunk(
 );
 
 const apiRequestSlice = createSlice({
-  name: "main",
+  name: "apiRequest",
   initialState: initialState,
   reducers: {
     changeGenre: (state, action) => {

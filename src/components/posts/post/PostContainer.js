@@ -10,7 +10,7 @@ const PostContainer = ({ post, postIndex }) => {
       {!post.isGallery ? (
         <Media src={post.srcUrl} post={post} className="" />
       ) : (
-        <EmbedGal post={post} postIndex={postIndex} />
+        <EmbedGal post={post} />
       )}
       <h5>{post.title.toUpperCase()}</h5>
       <PostMenu post={post} />

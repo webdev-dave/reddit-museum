@@ -2,16 +2,15 @@ import './embedGalStyles.css';
 import { useState } from "react";
 import Media from "../Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-// import { useDispatch } from 'react-redux';
-// import { updateSortedGalleries } from '../../main/mainSlice';
+import { useDispatch } from 'react-redux';
+import { updateGallery } from '../../postsSlice';
 
 
-const EmbedGal = ({ post, postIndex }) => {
-  // const dispatch = useDispatch();
+const EmbedGal = ({ post }) => {
+  const dispatch = useDispatch();
+
   const gallery = post.gallery;
-
-
-  //dispatch(updateSortedGalleries({value: gallery, postIndex: postIndex}));
+  const postIndex = post.postIndex
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [slideOutImgIndex, setSlideOutImgIndex] = useState("");
@@ -31,6 +30,11 @@ const EmbedGal = ({ post, postIndex }) => {
     setCurrentImageIndex(currentImageIndex + 1);
     setSlideInClassName("next-slide-in");
     setSlideOutClassName("next-slide-out");
+    /*  the updateGallery dispatch is not necessary for local EmbedGal functionality however,
+    it is useful for the global storeState to track gallery state.
+    For example, FullScreenMode makes use of this in order to display 
+    any given gallery's CURRENT IMAGE in full screen */
+    dispatch(updateGallery({postIndex: postIndex, currentImageIndex: (currentImageIndex + 1), prevImageIndex: currentImageIndex}));
   };
 
   const handlePrevious = () => {
@@ -42,6 +46,7 @@ const EmbedGal = ({ post, postIndex }) => {
     setCurrentImageIndex(currentImageIndex - 1);
     setSlideInClassName("prev-slide-in");
     setSlideOutClassName("prev-slide-out");
+    dispatch(updateGallery({postIndex: postIndex, currentImageIndex: (currentImageIndex - 1), prevImageIndex: currentImageIndex}))
   };
 
 
@@ -53,15 +58,14 @@ const EmbedGal = ({ post, postIndex }) => {
         
       </button>
       <div className="sliding-stack">
-        {gallery.map((media, index) => {
-          const imgIndex = index;
-          const fileExtension = media.fileType.slice(-3);
-          const srcUrl = `https://i.redd.it/${media.id}.${fileExtension}`;
+        {gallery.map((media, imgIndex) => {
+
+
 
           return (
             <Media
               post={media}
-              src={srcUrl}
+              src={media.srcUrl}
               isVideo={media.isVideo}
               videoUrl={media.videoUrl}
               key={`gal-${postIndex}-img${imgIndex}`}

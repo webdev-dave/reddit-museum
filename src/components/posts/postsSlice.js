@@ -4,7 +4,7 @@ import {blankGenresObject } from "../../utils/helperObjects";
 
 
 const initialState = {
-    currentGenreName: "AI",
+    currentGenreName: "ai",
     isSearching: false,
     searchWord: "",
     searchResults: [],
@@ -19,6 +19,14 @@ const postsSlice = createSlice({
             const genreName = action.payload.genreName;
             state.allPosts[genreName] = action.payload.posts;
             state.currentGenreName = genreName;
+        },
+        updateGallery: (state, action)=>{
+            const genreName = state.currentGenreName;
+            const postIndex = action.payload.postIndex;
+            const currentImageIndex = action.payload.currentImageIndex;
+            const prevImageIndex = action.payload.prevImageIndex;
+            state.allPosts[genreName][postIndex].gallery[currentImageIndex].isCurrentlyDisplayed = true;
+            state.allPosts[genreName][postIndex].gallery[prevImageIndex].isCurrentlyDisplayed = false;
         },
         updateIsSearching: (state, action) => {
             const isSearching = action.payload.value
@@ -41,6 +49,7 @@ const postsSlice = createSlice({
     }
 })
 
+export const selectCurrentGenreName = (state) => state.posts.currentGenreName;
 export const selectAllPosts = (state) => state.posts.allPosts;
 export const selectCurrentGenrePosts = (state) => state.posts.allPosts[state.currentGenreName];
 export const selectIsSearching = (state) => state.posts.isSearching;
@@ -48,6 +57,6 @@ export const selectSearchResults = (state) => state.posts.searchResults;
 export const selectSearchWord = (state) => state.posts.searchWord;
 
 
-export const {updateGenrePosts, updateIsSearching, search, updateFullScreenMode} = postsSlice.actions;
+export const {updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGallery} = postsSlice.actions;
 
 export default postsSlice.reducer;

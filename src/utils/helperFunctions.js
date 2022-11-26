@@ -4,12 +4,21 @@
   - 3 the map function below maps over all the id's inside redditGalleryOrder. It then parses the initial store gallery (that comes in a randomized order) and finds the the img object that have a matching id
   - 4 once the matching imgObj is found, it is pushed into the new gallery array, only this time, all the imgObj's appear in order of redditGalleryOrder */
 export const sortGallery = (galleryOrder, initialGal) => {
-  return galleryOrder.map((orderedImgId, index) => {
+  return galleryOrder.map((orderedImgId, imgIndex) => {
     const newImgObj = initialGal.find((imgObj) => imgObj.id === orderedImgId);
-    return { ...newImgObj, imgIndex: index };
+    return {
+      ...newImgObj,
+      imgIndex: imgIndex,
+      isCurrentlyDisplayed: imgIndex === 0 ? true : false,
+      srcUrl: getGalleryImgSrcUrl(newImgObj, imgIndex)
+    };
   });
 };
 
+const getGalleryImgSrcUrl = (media, imgIndex) => {
+  const fileExtension = media.fileType.slice(-3);
+  return `https://i.redd.it/${media.id}.${fileExtension}`;
+};
 
 // returns false if media is externally hosted (for example, an embedded YouTube video link)
 export const isHostedOnReddit = (isGallery, child) => {
@@ -22,4 +31,3 @@ export const isHostedOnReddit = (isGallery, child) => {
     return false;
   }
 };
-

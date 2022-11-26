@@ -1,21 +1,25 @@
 export const genresObject = {
     ai: '/r/aiArt/',
+    ariel_photography: "/r/BirdsEyeEarth/",
     architecture: '/r/ArchitecturePorn/',
-    astro_photography: "/r/astrophotography/",
+    astro_photography: "/r/LandscapeAstro/",
     design: '/r/DesignPorn/',
     impressionism: '/r/impressionism/',
+    mixed_paintings: "/r/ArtPorn/",
+    natural_landscapes: "/r/natureporn/",
     pop_art: '/r/PopArt/',
     psychedelic: '/r/PsychedelicArt/',
     street_srt: '/r/StreetArtPorn/',
     street_photography: '/r/streetphotography/',
-    surrealism: '/r/surrealism/'
+    surrealism: '/r/surrealism/',
+    wildlife: "/r/wildlifephotography/",
 }
 
 export const navSubOptions = {
-    photography: ["street_photography", "astro_photography","Natural Landscapes", "Drone Photography", "Long Exposure", "Portraits", "Fashion", {historical: ["wild_west", "placeholder_1", "placeholder_2"]}],
+    photography: ["street_photography", "astro_photography", "natural_landscapes", "wildlife", "ariel_photography", "Portraits", "Fashion", {historical: ["wild_west", "placeholder_1", "placeholder_2"]}],
     digital: ["option-1", "option-2"],
     ai: ["option-1", "option-2"],
-    paintings: ["option-1", "option-2"],
+    paintings: ["mixed_paintings", "option-2"],
     cinema: ["option-1", "option-2"],
     sculptures: ["option-1", "option-2"],
     architecture: ["Architecture", "option-2"],

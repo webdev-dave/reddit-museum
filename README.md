@@ -12,31 +12,30 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- full screen mode should work with galleries. This requires changing how EmbedGal currently works. Currently EmbedGal tracks the state of current gallery dispaly image locally using the useState hook. In order to make the current display image known globally, I must add a slice in redux that tracks and updates on each gallery change.
 - full screen mode using react router?
+- add zoom in/out buttons for image in full screen mode (or at least make sure to allow default browser zoom to work - currently no working)
 - test full screen mode on mobile. Also add full screen capability for videos and gallery posts
 - add search button to activate search, also show amount of search results on the top of the search results page
 - also show notifiaction that current results are search resutls (otherwise, the search section can collapse on outside click and then user can be left only with filtered search results without realizing it )
-- make searchBar close on outside click
-- photography, digital art, paintings, cinema, sculptures, architecture
-- photography: portraits, street photography, landscapes, micro photography, Vivian Maier
 - create loading effect when genre change occurs (or on original loading)
 - maybe turn download feature into full-screen viewing feature (just change icon)
+- make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
+- add a chromecase / cast to tv option
 - make download button downloadUrl work for galleries
 - make sure download button changes when art genre/gallery changes
 - make download button functional
 - create video banner like MET website
-- create touch effect for gallery on mobile
+- create touch/swipe effect for gallery on mobile
 - make videos stop playing automatically when user scrolls out of sight
 - figure out how to make a 3D art/photo frame with pure css
 - add box shadow/blur to post images
-- organize and clean up Redux
 - rename menu selector to "Museum Map" (also add cute map style and name banner)
-- make searchBar work
 - make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
 - create footer?
-- try to minimize redux store calls, (also look into alternative state management options - react context)
+- look into alternative state management options (react context ?)
 
 ## Must-Fix/Bugs
 
@@ -44,7 +43,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - sound in videos
 
 ## Features
-
+- maybe only load by defualt posts that have above x amount of likes. This will ensure the quality of the photo/art (more likes = more relatable / more captivating). Additionally, maybe i can add a filter by amount of likes option where user gets to set standard of the art they load.
 - add load more button
 - filter through art by genre
 - filter through art using the search bar
