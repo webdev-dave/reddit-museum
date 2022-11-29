@@ -13,10 +13,15 @@ const FullScreenMode = ({ post }) => {
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-  const alt = post.title.toLowerCase();
-  const mediaStyles = { height: `${viewportHeight}px`, width: "auto" };
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost = useSelector(selectAllPosts)[currentGenreName][post.postIndex];
+  const mediaStyles =
+  window.innerHeight >= window.innerWidth
+    ? { height: "auto", width: `${viewportWidth}px` }
+    : { height: `${viewportHeight}px`, width: "auto" };
+
+const alt = post.title.toLowerCase();
   const getCurrentGalleryImgSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
       const currentGalleryImageIndex = currentPost.gallery.find(
@@ -29,6 +34,7 @@ const FullScreenMode = ({ post }) => {
   useEffect(() => {
     const handleResize = () => {
       setViewportHeight(window.innerHeight);
+      setViewportWidth(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
     return () => document.removeEventListener("resize", handleResize);
@@ -70,29 +76,32 @@ const FullScreenMode = ({ post }) => {
 
       {fsModeIsActive && (
         <div className="full-screen-container" ref={fullScreenRef}>
-          {post.isVideo ? (
-            <video controls width="100%" className={`media`}>
-              <source src={post.srcUrl + "/DASH_1080.mp4"} type="video/mp4" />
-              <source src={post.srcUrl + "/DASH_720.mp4"} type="video/mp4" />
-              <source src={post.srcUrl + "/DASH_480.mp4"} type="video/mp4" />
-            </video>
-          ) : !post.isGallery ? (
-            <img
-              src={post.srcUrl}
-              alt={alt}
-              className={`media full-screen`}
-              style={mediaStyles}
-            />
-          ) : post.isGallery ? (
-            <img
-              src={getCurrentGalleryImgSrcUrl()}
-              alt={alt}
-              className={`media full-screen`}
-              style={mediaStyles}
-            />
-          ) : (
-            ""
-          )}
+          <div className="media-wrapper">
+            {post.isVideo ? (
+              <video controls width="100%" className={`media`}>
+                <source src={post.srcUrl + "/DASH_1080.mp4"} type="video/mp4" />
+                <source src={post.srcUrl + "/DASH_720.mp4"} type="video/mp4" />
+                <source src={post.srcUrl + "/DASH_480.mp4"} type="video/mp4" />
+              </video>
+            ) : !post.isGallery ? (
+              <img
+                src={post.srcUrl}
+                alt={alt}
+                className={`media full-screen`}
+                style={mediaStyles}
+              />
+            ) : post.isGallery ? (
+              <img
+                src={getCurrentGalleryImgSrcUrl()}
+                alt={alt}
+                className={`media full-screen`}
+                style={mediaStyles}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+
           <button onClick={exitFsMode}>
             <BiExitFullscreen />
           </button>

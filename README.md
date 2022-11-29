@@ -12,7 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- full screen mode should work with galleries. This requires changing how EmbedGal currently works. Currently EmbedGal tracks the state of current gallery dispaly image locally using the useState hook. In order to make the current display image known globally, I must add a slice in redux that tracks and updates on each gallery change.
+- place full screen button right below image/media
 - full screen mode using react router?
 - add zoom in/out buttons for image in full screen mode (or at least make sure to allow default browser zoom to work - currently no working)
 - test full screen mode on mobile. Also add full screen capability for videos and gallery posts

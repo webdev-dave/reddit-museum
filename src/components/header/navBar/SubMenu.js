@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import {
   changeGenre,
   fetchRedditInfo,
-} from "../../../features/apiRequest/apiRequestSlice";
+} from "../../../features/apiRequests/redditApiRequestSlice";
 import { genreNames } from "../../../utils/helperArrays";
 import { genresObject, navSubOptions } from "../../../utils/helperObjects";
 

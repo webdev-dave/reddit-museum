@@ -6,7 +6,7 @@ import {
   selectPosts,
   selectGenrePath,
   selectGenreName,
-} from "../../features/apiRequest/apiRequestSlice";
+} from "../../features/apiRequests/redditApiRequestSlice";
 import PostContainer from "./post/PostContainer";
 import { isHostedOnReddit, sortGallery } from "../../utils/helperFunctions";
 import {

@@ -15,7 +15,7 @@ const initialState = {
 };
 
 export const fetchRedditInfo = createAsyncThunk(
-  "apiRequest/fetchRedditInfo",
+  "redditApiRequest/fetchRedditInfo",
   async (searchTerm, thunkAPI) => {
     const data = await fetch(`https://www.reddit.com${searchTerm}.json`);
     //console.log(`https://www.reddit.com${searchTerm}`)
@@ -24,8 +24,8 @@ export const fetchRedditInfo = createAsyncThunk(
   }
 );
 
-const apiRequestSlice = createSlice({
-  name: "apiRequest",
+const redditApiRequestSlice = createSlice({
+  name: "redditApiRequest",
   initialState: initialState,
   reducers: {
     changeGenre: (state, action) => {
@@ -105,12 +105,12 @@ const apiRequestSlice = createSlice({
   },
 });
 
-export const selectLoadedStatus = (state) => state.apiRequest.isLoaded;
-export const selectGenreName = (state) => state.apiRequest.genreName;
-export const selectGenrePath = (state) => state.apiRequest.genrePath;
-export const selectPosts = (state) => state.apiRequest.redditData.posts;
-export const selectIsGallery = (state) => state.apiRequest.redditData.isGallery;
+export const selectLoadedStatus = (state) => state.redditApiRequest.isLoaded;
+export const selectGenreName = (state) => state.redditApiRequest.genreName;
+export const selectGenrePath = (state) => state.redditApiRequest.genrePath;
+export const selectPosts = (state) => state.redditApiRequest.redditData.posts;
+export const selectIsGallery = (state) => state.redditApiRequest.redditData.isGallery;
 
-export const {updateSortedGalleries, changeGenre} = apiRequestSlice.actions;
+export const {updateSortedGalleries, changeGenre} = redditApiRequestSlice.actions;
 
-export default apiRequestSlice.reducer;
+export default redditApiRequestSlice.reducer;

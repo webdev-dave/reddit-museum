@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { changeGenre, fetchRedditInfo } from "../../../features/apiRequest/apiRequestSlice";
+import { changeGenre, fetchRedditInfo } from "../../../features/apiRequests/redditApiRequestSlice";
 import { genreNames } from "../../../utils/helperArrays";
 import { genresObject } from "../../../utils/helperObjects";
 
