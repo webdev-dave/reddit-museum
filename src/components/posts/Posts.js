@@ -8,7 +8,7 @@ import {
   selectGenreName,
 } from "../../features/apiRequests/redditApiRequestSlice";
 import PostContainer from "./post/PostContainer";
-import { isHostedOnReddit, sortGallery } from "../../utils/helperFunctions";
+import { formatPosts } from "../../utils/helperFunctions";
 import {
   selectIsSearching,
   selectSearchResults,
@@ -35,31 +35,10 @@ const Posts = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const formattedPosts = postsArr
-    .filter((post) => isHostedOnReddit(post.isGallery, post))
-    .map((post, index) => {
-      const isGallery = post.isGallery;
-      const gallery = isGallery
-        ? sortGallery(post.redditGalleryOrder, post.initialGallery)
-        : [];
-      const isVideo = post.srcUrl && post.srcUrl.slice(8, 9) === "v";
+  const allowYoutube = true;
+  const formattedPosts = formatPosts(postsArr, genreName, allowYoutube);
 
-      return {
-        postIndex: index,
-        isGallery: isGallery,
-        isVideo: isVideo ? true : false,
-        srcUrl: post.srcUrl ? post.srcUrl : "",
-        gallery: gallery,
-        title: post.title,
-        credits: {
-          author: post.author,
-          authorUrl: post.authorUrl,
-          redditPostUrl: post.redditPostUrl,
-        },
-        genreName: genreName,
-        fsModeIsActive: false,
-      };
-    });
+
   useEffect(() => {
     dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
   }, [dispatch, genreName, formattedPosts]);

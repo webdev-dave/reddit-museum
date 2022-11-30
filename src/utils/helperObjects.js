@@ -9,6 +9,7 @@ export const genresObject = {
     natural_landscapes: "/r/natureporn/",
     pop_art: '/r/PopArt/',
     psychedelic: '/r/PsychedelicArt/',
+    short_films: '/r/ShortFilm/',
     street_srt: '/r/StreetArtPorn/',
     street_photography: '/r/streetphotography/',
     surrealism: '/r/surrealism/',
@@ -20,9 +21,9 @@ export const navSubOptions = {
     digital: ["option-1", "option-2"],
     ai: ["option-1", "option-2"],
     paintings: ["mixed_paintings", "option-2"],
-    cinema: ["option-1", "option-2"],
+    cinema: ["short_films", "option-2"],
     sculptures: ["option-1", "option-2"],
-    architecture: ["Architecture", "option-2"],
+    architecture: ["architecture", "option-2"],
     about: [],
   };
 

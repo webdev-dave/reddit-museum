@@ -20,14 +20,74 @@ const getGalleryImgSrcUrl = (media, imgIndex) => {
   return `https://i.redd.it/${media.id}.${fileExtension}`;
 };
 
-// returns false if media is externally hosted (for example, an embedded YouTube video link)
-export const isHostedOnReddit = (isGallery, child) => {
-  if (isGallery) {
+
+
+const isHostedOnReddit = ( child) => {
+  if (child.isGallery) {
     return true;
   } else if (child.srcUrl) {
     const host = child.srcUrl.slice(10, 17);
-    return host === ("redd.it" || "imgur.c") ? true : false;
+    if(host === "redd.it" || host === "imgur.c"){
+      return true
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
 };
+
+const isHostedOnRedditOrYoutube = (child) => {
+  const host = child.srcUrl && child.srcUrl.slice(10, 17);
+  if(host === "utu.be/" ||host === "w.youtu" ||host === "utube.c"){
+    return true;
+  } else {
+    return isHostedOnReddit(child);
+  };
+};
+
+
+const getYoutubeId = (url) => {
+  if(url.slice(0, 17) === "https://youtu.be/"){
+    return url.slice(17, 28)
+  } else if (url.slice(0, 28) === "https://youtube.com/watch?v="){
+    return url.slice(28, 39);
+  } else if(url.slice(0, 32) === "https://www.youtube.com/watch?v="){
+    return url.slice(32, 43);
+  } else {
+    return false;
+  }
+}
+
+
+export const formatPosts = (posts, genreName, allowYoutube) => {
+  
+  const postsArr = allowYoutube ?  posts.filter((post)=> isHostedOnRedditOrYoutube(post)) : posts.filter((post)=> isHostedOnReddit(post));
+  return postsArr.map((post, index) => {
+    const isGallery = post.isGallery;
+    const gallery = isGallery
+      ? sortGallery(post.redditGalleryOrder, post.initialGallery)
+      : [];
+    const isVideo = post.srcUrl && post.srcUrl.slice(8, 9) === "v";
+    const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
+    const youtubeId = isYoutubeVideo ? getYoutubeId(post.srcUrl) : "";
+
+    return {
+      postIndex: index,
+      isGallery: isGallery,
+      isVideo: isVideo ? true : false,
+      isYoutubeVideo: isYoutubeVideo,
+      youtubeId: youtubeId,
+      srcUrl: post.srcUrl ? post.srcUrl : "",
+      gallery: gallery,
+      title: post.title,
+      credits: {
+        author: post.author,
+        authorUrl: post.authorUrl,
+        redditPostUrl: post.redditPostUrl,
+      },
+      genreName: genreName,
+      fsModeIsActive: false,
+    };
+  });
+}
