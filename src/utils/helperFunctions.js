@@ -61,8 +61,8 @@ const getYoutubeId = (url) => {
 
 
 export const formatPosts = (posts, genreName, allowYoutube) => {
-  
-  const postsArr = allowYoutube ?  posts.filter((post)=> isHostedOnRedditOrYoutube(post)) : posts.filter((post)=> isHostedOnReddit(post));
+  //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
+  const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
   return postsArr.map((post, index) => {
     const isGallery = post.isGallery;
     const gallery = isGallery
@@ -88,6 +88,20 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
       },
       genreName: genreName,
       fsModeIsActive: false,
+      voteCount: post.voteCount,
     };
   });
+}
+
+
+export const removeLongWords = (textString) => {
+  // this help remove super long continuos words which are ussually unwanted social media handles or url's
+  return textString.split(" ").filter(str => str.length < 20).join(" ");
+}
+
+export const returnMaximumOfTenArrayItems = (array) => {
+  if(array.length <= 10){
+    return array;
+  }
+  return array.slice(0, 11);
 }

@@ -33,7 +33,7 @@ const PostMenu = ({ post }) => {
           Origin
         </a>
         
-        <FullScreenMode post={post} />
+        {(post.isVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
       </div>
     </div>
   );

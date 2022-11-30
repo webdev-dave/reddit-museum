@@ -16,7 +16,7 @@ const SubMenu = ({ option, isExpanded, index }) => {
   const handleSelect = (e) => {
     console.log(e.currentTarget.innerText);
     const genreName = e.currentTarget.innerText.replace(/ /g, "_");
-    const genrePath = genresObject[genreName.toLowerCase()];
+    const genrePath = genresObject[genreName.toLowerCase()].path;
     console.log(genrePath);
     dispatch(changeGenre({ genreName: genreName, path: genrePath }));
     dispatch(fetchRedditInfo(genrePath));

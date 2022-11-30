@@ -78,11 +78,12 @@ const alt = post.title.toLowerCase();
         <div className="full-screen-container" ref={fullScreenRef}>
           <div className="media-wrapper">
             {post.isVideo ? (
-              <video controls width="100%" className={`media`}>
-                <source src={post.srcUrl + "/DASH_1080.mp4"} type="video/mp4" />
-                <source src={post.srcUrl + "/DASH_720.mp4"} type="video/mp4" />
-                <source src={post.srcUrl + "/DASH_480.mp4"} type="video/mp4" />
-              </video>
+              ""
+              // <video controls width="100%" className={`media`}>
+              //   <source src={post.srcUrl + "/DASH_1080.mp4"} type="video/mp4" />
+              //   <source src={post.srcUrl + "/DASH_720.mp4"} type="video/mp4" />
+              //   <source src={post.srcUrl + "/DASH_480.mp4"} type="video/mp4" />
+              // </video>
             ) : !post.isGallery ? (
               <img
                 src={post.srcUrl}

@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
   fetchRedditInfo,
-  selectLoadedStatus,
   selectPosts,
   selectGenrePath,
   selectGenreName,
@@ -15,35 +14,32 @@ import {
   selectSearchWord,
   updateGenrePosts,
 } from "./postsSlice";
+import { genresObject } from "../../utils/helperObjects";
 
 //move this to main js
 const Posts = () => {
   const dispatch = useDispatch();
-  const isLoaded = useSelector(selectLoadedStatus);
-  const postsArr = useSelector(selectPosts);
+  const rawPostsArr = useSelector(selectPosts);
   const genrePath = useSelector(selectGenrePath);
   const genreName = useSelector(selectGenreName);
   const isSearching = useSelector(selectIsSearching);
   const searchWord = useSelector(selectSearchWord);
   const searchResults = useSelector(selectSearchResults);
+  const allowYoutube = genresObject[genreName].allowYoutubeVideos;
+  const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);
+  const posts = isSearching && searchWord ? searchResults : formattedPosts;
 
   //fetch data from reddit
   useEffect(() => {
-    if (!isLoaded) {
-      dispatch(fetchRedditInfo(genrePath));
-    }
+    dispatch(fetchRedditInfo(genrePath));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const allowYoutube = true;
-  const formattedPosts = formatPosts(postsArr, genreName, allowYoutube);
-
-
+  
+  
   useEffect(() => {
     dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
   }, [dispatch, genreName, formattedPosts]);
 
-  const posts = isSearching && searchWord ? searchResults : formattedPosts;
 
   return (
     <div className="posts-section">

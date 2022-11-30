@@ -15,7 +15,7 @@ const Genres = () => {
 
   const handleSelect = (e) => {
     const genreName = e.currentTarget.value.replace(/ /g, "_");
-    const genrePath = genresObject[genreName];
+    const genrePath = genresObject[genreName].path;
     dispatch(changeGenre({ genreName: genreName, path: genrePath}));
     dispatch(fetchRedditInfo(genrePath));
     setGenreName(genreName.replace(/_/, " "));
