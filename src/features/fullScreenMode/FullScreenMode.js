@@ -75,7 +75,7 @@ const alt = post.title.toLowerCase();
       </button>
 
       {fsModeIsActive && (
-        <div className="full-screen-container" ref={fullScreenRef}>
+        <div className="full-screen-container" ref={fullScreenRef} style={{height: viewportHeight, width: viewportWidth}}>
           <div className="media-wrapper">
             {post.isVideo ? (
               ""
