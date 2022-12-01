@@ -9,9 +9,8 @@ import {
 import PostContainer from "./post/PostContainer";
 import { formatPosts } from "../../utils/helperFunctions";
 import {
-  selectIsSearching,
-  selectSearchResults,
-  selectSearchWord,
+  selectCurrentlyOnDisplay,
+  updateCurrentlyOnDisplayToCurrent,
   updateGenrePosts,
 } from "./postsSlice";
 import { genresObject } from "../../utils/helperObjects";
@@ -22,29 +21,34 @@ const Posts = () => {
   const rawPostsArr = useSelector(selectPosts);
   const genrePath = useSelector(selectGenrePath);
   const genreName = useSelector(selectGenreName);
-  const isSearching = useSelector(selectIsSearching);
-  const searchWord = useSelector(selectSearchWord);
-  const searchResults = useSelector(selectSearchResults);
-  const allowYoutube = genresObject[genreName].allowYoutubeVideos;
-  const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);
-  const posts = isSearching && searchWord ? searchResults : formattedPosts;
-
-  //fetch data from reddit
+  const currentlyOnDisplay = useSelector(selectCurrentlyOnDisplay);
+  
   useEffect(() => {
+    //this loads the default gallery on initial load
     dispatch(fetchRedditInfo(genrePath));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
-  
+
   useEffect(() => {
-    dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
-  }, [dispatch, genreName, formattedPosts]);
+    const allowYoutube = genresObject[genreName].allowYoutubeVideos;
+    const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);
+    dispatch(updateGenrePosts({ genreName: genreName, posts:  formattedPosts}));
+    //timeout function allows setPosts to register loadingPlaceholderArray before setting posts to formattedPosts 
+    const timer = setTimeout(() => {
+      dispatch(updateCurrentlyOnDisplayToCurrent({}))
+    }, 100);
+    return () => clearTimeout(timer);
+  }, [dispatch, rawPostsArr , genreName]);
+
+  
+
+  
 
 
   return (
     <div className="posts-section">
       <h5>Current Gallery: <em className="em">{genreName}</em></h5>
-      {posts.map((post, postIndex) => (
+      {currentlyOnDisplay.map((post, postIndex) => (
         <PostContainer
           post={post}
           postIndex={postIndex}

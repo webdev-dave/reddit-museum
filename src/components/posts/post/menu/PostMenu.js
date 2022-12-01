@@ -9,6 +9,8 @@ import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
 const PostMenu = ({ post }) => {
   //const [downloadUrl, setDownloadUrl] = useState(post.srcUrl);
   const credits = post.credits;
+  
+  
   //const gallery = isGallery && sortGallery(child.redditGalleryOrder, child.initialGallery);
   // const handleFullScreen = () => {
   //   setFullScreenOn(!fullScreenOn);
@@ -32,7 +34,7 @@ const PostMenu = ({ post }) => {
         >
           Origin
         </a>
-        
+  
         {(post.isVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
       </div>
     </div>

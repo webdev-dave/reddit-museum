@@ -12,7 +12,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- create loading effect when genre change occurs (or on original loading)
 - work on accessing sound in reddit videos
 - place full screen button right below image/media
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)

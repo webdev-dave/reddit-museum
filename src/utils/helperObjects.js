@@ -4,7 +4,7 @@ export const genresObject = {
     architecture:  {path: "/r/ArchitecturePorn/", allowYoutubeVideos: false},
     astro_photography: {path: "/r/LandscapeAstro/", allowYoutubeVideos: false},
     design: {path: "/r/DesignPorn/", allowYoutubeVideos: false},
-    film: {path: "/r/filmphotograph/", allowYoutubeVideos: false},
+    film: {path: "/r/filmphotography/", allowYoutubeVideos: false},
     impressionism: {path: "/r/impressionism/", allowYoutubeVideos: false},
     mixed_paintings: {path: "/r/ArtPorn/", allowYoutubeVideos: false},
     landscapes: {path: "/r/EarthPorn/", allowYoutubeVideos: false} ,

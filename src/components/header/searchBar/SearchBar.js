@@ -18,12 +18,17 @@ const SearchBar = () => {
     dispatch(updateIsSearching({value: !isExpanded}));
   };
   const handleSearchBarInput = (e) => {
-    dispatch(search({searchWord: e.target.value}))
+    dispatch(search({searchWord: e.target.value}));
   }
 
 
 
-  const handleClickOutside = (e) => (!containerRef.current.contains(e.target) && setIsExpanded(false));
+  const handleClickOutside = (e) => {
+    if(!containerRef.current.contains(e.target)){
+      setIsExpanded(false);
+      dispatch(search({searchWord: ""}));
+    }
+  };
   useEffect(() => {
     if (isExpanded) {
       document.addEventListener("mousedown", handleClickOutside);

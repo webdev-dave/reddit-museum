@@ -20,6 +20,7 @@ const FullScreenMode = ({ post }) => {
   window.innerHeight >= window.innerWidth
     ? { height: "auto", width: `${viewportWidth}px` }
     : { height: `${viewportHeight}px`, width: "auto" };
+  const containerStyles = window.innerWidth < 850 ? {height: viewportHeight, width: viewportWidth} : {height: "100%", width: "100%"}
 
 const alt = post.title.toLowerCase();
   const getCurrentGalleryImgSrcUrl = () => {
@@ -75,7 +76,7 @@ const alt = post.title.toLowerCase();
       </button>
 
       {fsModeIsActive && (
-        <div className="full-screen-container" ref={fullScreenRef} style={{height: viewportHeight, width: viewportWidth}}>
+        <div className="full-screen-container" ref={fullScreenRef} style={containerStyles}>
           <div className="media-wrapper">
             {post.isVideo ? (
               ""

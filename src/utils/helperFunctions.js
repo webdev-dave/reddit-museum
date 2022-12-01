@@ -105,3 +105,7 @@ export const returnMaximumOfTenArrayItems = (array) => {
   }
   return array.slice(0, 11);
 }
+
+export const createLoadingArray = (array) => {
+  return Array.from({length: array.length}, element => ({title: "loading...", srcUrl: "", credits: {authorUrl: ""}}));
+}

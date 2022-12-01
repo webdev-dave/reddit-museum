@@ -11,7 +11,6 @@ const initialState = {
     postsArrLength: "",
     posts: [],
   },
-  processedPosts: [],
 };
 
 export const fetchRedditInfo = createAsyncThunk(
@@ -31,11 +30,15 @@ const redditApiRequestSlice = createSlice({
     changeGenre: (state, action) => {
       state.genreName = action.payload.genreName;
       state.genrePath = action.payload.path;
+      
     },
     updateSortedGalleries: (state, action) => {
       const postIndex = action.payload.postIndex;
       state.processedPosts[postIndex] = action.payload.value;
-    }
+    },
+    updateDisplayLoadingArray: (state, action) => {
+      state.displayLoadingArray = action.payload.value;
+    },
   },
   extraReducers: {
     [fetchRedditInfo.pending]: (state, action) => {
@@ -95,6 +98,7 @@ const redditApiRequestSlice = createSlice({
           };
         }
       );
+      
     },
     [fetchRedditInfo.rejected]: (state, action) => {
       state.isLoading = false;

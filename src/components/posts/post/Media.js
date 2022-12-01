@@ -1,4 +1,3 @@
-//if type img return img, if type = video, return video
 const Media = ({ post, src, className }) => {
     const alt = post.title.toLowerCase();
     return !post.isVideo ? (
