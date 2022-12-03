@@ -29,6 +29,12 @@ const Posts = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
+  
+
+
+
+
   useEffect(() => {
     const allowYoutube = genresObject[genreName].allowYoutubeVideos;
     const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);

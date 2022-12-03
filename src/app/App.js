@@ -1,18 +1,21 @@
+import { Routes, Route } from "react-router-dom";
 import Header from "../components/header/Header";
-// import "../components/posts/post/postMenu/postMenuStyles.css";
-import MainBanner from "../components/mainBanner/MainBanner";
-import Posts from "../components/posts/Posts";
-
+import NotFound from "../components/pages/notFound/NotFound";
+import LoadPosts from "../components/pages/home/routerTools/LoadPosts";
+import OptionRoutes from "../components/pages/home/routerTools/OptionRoutes";
+import "../features/fullScreenMode/fullScreenMode.css"
 
 function App() {
-  
   return (
-    <div className={`app`}>
-      <Header/>
-      <main className="posts-section">
-      <MainBanner />
-      <Posts />
-    </main>
+    <div className="app">
+      {/* <Header/> */}
+      <Routes>
+        <Route path="/" element={<Header/>}>
+          <Route index element={<LoadPosts/>} />
+          <Route path="/*" element={<OptionRoutes/>} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

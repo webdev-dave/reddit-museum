@@ -1,6 +1,5 @@
 // import { useState } from "react";
 import "./postMenuStyles.css";
-import "../../../../features/fullScreenMode/fullScreenMode.css";
 import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
 import { removeLongWords } from "../../../../utils/helperFunctions";
 

@@ -12,8 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- make react route aware of current genre category
+- incorporate react-router into mobile menu
 - work on subsub menu
-- incorporate react router into app so that user should be able to use the web browser arrows undo/redo steps. (this wil also allow users to share specific galleries as specific webpages)
 - prevent youtube iframes from crashing/overloading page
 - place full screen button right below image/media
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)

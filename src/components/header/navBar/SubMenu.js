@@ -1,26 +1,23 @@
-import { useDispatch } from "react-redux";
-import {
-  changeGenre,
-  fetchRedditInfo,
-} from "../../../features/apiRequests/redditApiRequestSlice";
+import { Link } from "react-router-dom";
 import { genreNames } from "../../../utils/helperArrays";
-import { genresObject, navSubOptions } from "../../../utils/helperObjects";
+import { navSubOptions } from "../../../utils/helperObjects";
 
 const SubMenu = ({ option, isExpanded, index }) => {
-  const dispatch = useDispatch();
   //replace blank spaces in genre names with underscores
   genreNames.forEach((genreName, i) => {
     genreNames[i] = genreName.replace(/_/g, " ");
   });
+  
+ 
 
-  const handleSelect = (e) => {
-    console.log(e.currentTarget.innerText);
-    const genreName = e.currentTarget.innerText.replace(/ /g, "_");
-    const genrePath = genresObject[genreName.toLowerCase()].path;
-    console.log(genrePath);
-    dispatch(fetchRedditInfo(genrePath));
-    dispatch(changeGenre({ genreName: genreName, path: genrePath }));
-  };
+  // const handleSelect = (e) => {
+  //   console.log(e.currentTarget.innerText);
+  //   const genreName = e.currentTarget.innerText.replace(/ /g, "_");
+  //   const genrePath = genresObject[genreName.toLowerCase()].path;
+  //   console.log(genrePath);
+  //   dispatch(fetchRedditInfo(genrePath));
+  //   dispatch(changeGenre({ genreName: genreName, path: genrePath }));
+  // };
 
   return (
     <ul className={`sub-menu ${isExpanded[index] ? "expanded" : "collapsed"}`}>
@@ -41,9 +38,9 @@ const SubMenu = ({ option, isExpanded, index }) => {
           <li
             className="sub-option"
             key={"sub-option-" + i}
-            onClick={handleSelect}
+            
           >
-            {subOption}
+            <Link to={option+"/"+subOption}>{subOption}</Link>
           </li>
         );
       })}

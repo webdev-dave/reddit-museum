@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./mobileMenuStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Genres from "../genres/Genres";
+import Genres from "./GenreSelector";
 import { useEffect } from "react";
 import { useRef } from "react";
 

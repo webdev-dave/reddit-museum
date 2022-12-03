@@ -24,8 +24,8 @@ const Genres = () => {
   return (
     <div className="genres">
       <select name="genre" id="genre" value={genreName} onChange={handleSelect}>
-        {genreNames.map((g) => (
-          <option key={g}>{g}</option>
+        {genreNames.map((genreName) => (
+          <option key={genreName}>{genreName}</option>
         ))}
       </select>
     </div>
