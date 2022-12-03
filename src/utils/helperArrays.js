@@ -1,15 +1,6 @@
-import { genresObject } from "./helperObjects";
+import { genresObject, navSubOptions } from "./helperObjects";
 
-export const navOptions = [
-  "photography",
-  "digital",
-  "ai",
-  "paintings",
-  "cinema",
-  "sculptures",
-  "architecture",
-  "about",
-];
+export const navOptions = Object.keys(navSubOptions);
 
 export const genreNames =  Object.keys(genresObject);
 

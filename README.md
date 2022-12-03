@@ -12,20 +12,16 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- work on subsub menu
+- incorporate react router into app so that user should be able to use the web browser arrows undo/redo steps. (this wil also allow users to share specific galleries as specific webpages)
+- prevent youtube iframes from crashing/overloading page
 - place full screen button right below image/media
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
-- full screen mode using react router?
-- add zoom in/out buttons for image in full screen mode (or at least make sure to allow default browser zoom to work - currently no working) - work on accessing sound in reddit videos
-- add search button to activate search, also show amount of search results on the top of the search results page
-- also show notifiaction that current results are search resutls (otherwise, the search section can collapse on outside click and then user can be left only with filtered search results without realizing it )
-- maybe turn download feature into full-screen viewing feature (just change icon)
+- add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)- work on accessing sound in reddit videos
+- add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
 - make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
-- add a chromecase / cast to tv option
-- make download button downloadUrl work for galleries
-- make sure download button changes when art genre/gallery changes
-- make download button functional
-- create video banner like MET website
+- add a chromecast / cast to tv option
 - create touch/swipe effect for gallery on mobile
 - make videos stop playing automatically when user scrolls out of sight
 - figure out how to make a 3D art/photo frame with pure css
@@ -34,6 +30,8 @@ A digital art gallery that displays art collected from the various artistic encl
 - make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
 - create footer?
+- add download button
+- create video banner like MET website
 - look into alternative state management options (react context ?)
 
 ## Must-Fix/Bugs
@@ -42,7 +40,8 @@ A digital art gallery that displays art collected from the various artistic encl
 - sound in videos
 
 ## Features
-- maybe only load by defualt posts that have above x amount of likes. This will ensure the quality of the photo/art (more likes = more relatable / more captivating). Additionally, maybe i can add a filter by amount of likes option where user gets to set standard of the art they load.
+
+- maybe only load by default posts that have above x amount of likes. This will ensure the quality of the photo/art (more likes = more relatable / more captivating). Additionally, maybe i can add a filter by amount of likes option where user gets to set standard of the art they load.
 - add load more button
 - filter through art by genre
 - filter through art using the search bar

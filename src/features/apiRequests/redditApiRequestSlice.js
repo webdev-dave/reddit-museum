@@ -58,7 +58,6 @@ const redditApiRequestSlice = createSlice({
       state.redditData.postsArrLength = action.payload.data.dist;
       state.redditData.posts = action.payload.data.children.map(
         (child) => {
-          console.log(child.data)
           return {
             isGallery: child.data.is_gallery ? true : false,
             thumbnail: child.data.thumbnail,
