@@ -2,6 +2,7 @@
 import "./postMenuStyles.css";
 import "../../../../features/fullScreenMode/fullScreenMode.css";
 import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
+import { removeLongWords } from "../../../../utils/helperFunctions";
 
 // import { saveAs } from "file-saver";
 // import { sortGallery } from "../../../utils/helperFunctions";
@@ -20,13 +21,16 @@ const PostMenu = ({ post }) => {
   // }
 
   return (
-    <div>
+    <div className="post-menu">
+      {(post.isVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
+      
+      <h5>{removeLongWords(post.title).toUpperCase()}</h5>
       <p className="author-url">
         <a href={credits.authorUrl} target="_blank" rel="noreferrer noopener">
           {credits.author}
         </a>
       </p>
-      <div className="post-menu">
+      <div className="post-menu-footer">
         <a
           href={credits.redditPostUrl}
           target="_blank"
@@ -35,7 +39,7 @@ const PostMenu = ({ post }) => {
           Origin
         </a>
   
-        {(post.isVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
+        
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import Media from "./Media";
 import EmbedGal from "./embedGal/EmbedGal";
 import PostMenu from "./menu/PostMenu";
 import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-import { removeLongWords } from "../../../utils/helperFunctions";
 import { useRef } from "react";
 import { useEffect } from "react";
 
@@ -22,7 +21,6 @@ const PostContainer = ({ post, postIndex }) => {
       ) : post.isGallery ? (
         <EmbedGal post={post} />
       ) : ""}
-      <h5>{removeLongWords(post.title).toUpperCase()}</h5>
       <PostMenu post={post} />
     </div>
   );

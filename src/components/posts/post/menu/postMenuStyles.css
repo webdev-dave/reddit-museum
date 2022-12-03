@@ -1,12 +1,28 @@
-.post-container .author-url {
+  button.full-screen {
+  float: right;
+  margin-top: 0.8rem;
+  border: none;
+  padding: 0;
+  /* background-color: aqua; */
+  z-index: 11;
+}
+
+button.full-screen .icon {
+  font-size: 1.5rem;
+  border: none;
+}
+
+
+.post-menu .author-url {
   text-align: center;
   margin-bottom: 4rem;
 }
+.post-container .author-url a,
 .post-container .author-url a {
   text-decoration: none;
 }
 
-.post-container .post-menu {
+.post-container .post-menu-footer {
   width: 100%;
   display: flex;
   align-items: center;
@@ -14,19 +30,9 @@
   margin: 0 auto;
 }
 
-.post-container .post-menu a {
+.post-menu-footer a {
   font-size: 1rem;
 }
 
-.post-menu button {
-  border: none;
-  background-color: aqua;
-  z-index: 11;
-}
-
-.post-menu a .icon {
-  font-size: 1.5rem;
-  border: none;
-}
 
 

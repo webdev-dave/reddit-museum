@@ -68,6 +68,7 @@ const alt = post.title.toLowerCase();
     <div>
       <button
         ref={originRef}
+        className="full-screen"
         onClick={() => {
           setFsModeIsActive(!fsModeIsActive);
         }}
@@ -104,8 +105,8 @@ const alt = post.title.toLowerCase();
             )}
           </div>
 
-          <button onClick={exitFsMode}>
-            <BiExitFullscreen />
+          <button onClick={exitFsMode} className="full-screen">
+            <BiExitFullscreen className="icon" />
           </button>
         </div>
       )}

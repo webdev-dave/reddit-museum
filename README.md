@@ -12,11 +12,10 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- work on accessing sound in reddit videos
 - place full screen button right below image/media
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - full screen mode using react router?
-- add zoom in/out buttons for image in full screen mode (or at least make sure to allow default browser zoom to work - currently no working)
+- add zoom in/out buttons for image in full screen mode (or at least make sure to allow default browser zoom to work - currently no working) - work on accessing sound in reddit videos
 - add search button to activate search, also show amount of search results on the top of the search results page
 - also show notifiaction that current results are search resutls (otherwise, the search section can collapse on outside click and then user can be left only with filtered search results without realizing it )
 - maybe turn download feature into full-screen viewing feature (just change icon)
