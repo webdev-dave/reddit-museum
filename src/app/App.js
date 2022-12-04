@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "../components/header/Header";
 import NotFound from "../components/pages/notFound/NotFound";
 import LoadPosts from "../components/pages/home/routerTools/LoadPosts";
-import OptionRoutes from "../components/pages/home/routerTools/OptionRoutes";
+import OptionRoutes from "../components/pages/home/routerTools/CategoryRoutes";
 import "../features/fullScreenMode/fullScreenMode.css"
 
 function App() {

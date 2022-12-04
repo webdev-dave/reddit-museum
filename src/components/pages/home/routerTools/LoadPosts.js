@@ -9,7 +9,7 @@ import { genresObject } from "../../../../utils/helperObjects";
 import Posts from "../../../posts/Posts";
 import NotFound from "../../notFound/NotFound";
 
-const LoadPosts = () => {
+const LoadPosts = ({category}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   // const contextObj = useOutletContext();
@@ -29,7 +29,7 @@ const LoadPosts = () => {
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
         <>
-          <h1>Dynamic Auto GenreName</h1>
+          <h1>{category}</h1>
           <Posts />
         </>
       ) : (
