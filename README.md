@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
 - make react route aware of current genre category
 - incorporate react-router into mobile menu
 - work on subsub menu
@@ -43,6 +44,7 @@ A digital art gallery that displays art collected from the various artistic encl
 ## Features
 
 - maybe only load by default posts that have above x amount of likes. This will ensure the quality of the photo/art (more likes = more relatable / more captivating). Additionally, maybe i can add a filter by amount of likes option where user gets to set standard of the art they load.
+- allow user to filter out all NSFW posts
 - add load more button
 - filter through art by genre
 - filter through art using the search bar

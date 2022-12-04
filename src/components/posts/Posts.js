@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import {
-  fetchRedditInfo,
   selectPosts,
-  selectGenrePath,
   selectGenreName,
 } from "../../features/apiRequests/redditApiRequestSlice";
 import PostContainer from "./post/PostContainer";
@@ -19,21 +17,9 @@ import { genresObject } from "../../utils/helperObjects";
 const Posts = () => {
   const dispatch = useDispatch();
   const rawPostsArr = useSelector(selectPosts);
-  const genrePath = useSelector(selectGenrePath);
   const genreName = useSelector(selectGenreName);
   const currentlyOnDisplay = useSelector(selectCurrentlyOnDisplay);
   
-  useEffect(() => {
-    //this loads the default gallery on initial load
-    dispatch(fetchRedditInfo(genrePath));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-
-  
-
-
-
 
   useEffect(() => {
     const allowYoutube = genresObject[genreName].allowYoutubeVideos;
@@ -46,9 +32,6 @@ const Posts = () => {
     return () => clearTimeout(timer);
   }, [dispatch, rawPostsArr , genreName]);
 
-  
-
-  
 
 
   return (

@@ -7,23 +7,34 @@ import {
 } from "../../../../features/apiRequests/redditApiRequestSlice";
 import { genresObject } from "../../../../utils/helperObjects";
 import Posts from "../../../posts/Posts";
+import NotFound from "../../notFound/NotFound";
 
 const LoadPosts = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   // const contextObj = useOutletContext();
   const genreName = id ? id : "ai";
-  const genrePath = genresObject[genreName.toLowerCase()].path;
+  const genrePath = genresObject[genreName.toLowerCase()]
+    ? genresObject[genreName.toLowerCase()].path
+    : false;
   //console.log(genrePath);
   useEffect(() => {
-    dispatch(fetchRedditInfo(genrePath));
-    dispatch(changeGenre({ genreName: genreName, path: genrePath }));
+    if (genrePath) {
+      dispatch(fetchRedditInfo(genrePath));
+      dispatch(changeGenre({ genreName: genreName, path: genrePath }));
+    }
   });
   return (
     <main className="posts-section">
-      <h1>Dynamic Auto GenreName</h1>
       {/* <h3>id = {id}</h3> */}
-      <Posts />
+      {genrePath ? (
+        <>
+          <h1>Dynamic Auto GenreName</h1>
+          <Posts />
+        </>
+      ) : (
+        <NotFound />
+      )}
     </main>
   );
 };

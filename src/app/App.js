@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Header/>}>
           <Route index element={<LoadPosts/>} />
-          <Route path="/*" element={<OptionRoutes/>} />
+          <Route path="/:id/*" element={<OptionRoutes/>} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

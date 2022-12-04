@@ -8,16 +8,7 @@ const SubMenu = ({ option, isExpanded, index }) => {
     genreNames[i] = genreName.replace(/_/g, " ");
   });
   
- 
 
-  // const handleSelect = (e) => {
-  //   console.log(e.currentTarget.innerText);
-  //   const genreName = e.currentTarget.innerText.replace(/ /g, "_");
-  //   const genrePath = genresObject[genreName.toLowerCase()].path;
-  //   console.log(genrePath);
-  //   dispatch(fetchRedditInfo(genrePath));
-  //   dispatch(changeGenre({ genreName: genreName, path: genrePath }));
-  // };
 
   return (
     <ul className={`sub-menu ${isExpanded[index] ? "expanded" : "collapsed"}`}>
