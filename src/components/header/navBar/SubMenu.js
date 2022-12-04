@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { genreNames } from "../../../utils/helperArrays";
 import { navSubOptions } from "../../../utils/helperObjects";
 
