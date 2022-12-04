@@ -1,20 +1,17 @@
 import { Routes, Route } from "react-router-dom";
 import Header from "../components/header/Header";
-import NotFound from "../components/pages/notFound/NotFound";
-import LoadPosts from "../components/pages/home/routerTools/LoadPosts";
-import OptionRoutes from "../components/pages/home/routerTools/CategoryRoutes";
 import "../features/fullScreenMode/fullScreenMode.css"
+import CategoryRoutes from "../components/pages/routerTools/CategoryRoutes";
+import Home from "../components/pages/home/Home";
 
 function App() {
   return (
     <div className="app">
-      {/* <Header/> */}
       <Routes>
         <Route path="/" element={<Header/>}>
-          <Route index element={<LoadPosts/>} />
-          <Route path="/:id/*" element={<OptionRoutes/>} />
+          <Route index element={<Home />} />
+          <Route path="/:id/*" element={<CategoryRoutes/>} />
         </Route>
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

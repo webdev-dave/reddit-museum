@@ -38,7 +38,6 @@ const PostMenu = ({ post }) => {
           Origin
         </a>
   
-        
       </div>
     </div>
   );

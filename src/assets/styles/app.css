@@ -116,6 +116,17 @@ nav {
 }
 
 /* -------------------------------------------------------- posts section */
+
+h1.category-name {
+  font-size: 4rem;
+} 
+
+@media only screen and (min-width: 900px) {
+  h1.category-name {
+    font-size: 6rem;
+  } 
+}
+
 .posts-section h5 {
   font-style: italic;
   margin-top: 4rem;

@@ -13,7 +13,7 @@ const Header = () => {
           <SearchBar />
         </nav>
       </header>
-      <Outlet context={{value: "hello world"}} />
+      <Outlet context={{value: ""}} />
     </>
   );
 };

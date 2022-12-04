@@ -13,20 +13,20 @@ body.freeze-scroll {
   left: 0;
   top: 0;
   background-color: black;
-  /* height: 100%;
-  width: 100%; */
   display: flex;
-
   justify-content: center;
+  /* align-items is for mobile */
+  align-items: center;
 }
 
-.full-screen-container button {
+.full-screen-container button.exit {
   border-left: 1px solid black;
   padding: 4px;
   margin: 0;
+  height: 100%;
 }
 
-.full-screen-container button .icon {
+.full-screen-container button.exit .icon {
   font-size: 1.8rem;
 }
 

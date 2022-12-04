@@ -1,4 +1,4 @@
-  button.full-screen {
+  button.full-screen.enter {
   float: right;
   margin-top: 0.8rem;
   border: none;
@@ -7,7 +7,7 @@
   z-index: 11;
 }
 
-button.full-screen .icon {
+button.full-screen.enter .icon {
   font-size: 1.5rem;
   border: none;
 }

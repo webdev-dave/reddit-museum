@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { genreNames } from "../../../utils/helperArrays";
 import { navSubOptions } from "../../../utils/helperObjects";
 
@@ -31,7 +31,7 @@ const SubMenu = ({ option, isExpanded, index }) => {
             key={"sub-option-" + i}
             
           >
-            <Link to={option+"/"+subOption}>{subOption}</Link>
+            <NavLink to={option+"/"+subOption} >{subOption}</NavLink>
           </li>
         );
       })}

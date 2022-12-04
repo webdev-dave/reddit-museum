@@ -4,16 +4,18 @@ import { useParams } from "react-router-dom";
 import {
   changeGenre,
   fetchRedditInfo,
-} from "../../../../features/apiRequests/redditApiRequestSlice";
-import { genresObject } from "../../../../utils/helperObjects";
-import Posts from "../../../posts/Posts";
-import NotFound from "../../notFound/NotFound";
+} from "../../../features/apiRequests/redditApiRequestSlice";
+import { capitalizeFirstCharacter } from "../../../utils/helperFunctions";
+import { genresObject } from "../../../utils/helperObjects";
+import Posts from "../../posts/Posts";
+import NotFound from "../notFound/NotFound";
 
-const LoadPosts = ({category}) => {
+const LoadPosts = ({category, subCategory}) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   // const contextObj = useOutletContext();
-  const genreName = id ? id : "ai";
+  const genreName = id ? id : "";
+  // const genreName = id ? id : "ai";
   const genrePath = genresObject[genreName.toLowerCase()]
     ? genresObject[genreName.toLowerCase()].path
     : false;
@@ -29,7 +31,7 @@ const LoadPosts = ({category}) => {
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
         <>
-          <h1>{category}</h1>
+          <h1 className="category-name">{capitalizeFirstCharacter(category)}</h1>
           <Posts />
         </>
       ) : (
