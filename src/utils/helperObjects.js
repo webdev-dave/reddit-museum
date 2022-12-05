@@ -11,6 +11,7 @@ export const genresObject = {
     film: {path: "/r/filmphotography/", allowYoutubeVideos: false},
     impressionism: {path: "/r/impressionism/", allowYoutubeVideos: false},
     mixed_paintings: {path: "/r/ArtPorn/", allowYoutubeVideos: false},
+    movie_posters: {path: "/r/MoviePosterPorn/", allowYoutubeVideos: false},
     modern: {path: "/r/AbstractArt/", allowYoutubeVideos: false},
     landscapes: {path: "/r/EarthPorn/", allowYoutubeVideos: false} ,
     pop_art: {path: "/r/PopArt/", allowYoutubeVideos: false},
@@ -30,7 +31,7 @@ export const navSubCategories = {
     photography: ["street_photography", "film", "ariel_photography", "landscapes", "astro_photography", "wildlife",  "portraits", {historical: ["wild_west", "color_restoration", "placeholder_2"]}],
     digital: ["ai", "digital_paintings", "psychedelic_visuals", "castles"],
     paintings: ["mixed_paintings", "modern", "surrealism", "drawings", "contemporary_mix"],
-    cinema: ["short_films"],
+    cinema: ["short_films", "movie_posters"],
     structural: ["architecture", "sculptures"],
     about: [],
   };
