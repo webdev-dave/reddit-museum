@@ -25,9 +25,22 @@
     font-weight: 700;
 }
 
+.extra-text {
+    position: relative;
+    left: 0;
+    top: 180px;
+    background: #000;
+    backdrop-filter: blur(1.6rem);
+    -webkit-backdrop-filter: blur(1.6rem);
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
+    transform: translateX(-200px);
+    transition: transform 150ms ease-in, opacity 150ms ease-in;
+}
+
 .dropdown {
     position: absolute;
     opacity: 0;
+    left: 0;
     top: 80px;
     background: hsla(0, 0%, 100% / 0.1);
     backdrop-filter: blur(1.6rem);
@@ -41,7 +54,11 @@
     /* height is set inside the MobileMenu react component */
     opacity: 1;
     transform: translateX(0px);
+    overflow-y: auto;
 }
+
+
+
 
 .dropdown.expanded p {
     margin: 1rem 0;

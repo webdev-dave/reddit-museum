@@ -12,8 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- create hash url via react-router and see if that fixes netlify link sharing problem
-- make mobile menu collapse after selection of a new gallery
+- allow mobile menu to scroll on content overflow
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
 - make react route aware of current genre category
 - incorporate react-router into mobile menu
