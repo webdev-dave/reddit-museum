@@ -169,19 +169,11 @@ h1.category-name {
   text-overflow: hidden;
 }
 
+/* for phone landscape-mode and laptops */
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 700px) {
   .post-container {
     max-width: 35%;
   }
 }
 
-/* for phone landscape-mode */
-@media only screen and (min-width: 700px) {
-  .post-container {
-    max-width: 55%;
-  }
-}
-
-/* -------------------------------- gallery */
-/* for gallery animation go to embedGal.css */
