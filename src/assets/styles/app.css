@@ -176,5 +176,12 @@ h1.category-name {
   }
 }
 
+/* for phone landscape-mode */
+@media only screen and (min-width: 700px) {
+  .post-container {
+    max-width: 55%;
+  }
+}
+
 /* -------------------------------- gallery */
 /* for gallery animation go to embedGal.css */
