@@ -9,7 +9,7 @@ const Header = () => {
       <header>
         <nav>
           <MobileMenu />
-          <NavBar />
+          <NavBar isColumn={false}/>
           <SearchBar />
         </nav>
       </header>

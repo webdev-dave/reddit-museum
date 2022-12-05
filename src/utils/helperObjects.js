@@ -26,7 +26,7 @@ export const genresObject = {
     wild_west: {path: "/r/WildWestPics/", allowYoutubeVideos: false}
 }
 
-export const navSubOptions = {
+export const navSubCategories = {
     photography: ["street_photography", "film", "ariel_photography", "landscapes", "astro_photography", "wildlife",  "portraits", {historical: ["wild_west", "color_restoration", "placeholder_2"]}],
     digital: ["ai", "digital_paintings", "psychedelic_visuals", "castles"],
     paintings: ["mixed_paintings", "modern", "surrealism", "drawings", "contemporary_mix"],

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./mobileMenuStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
-import Genres from "./GenreSelector";
 import { useEffect } from "react";
 import { useRef } from "react";
+import NavBar from "../navBar/NavBar";
 
 const MobileMenu = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -11,28 +11,26 @@ const MobileMenu = () => {
   const sideMenuRef = useRef();
   const expandedClassName = isExpanded ? "expanded" : "";
 
-  
   useEffect(() => {
     const handleResize = () => setVh(window.innerHeight * 0.01);
     window.addEventListener("resize", handleResize);
     return () => document.removeEventListener("resize", handleResize);
   });
 
-
-  const handleClickOutside = (e) => (!sideMenuRef.current.contains(e.target) && setIsExpanded(false));
+  const handleClickOutside = (e) =>
+    !sideMenuRef.current.contains(e.target) && setIsExpanded(false);
   useEffect(() => {
     if (isExpanded) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () => document.removeEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
     }
   });
-
-
 
   return (
     <div className="side-menu-container" ref={sideMenuRef}>
       <button
-        onClick={()=>setIsExpanded(!isExpanded)}
+        onClick={() => setIsExpanded(!isExpanded)}
         className={expandedClassName}
       >
         {isExpanded ? <FaTimes /> : <FaBars />}
@@ -41,8 +39,8 @@ const MobileMenu = () => {
         className={`dropdown ${expandedClassName}`}
         style={{ height: `100${vh}px` }}
       >
-        {isExpanded && <p className="art-genres">Art Genres</p>}
-        {isExpanded && <Genres />}
+     
+        <NavBar isColumn={true} />
       </div>
     </div>
   );

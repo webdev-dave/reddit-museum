@@ -1,17 +1,18 @@
 import React, { createRef, useMemo } from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { navOptions } from "../../../utils/helperArrays";
+import { navCategories } from "../../../utils/helperArrays";
 import { capitalizeFirstCharacter } from "../../../utils/helperFunctions";
 import "./navBarStyles.css";
 import SubMenu from "./SubMenu";
 
-const NavBar = () => {
+const NavBar = ({isColumn}) => {
+  console.log(isColumn);
   const [isExpanded, setIsExpanded] = useState(
-    Array(navOptions.length).fill(false)
+    Array(navCategories.length).fill(false)
   );
   const optionRefs = useMemo(
-    () => Array.from({ length: navOptions.length }).map(() => createRef()),
+    () => Array.from({ length: navCategories.length }).map(() => createRef()),
     []
   );
 
@@ -35,24 +36,24 @@ const NavBar = () => {
   };
 
   return (
-    <div className="nav-bar">
-      {navOptions.map((option, index) => (
+    <div className={`nav-bar ${isColumn ? "column" : "row"}`}>
+      {navCategories.map((category, index) => (
         <div
-          key={"option-" + index}
-          className={`option`}
+          key={"category-" + index}
+          className={`category`}
           ref={optionRefs[index]}
         >
           <NavLink
-            to={option}
-            className={`nav-link ${isExpanded[index] ? "expanded" : ""}`}
+            to={category}
+            className={`category-link ${isExpanded[index] ? "expanded" : ""}`}
             onClick={() => {
               handleClickInside(index);
             }}
           >
-            {capitalizeFirstCharacter(option)}
+            {capitalizeFirstCharacter(category)}
           </NavLink>
 
-          <SubMenu option={option} isExpanded={isExpanded} index={index} />
+          <SubMenu category={category} isExpanded={isExpanded} index={index} />
         </div>
       ))}
     </div>

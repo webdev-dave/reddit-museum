@@ -1,6 +1,6 @@
-import { genresObject, navSubOptions } from "./helperObjects";
+import { genresObject, navSubCategories } from "./helperObjects";
 
-export const navOptions = Object.keys(navSubOptions);
+export const navCategories = Object.keys(navSubCategories);
 
 export const genreNames =  Object.keys(genresObject);
 
