@@ -7,7 +7,6 @@ import "./navBarStyles.css";
 import SubMenu from "./SubMenu";
 
 const NavBar = ({isColumn}) => {
-  console.log(isColumn);
   const [isExpanded, setIsExpanded] = useState(
     Array(navCategories.length).fill(false)
   );
@@ -45,8 +44,11 @@ const NavBar = ({isColumn}) => {
         >
           <NavLink
             to={category}
+            
             className={`category-link ${isExpanded[index] ? "expanded" : ""}`}
-            onClick={() => {
+            onClick={(e) => {
+              //this prevents category-nav-link selection from loading which would return a 404 error since categories without adjacent subcategories do not exist as valid selections/independent pages (i.e. there are no category homepages)
+              e.preventDefault()
               handleClickInside(index);
             }}
           >
