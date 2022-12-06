@@ -8,7 +8,6 @@ import NavBar from "../navBar/NavBar";
 const MobileMenu = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [vh, setVh] = useState(window.innerHeight * 0.01);
-
   const headerHeight = "80";
   const sideMenuRef = useRef();
   const expandedClassName = isExpanded ? "expanded" : "";

@@ -19,6 +19,8 @@ font-family: 'IBM Plex Sans', sans-serif;
   /* fonts  */
   --main-font: 'IBM Plex Sans', sans-serif;
   --poppins: 'Poppins', sans-serif;
+  /* measurements */
+  --header-height: 80px;
 }
 
 html {
@@ -84,10 +86,10 @@ img {
 /* ------------------------------------------------------------- Header & Nav */
 
 nav {
-  min-height: 80px;
+  height: var(--header-height);
   width: 100%;
   position: fixed;
-  z-index: 100;
+  z-index: 11;
   top: 0px;
   display: flex;
   justify-content: space-between;
