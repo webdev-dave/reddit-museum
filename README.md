@@ -4,7 +4,7 @@
 
 ## Please note
 
-This project is currently in development mode and is being updated daily 
+This project is currently in development mode and is being updated daily
 
 ## Overview
 
@@ -12,15 +12,13 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- make header thinner (less tall - height around 65px)
+- style desktop dropdown submenus (change background color and adjust box shadows)
+- add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
-- make react route aware of current genre category
-- incorporate react-router into mobile menu
 - work on subsub menu
 - prevent youtube iframes from crashing/overloading page
-- place full screen button right below image/media
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
-- add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)- work on accessing sound in reddit videos
+- work on accessing sound in reddit videos
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
 - make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
@@ -39,7 +37,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## Must-Fix/Bugs
 
-- detect embedded videos inside galleries
 - sound in videos
 
 ## Features
@@ -50,7 +47,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - filter through art by genre
 - filter through art using the search bar
 - create a shuffled section which combines a random mix of art from all the galleries
-- figure out how to load photos 4 times a day to a server and host from there
+- figure out how to load photos every 6 hours to a server and host from there
 
 ### User Guide
 
@@ -59,11 +56,12 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## Potential Extra Features
 
-- merge and multiple subreddits of similar genres in same "genre page"
+- merge multiple subreddits of similar genres in same "genre page"
 - change image resolution from default
 - download img button
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading
 - create a weekly newsletter sent via email that curates all the top art from each genre
+- figure out how to read most prominent color in a given image (or secondary) and automatically make background color that color in fullScreenMode
 
 ## Details and Specs
 
@@ -71,6 +69,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 - Making HTTP fetch requests to an external web API (the Reddit API)
 - Working with JSON data
+- working with navigation-menus, filepaths and url's using React-Router-Dom
 - Loading an initial/default view of data
 - Function Components and React Hooks
 - State Management using the redux store

@@ -34,7 +34,7 @@ const MobileMenu = () => {
         onClick={() => setIsExpanded(!isExpanded)}
         className={expandedClassName}
       >
-        {isExpanded ? <FaTimes /> : <FaBars />}
+        {isExpanded ? <FaTimes className="icon" /> : <FaBars className="icon" />}
       </button>
       <div
         className={`nav-bar-container ${expandedClassName}`}
