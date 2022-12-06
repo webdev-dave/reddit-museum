@@ -45,6 +45,7 @@
     /* height is set inside the MobileMenu react component */
     opacity: 1;
     transform: translateX(0px);
+    margin-bottom: 400px;
 
 }
 

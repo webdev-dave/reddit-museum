@@ -41,7 +41,7 @@ const MobileMenu = () => {
         <div
           className={`dropdown ${expandedClassName}`}
           // style={{ height: `100${vh}px` }}
-          style={{ height: `calc(${100*vh}px - ${headerHeight}px)` }}
+          style={{ height: `calc(${100*vh}px - ${headerHeight}px)`, marginBottom: `${10*vh}px` }}
         >
           <NavBar isColumn={true} />
         </div>
