@@ -8,6 +8,8 @@ import NavBar from "../navBar/NavBar";
 const MobileMenu = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [vh, setVh] = useState(window.innerHeight * 0.01);
+  console.log((vh*100)-80);
+  const headerHeight = "80";
   const sideMenuRef = useRef();
   const expandedClassName = isExpanded ? "expanded" : "";
 
@@ -28,21 +30,23 @@ const MobileMenu = () => {
   });
 
   return (
-    <div className="side-menu-container" ref={sideMenuRef}>
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className={expandedClassName}
-      >
-        {isExpanded ? <FaTimes /> : <FaBars />}
-      </button>
-      <div
-        className={`dropdown ${expandedClassName}`}
-        style={{ minHeight: `100${vh}px` }}
-      >
-        <NavBar isColumn={true} />
-      </div>
 
-    </div>
+      <div className="side-menu-container" ref={sideMenuRef}>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className={expandedClassName}
+        >
+          {isExpanded ? <FaTimes /> : <FaBars />}
+        </button>
+        <div
+          className={`dropdown ${expandedClassName}`}
+          // style={{ height: `100${vh}px` }}
+          style={{ height: `calc(${100*vh}px - ${headerHeight}px)` }}
+        >
+          <NavBar isColumn={true} />
+        </div>
+      </div>
+  
   );
 };
 

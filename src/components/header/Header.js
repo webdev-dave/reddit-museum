@@ -9,11 +9,13 @@ const Header = () => {
       <header>
         <nav>
           <MobileMenu />
-          <NavBar isColumn={false}/>
+          <NavBar isColumn={false} />
           <SearchBar />
         </nav>
+        
       </header>
-      <Outlet context={{value: ""}} />
+      
+      <Outlet context={{ value: "" }} />
     </>
   );
 };

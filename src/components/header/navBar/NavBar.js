@@ -58,6 +58,7 @@ const NavBar = ({isColumn}) => {
           <SubMenu category={category} isExpanded={isExpanded} index={index} />
         </div>
       ))}
+      <div className="sticky-bumper"></div>
     </div>
   );
 };

@@ -12,7 +12,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- allow mobile menu to scroll on content overflow
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
 - make react route aware of current genre category
 - incorporate react-router into mobile menu
