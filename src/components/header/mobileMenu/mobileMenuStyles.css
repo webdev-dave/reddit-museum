@@ -26,7 +26,7 @@
 }
 
 
-.dropdown {
+.dropdown, .dropdown-length-extender {
     position: absolute;
     opacity: 0;
     left: 0;
@@ -42,16 +42,27 @@
 }
 
 .dropdown.expanded {
+    z-index: 5;
+}
+
+.dropdown.expanded,
+.dropdown-length-extender.expanded {
     /* height is set inside the MobileMenu react component */
     opacity: 1;
     transform: translateX(0px);
-    margin-bottom: 400px;
-
 }
+
+/* .dropdown-length-extender.expanded {
+    background-color: orange;
+} */
 
 .dropdown.expanded p {
     margin: 1rem 0;
     color: #fff;
 }
+
+
+
+
 
 
