@@ -26,43 +26,47 @@
 }
 
 
-.dropdown, .dropdown-length-extender {
+.nav-bar-container {
     position: absolute;
     opacity: 0;
     left: 0;
     top: var(--header-height);
     background: hsla(0, 0%, 100% / 0.1);
+    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(1.6rem);
     -webkit-backdrop-filter: blur(1.6rem);
     transform: translateX(-200px);
     transition: transform 150ms ease-in, opacity 150ms ease-in;
-    overflow-y: auto;
-    overflow-x: hidden;
+
 }
 
-
-
-.dropdown.expanded,
-.dropdown-length-extender.expanded {
+.nav-bar-container.expanded {
     /* height is set inside the MobileMenu react component */
     opacity: 1;
     transform: translateX(0px);
 }
 
-.dropdown.expanded {
-    z-index: 5;
+
+.nav-bar-container .nav-bar-wrapper {
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
-.dropdown-length-extender.expanded {
-    z-index: 4;
-    box-shadow: 2px 2px 10px 1px rgba(0, 0, 0, 0.3);
-    /* background-color: orange; */
-} 
+.nav-bar-container .extra-length {
+    width: 50px;
+    height: 50vh;
+    background-color: yellowgreen;
+}
 
-.dropdown.expanded p {
+
+
+
+
+
+/* .nav-bar-container.expanded p {
     margin: 1rem 0;
     color: #fff;
-}
+} */
 
 
 
