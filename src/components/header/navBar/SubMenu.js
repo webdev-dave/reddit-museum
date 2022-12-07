@@ -1,12 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { genreNames } from "../../../utils/helperArrays";
 import { navSubCategories } from "../../../utils/helperObjects";
 
 const SubMenu = ({ category, isExpanded, index }) => {
   //replace blank spaces in genre names with underscores
-  genreNames.forEach((genreName, i) => {
-    genreNames[i] = genreName.replace(/_/g, " ");
-  });
   
 
 
@@ -20,7 +16,7 @@ const SubMenu = ({ category, isExpanded, index }) => {
             <ul className="sub-sub-options">
               {subCategory[Object.keys(subCategory)].map((subSubOption, index) => (
                 <li key={"sso-" + index} className={"sub-sub-option"}>
-                  {subSubOption}
+                  {subSubOption.replace(/_/g, " ")}
                 </li>
               ))}
             </ul>
@@ -31,7 +27,7 @@ const SubMenu = ({ category, isExpanded, index }) => {
             key={"sub-category-" + i}
             
           >
-            <NavLink to={category+"/"+subCategory} >{subCategory}</NavLink>
+            <NavLink to={category+"/"+subCategory} >{subCategory.replace(/_/g, " ")}</NavLink>
           </li>
         );
       })}

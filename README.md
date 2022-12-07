@@ -12,10 +12,11 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- remove underline from menu subcategories
+- work on subsub menu
 - style desktop dropdown submenus (change background color and adjust box shadows)
 - add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
-- work on subsub menu
 - prevent youtube iframes from crashing/overloading page
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - work on accessing sound in reddit videos

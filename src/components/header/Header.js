@@ -12,9 +12,7 @@ const Header = () => {
           <NavBar isColumn={false} />
           <SearchBar />
         </nav>
-        
       </header>
-      
       <Outlet context={{ value: "" }} />
     </>
   );

@@ -4,11 +4,11 @@ import { useParams } from "react-router-dom";
 import {
   changeGenre,
   fetchRedditInfo,
-} from "../../../features/apiRequests/redditApiRequestSlice";
-import { capitalizeFirstCharacter } from "../../../utils/helperFunctions";
-import { genresObject } from "../../../utils/helperObjects";
-import Posts from "../../posts/Posts";
-import NotFound from "../notFound/NotFound";
+} from "../../features/apiRequests/redditApiRequestSlice";
+import { capitalizeFirstCharacter } from "../../utils/helperFunctions";
+import { genresObject } from "../../utils/helperObjects";
+import Posts from "./Posts";
+import NotFound from "../pages/notFound/NotFound";
 
 const LoadPosts = ({category, subCategory}) => {
   const { id } = useParams();

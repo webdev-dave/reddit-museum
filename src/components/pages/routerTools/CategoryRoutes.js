@@ -1,6 +1,6 @@
 import { Routes, Route, useParams } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
-import LoadPosts from "./LoadPosts";
+import LoadPosts from "../../posts/LoadPosts";
 
 const CategoryRoutes = () => {
   const category = useParams().id;
