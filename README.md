@@ -12,28 +12,23 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- remove underline from menu subcategories
-- work on subsub menu
 - style desktop dropdown submenus (change background color and adjust box shadows)
+- work on subsub menu
 - add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
 - prevent youtube iframes from crashing/overloading page
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
-- work on accessing sound in reddit videos
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
 - make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
 - add a chromecast / cast to tv option
 - create touch/swipe effect for gallery on mobile
+- work on accessing sound in reddit videos
 - make videos stop playing automatically when user scrolls out of sight
 - figure out how to make a 3D art/photo frame with pure css
-- add box shadow/blur to post images
-- rename menu selector to "Museum Map" (also add cute map style and name banner)
-- make gal button icon lighter (less bold)
 - create an array of search keywords out of every individual title word
+- create video banner like MET website for homepage
 - create footer?
-- add download button
-- create video banner like MET website
 - look into alternative state management options (react context ?)
 
 ## Must-Fix/Bugs
@@ -63,6 +58,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading
 - create a weekly newsletter sent via email that curates all the top art from each genre
 - figure out how to read most prominent color in a given image (or secondary) and automatically make background color that color in fullScreenMode
+- rename nav menu to "Museum Map" (and add cute/creative map-style)
 
 ## Details and Specs
 

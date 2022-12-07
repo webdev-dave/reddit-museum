@@ -110,4 +110,10 @@ export const createLoadingArray = (array) => {
   return Array.from({length: array.length}, element => ({title: "loading...", srcUrl: "", credits: {authorUrl: ""}}));
 }
 
-export const capitalizeFirstCharacter = (string) => string.charAt(0).toUpperCase() + string.substring(1);
+export const capitalizeFirstChar = (string) => string.charAt(0).toUpperCase() + string.substring(1);
+
+
+export const replaceUnderscoreAndCapitalizeFirstChar = (string) => {
+  return string.split("_").map(str => capitalizeFirstChar(str)).join(" ");
+  //(string.charAt(0).toUpperCase() + string.substring(1));
+};

@@ -2,7 +2,7 @@ import React, { createRef, useMemo } from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navCategories } from "../../../utils/helperArrays";
-import { capitalizeFirstCharacter } from "../../../utils/helperFunctions";
+import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../utils/helperFunctions";
 import "./navBarStyles.css";
 import SubMenu from "./SubMenu";
 
@@ -52,13 +52,12 @@ const NavBar = ({isColumn}) => {
               handleClickInside(index);
             }}
           >
-            {capitalizeFirstCharacter(category)}
+            {replaceUnderscoreAndCapitalizeFirstChar(category)}
           </NavLink>
 
           <SubMenu category={category} isExpanded={isExpanded} index={index} />
         </div>
       ))}
-      <div className="sticky-bumper"></div>
     </div>
   );
 };

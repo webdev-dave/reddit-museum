@@ -5,12 +5,12 @@ import {
   changeGenre,
   fetchRedditInfo,
 } from "../../features/apiRequests/redditApiRequestSlice";
-import { capitalizeFirstCharacter } from "../../utils/helperFunctions";
+import { replaceUnderscoreAndCapitalizeFirstChar } from "../../utils/helperFunctions";
 import { genresObject } from "../../utils/helperObjects";
 import Posts from "./Posts";
 import NotFound from "../pages/notFound/NotFound";
 
-const LoadPosts = ({category, subCategory}) => {
+const LoadPosts = ({ category, subCategory }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
   // const contextObj = useOutletContext();
@@ -31,8 +31,19 @@ const LoadPosts = ({category, subCategory}) => {
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
         <>
-          <h1 className="category-name">{capitalizeFirstCharacter(category)}</h1>
-          <Posts />
+          {" "}
+          <div className="posts-section">
+            <h1 className="category-name">
+              {replaceUnderscoreAndCapitalizeFirstChar(category)}
+            </h1>
+            <h5>
+              Current Gallery:{" "}
+              <em className="em">
+                {replaceUnderscoreAndCapitalizeFirstChar(genreName)}
+              </em>
+            </h5>
+            <Posts />
+          </div>
         </>
       ) : (
         <NotFound />

@@ -40,16 +40,14 @@ nav {
 }
 
 .nav-bar {
-
-  align-self: stretch;
   display: flex;
   justify-content: space-around;
-  align-items: stretch;
+  align-content: stretch;
   column-gap: 3rem;
 }
 
 .nav-bar.row  {
-  min-width: 75%;
+  min-width: 70%;
 }
 
 .nav-bar.row .category {

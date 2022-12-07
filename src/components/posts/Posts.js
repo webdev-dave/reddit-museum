@@ -19,33 +19,27 @@ const Posts = () => {
   const rawPostsArr = useSelector(selectPosts);
   const genreName = useSelector(selectGenreName);
   const currentlyOnDisplay = useSelector(selectCurrentlyOnDisplay);
-  
 
   useEffect(() => {
     const allowYoutube = genresObject[genreName].allowYoutubeVideos;
     const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);
-    dispatch(updateGenrePosts({ genreName: genreName, posts:  formattedPosts}));
-    //timeout function allows setPosts to register loadingPlaceholderArray before setting posts to formattedPosts 
+    dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
+    //timeout function allows setPosts to register loadingPlaceholderArray before setting posts to formattedPosts
     const timer = setTimeout(() => {
-      dispatch(updateCurrentlyOnDisplayToCurrent({}))
+      dispatch(updateCurrentlyOnDisplayToCurrent({}));
     }, 100);
     return () => clearTimeout(timer);
-  }, [dispatch, rawPostsArr , genreName]);
+  }, [dispatch, rawPostsArr, genreName]);
 
 
-
-  return (
-    <div className="posts-section">
-      <h5>Current Gallery: <em className="em">{genreName}</em></h5>
-      {currentlyOnDisplay.map((post, postIndex) => (
-        <PostContainer
-          post={post}
-          postIndex={postIndex}
-          key={`post-container-${postIndex}`}
-        />
-      ))}
-    </div>
-  );
+  
+  return currentlyOnDisplay.map((post, postIndex) => (
+    <PostContainer
+      post={post}
+      postIndex={postIndex}
+      key={`post-container-${postIndex}`}
+    />
+  ));
 };
 
 export default Posts;
