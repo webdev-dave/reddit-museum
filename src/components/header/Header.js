@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import MobileMenu from "./mobileMenu/MobileMenu";
-import NavBar from "./navBar/NavBar";
+import NavBarRow from "./navBar/navBarRow/NavBarRow";
 import SearchBar from "./searchBar/SearchBar";
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
       <header>
         <nav>
           <MobileMenu />
-          <NavBar isColumn={false} />
+          <NavBarRow />
           <SearchBar />
         </nav>
       </header>

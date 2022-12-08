@@ -9,6 +9,7 @@ import { replaceUnderscoreAndCapitalizeFirstChar } from "../../utils/helperFunct
 import { genresObject } from "../../utils/helperObjects";
 import Posts from "./Posts";
 import NotFound from "../pages/notFound/NotFound";
+import "./postStyles.css"
 
 const LoadPosts = ({ category, subCategory }) => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const LoadPosts = ({ category, subCategory }) => {
     }
   });
   return (
-    <main className="posts-section">
+    <main id="all-content-besides-header">
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
         <>

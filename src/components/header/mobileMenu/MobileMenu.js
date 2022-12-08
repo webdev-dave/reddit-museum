@@ -3,7 +3,8 @@ import "./mobileMenuStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useEffect } from "react";
 import { useRef } from "react";
-import NavBar from "../navBar/NavBar";
+import NavBarColumn from "../navBar/navBarColumn/NavBarColumn";
+
 
 const MobileMenu = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -20,6 +21,7 @@ const MobileMenu = () => {
 
   const handleClickOutside = (e) =>
     !sideMenuRef.current.contains(e.target) && setIsExpanded(false);
+
   useEffect(() => {
     if (isExpanded) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -27,6 +29,14 @@ const MobileMenu = () => {
         document.removeEventListener("mousedown", handleClickOutside);
     }
   });
+
+  useEffect(()=>{
+    if(isExpanded){
+      document.getElementById("all-content-besides-header").classList.add("mobile-menu-open");
+    }else{
+      document.getElementById("all-content-besides-header").classList.remove("mobile-menu-open");
+    }
+  })
 
   return (
     <div className="side-menu-container" ref={sideMenuRef}>
@@ -43,7 +53,7 @@ const MobileMenu = () => {
           className="nav-bar-wrapper"
           style={{ height: `calc(${100 * vh}px - ${headerHeight}px)` }}
         >
-          <NavBar isColumn={true} />
+          <NavBarColumn />
         </div>
 
         {/* when viewport height changes (on mobile browser scroll when top url bar is hidden),

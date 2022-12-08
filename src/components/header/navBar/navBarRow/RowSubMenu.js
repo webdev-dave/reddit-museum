@@ -1,14 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../utils/helperFunctions";
-import { navSubCategories } from "../../../utils/helperObjects";
+import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
+import { navSubCategories } from "../../../../utils/helperObjects";
 
-const SubMenu = ({ category, isExpanded, index }) => {
+const RowSubMenu = ({ category, isExpanded }) => {
   //replace blank spaces in genre names with underscores
-  
 
 
   return (
-    <ul className={`sub-menu ${isExpanded[index] ? "expanded" : "collapsed"}`}>
+    <ul className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}>
       { navSubCategories[category].map((subCategory, i) => {
         //if typeof subOption = object then we can infer that this is a sub-sub-menu since all regular subOptions are strings
         return typeof subCategory === "object" ? (
@@ -36,4 +35,4 @@ const SubMenu = ({ category, isExpanded, index }) => {
   );
 };
 
-export default SubMenu;
+export default RowSubMenu;

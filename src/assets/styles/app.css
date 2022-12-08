@@ -40,8 +40,7 @@ h1 {
   font-size: 7rem;
   font-weight: 700;
   text-align: center;
-  padding: 2rem;
-  margin: 8rem auto;
+  margin:  4rem 2rem;
 }
 
 h3 {
@@ -65,6 +64,17 @@ img {
 }
 
 /* -------------------------------------------------------- temporary */
+
+header {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding-top: var(--header-height);
+}
+
+
 .userAlert {
   display: flex;
   flex-direction: column;
@@ -101,67 +111,5 @@ img {
 
 .main-banner img {
   width: 100%;
-}
-
-/* -------------------------------------------------------- posts section */
-
-h1.category-name {
-  font-size: 4rem;
-} 
-
-@media only screen and (min-width: 900px) {
-  h1.category-name {
-    font-size: 6rem;
-  } 
-}
-
-.posts-section h5 {
-  font-style: italic;
-  margin-top: 4rem;
-  margin-bottom: 8rem;
-  
-}
-
-.posts-section h5 .em {
-  font-style: normal;
-  font-weight: 600;
-}
-
-
-.post-container {
-  max-width: 85%;
-  margin: 50px auto;
-  background-color: var(--off-white);
-  padding: 1rem;
-  /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
-}
-
-.post-container .media {
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
-.loading .media {
-  background-color: gray;
-}
-
-.post-container h5 {
-  font-family: var(--poppins);
-  font-size: 2.4rem;
-  letter-spacing: 0.8px;
-  line-height: 4rem;
-  padding: 4rem 0 1.6rem 0;
-  max-width: 70%;
-  margin: 0 auto;
-  text-overflow: hidden;
-}
-
-/* for phone landscape-mode and laptops */
-
-@media only screen and (min-width: 700px) {
-  .post-container {
-    max-width: 35%;
-  }
 }
 
