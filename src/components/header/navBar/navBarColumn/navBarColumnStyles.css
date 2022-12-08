@@ -39,9 +39,8 @@
 }
 
 .nav-bar-column .category-name .icon {
-  display: inline-block;
-  position: absolute;
-  right: 2rem;
+  display: block;
+  float: right;
   margin-left: 1rem;
   color: #fff;
   background-color: var(--pink);

@@ -6,23 +6,27 @@ import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helpe
 import { navSubCategories } from "../../../../utils/helperObjects";
 
 const ColumnSubMenu = ({ category, isExpanded }) => {
-  const [subMenuHeight, setSubMenuHeight] = useState(0);
   const subMenuRef = useRef();
+  const [subMenuExpandedHeight, setSubMenuExpandedHeight] = useState(0);
 
+  console.log("component rendered")
+  console.log(subMenuExpandedHeight)
   useEffect(()=>{
-    setSubMenuHeight(subMenuRef.current.clientHeight);
-    console.log(subMenuHeight);
-  },[subMenuHeight])
+    //console.log("use effect ran " + subMenuExpandedHeight)
+    if(subMenuRef.current.clientHeight !== subMenuExpandedHeight && subMenuRef.current.clientHeight > 0){
+      setSubMenuExpandedHeight(subMenuRef.current.clientHeight)
+      //console.log(subMenuRef.current.clientHeight)
+    }
+    
+  },[subMenuExpandedHeight])
+  const subMenuStyles = (subMenuExpandedHeight > 0) ? {maxHeight: `${isExpanded ? subMenuExpandedHeight : 0}px`} : {};
   
-  // const subMenuExpandedStyles = {
-  //   maxHeight: `${subMenuHeight}px`,
-  // };
-
-  // const subMenuCollapsedStyles = {maxHeight: `0px`};
+  
+ 
 
 
   return (
-    <ul ref={subMenuRef} className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}  >
+    <ul ref={subMenuRef} className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}  style={subMenuStyles}>
       { navSubCategories[category].map((subCategory, i) => {
         //if typeof subOption = object then we can infer that this is a sub-sub-menu since all regular subOptions are strings
         return typeof subCategory === "object" ? (

@@ -12,7 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- add hover effect for hamburger menu button
 - work on creating a smooth transition for NavBarColumn submenu max-height
+- work on allowing multiple submmenus open at once
 - style desktop dropdown submenus (change background color and adjust box shadows)
 - work on subsub menu
 - add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
