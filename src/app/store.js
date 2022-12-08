@@ -4,6 +4,7 @@ import postsReducer from '../components/posts/postsSlice';
 import featuresReducer from '../features/featuresSlice';
 
 
+
 const store = configureStore({
   reducer: {
     features: featuresReducer,

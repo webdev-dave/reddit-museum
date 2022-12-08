@@ -1,9 +1,9 @@
-import { useState } from "react";
 import "./mobileMenuStyles.css";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useEffect } from "react";
 import { useRef } from "react";
 import NavBarColumn from "../navBar/navBarColumn/NavBarColumn";
+import { useState } from "react";
 
 
 const MobileMenu = () => {
@@ -30,13 +30,6 @@ const MobileMenu = () => {
     }
   });
 
-  useEffect(()=>{
-    if(isExpanded){
-      document.getElementById("all-content-besides-header").classList.add("mobile-menu-open");
-    }else{
-      document.getElementById("all-content-besides-header").classList.remove("mobile-menu-open");
-    }
-  })
 
   return (
     <div className="side-menu-container" ref={sideMenuRef}>
@@ -67,6 +60,7 @@ const MobileMenu = () => {
          */}
         <div className="extra-height"></div>
       </div>
+      <div className={`blur-out-main-content ${expandedClassName}`}></div>
     </div>
   );
 };

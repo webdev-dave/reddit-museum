@@ -11,24 +11,26 @@ import Posts from "./Posts";
 import NotFound from "../pages/notFound/NotFound";
 import "./postStyles.css"
 
+
 const LoadPosts = ({ category, subCategory }) => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  // const contextObj = useOutletContext();
+  
   const genreName = id ? id : "";
-  // const genreName = id ? id : "ai";
   const genrePath = genresObject[genreName.toLowerCase()]
     ? genresObject[genreName.toLowerCase()].path
     : false;
-  //console.log(genrePath);
   useEffect(() => {
     if (genrePath) {
       dispatch(fetchRedditInfo(genrePath));
       dispatch(changeGenre({ genreName: genreName, path: genrePath }));
     }
-  });
+  },[genrePath, genreName, dispatch]);
+
+
+
   return (
-    <main id="all-content-besides-header">
+    <main >
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
         <>
