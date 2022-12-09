@@ -3,7 +3,6 @@
   margin-top: 0.8rem;
   border: none;
   padding: 0;
-  /* background-color: aqua; */
   z-index: 11;
 }
 
@@ -13,13 +12,30 @@ button.full-screen.enter .icon {
 }
 
 
+
+.post-menu h5 {
+  display: block;
+  padding: 8rem 0 1.5rem 0;
+  letter-spacing: 0.8px;
+  line-height: 4rem;
+  font-size: 2.2rem;
+  font-family: var(--poppins);
+  max-width: 70%;
+  margin: 0 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+
+
 .post-menu .author-url {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
 }
 .post-container .author-url a,
 .post-container .author-url a {
   text-decoration: none;
+  font-size: 1.4rem;
 }
 
 .post-container .post-menu-footer {
@@ -32,6 +48,7 @@ button.full-screen.enter .icon {
 
 .post-menu-footer a {
   font-size: 1rem;
+  display: none;
 }
 
 

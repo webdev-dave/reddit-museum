@@ -17,8 +17,8 @@ const ColumnSubMenu = ({ category, isExpanded }) => {
       setSubMenuExpandedHeight(subMenuRef.current.clientHeight)
       //console.log(subMenuRef.current.clientHeight)
     }
-    
-  },[subMenuExpandedHeight])
+  //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
   const subMenuStyles = (subMenuExpandedHeight > 0) ? {maxHeight: `${isExpanded ? subMenuExpandedHeight : 0}px`} : {};
   
   

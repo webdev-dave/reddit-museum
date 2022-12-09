@@ -12,25 +12,24 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- add hover effect for hamburger menu button
-- work on creating a smooth transition for NavBarColumn submenu max-height
-- work on allowing multiple submmenus open at once
-- style desktop dropdown submenus (change background color and adjust box shadows)
 - work on subsub menu
+- add hover effect for hamburger menu button
+- work on creating a smooth transition for NavBarColumn submenu max-height. Also work on transitions for all NavLink clicks that happen inside the menu
+- add a collapse all button in the navbar menu
+- style desktop dropdown submenus (change background color and adjust box shadows)
 - add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
-- prevent youtube iframes from crashing/overloading page
-- create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
 - make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
 - add a chromecast / cast to tv option
+- create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - create touch/swipe effect for gallery on mobile
 - work on accessing sound in reddit videos
 - make videos stop playing automatically when user scrolls out of sight
-- figure out how to make a 3D art/photo frame with pure css
 - create an array of search keywords out of every individual title word
 - create video banner like MET website for homepage
+- on desktop it is difficult to view total portrait images + their title's at once on screen. Perhaps solve this by making a side poster (like in museums) where the title and additional info can go. Perhaps also incorporate some creative 3D art/photo frame animations
 - create footer?
 - look into alternative state management options (react context ?)
 
@@ -55,7 +54,8 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## Potential Extra Features
 
-- merge multiple subreddits of similar genres in same "genre page"
+- allow users to add custom genres by adding a new genreName and pasting in a link of their favorite subreddit's. This could effectively turn this project into a custom gallery tool / bulletin-board by allowing the users to cast their favorite subreddit's to their TV thereby turning the tv into a gallery / bulletin center-piece with the capacity to shuffle and display content based on the user's choices. All these customizations should be stored and saved to a user's account. This will require figuring out how to create and store user accounts and their corresponding info).
+- merge multiple subreddit's of similar genres in same "genre page"
 - change image resolution from default
 - download img button
 - optimize hidden gallery images to only load after the rest of the visible page has completed loading

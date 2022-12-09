@@ -128,7 +128,7 @@ nav {
 }
 
 
-@media screen and (max-width: 1080px) {
+@media (width <= 1080px) {
   .nav-bar-row {
     display: none;
   }

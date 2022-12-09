@@ -2,22 +2,21 @@
 
 h1.category-name {
     font-size: 4rem;
-    margin: 4rem auto 2rem auto;
+    margin: 7.5rem auto 2rem auto;
   } 
   
-  @media only screen and (min-width: 900px) {
+  @media (width >= 900px) {
     h1.category-name {
       font-size: 6rem;
     } 
   }
   
-  .posts-section h5 {
+  .posts-section h5.sub-category-name {
     font-style: italic;
-    margin-bottom: 8rem;
-    
+    margin-bottom: 10rem;
   }
   
-  .posts-section h5 .em {
+  .posts-section h5.sub-category-name .em {
     font-style: normal;
     font-weight: 600;
   }
@@ -41,20 +40,11 @@ h1.category-name {
     background-color: gray;
   }
   
-  .post-container h5 {
-    font-family: var(--poppins);
-    font-size: 2.4rem;
-    letter-spacing: 0.8px;
-    line-height: 4rem;
-    padding: 4rem 0 1.6rem 0;
-    max-width: 70%;
-    margin: 0 auto;
-    text-overflow: hidden;
-  }
+
   
   /* for phone landscape-mode and laptops */
   
-  @media only screen and (min-width: 700px) {
+  @media (width >= 700px) {
     .post-container {
       max-width: 35%;
     }

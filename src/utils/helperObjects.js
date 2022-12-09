@@ -9,6 +9,7 @@ export const genresObject = {
     digital_paintings: {path: "/r/DigitalPainting/", allowYoutubeVideos: false},
     drawings: {path: "/r/drawing/", allowYoutubeVideos: false},
     film: {path: "/r/filmphotography/", allowYoutubeVideos: false},
+    general_mix_1: {path: "/r/museum/", allowYoutubeVideos: false},
     impressionism: {path: "/r/impressionism/", allowYoutubeVideos: false},
     mixed_paintings: {path: "/r/ArtPorn/", allowYoutubeVideos: false},
     movie_posters: {path: "/r/MoviePosterPorn/", allowYoutubeVideos: false},
@@ -33,6 +34,7 @@ export const navSubCategories = {
     paintings: ["mixed_paintings", "modern", "surrealism", "drawings", "contemporary_mix"],
     cinema: ["short_films", "movie_posters"],
     structural: ["architecture", "sculptures"],
+    // misc: ["general_mix_1",],
     about: [],
   };
 

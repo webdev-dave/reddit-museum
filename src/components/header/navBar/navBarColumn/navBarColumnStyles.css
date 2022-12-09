@@ -26,16 +26,26 @@
 .nav-bar-column .category-name {
   font-size: 1.6rem;
   font-weight: 600;
+  border-radius: 0 8px 0 0;
   border-left: 6px solid hsla(0 0% 0% / 0%);
   padding: 1rem;
-  padding-left: 1rem;
   display: block;
   width: 100%;
+  
 }
 
 .nav-bar-column a.active.category-name {
+ 
+  border-radius: 0 8px 8px 0;
+  background-color: hsla(0 0% 100% / 0.5);
+  border-left: 6px solid var(--pink);
+}
+
+.nav-bar-column a.category-name.expanded,
+.nav-bar-column a.category-name.active.expanded {
   color: #fff;
   background-color: var(--pink);
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .nav-bar-column .category-name .icon {
@@ -46,17 +56,16 @@
   background-color: var(--pink);
   border-radius: 5px;
   transform: rotate(0);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
-.nav-bar-column .category-name.expanded .icon {
+.nav-bar-column a.category-name.expanded .icon {
   transform: rotate(90deg);
-}
-
-.nav-bar-column a.active.category-name .icon {
   color: var(--pink);
   background-color: hsla(0 0% 100% / 0.8);
 }
+
+
 
 
 .nav-bar-column .sub-menu {
@@ -66,6 +75,8 @@
   overflow: hidden;
   top: var(--header-height);
   background-color: #fff;
+  padding-top: 1rem;
+  border-radius: 0 0 8px 0;
   pointer-events: none;
   transform: translateY(0px);
   background-color: hsla(0 0% 100% / 0);
@@ -93,7 +104,7 @@
 }
 
 .nav-bar-column .sub-category a.active {
-  background-color: hsla(0 0% 100% / 0.9);
+  background-color: hsla(0 0% 100% / 0.7);
   font-weight: 700;
   color: var(--pink);
 }
@@ -102,7 +113,7 @@
 
 
 
-@media screen and (min-width: 850px) {
+@media (width >= 850px) {
   .nav-bar-column .category-name:hover,
   .nav-bar-column .category-name.active:hover {
     color: #000;
@@ -110,11 +121,11 @@
     background-color: hsla(0 0% 100% / 0.5);
   }
 
-  .nav-bar-column .sub-menu .sub-category a:hover,
-  .nav-bar-column .sub-menu .sub-category a.active:hover {
+  .nav-bar-column .sub-menu .sub-category a:hover {
     /* border-left: 6px solid #fff; */
-    color: #000;
+    /* color: #000; */
     background-color: hsla(0 0% 100% / 0.75);
+    
   }
 }
 

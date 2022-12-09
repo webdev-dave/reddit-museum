@@ -1,4 +1,4 @@
-import React, { createRef, useMemo } from "react";
+import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navCategories } from "../../../../utils/helperArrays";
@@ -10,14 +10,15 @@ const NavBarRow = () => {
   const [isExpandedArr, setIsExpandedArr] = useState(
     Array(navCategories.length).fill(false)
   );
-  const categoryRefs = useMemo(
-    () => Array.from({ length: navCategories.length }).map(() => createRef()),
-    []
-  );
+  // const categoryRefs = useMemo(
+  //   () => Array.from({ length: navCategories.length }).map(() => createRef()),
+  //   []
+  // );
+  const navBarRef = useRef();
 
   const handleClickOutside = (e) => {
-    //this blocks the handleClickOutside from changing anything based on the mousedown event listener (set on the document via the useEffect below) if the mousedown event occurs inside one of the optionRefs / option buttons.
-    if (categoryRefs.every((ref) => ref.current.contains(e.target) === false)) {
+    //if the mousedown event occurs inside the navBar, this blocks the handleClickOutside from the isExpanded state
+    if (navBarRef.current.contains(e.target) === false) {
       setIsExpandedArr(isExpandedArr.map((el) => false));
     }
   };
@@ -38,12 +39,11 @@ const NavBarRow = () => {
   };
 
   return (
-    <div className={`nav-bar-row`}>
+    <div className={`nav-bar-row`} ref={navBarRef}>
       {navCategories.map((category, index) => (
         <div
           key={"category-" + index}
           className={`category`}
-          ref={categoryRefs[index]}
         >
           <div className="category-name-container">
             <NavLink

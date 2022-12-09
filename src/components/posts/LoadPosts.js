@@ -39,7 +39,7 @@ const LoadPosts = ({ category, subCategory }) => {
             <h1 className="category-name">
               {replaceUnderscoreAndCapitalizeFirstChar(category)}
             </h1>
-            <h5>
+            <h5 className="sub-category-name">
               Current Gallery:{" "}
               <em className="em">
                 {replaceUnderscoreAndCapitalizeFirstChar(genreName)}
