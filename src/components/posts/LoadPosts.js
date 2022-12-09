@@ -12,8 +12,10 @@ import NotFound from "../pages/notFound/NotFound";
 import "./postStyles.css"
 
 
-const LoadPosts = ({ category, subCategory }) => {
+const LoadPosts = ({ category, isSubSubCategory}) => {
   const { id } = useParams();
+  const additonalParams = useParams();
+  console.log(additonalParams)
   const dispatch = useDispatch();
   
   const genreName = id ? id : "";
@@ -22,10 +24,15 @@ const LoadPosts = ({ category, subCategory }) => {
     : false;
   useEffect(() => {
     if (genrePath) {
-      dispatch(fetchRedditInfo(genrePath));
-      dispatch(changeGenre({ genreName: genreName, path: genrePath }));
+      if(!isSubSubCategory){
+        dispatch(fetchRedditInfo(genrePath));
+        dispatch(changeGenre({ genreName: genreName, path: genrePath }));
+      } else {
+        //figure out how to load subcategories here
+      }
+
     }
-  },[genrePath, genreName, dispatch]);
+  },[genrePath, genreName, dispatch, isSubSubCategory]);
 
 
 

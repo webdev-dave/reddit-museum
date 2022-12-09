@@ -4,9 +4,11 @@ import LoadPosts from "../../posts/LoadPosts";
 
 const CategoryRoutes = () => {
   const category = useParams().id;
+  
   return (
     <Routes>
-      <Route path="/:id/" element={<LoadPosts category={category}/>} />
+      <Route path="/:id/" element={<LoadPosts category={category} isSubSubCategory={false} />}/>
+      <Route path="/:id/*" element={<LoadPosts category={category} isSubSubCategory={true} />}/>
       <Route path="/*" element={<NotFound />} />
     </Routes>
   );
