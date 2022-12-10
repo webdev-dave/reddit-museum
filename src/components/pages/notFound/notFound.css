@@ -1,11 +1,21 @@
-.go-back button {
+:root {
+    --header-height: 70px;
+}
+
+
+.not-found-container {
+    padding-top: var(--header-height);
+}
+
+.not-found-container button.go-back {
     border: none;
     background-color: hsla(0 0% 0% / 0);
     color: blue;
     text-decoration: underline;
     font-size: 3.2rem;
-    margin-top: 2rem;
+    margin: 2rem auto;
 }
+
 
 a {
     color: blue;

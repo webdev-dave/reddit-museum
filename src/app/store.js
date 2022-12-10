@@ -8,8 +8,9 @@ import featuresReducer from '../features/featuresSlice';
 const store = configureStore({
   reducer: {
     features: featuresReducer,
-    posts: postsReducer,
     redditApiRequest: redditApiRequestReducer,
+    posts: postsReducer,
+
   }
 });
 

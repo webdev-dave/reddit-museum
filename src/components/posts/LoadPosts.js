@@ -1,36 +1,34 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useMatch, useParams } from "react-router-dom";
 import {
   changeGenre,
   fetchRedditInfo,
 } from "../../features/apiRequests/redditApiRequestSlice";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../utils/helperFunctions";
-import { genresObject } from "../../utils/helperObjects";
+import { genresObject, navSubCategories } from "../../utils/helperObjects";
 import Posts from "./Posts";
 import NotFound from "../pages/notFound/NotFound";
 import "./postStyles.css"
 
 
-const LoadPosts = ({ category, isSubSubCategory}) => {
+const LoadPosts = ({ category, isSubSubCategory, parentInfo}) => {
   const { id } = useParams();
-  const additonalParams = useParams();
-  console.log(additonalParams)
   const dispatch = useDispatch();
-  
   const genreName = id ? id : "";
-  const genrePath = genresObject[genreName.toLowerCase()]
-    ? genresObject[genreName.toLowerCase()].path
+  const genrePath = genresObject[genreName]
+    ? genresObject[genreName].path
     : false;
+
+  const getParentCategoryName = string => string.split("/")[0];
+
+  const parentGenreName = parentInfo ? getParentCategoryName(parentInfo) : false;
+  console.log(parentGenreName)
+  
   useEffect(() => {
     if (genrePath) {
-      if(!isSubSubCategory){
-        dispatch(fetchRedditInfo(genrePath));
-        dispatch(changeGenre({ genreName: genreName, path: genrePath }));
-      } else {
-        //figure out how to load subcategories here
-      }
-
+      dispatch(fetchRedditInfo(genrePath));
+      dispatch(changeGenre({ genreName: genreName, path: genrePath }));
     }
   },[genrePath, genreName, dispatch, isSubSubCategory]);
 
@@ -47,7 +45,8 @@ const LoadPosts = ({ category, isSubSubCategory}) => {
               {replaceUnderscoreAndCapitalizeFirstChar(category)}
             </h1>
             <h5 className="sub-category-name">
-              Current Gallery:{" "}
+              Current Gallery: &nbsp;
+              {isSubSubCategory && replaceUnderscoreAndCapitalizeFirstChar(parentGenreName) + " / "}
               <em className="em">
                 {replaceUnderscoreAndCapitalizeFirstChar(genreName)}
               </em>

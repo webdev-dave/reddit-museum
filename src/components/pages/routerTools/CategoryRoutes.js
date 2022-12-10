@@ -3,13 +3,17 @@ import NotFound from "../notFound/NotFound";
 import LoadPosts from "../../posts/LoadPosts";
 
 const CategoryRoutes = () => {
-  const category = useParams().id;
+  const params = useParams();
+
   
   return (
     <Routes>
-      <Route path="/:id/" element={<LoadPosts category={category} isSubSubCategory={false} />}/>
-      <Route path="/:id/*" element={<LoadPosts category={category} isSubSubCategory={true} />}/>
-      <Route path="/*" element={<NotFound />} />
+      <Route path=":id/" element={<LoadPosts category={params.id} isSubSubCategory={false} parentInfo={false} />}/>
+      <Route path=":id/*">
+        <Route path=":id/"  element={<LoadPosts category={params.id}  isSubSubCategory={true} parentInfo={Object.values(params)[1]}  />}/>
+        <Route path=":id/*" element={<NotFound />} />
+      </Route>
+      
     </Routes>
   );
 };
