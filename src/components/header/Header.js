@@ -3,6 +3,7 @@ import MobileMenu from "./mobileMenu/MobileMenu";
 import NavBarRow from "./navBar/navBarRow/NavBarRow";
 import SearchBar from "./searchBar/SearchBar";
 
+
 const Header = () => {
   return (
     <>

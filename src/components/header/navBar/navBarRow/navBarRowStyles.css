@@ -10,6 +10,9 @@
   --ibm-plex-sans: "IBM Plex Sans", sans-serif;
   /* measurements */
   --header-height: 70px;
+  /* timing */
+  --main-transition-time: 200ms;
+  --main-transition-type: ease-in-out;
 }
 
 nav {
@@ -80,8 +83,16 @@ nav {
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
   pointer-events: none;
   transform: translateY(-10px);
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: opacity var(--main-transition-time) var(--main-transition-type), transform var(--main-transition-time) var(--main-transition-type);
+  border-radius: 0px 0px 7px 7px;
 }
+
+/* this is for when last child of submenu is a .sub-sub-parent. since the position is relative it ends up blocking submenu's border-radius rounded corners */
+.nav-bar-row .sub-menu li.sub-category:last-child {
+  border-radius: 0px 0px 7px 7px;
+}
+
+
 
 .nav-bar-row .sub-menu.expanded,
 .nav-bar-row .category:hover .sub-menu {
@@ -118,30 +129,66 @@ nav {
 }
 
 
-
-
-/*----------------------------------------------------------------------------------------------- sub-sub menu ----- */
-
-.sub-category.sub-sub-menu {
-  position: relative;
-}
-
-.sub-category.sub-sub-menu ul.sub-sub-options {
-  position: absolute;
-  left: 130px;
-  z-index: 1;
-  opacity: 0;
-  min-width: 150px;
-  background-color: aqua;
-}
-
-.sub-category.sub-sub-menu:hover ul.sub-sub-options {
-  opacity: 1;
-}
-
-
 @media (width <= 1080px) {
   .nav-bar-row {
     display: none;
   }
 }
+
+
+
+/*----------------------------------------------------------------------------------------------- sub-sub menu ----- */
+
+
+.nav-bar-row .sub-sub-parent {
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  justify-content: stretch;
+  cursor: default;
+}
+
+.nav-bar-row .sub-sub-parent a {
+  width: 100%;
+}
+
+.nav-bar-row .sub-sub-parent a:hover {
+  cursor: default;
+}
+
+.nav-bar-row ul.sub-sub-menu {
+  opacity: 0;
+  position: absolute;
+  right: -15.4rem;
+  top: 0px;
+  overflow: hidden;
+  border-radius: 0px 12px 12px 12px; 
+  pointer-events: none;
+  transform: translateX(-100px);
+  transition: opacity var(--main-transition-time) var(--main-transition-type),
+              transform var(--main-transition-time) var(--main-transition-type) ;
+}
+
+.nav-bar-row .sub-sub-parent.sub-category:hover ul.sub-sub-menu{
+
+  opacity: 1;
+  transform: translateX(0px);
+  pointer-events: auto;
+}
+
+
+.nav-bar-row  li.sub-sub-category {
+  background-color: #fff;
+}
+
+.nav-bar-row  li.sub-sub-category a {
+  padding: 0.8rem 0.5rem;
+  border-left: 8px solid lightgray;
+  cursor: pointer;
+}
+
+.nav-bar-row  li.sub-sub-category a:hover {
+  background-color: var(--yellow);
+  border-left: 8px solid gray;
+}
+

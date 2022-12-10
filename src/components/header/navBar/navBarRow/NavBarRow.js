@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { navCategories } from "../../../../utils/helperArrays";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
 import "./navBarRowStyles.css";
-import SubMenu from "./RowSubMenu";
+import RowSubMenu from "./RowSubMenu";
 
 const NavBarRow = () => {
   const [isExpandedArr, setIsExpandedArr] = useState(
@@ -62,7 +62,7 @@ const NavBarRow = () => {
             </NavLink>
             
           </div>
-          <SubMenu
+          <RowSubMenu
             category={category}
             isExpanded={isExpandedArr[index]}
           />
