@@ -1,3 +1,6 @@
+import { useState } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
 import { navSubCategories } from "../../../../utils/helperObjects";
@@ -5,9 +8,21 @@ import RowSubSubMenu from "./RowSubSubMenu";
 
 const RowSubMenu = ({ category, isExpanded }) => {
   //replace blank spaces in genre names with underscores
+  const [subMenuWidth, setSubMenuWidth] = useState(0);
+  const [subMenuHeight, setSubMenuHeight] = useState(0);
+  //get submenu width
+  const subMenuRef = useRef()
+
+  useEffect(()=>{
+    setSubMenuWidth(subMenuRef.current.offsetWidth);
+    setSubMenuHeight(subMenuRef.current.offsetHeight);
+
+   //eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
 
   return (
-    <ul className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}>
+    <ul ref={subMenuRef} className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}>
       {navSubCategories[category].map((subCategory, i) => {
         //if typeof subOption = object then we can infer that this is a sub-sub-menu since all regular subOptions are strings
         return !(typeof subCategory === "object") ? (
@@ -34,6 +49,7 @@ const RowSubMenu = ({ category, isExpanded }) => {
               subCategory={Object.keys(subCategory)[0]}
               category={category}
               isExpanded={true}
+              subMenuWidth={subMenuWidth}
             />
           </li>
         );
