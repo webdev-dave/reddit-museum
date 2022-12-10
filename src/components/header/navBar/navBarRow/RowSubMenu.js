@@ -19,6 +19,7 @@ const RowSubMenu = ({ category, isExpanded }) => {
 
    //eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+  console.log(subMenuHeight)
 
 
   return (

@@ -5,8 +5,14 @@ import { NavLink } from "react-router-dom";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
 // import { navSubCategories } from "../../../../utils/helperObjects";
 
-const RowSubSubMenu = ({category, subCategory, isExpanded, subSubCategories, subMenuWidth }) => {
-  console.log(subMenuWidth)
+const RowSubSubMenu = ({
+  category,
+  subCategory,
+  isExpanded,
+  subSubCategories,
+  subMenuWidth,
+  subMenuHeight,
+}) => {
   // console.log("component rendered");
   // console.log(subMenuExpandedHeight);
   // useEffect(() => {
@@ -21,22 +27,19 @@ const RowSubSubMenu = ({category, subCategory, isExpanded, subSubCategories, sub
   //   //eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
   const subSubMenuStyles =
-    subMenuWidth > 0
-      ? { left: `${subMenuWidth}px` }
-      : {};
-  console.log(subSubMenuStyles)
+    subMenuWidth > 0 ? { left: `${subMenuWidth}px` } : {};
+
 
   return (
     <ul className="sub-sub-menu" style={subSubMenuStyles}>
-    {subSubCategories.map(
-      (subSubCategory, index) => (
+      {subSubCategories.map((subSubCategory, index) => (
         <li key={"sub-sub-category" + index} className={"sub-sub-category"}>
-          <NavLink to={`/${category}/${subCategory}/${subSubCategory}/`}>{replaceUnderscoreAndCapitalizeFirstChar(subSubCategory)}</NavLink>
+          <NavLink to={`/${category}/${subCategory}/${subSubCategory}/`}>
+            {replaceUnderscoreAndCapitalizeFirstChar(subSubCategory)}
+          </NavLink>
         </li>
-      )
-    )}
-  </ul>
-    
+      ))}
+    </ul>
   );
 };
 
