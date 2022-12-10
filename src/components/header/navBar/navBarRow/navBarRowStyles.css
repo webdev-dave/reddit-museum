@@ -3,6 +3,9 @@
   --bluegreen: #127373;
   --yellow: #f2c777;
   --pink: #bf3475;
+  --light-yellow:  hsla(39 83% 71% / 0.4);
+  --light-pink: hsl(332 57% 48% / 0.8);
+  --light-grey: hsla(0 0% 8% / 0.3);
   /* fonts  */
   --ibm-plex-sans: "IBM Plex Sans", sans-serif;
   /* measurements */
@@ -27,9 +30,6 @@ nav {
   color: #000;
 }
 
-.nav-bar-row a.active {
-  color: #bf3475;
-}
 
 .nav-bar-row {
   display: flex;
@@ -54,6 +54,10 @@ nav {
   padding-bottom: 0.5rem;
   border-bottom: 6px solid hsla(0 0% 0% / 0%);
   background: hsla(0 0% 100% / 0);
+}
+
+.nav-bar-row a.category-name.active {
+  color: #bf3475;
 }
 
 
@@ -90,16 +94,24 @@ nav {
   transition-delay: 65ms;
 }
 
-.nav-bar-row .sub-menu .sub-category {
-  padding: 2rem 1rem;
-}
+/* .nav-bar-row .sub-menu .sub-category.grey {
+  background-color: var(--light-grey);
+} */
+
+
 
 .nav-bar-row .sub-category a {
+  display: block;
   font-size: 1.8rem;
   font-weight: 500;
-  padding: 2rem 1rem;
+  padding: 2rem 1.6rem 2rem 1rem;
   cursor: pointer;
 }
+
+.nav-bar-row .sub-menu .sub-category a.active {
+  color: var(--pink);
+}
+
 
 .nav-bar-row .sub-menu .sub-category:hover {
   background-color: var(--yellow);

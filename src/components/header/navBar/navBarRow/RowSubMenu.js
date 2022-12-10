@@ -23,11 +23,11 @@ const RowSubMenu = ({ category, isExpanded }) => {
           </li>
         ) : (
           <li
-            className="sub-category"
+            className={`sub-category ${(i%2 === 0) ? "grey" : ""}`}
             key={"sub-category-" + i}
             
           >
-            <NavLink to={category+"/"+subCategory} >{replaceUnderscoreAndCapitalizeFirstChar(subCategory)}</NavLink>
+            <NavLink to={category+"/"+subCategory}>{replaceUnderscoreAndCapitalizeFirstChar(subCategory)}</NavLink>
           </li>
         );
       })}
