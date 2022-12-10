@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useLoaderData, useMatch, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import {
   changeGenre,
   fetchRedditInfo,
 } from "../../features/apiRequests/redditApiRequestSlice";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../utils/helperFunctions";
-import { genresObject, navSubCategories } from "../../utils/helperObjects";
+import { genresObject } from "../../utils/helperObjects";
 import Posts from "./Posts";
 import NotFound from "../pages/notFound/NotFound";
 import "./postStyles.css"
