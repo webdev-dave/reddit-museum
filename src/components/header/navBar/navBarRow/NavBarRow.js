@@ -10,10 +10,6 @@ const NavBarRow = () => {
   const [isExpandedArr, setIsExpandedArr] = useState(
     Array(navCategories.length).fill(false)
   );
-  // const categoryRefs = useMemo(
-  //   () => Array.from({ length: navCategories.length }).map(() => createRef()),
-  //   []
-  // );
   const navBarRef = useRef();
 
   const handleClickOutside = (e) => {

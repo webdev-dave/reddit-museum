@@ -87,7 +87,10 @@ nav {
   border-radius: 0px 0px 7px 7px;
 }
 
-/* this is for when last child of submenu is a .sub-sub-parent. since the position is relative it ends up blocking submenu's border-radius rounded corners */
+/* this is for when last child of submenu is a .sub-sub-parent. 
+  Since the position of a .sub-sub-parent is relative, 
+  it ends up blocking submenu's border-radius rounded corners and -
+  it is therefore set again below */
 .nav-bar-row .sub-menu li.sub-category:last-child,
 .nav-bar-row .sub-menu li.sub-category:last-child.expanded a.parent-name {
   border-radius: 0px 0px 7px 7px;
