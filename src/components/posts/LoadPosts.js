@@ -23,7 +23,6 @@ const LoadPosts = ({ category, isSubSubCategory, parentInfo}) => {
   const getParentCategoryName = string => string.split("/")[0];
 
   const parentGenreName = parentInfo ? getParentCategoryName(parentInfo) : false;
-  console.log(parentGenreName)
   
   useEffect(() => {
     if (genrePath) {

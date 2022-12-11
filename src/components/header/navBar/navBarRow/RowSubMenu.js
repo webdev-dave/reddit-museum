@@ -8,29 +8,25 @@ import RowSubSubMenu from "./RowSubSubMenu";
 import { FaAngleRight } from "react-icons/fa";
 
 const RowSubMenu = ({ category, isExpanded }) => {
-  //replace blank spaces in genre names with underscores
   const [subSubMenuIsExpanded, setSubSubMenuIsExpanded] = useState(false);
   const subSubMenuIsExpandedClassName = subSubMenuIsExpanded ? "expanded" : "";
   const [subMenuWidth, setSubMenuWidth] = useState(0);
-  const [subMenuHeight, setSubMenuHeight] = useState(0);
-  //get submenu width
-  const subMenuRef = useRef()
-  console.log(subSubMenuIsExpanded)
-  useEffect(()=>{
+  const subMenuRef = useRef();
+
+  useEffect(() => {
     !isExpanded && setSubSubMenuIsExpanded(false);
-  },[isExpanded])
+  }, [isExpanded]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setSubMenuWidth(subMenuRef.current.offsetWidth);
-    setSubMenuHeight(subMenuRef.current.offsetHeight);
-
-   //eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
-  console.log(subMenuHeight)
-
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
-    <ul ref={subMenuRef} className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}>
+    <ul
+      ref={subMenuRef}
+      className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}
+    >
       {navSubCategories[category].map((subCategory, i) => {
         //if typeof subOption = object then we can infer that this is a sub-sub-menu since all regular subOptions are strings
         return !(typeof subCategory === "object") ? (
@@ -43,13 +39,16 @@ const RowSubMenu = ({ category, isExpanded }) => {
             </NavLink>
           </li>
         ) : (
-          <li className={`sub-category sub-sub-parent ${subSubMenuIsExpandedClassName}`} key={"sub-category-" + i}>
+          <li
+            className={`sub-category sub-sub-parent ${subSubMenuIsExpandedClassName}`}
+            key={"sub-category-" + i}
+          >
             <NavLink
               to={category + "/" + Object.keys(subCategory)[0]}
               className={`parent-name`}
               onClick={(e) => {
-                e.preventDefault()
-                isExpanded && setSubSubMenuIsExpanded(!subSubMenuIsExpanded)
+                e.preventDefault();
+                isExpanded && setSubSubMenuIsExpanded(!subSubMenuIsExpanded);
               }}
             >
               {replaceUnderscoreAndCapitalizeFirstChar(

@@ -172,8 +172,10 @@ nav {
 .nav-bar-row ul.sub-sub-menu {
   opacity: 0;
   position: absolute;
-  /* see react component RowSubSubMenu for more */
-  /* right: set based on sub-menu-width */
+
+  /* see react component RowSubSubMenu for more
+   "right" is set based on sub-menu-width and -
+  "max-height" is set based on sub-menu-height */
   top: 0px;
   overflow: hidden;
   white-space: nowrap;
