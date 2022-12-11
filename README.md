@@ -14,7 +14,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 - transition NavRowDropDown based on ref height
 
-- work on subsub menu
+- work on ColumnSubSub menu
 - add hover effect for hamburger menu button
 - work on creating a smooth transition for NavBarColumn submenu max-height. Also work on transitions for all NavLink clicks that happen inside the menu
 - add a collapse all button in the navbar menu

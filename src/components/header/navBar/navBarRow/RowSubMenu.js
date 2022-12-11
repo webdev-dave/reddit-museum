@@ -5,13 +5,20 @@ import { NavLink } from "react-router-dom";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
 import { navSubCategories } from "../../../../utils/helperObjects";
 import RowSubSubMenu from "./RowSubSubMenu";
+import { FaAngleRight } from "react-icons/fa";
 
 const RowSubMenu = ({ category, isExpanded }) => {
   //replace blank spaces in genre names with underscores
+  const [subSubMenuIsExpanded, setSubSubMenuIsExpanded] = useState(false);
+  const subSubMenuIsExpandedClassName = subSubMenuIsExpanded ? "expanded" : "";
   const [subMenuWidth, setSubMenuWidth] = useState(0);
   const [subMenuHeight, setSubMenuHeight] = useState(0);
   //get submenu width
   const subMenuRef = useRef()
+  console.log(subSubMenuIsExpanded)
+  useEffect(()=>{
+    !isExpanded && setSubSubMenuIsExpanded(false);
+  },[isExpanded])
 
   useEffect(()=>{
     setSubMenuWidth(subMenuRef.current.offsetWidth);
@@ -36,20 +43,26 @@ const RowSubMenu = ({ category, isExpanded }) => {
             </NavLink>
           </li>
         ) : (
-          <li className="sub-category sub-sub-parent" key={"sub-category-" + i}>
+          <li className={`sub-category sub-sub-parent ${subSubMenuIsExpandedClassName}`} key={"sub-category-" + i}>
             <NavLink
               to={category + "/" + Object.keys(subCategory)[0]}
-              onClick={(e) => e.preventDefault()}
+              className={`parent-name`}
+              onClick={(e) => {
+                e.preventDefault()
+                isExpanded && setSubSubMenuIsExpanded(!subSubMenuIsExpanded)
+              }}
             >
               {replaceUnderscoreAndCapitalizeFirstChar(
                 Object.keys(subCategory)[0]
               )}
+              <FaAngleRight className="angle-right icon" />
             </NavLink>
             <RowSubSubMenu
               subSubCategories={subCategory[Object.keys(subCategory)[0]]}
               subCategory={Object.keys(subCategory)[0]}
               category={category}
-              isExpanded={true}
+              isExpanded={subSubMenuIsExpanded}
+              isExpandedClassName={subSubMenuIsExpandedClassName}
               subMenuWidth={subMenuWidth}
             />
           </li>

@@ -80,7 +80,7 @@ nav {
   position: absolute;
   top: var(--header-height);
   background-color: #fff;
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 15px 2px hsla(0 0% 0% / 0.2);
   pointer-events: none;
   transform: translateY(-10px);
   transition: opacity var(--main-transition-time) var(--main-transition-type), transform var(--main-transition-time) var(--main-transition-type);
@@ -88,7 +88,8 @@ nav {
 }
 
 /* this is for when last child of submenu is a .sub-sub-parent. since the position is relative it ends up blocking submenu's border-radius rounded corners */
-.nav-bar-row .sub-menu li.sub-category:last-child {
+.nav-bar-row .sub-menu li.sub-category:last-child,
+.nav-bar-row .sub-menu li.sub-category:last-child.expanded a.parent-name {
   border-radius: 0px 0px 7px 7px;
 }
 
@@ -104,11 +105,6 @@ nav {
 .nav-bar-row .category:hover .sub-menu {
   transition-delay: 65ms;
 }
-
-/* .nav-bar-row .sub-menu .sub-category.grey {
-  background-color: var(--light-grey);
-} */
-
 
 
 .nav-bar-row .sub-category a {
@@ -145,16 +141,33 @@ nav {
   background-color: #fff;
   display: flex;
   justify-content: stretch;
-  cursor: default;
 }
 
-.nav-bar-row .sub-sub-parent a {
+
+.nav-bar-row .sub-sub-parent a.parent-name {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.nav-bar-row .sub-sub-parent a:hover {
-  cursor: default;
+.nav-bar-row .sub-sub-parent  a.parent-name .icon {
+  display: block;
+  font-size: 2.3rem;
+  padding: .2rem;
 }
+
+.nav-bar-row .sub-sub-parent.expanded a.parent-name {
+  background-color: var(--yellow);
+}
+
+.nav-bar-row .sub-sub-parent.expanded a.parent-name .icon {
+  background-color: gray;
+  color: #fff;
+  border-radius: 5px;
+  align-self: flex-start;
+}
+
 
 .nav-bar-row ul.sub-sub-menu {
   opacity: 0;
@@ -163,6 +176,8 @@ nav {
   /* right: set based on sub-menu-width */
   top: 0px;
   overflow: hidden;
+  white-space: nowrap;
+  box-shadow: 7px 2px 15px 0px hsla(0 0% 0% / 0.2);
   border-radius: 0px 12px 12px 12px; 
   pointer-events: none;
   transform: translateX(-100px);
@@ -170,12 +185,14 @@ nav {
               transform var(--main-transition-time) var(--main-transition-type) ;
 }
 
-.nav-bar-row .sub-sub-parent.sub-category:hover ul.sub-sub-menu{
+
+.nav-bar-row .sub-sub-parent.sub-category:hover ul.sub-sub-menu,
+.nav-bar-row .sub-sub-menu.expanded {
   opacity: 1;
   transform: translateX(0px);
   pointer-events: auto;
-  white-space: nowrap;
 }
+
 
 
 .nav-bar-row  li.sub-sub-category {
@@ -184,12 +201,12 @@ nav {
 
 .nav-bar-row  li.sub-sub-category a {
   padding: 0.8rem 0.5rem;
-  border-left: 8px solid lightgray;
+  border-left: 8px solid gray;
   cursor: pointer;
 }
 
 .nav-bar-row  li.sub-sub-category a:hover {
   background-color: var(--yellow);
-  border-left: 8px solid gray;
+  border-left: 8px solid white;
 }
 

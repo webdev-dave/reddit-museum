@@ -9,32 +9,20 @@ const RowSubSubMenu = ({
   category,
   subCategory,
   isExpanded,
+  isExpandedClassName,
   subSubCategories,
   subMenuWidth,
-  subMenuHeight,
 }) => {
-  // console.log("component rendered");
-  // console.log(subMenuExpandedHeight);
-  // useEffect(() => {
-  //   //console.log("use effect ran " + subMenuExpandedHeight)
-  //   if (
-  //     subMenuRef.current.clientHeight !== subMenuExpandedHeight &&
-  //     subMenuRef.current.clientHeight > 0
-  //   ) {
-  //     setSubMenuExpandedHeight(subMenuRef.current.clientHeight);
-  //     //console.log(subMenuRef.current.clientHeight)
-  //   }
-  //   //eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+
   const subSubMenuStyles =
     subMenuWidth > 0 ? { left: `${subMenuWidth}px` } : {};
 
 
   return (
-    <ul className="sub-sub-menu" style={subSubMenuStyles}>
+    <ul className={`sub-sub-menu ${isExpandedClassName}`} style={subSubMenuStyles}>
       {subSubCategories.map((subSubCategory, index) => (
-        <li key={"sub-sub-category" + index} className={"sub-sub-category"}>
-          <NavLink to={`/${category}/${subCategory}/${subSubCategory}/`}>
+        <li key={"sub-sub-category" + index} className={`sub-sub-category`}>
+          <NavLink to={`/${category}/${subCategory}/${subSubCategory}/`} className={isExpandedClassName}>
             {replaceUnderscoreAndCapitalizeFirstChar(subSubCategory)}
           </NavLink>
         </li>
