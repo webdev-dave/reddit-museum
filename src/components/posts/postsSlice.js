@@ -22,6 +22,8 @@ const postsSlice = createSlice({
             const currentPosts = action.payload.posts;
             state.currentGenreName = genreName;
             state.allPosts[genreName] = currentPosts;
+            console.log(currentPosts)
+            console.log(createLoadingArray(currentPosts));
             state.currentlyOnDisplay = createLoadingArray(currentPosts);
         },
         updateCurrentlyOnDisplayToCurrent: (state, action) => {

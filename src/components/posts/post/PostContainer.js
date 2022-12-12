@@ -1,24 +1,19 @@
-import Media from "./Media";
-import EmbedGal from "./embedGal/EmbedGal";
-import PostMenu from "./menu/PostMenu";
 import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-import { useRef } from "react";
-import { useEffect } from "react";
+import Media from "./Media";
+import EmbedGal from "../../../features/embedGal/EmbedGal";
+import PostMenu from "./menu/PostMenu";
 
-//move this to main js
+
 const PostContainer = ({ post, postIndex }) => {
-  const mediaRef = useRef();
-  useEffect(()=>{
-    //console.log(mediaRef.current.clientHeight)
-  })
+
   const className = `post-container ${post.isGallery ? "gallery" : (post.isVideo || post.isYoutubeVideo) ? "video" : ""}`;
   return (
-    <div className={className + " loading"} ref={mediaRef}>
+    <div className={className + " loading"} >
       {!post.isGallery && !post.isYoutubeVideo ? (
         <Media src={post.srcUrl} post={post} />
       ) : post.isYoutubeVideo ? (
-        <EmbedYoutube youtubeId={post.youtubeId} />
-      ) : post.isGallery ? (
+        <EmbedYoutube youtubeId={post.youtubeId} title={post.title} />
+      ) : (post.isGallery && post.gallery) ? (
         <EmbedGal post={post} />
       ) : ""}
       <PostMenu post={post} />

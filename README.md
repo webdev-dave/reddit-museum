@@ -12,10 +12,10 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- create error screen and fix loading effect
 - add hover effect for hamburger menu button
-- work on creating a smooth transition for NavBarColumn submenu max-height. Also work on transitions for all NavLink clicks that happen inside the menu
-- add a collapse all button in the navbar menu
-- style desktop dropdown submenus (change background color and adjust box shadows)
+- add a collapse all button in the NavBarMenu
+- remove desktop dropdown (and upload code to new git repo). Then style navBarMenu to work for desktop mode
 - add zoom in/out buttons for image in full screen mode (and make sure to allow default browser zoom to work - currently not working)
 - fix loading effect to hold down actual size of media being loaded. Also make sure prior title remains cleared
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page

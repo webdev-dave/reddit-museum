@@ -25,10 +25,10 @@ const LoadPosts = ({ category, isSubSubCategory, parentInfo}) => {
   const parentGenreName = parentInfo ? getParentCategoryName(parentInfo) : false;
   
   useEffect(() => {
-    if (genrePath) {
       dispatch(fetchRedditInfo(genrePath));
       dispatch(changeGenre({ genreName: genreName, path: genrePath }));
-    }
+      window.scrollTo(0, 0);
+    
   },[genrePath, genreName, dispatch, isSubSubCategory]);
 
 

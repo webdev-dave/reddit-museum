@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { formatChildren } from "../../utils/helperFunctions";
 
 const initialState = {
   isLoading: false,
@@ -53,52 +54,9 @@ const redditApiRequestSlice = createSlice({
 
       //state.redditData.experiment = action.payload.data.children[8].data.gallery_data;
       state.redditData.initObj = action.payload.data;
-
       state.redditData.kind = action.payload.kind;
       state.redditData.postsArrLength = action.payload.data.dist;
-      state.redditData.posts = action.payload.data.children.map(
-        (child) => {
-          return {
-            isGallery: child.data.is_gallery ? true : false,
-            thumbnail: child.data.thumbnail,
-            title: child.data.title,
-            child: child,
-            srcUrl: child.data.url_overridden_by_dest,
-            redditGalleryOrder:
-              child.data.is_gallery &&
-              child.data.gallery_data.items.map((img) => img.media_id),
-            //extendedGallery: child.data.is_gallery && child.data.gallery_data.items.map(img => img.media_id),
-            initialGallery:
-              child.data.is_gallery &&
-              Object.values(child.data.media_metadata).map((img, idx) => {
-                return {
-                  fileType: img.m,
-                  id: img.id,
-                  imgIndex: null,
-                  headerImg: "unknown",
-                  isVideo: false,
-                  videoUrl: null,
-                  mediaType: img.e,
-                  y: img.s.y,
-                  x: img.s.x,
-                  backupUrl: img.s.u,
-                  title: child.data.title,
-                };
-              }),
-
-            voteCount: child.data.ups,
-            subreddit: child.data.subreddit_name_prefixed,
-            author: child.data.author,
-            authorUrl: "https://www.reddit.com/user/" + child.data.author,
-            date: child.data.created_utc,
-            redditPostUrl: "https://www.reddit.com" + child.data.permalink,
-            redditMediaViewer: child.data.url,
-
-            //extraTGallery: child.data.is_gallery && child.data.gallery_data.items,
-          };
-        }
-      );
-      
+      state.redditData.posts = action.payload.data.children && formatChildren(action.payload.data.children);
     },
     [fetchRedditInfo.rejected]: (state, action) => {
       state.isLoading = false;

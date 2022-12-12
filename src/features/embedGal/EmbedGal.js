@@ -1,9 +1,9 @@
 import './embedGalStyles.css';
 import { useState } from "react";
-import Media from "../Media";
+import Media from "../../components/posts/post/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch } from 'react-redux';
-import { updateGallery } from '../../postsSlice';
+import { updateGallery } from '../../components/posts/postsSlice';
 
 
 const EmbedGal = ({ post }) => {

@@ -1,10 +1,62 @@
+
+// --------------------------------------------------------- Mini Functions ----
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+
+export const removeLongWords = (textString) => {
+  // this help remove super long continuos words which are usually unwanted social media handles or url's
+  return textString.split(" ").filter(str => str.length < 20).join(" ");
+}
+
+export const returnMaximumOfTenArrayItems = (array) => {
+  if(array.length <= 10){
+    return array;
+  }
+  return array.slice(0, 11);
+}
+
+export const createLoadingArray = (array) => {
+  const loadingArray = [];
+  for(let i = 0; i < array.length; i++ ){
+    loadingArray.push({...array[i], title: "loading", srcUrl: "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081"});
+  }
+  return loadingArray
+}
+
+export const capitalizeFirstChar = (string) => string.charAt(0).toUpperCase() + string.substring(1);
+
+
+export const replaceUnderscoreAndCapitalizeFirstChar = (string) => {
+  return string.split("_").map(str => capitalizeFirstChar(str)).join(" ");
+  //(string.charAt(0).toUpperCase() + string.substring(1));
+};
+
+
+
+// --------------------------------------------------------- Medium Functions ----
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+
+
 /*   
   - 1 the map function bellow overwrites the default reddit api galleryArray (which comes in a randomized order) and reorganizes all imgObj based on the default redditGalleryOrder (as it appears on reddit).
   - 2 child.redditGalleryOrder is an array of gallery-media-id's in default reddit order
   - 3 the map function below maps over all the id's inside redditGalleryOrder. It then parses the initial store gallery (that comes in a randomized order) and finds the the img object that have a matching id
   - 4 once the matching imgObj is found, it is pushed into the new gallery array, only this time, all the imgObj's appear in order of redditGalleryOrder */
 export const sortGallery = (galleryOrder, initialGal) => {
-  return galleryOrder.map((orderedImgId, imgIndex) => {
+  return galleryOrder ? galleryOrder.map((orderedImgId, imgIndex) => {
     const newImgObj = initialGal.find((imgObj) => imgObj.id === orderedImgId);
     return {
       ...newImgObj,
@@ -12,7 +64,7 @@ export const sortGallery = (galleryOrder, initialGal) => {
       isCurrentlyDisplayed: imgIndex === 0 ? true : false,
       srcUrl: getGalleryImgSrcUrl(newImgObj, imgIndex)
     };
-  });
+  }) : null;
 };
 
 const getGalleryImgSrcUrl = (media, imgIndex) => {
@@ -60,6 +112,65 @@ const getYoutubeId = (url) => {
 }
 
 
+
+
+
+// --------------------------------------------------------- Large Functions ----
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+// ------------
+
+
+
+export const formatChildren = (childrenArray) => {
+  return childrenArray.map(
+    (child) => {
+      return {
+        isGallery: child.data.is_gallery ? true : false,
+        thumbnail: child.data.thumbnail,
+        title: child.data.title,
+        child: child,
+        srcUrl: child.data.url_overridden_by_dest,
+        redditGalleryOrder:
+          child.data.gallery_data ?
+          child.data.gallery_data.items.map((img) => img.media_id) : null,
+        //extendedGallery: child.data.is_gallery && child.data.gallery_data.items.map(img => img.media_id),
+        initialGallery:
+          child.data.media_metadata ?
+          Object.values(child.data.media_metadata).map((img, idx) => {
+            return {
+              fileType: img.m,
+              id: img.id,
+              imgIndex: null,
+              headerImg: "unknown",
+              isVideo: false,
+              videoUrl: null,
+              mediaType: img.e,
+              y: img.s.y,
+              x: img.s.x,
+              backupUrl: img.s.u,
+              title: child.data.title,
+            };
+          }) : null,
+
+        voteCount: child.data.ups,
+        subreddit: child.data.subreddit_name_prefixed,
+        author: child.data.author,
+        authorUrl: "https://www.reddit.com/user/" + child.data.author,
+        date: child.data.created_utc,
+        redditPostUrl: "https://www.reddit.com" + child.data.permalink,
+        redditMediaViewer: child.data.url,
+      };
+    }
+  );
+}
+
+
 export const formatPosts = (posts, genreName, allowYoutube) => {
   //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
   const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
@@ -92,28 +203,3 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
     };
   });
 }
-
-
-export const removeLongWords = (textString) => {
-  // this help remove super long continuos words which are ussually unwanted social media handles or url's
-  return textString.split(" ").filter(str => str.length < 20).join(" ");
-}
-
-export const returnMaximumOfTenArrayItems = (array) => {
-  if(array.length <= 10){
-    return array;
-  }
-  return array.slice(0, 11);
-}
-
-export const createLoadingArray = (array) => {
-  return Array.from({length: array.length}, element => ({title: "loading...", srcUrl: "", credits: {authorUrl: ""}}));
-}
-
-export const capitalizeFirstChar = (string) => string.charAt(0).toUpperCase() + string.substring(1);
-
-
-export const replaceUnderscoreAndCapitalizeFirstChar = (string) => {
-  return string.split("_").map(str => capitalizeFirstChar(str)).join(" ");
-  //(string.charAt(0).toUpperCase() + string.substring(1));
-};
