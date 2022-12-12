@@ -36,13 +36,13 @@
 }
 
 .nav-bar-column a.category-name.active {
-  border-radius: 0 8px 8px 0;
   background-color: hsla(0 0% 100% / 0.5);
   border-left: 6px solid var(--pink);
 }
 
 .nav-bar-column a.category-name.expanded,
 .nav-bar-column a.category-name.active.expanded {
+  border-radius: 0 8px 0px 0;
   color: #fff;
   background-color: var(--pink);
   transition: color var(--transition-time) var(--transition-type), background-color var(--transition-time) var(--transition-type);
