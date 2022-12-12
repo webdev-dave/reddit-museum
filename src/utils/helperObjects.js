@@ -5,6 +5,8 @@ export const genresObject = {
     astro_photography: {path: "/r/LandscapeAstro/", allowYoutubeVideos: false},
     castles: {path: "/r/ImaginaryCastles/", allowYoutubeVideos: false},
     contemporary_mix: {path: "/r/Paintings/", allowYoutubeVideos: false},
+    color_restoration: {path: "/r/Colorization/", allowYoutubeVideos: false},
+    color_restoration_2: {path: "/r/ColorizedHistory/", allowYoutubeVideos: false},
     design: {path: "/r/DesignPorn/", allowYoutubeVideos: false},
     digital_paintings: {path: "/r/DigitalPainting/", allowYoutubeVideos: false},
     drawings: {path: "/r/drawing/", allowYoutubeVideos: false},
@@ -29,7 +31,7 @@ export const genresObject = {
 }
 
 export const navSubCategories = {
-    photography: ["street_photography", "film", "ariel_photography", "landscapes", "astro_photography", "wildlife",  "portraits", {historical: ["wild_west", "color_restoration", "placeholder_2"]}],
+    photography: ["street_photography", "film", "ariel_photography", "landscapes", "astro_photography", "wildlife",  "portraits", {historical: ["wild_west", "color_restoration", "color_restoration_2"]}],
     digital: ["ai", "digital_paintings", "psychedelic_visuals", "castles"],
     paintings: ["mixed_paintings", "modern", "surrealism", "drawings", "contemporary_mix"],
     cinema: ["short_films", "movie_posters"],

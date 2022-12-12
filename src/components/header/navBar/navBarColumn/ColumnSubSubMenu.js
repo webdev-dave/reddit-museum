@@ -9,15 +9,12 @@ const ColumnSubSubMenu = ({category, subCategory, isExpanded, isExpandedClassNam
   const subSubMenuRef = useRef();
   const [expandedHeight, setExpandedHeight] = useState(0);
 
-  console.log(isExpandedClassName);
   const subSubMenuStyles = (expandedHeight > 0) ? {height: `${isExpanded ? expandedHeight : 0}px`} : {};
 
   useEffect(()=>{
     setExpandedHeight(subSubMenuRef.current.offsetHeight);
+  }, [])
 
-  },[])
-  console.log(expandedHeight);
-  console.log(subSubMenuStyles);
   return (
     <ul ref={subSubMenuRef} className={`sub-sub-menu ${isExpandedClassName}`} style={subSubMenuStyles}>
     {subSubCategories.map(
