@@ -1,7 +1,5 @@
 import {createSlice } from "@reduxjs/toolkit";
-import { createLoadingArray } from "../../utils/helperFunctions";
 import {blankGenresObject } from "../../utils/helperObjects";
-
 
 
 const initialState = {
@@ -22,12 +20,8 @@ const postsSlice = createSlice({
             const currentPosts = action.payload.posts;
             state.currentGenreName = genreName;
             state.allPosts[genreName] = currentPosts;
-            console.log(currentPosts)
-            // console.log(createLoadingArray(currentPosts));
-            state.currentlyOnDisplay = createLoadingArray(currentPosts);
-        },
-        updateCurrentlyOnDisplayToCurrent: (state, action) => {
-            state.currentlyOnDisplay = state.allPosts[state.currentGenreName];
+            //state.currentlyOnDisplay = createLoadingArray(currentPosts);
+            state.currentlyOnDisplay = currentPosts;
         },
         updateGallery: (state, action)=>{
             const genreName = state.currentGenreName;
@@ -72,6 +66,6 @@ export const selectSearchWord = (state) => state.posts.searchWord;
 
 
 
-export const { updateGenrePosts, updateCurrentlyOnDisplayToCurrent, updateIsSearching, search, updateFullScreenMode, updateGallery} = postsSlice.actions;
+export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGallery} = postsSlice.actions;
 
 export default postsSlice.reducer;

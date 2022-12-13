@@ -57,6 +57,7 @@ const redditApiRequestSlice = createSlice({
       state.redditData.kind = action.payload.kind;
       state.redditData.postsArrLength = action.payload.data.dist;
       state.redditData.posts = action.payload.data.children && formatRedditDataChildren(action.payload.data.children);
+      console.log(state.redditData.posts);
     },
     [fetchRedditInfo.rejected]: (state, action) => {
       state.isLoading = false;

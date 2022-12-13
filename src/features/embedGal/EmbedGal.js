@@ -59,9 +59,6 @@ const EmbedGal = ({ post }) => {
       </button>
       <div className="sliding-stack">
         {gallery.map((media, imgIndex) => {
-
-
-
           return (
             <Media
               post={media}

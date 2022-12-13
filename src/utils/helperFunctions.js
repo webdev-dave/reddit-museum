@@ -31,13 +31,14 @@ export const returnMaximumOfTenArrayItems = (array) => {
   return array.slice(0, 11);
 }
 
-export const createLoadingArray = (array) => {
-  const loadingArray = [];
-  for(let i = 0; i < array.length; i++ ){
-    loadingArray.push({...array[i], title: "loading", srcUrl: ""});
-  }
-  return loadingArray
-}
+// export const createLoadingArray = (array) => {
+//   const loadingArray = [];
+//   for(let i = 1; i < array.length; i++ ){
+//     loadingArray.push({...array[i], title: "loading", srcUrl: ""});
+
+//   }
+//   return loadingArray
+// }
 
 export const capitalizeFirstChar = (string) => string.charAt(0).toUpperCase() + string.substring(1);
 
@@ -138,12 +139,14 @@ const getYoutubeId = (url) => {
 
 
 export const formatRedditDataChildren = (childrenArray) => {
-  console.log(childrenArray)
+  //console.log(childrenArray)
   return childrenArray.map(
     (child) => {
+      //if isGallery, work on getting sizeData from gallery data
       const width = child.data.preview ? child.data.preview.images[0].source.width : false;
       const height = child.data.preview ? child.data.preview.images[0].source.height : false;
       const aspectRatioQuotient = getAspectRatioQuotient(width, height);
+      //console.log(getNewHeightBasedOnAspectRatio(aspectRatioQuotient, 400))
       return {
         sizeData: {width: width, height: height, aspectRatioQuotient: aspectRatioQuotient},
         isGallery: child.data.is_gallery ? true : false,
@@ -166,8 +169,7 @@ export const formatRedditDataChildren = (childrenArray) => {
               isVideo: false,
               videoUrl: null,
               mediaType: img.e,
-              y: img.s.y,
-              x: img.s.x,
+              sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.y, img.s.x)},
               backupUrl: img.s.u,
               title: child.data.title,
             };
@@ -204,6 +206,7 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
       isVideo: isVideo ? true : false,
       isYoutubeVideo: isYoutubeVideo,
       youtubeId: youtubeId,
+      sizeData: post.sizeData,
       srcUrl: post.srcUrl ? post.srcUrl : "",
       gallery: gallery,
       title: post.title,

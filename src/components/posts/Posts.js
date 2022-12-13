@@ -8,7 +8,6 @@ import PostContainer from "./post/PostContainer";
 import { formatPosts } from "../../utils/helperFunctions";
 import {
   selectCurrentlyOnDisplay,
-  updateCurrentlyOnDisplayToCurrent,
   updateGenrePosts,
 } from "./postsSlice";
 import { genresObject } from "../../utils/helperObjects";
@@ -24,11 +23,6 @@ const Posts = () => {
     const allowYoutube = genresObject[genreName].allowYoutubeVideos;
     const formattedPosts = formatPosts(rawPostsArr, genreName, allowYoutube);
     dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
-    //timeout function allows setPosts to register loadingPlaceholderArray before setting posts to formattedPosts
-    const timer = setTimeout(() => {
-      dispatch(updateCurrentlyOnDisplayToCurrent({}));
-    }, 1000);
-    return () => clearTimeout(timer);
   }, [dispatch, rawPostsArr, genreName]);
 
 
