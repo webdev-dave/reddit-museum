@@ -1,3 +1,4 @@
+import Big from "big.js";
 
 // --------------------------------------------------------- Mini Functions ----
 // ------------
@@ -10,11 +11,11 @@
 // ------------
 
 export const getAspectRatioQuotient = (width, height) => {
-  return isNaN(height / width) ? false : (height/width)
+  return isNaN(height / width) ? false : Big(height).div(width).toNumber();
 }
 
 export const getNewHeightBasedOnAspectRatio = (aspectRatioQuotient, newWidth) => {
-  return aspectRatioQuotient * newWidth;
+  return !aspectRatioQuotient ? false : Number(Big(aspectRatioQuotient).times(newWidth).toFixed(4));
 }
 
 
@@ -143,7 +144,6 @@ export const formatRedditDataChildren = (childrenArray) => {
       const width = child.data.preview ? child.data.preview.images[0].source.width : false;
       const height = child.data.preview ? child.data.preview.images[0].source.height : false;
       const aspectRatioQuotient = getAspectRatioQuotient(width, height);
-      console.log(aspectRatioQuotient);
       return {
         sizeData: {width: width, height: height, aspectRatioQuotient: aspectRatioQuotient},
         isGallery: child.data.is_gallery ? true : false,
