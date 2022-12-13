@@ -27,7 +27,7 @@ const Posts = () => {
     //timeout function allows setPosts to register loadingPlaceholderArray before setting posts to formattedPosts
     const timer = setTimeout(() => {
       dispatch(updateCurrentlyOnDisplayToCurrent({}));
-    }, 600);
+    }, 1000);
     return () => clearTimeout(timer);
   }, [dispatch, rawPostsArr, genreName]);
 

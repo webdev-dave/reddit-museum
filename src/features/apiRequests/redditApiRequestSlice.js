@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { formatChildren } from "../../utils/helperFunctions";
+import { formatRedditDataChildren } from "../../utils/helperFunctions";
 
 const initialState = {
   isLoading: false,
@@ -56,7 +56,7 @@ const redditApiRequestSlice = createSlice({
       state.redditData.initObj = action.payload.data;
       state.redditData.kind = action.payload.kind;
       state.redditData.postsArrLength = action.payload.data.dist;
-      state.redditData.posts = action.payload.data.children && formatChildren(action.payload.data.children);
+      state.redditData.posts = action.payload.data.children && formatRedditDataChildren(action.payload.data.children);
     },
     [fetchRedditInfo.rejected]: (state, action) => {
       state.isLoading = false;

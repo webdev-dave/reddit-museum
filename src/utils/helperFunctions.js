@@ -9,6 +9,15 @@
 // ------------
 // ------------
 
+export const getAspectRatioQuotient = (width, height) => {
+  return isNaN(height / width) ? false : (height/width)
+}
+
+export const getNewHeightBasedOnAspectRatio = (aspectRatioQuotient, newWidth) => {
+  return aspectRatioQuotient * newWidth;
+}
+
+
 export const removeLongWords = (textString) => {
   // this help remove super long continuos words which are usually unwanted social media handles or url's
   return textString.split(" ").filter(str => str.length < 20).join(" ");
@@ -24,7 +33,7 @@ export const returnMaximumOfTenArrayItems = (array) => {
 export const createLoadingArray = (array) => {
   const loadingArray = [];
   for(let i = 0; i < array.length; i++ ){
-    loadingArray.push({...array[i], title: "loading", srcUrl: "https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-images-image_large.png?format=webp&v=1530129081"});
+    loadingArray.push({...array[i], title: "loading", srcUrl: ""});
   }
   return loadingArray
 }
@@ -127,10 +136,16 @@ const getYoutubeId = (url) => {
 
 
 
-export const formatChildren = (childrenArray) => {
+export const formatRedditDataChildren = (childrenArray) => {
+  console.log(childrenArray)
   return childrenArray.map(
     (child) => {
+      const width = child.data.preview ? child.data.preview.images[0].source.width : false;
+      const height = child.data.preview ? child.data.preview.images[0].source.height : false;
+      const aspectRatioQuotient = getAspectRatioQuotient(width, height);
+      console.log(aspectRatioQuotient);
       return {
+        sizeData: {width: width, height: height, aspectRatioQuotient: aspectRatioQuotient},
         isGallery: child.data.is_gallery ? true : false,
         thumbnail: child.data.thumbnail,
         title: child.data.title,

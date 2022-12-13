@@ -34,11 +34,21 @@ h1.category-name {
     width: 100%;
     height: auto;
     margin: 0 auto;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .post-container .media.loading {
+    background-color: red;
+    opacity: 0;
+
+  }
+
+  .post-container .media.loaded {
+    opacity: 1;
   }
   
-  .loading .media {
-    background-color: gray;
-  }
+
   
 
   

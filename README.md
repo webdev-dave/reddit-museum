@@ -12,7 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- create error screen and fix loading effect
+- fix loading effect
 - add hover effect for hamburger menu button
 - add a collapse all button in the NavBarMenu
 - remove desktop dropdown (and upload code to new git repo). Then style navBarMenu to work for desktop mode
