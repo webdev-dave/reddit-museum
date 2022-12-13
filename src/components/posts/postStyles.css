@@ -33,12 +33,20 @@ h1.category-name {
   .post-container .media-wrapper {
     position: relative;
     width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+
+  .post-container .media-wrapper.loading {
     background-color: aquamarine;
   }
 
   .media-wrapper .loading-message {
     position: absolute;
     bottom: 0;
+    left: 0;
     z-index: 2;
     opacity: 1;
     background-color: orange;

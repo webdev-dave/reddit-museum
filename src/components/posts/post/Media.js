@@ -8,15 +8,20 @@ const Media = ({ post, src, className }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
   const mediaRef = useRef();
-  const handleLoadingCompleted = () => {
-    setIsLoaded(true);
-    //console.log("loading complete");
-    
-  };
   
 
-  useEffect(() => {
+
+
+  const handleLoadingCompleted = () => {
+    setIsLoaded(true);
+  };
+  
+  useEffect(()=>{
     setIsLoaded(false);
+  }, [src])
+
+  useEffect(() => {
+    
     const width = mediaRef.current.offsetWidth;
     const aspectRatioQuotient = post.sizeData.aspectRatioQuotient;
     const height = getNewHeightBasedOnAspectRatio(aspectRatioQuotient, width);
@@ -31,7 +36,7 @@ const Media = ({ post, src, className }) => {
 
   return (
     <div
-      className="media-wrapper"
+      className={`media-wrapper ${!isLoaded ? "loading" : ""}`}
       style={{ height: `${mediaHeight}px`, width: "100%" }}
       ref={mediaRef}
     >
@@ -45,10 +50,11 @@ const Media = ({ post, src, className }) => {
           className={`media ${!isLoaded ? "loading" : "loaded"} ${
             className ? className : ""
           }`}
+          id={"media"}
           onLoad={handleLoadingCompleted}
         />
       ) : (
-        <video controls width="100%" className={`media`}>
+        <video controls width="100%" className={`media`} id={"media"}>
           <source src={src + "/DASH_1080.mp4"} type="video/mp4" />
           <source src={src + "/DASH_720.mp4"} type="video/mp4" />
           <source src={src + "/DASH_480.mp4"} type="video/mp4" />
