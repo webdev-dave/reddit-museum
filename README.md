@@ -12,10 +12,10 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- make loading screen work on embedded youtube videos?
 - get rid of any lag in embedGal transitions
 - get rid of auto animation on main image load
 - create touch/swipe effect for gallery on mobile
-- fix loading effect
 - add hover effect for hamburger menu button
 - add a collapse all button in the NavBarMenu
 - remove desktop dropdown (and upload code to new git repo). Then style navBarMenu to work for desktop mode

@@ -5,17 +5,14 @@ import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
 
 const Media = ({ post, src, galleryStackClassName }) => {
   const alt = post.title.toLowerCase();
+  const mediaRef = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
-  const mediaRef = useRef();
   const mediaWrapperStyles = (mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
   
 
 
 
-  const handleLoadingCompleted = () => {
-    setIsLoaded(true);
-  };
   
   useEffect(()=>{
     setIsLoaded(false);
@@ -26,9 +23,8 @@ const Media = ({ post, src, galleryStackClassName }) => {
     const width = mediaRef.current.offsetWidth;
     const aspectRatioQuotient = post.sizeData.aspectRatioQuotient;
     const height = getNewHeightBasedOnAspectRatio(aspectRatioQuotient, width);
-    console.log(post)
-    console.log(height);
-    console.log(width);
+
+
     //get width of galleries
     if (width > 0 && height > 0) {
       //console.log(post);
@@ -42,11 +38,11 @@ const Media = ({ post, src, galleryStackClassName }) => {
  
   return (
     <div
-      className={`media-wrapper ${!isLoaded ? "loading" : ""} ${galleryStackClassName ? galleryStackClassName : ""}`}
+      className={`media-wrapper ${(!isLoaded && !post.isVideo) ? "loading" : ""} ${galleryStackClassName ? galleryStackClassName : ""}`}
       style={mediaWrapperStyles}
       ref={mediaRef}
     >
-      <div className={`loading-message ${isLoaded ? "hide" : ""}`}>
+      <div className={`loading-message ${(isLoaded || post.isVideo) ? "loaded" : ""}`}>
         <h5>Loading...</h5>
       </div>
       {!post.isVideo ? (
@@ -54,10 +50,10 @@ const Media = ({ post, src, galleryStackClassName }) => {
           src={src}
           alt={alt}
           className={`media ${!isLoaded ? "loading" : "loaded"}`}
-          onLoad={handleLoadingCompleted}
+          onLoad={()=>{setIsLoaded(true);}}
         />
       ) : (
-        <video controls width="100%" className={`media`} >
+        <video controls width="100%" className={`media loaded`}>
           <source src={src + "/DASH_1080.mp4"} type="video/mp4" />
           <source src={src + "/DASH_720.mp4"} type="video/mp4" />
           <source src={src + "/DASH_480.mp4"} type="video/mp4" />

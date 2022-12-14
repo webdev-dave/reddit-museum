@@ -53,8 +53,7 @@ h1.category-name {
     transition: opacity 0.5s ease-in-out;
   }
 
-  .media-wrapper .loading-message.hide {
-    position: absolute;
+  .media-wrapper .loading-message.loaded {
     opacity: 0;
 
   }
