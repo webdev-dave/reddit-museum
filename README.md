@@ -12,6 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- get rid of any lag in embedGal transitions
+- get rid of auto animation on main image load
+- create touch/swipe effect for gallery on mobile
 - fix loading effect
 - add hover effect for hamburger menu button
 - add a collapse all button in the NavBarMenu
@@ -23,7 +26,6 @@ A digital art gallery that displays art collected from the various artistic encl
 - add a share link button option
 - add a chromecast / cast to tv option
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
-- create touch/swipe effect for gallery on mobile
 - work on accessing sound in reddit videos
 - make videos stop playing automatically when user scrolls out of sight
 - create an array of search keywords out of every individual title word
