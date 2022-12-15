@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectLoadingStatus } from "../../../features/apiRequests/redditApiRequestSlice";
 import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
 import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-// import {FaRegImage} from "react-icons/fa"
+import {FaRegImage, FaFilm, FaYoutube} from "react-icons/fa"
 
 const Media = ({ post, galleryStackClassName }) => {
   const src = post.srcUrl;
@@ -16,6 +16,7 @@ const Media = ({ post, galleryStackClassName }) => {
   const mediaWrapperStyles =
     mediaHeight > 0 ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
   const isLoading = useSelector(selectLoadingStatus);
+  const loadingIcon = post.isLocalVideo ? <FaFilm /> : post.isYoutubeVideo ? <FaYoutube /> : <FaRegImage/>;
 
   useEffect(() => {
     //make sure old posts clear and enter "loading mode" as soon as a new redditApiRequest is sent (i.e. when isLoading = true)
@@ -44,12 +45,15 @@ const Media = ({ post, galleryStackClassName }) => {
       ref={mediaRef}
     >
       <div
-        className={`loading-message ${
+        className={`loading-container ${
           isLoaded || post.isLocalVideo ? "loaded" : ""
         }`}
       >
-        {/* <FaRegImage className="icon" /> */}
-        <h5>Loading...</h5>
+        <div className="icon-wrapper">
+          {loadingIcon}
+        </div>
+        <h5 className="loading-message">Loading...</h5>
+        
       </div>
       {!post.isLocalVideo && !post.isYoutubeVideo ? (
         <img

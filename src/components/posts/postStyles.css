@@ -49,39 +49,9 @@ h1.category-name {
     /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
   }
 
-  .post-container .media-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-  }
 
-  .post-container .media-wrapper.loading {
-    background-color: var(--charcoal);
-  }
+  /* -------------------------------------------------------------------------- Media Loading...  */
 
-  .media-wrapper .loading-message {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 0;
-    opacity: 1;
-    background-color: orange;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  .media-wrapper .loading-message.loaded {
-    opacity: 0;
-
-  }
-
-  .media-wrapper .loading-message h5 {
-    padding: 1rem;
-  }
-
-  
   .post-container .media {
     width: 100%;
     height: auto;
@@ -101,7 +71,67 @@ h1.category-name {
   }
   
 
+  .post-container .media-wrapper {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* .post-container .media-wrapper.loading {
+    
+  } */
+
+  .media-wrapper .loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    opacity: 1;
+    background-color: var(--charcoal);
+
+  }
+
+  .media-wrapper .loading-container.loaded {
+    opacity: 0;
+  }
+
+  .loading-container .icon-wrapper {
+    position: absolute;
+    width: 100%;
+  }
+
+  .loading-container .icon-wrapper svg {
+    display: block;
+    margin: 0 auto;
+    font-size: 10rem;
+    color: orange;
+  }
+
+
+
+  .loading-container h5.loading-message {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    color: black;
+    background-color: orange;
+    padding: 1rem;
+
+  }
+
+
+
   
+
 
   
   /* for phone landscape-mode and laptops */

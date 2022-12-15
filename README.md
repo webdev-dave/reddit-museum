@@ -12,7 +12,8 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- make loading screen work on embedded youtube videos?
+- make loading screen aware if localHostedVideo loaded
+- fix post loading-container initial placement bug
 - get rid of any lag in embedGal transitions
 - get rid of auto animation on main image load
 - create touch/swipe effect for gallery on mobile
