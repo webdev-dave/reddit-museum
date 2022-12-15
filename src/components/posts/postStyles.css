@@ -100,7 +100,7 @@ h1.category-name {
   }
 
   .loading-container.loaded {
-    opacity: 0;
+    opacity: 1;
   }
 
   .loading-container .icon-wrapper {
@@ -124,7 +124,8 @@ h1.category-name {
     opacity: 1;
     color: black;
     background-color: orange;
-    padding: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0 10px 0 0;
 
   }
 
