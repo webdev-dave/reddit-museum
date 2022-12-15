@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectLoadingStatus } from "../../../features/apiRequests/redditApiRequestSlice";
 import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
 import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-import {FaRegImage} from "react-icons/fa"
+// import {FaRegImage} from "react-icons/fa"
 
 const Media = ({ post, galleryStackClassName }) => {
   const src = post.srcUrl;
