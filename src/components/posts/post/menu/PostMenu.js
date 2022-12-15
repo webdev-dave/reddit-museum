@@ -21,7 +21,7 @@ const PostMenu = ({ post }) => {
 
   return (
     <div className="post-menu">
-      {(post.isVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
+      {(post.isLocalVideo || post.isYoutubeVideo) ? "" : <FullScreenMode post={post} />}
       
       <h5>{removeLongWords(post.title).toUpperCase()}</h5>
       <p className="author-url">

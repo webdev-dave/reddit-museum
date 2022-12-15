@@ -166,8 +166,7 @@ export const formatRedditDataChildren = (childrenArray) => {
               id: img.id,
               imgIndex: null,
               headerImg: "unknown",
-              isVideo: false,
-              videoUrl: null,
+              isLocalVideo: false,
               mediaType: img.e,
               sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.y, img.s.x)},
               backupUrl: img.s.u,
@@ -192,23 +191,26 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
   //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
   const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
   return postsArr.map((post, index) => {
+
+
+    const isLocalVideo = post.srcUrl && post.srcUrl.slice(8, 9) === "v";
+    const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
+    const youtubeId = isYoutubeVideo ? getYoutubeId(post.srcUrl) : "";
     const isGallery = post.isGallery;
     const gallery = isGallery
       ? sortGallery(post.redditGalleryOrder, post.initialGallery)
       : [];
-    const isVideo = post.srcUrl && post.srcUrl.slice(8, 9) === "v";
-    const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
-    const youtubeId = isYoutubeVideo ? getYoutubeId(post.srcUrl) : "";
+    const updatedGallery = gallery.map(mediaObj => ({...mediaObj, isYoutubeVideo: isYoutubeVideo}));
 
     return {
       postIndex: index,
       isGallery: isGallery,
-      isVideo: isVideo ? true : false,
+      isLocalVideo: isLocalVideo ? true : false,
       isYoutubeVideo: isYoutubeVideo,
       youtubeId: youtubeId,
       sizeData: post.sizeData,
       srcUrl: post.srcUrl ? post.srcUrl : "",
-      gallery: gallery,
+      gallery: updatedGallery,
       title: post.title,
       credits: {
         author: post.author,

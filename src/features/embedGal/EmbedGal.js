@@ -73,9 +73,6 @@ const EmbedGal = ({ post }) => {
             return (
               <Media
                 post={media}
-                src={media.srcUrl}
-                isVideo={media.isVideo}
-                videoUrl={media.videoUrl}
                 key={`gal-${postIndex}-img${imgIndex}`}
                 galleryStackClassName={` ${imgIndex === 0 ? "main" : ""} ${
                   imgIndex === currentImageIndex
@@ -84,7 +81,6 @@ const EmbedGal = ({ post }) => {
                     ? "hidden " + slideOutClassName
                     : "hidden"
                 }  `}
-                id={imgIndex}
               />
             );
           })}

@@ -79,7 +79,7 @@ const alt = post.title.toLowerCase();
       {fsModeIsActive && (
         <div className="full-screen-container" ref={fullScreenRef} style={containerStyles}>
           <div className="media-wrapper">
-            {post.isVideo ? (
+            {post.isLocalVideo ? (
               ""
               // <video controls width="100%" className={`media`}>
               //   <source src={post.srcUrl + "/DASH_1080.mp4"} type="video/mp4" />
