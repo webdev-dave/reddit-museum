@@ -76,7 +76,7 @@ const Media = ({ post, galleryStackClassName }) => {
         <EmbedYoutube
           youtubeId={post.youtubeId}
           title={post.title}
-          mediaClassName={`media youtube-video`}
+          mediaClassName={`media`}
         />
       ) : (
         ""
