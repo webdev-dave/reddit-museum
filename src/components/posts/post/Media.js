@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
+import { useSelector } from "react-redux";
+import { selectLoadingStatus } from "../../../features/apiRequests/redditApiRequestSlice";
 import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
 
 const Media = ({ post, src, galleryStackClassName }) => {
@@ -9,14 +11,17 @@ const Media = ({ post, src, galleryStackClassName }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
   const mediaWrapperStyles = (mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
-  
-
-
-
+  const isLoading = useSelector(selectLoadingStatus);
   
   useEffect(()=>{
-    setIsLoaded(false);
-  }, [src])
+    if(isLoading){
+      setIsLoaded(false);
+    }
+  },[isLoading])
+
+
+
+
 
   useEffect(() => {
     

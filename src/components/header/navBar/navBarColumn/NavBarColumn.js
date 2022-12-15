@@ -40,7 +40,6 @@ const NavBarColumn = () => {
                 //this prevents category-nav-link selection from loading which would return a 404 error since categories without adjacent subcategories do not exist as valid selections/independent pages (i.e. there are no category homepages)
                 e.preventDefault();
                 handleClickInside(index);
-                //clear all current images and wait to load new ones
               }}
             >
               {replaceUnderscoreAndCapitalizeFirstChar(category)}

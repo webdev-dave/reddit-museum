@@ -4,7 +4,6 @@ import { formatRedditDataChildren } from "../../utils/helperFunctions";
 const initialState = {
   isLoading: false,
   hasError: false,
-  isLoaded: false,
   genreName: 'ai',
   genrePath: "/r/aiArt/",
   redditData: {
@@ -67,7 +66,7 @@ const redditApiRequestSlice = createSlice({
   },
 });
 
-export const selectLoadedStatus = (state) => state.redditApiRequest.isLoaded;
+export const selectLoadingStatus = (state) => state.redditApiRequest.isLoading;
 export const selectGenreName = (state) => state.redditApiRequest.genreName;
 export const selectGenrePath = (state) => state.redditApiRequest.genrePath;
 export const selectPosts = (state) => state.redditApiRequest.redditData.posts;
