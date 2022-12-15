@@ -1,3 +1,22 @@
+:root {
+  /* color pallet */
+  --darkblue: #141826;
+  --bluegreen: #127373;
+  --yellow: #F2C777;
+  --pink: #BF3475;
+  --main-text-color: #141c3a;
+  --ashblue: #7393B3;
+  --off-white: #efefef;
+  --shadow: 0 0 21px 0 rgba(20, 28, 58, 0.7);
+  --charcoal: #36454F;
+  --white: #ffffff;
+  /* fonts  */
+  --main-font: 'IBM Plex Sans', sans-serif;
+  --poppins: 'Poppins', sans-serif;
+  /* measurements */
+  --header-height: 70px;
+}
+
 /* -------------------------------------------------------- posts section */
 
 h1.category-name {
@@ -40,7 +59,7 @@ h1.category-name {
   }
 
   .post-container .media-wrapper.loading {
-    background-color: aquamarine;
+    background-color: var(--charcoal);
   }
 
   .media-wrapper .loading-message {
