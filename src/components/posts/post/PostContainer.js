@@ -12,7 +12,7 @@ const PostContainer = ({ post, postIndex }) => {
       : ""
   }`;
   return (
-    <div className={className + " loading"}>
+    <div className={className}>
       {!post.isGallery ? (
         <Media post={post} />
       ) : post.isGallery && post.gallery ? (

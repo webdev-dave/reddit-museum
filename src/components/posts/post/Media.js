@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectLoadingStatus } from "../../../features/apiRequests/redditApiRequestSlice";
 import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
 import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-import {FaRegImage, FaFilm, FaYoutube} from "react-icons/fa"
+import { FaRegImage, FaFilm, FaYoutube } from "react-icons/fa";
 
 const Media = ({ post, galleryStackClassName }) => {
   const src = post.srcUrl;
@@ -14,9 +14,16 @@ const Media = ({ post, galleryStackClassName }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
   const mediaWrapperStyles =
-    mediaHeight > 0 ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
+    (mediaHeight > 0 && !post.isYoutubeVideo) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
   const isLoading = useSelector(selectLoadingStatus);
-  const loadingIcon = post.isLocalVideo ? <FaFilm /> : post.isYoutubeVideo ? <FaYoutube /> : <FaRegImage/>;
+  const loadingIcon = post.isLocalVideo ? (
+    <FaFilm />
+  ) : post.isYoutubeVideo ? (
+    <FaYoutube />
+  ) : (
+    <FaRegImage />
+  );
+  const mediaClassName = `media ${!isLoaded ? "loading" : "loaded"}`;
 
   useEffect(() => {
     //make sure old posts clear and enter "loading mode" as soon as a new redditApiRequest is sent (i.e. when isLoading = true)
@@ -24,7 +31,6 @@ const Media = ({ post, galleryStackClassName }) => {
       setIsLoaded(false);
     }
   }, [isLoading]);
-
 
   useEffect(() => {
     //set width and height of galleries
@@ -39,39 +45,39 @@ const Media = ({ post, galleryStackClassName }) => {
   return (
     <div
       className={`media-wrapper ${
-        !isLoaded && !post.isLocalVideo ? "loading" : ""
-      } ${galleryStackClassName ? galleryStackClassName : ""}`}
+        galleryStackClassName ? galleryStackClassName : ""
+      }`}
       style={mediaWrapperStyles}
       ref={mediaRef}
     >
-      <div
-        className={`loading-container ${
-          isLoaded || post.isLocalVideo ? "loaded" : ""
-        }`}
-      >
-        <div className="icon-wrapper">
-          {loadingIcon}
-        </div>
+      <div className={`loading-container ${(isLoaded && !post.isYoutubeVideo) ? "loaded" : ""}`}>
+        <div className="icon-wrapper">{loadingIcon}</div>
         <h5 className="loading-message">Loading...</h5>
-        
       </div>
       {!post.isLocalVideo && !post.isYoutubeVideo ? (
         <img
           src={src}
           alt={alt}
-          className={`media ${!isLoaded ? "loading" : "loaded"}`}
-          onLoad={() => {
-            setIsLoaded(true);
-          }}
+          className={mediaClassName}
+          onLoad={() => setIsLoaded(true)}
         />
       ) : post.isLocalVideo ? (
-        <video controls width="100%" className={`media loaded`}>
+        <video
+          controls
+          width="100%"
+          className={mediaClassName}
+          onCanPlay={() => setIsLoaded(true)}
+        >
           <source src={src + "/DASH_1080.mp4"} type="video/mp4" />
           <source src={src + "/DASH_720.mp4"} type="video/mp4" />
           <source src={src + "/DASH_480.mp4"} type="video/mp4" />
         </video>
       ) : post.isYoutubeVideo ? (
-        <EmbedYoutube youtubeId={post.youtubeId} title={post.title} />
+        <EmbedYoutube
+          youtubeId={post.youtubeId}
+          title={post.title}
+          mediaClassName={`media youtube-video`}
+        />
       ) : (
         ""
       )}
