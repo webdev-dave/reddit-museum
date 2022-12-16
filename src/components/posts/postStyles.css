@@ -45,7 +45,8 @@ h1.category-name {
     max-width: 85%;
     margin: 50px auto;
     background-color: var(--off-white);
-    padding: 1rem;
+    padding: 1.5rem;
+    border-radius: 2px;
     /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
   }
 
@@ -57,6 +58,7 @@ h1.category-name {
     height: auto;
     margin: 0 auto;
     opacity: 1;
+    border: 1.25rem solid #fff;
     transition: opacity 0.2s ease-in-out;
     
   }
