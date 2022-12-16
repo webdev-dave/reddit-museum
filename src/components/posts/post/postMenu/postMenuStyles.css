@@ -6,6 +6,11 @@
   z-index: 11;
 }
 
+button.full-screen.enter {
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
 button.full-screen.enter .icon {
   font-size: 1.5rem;
   border: none;

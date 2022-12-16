@@ -1,7 +1,7 @@
 
 import Media from "./Media";
 import EmbedGal from "../../../features/embedGal/EmbedGal";
-import PostMenu from "./menu/PostMenu";
+import PostMenu from "./postMenu/PostMenu";
 
 const PostContainer = ({ post, postIndex }) => {
   const className = `post-container ${
