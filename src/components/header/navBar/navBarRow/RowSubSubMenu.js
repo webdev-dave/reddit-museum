@@ -10,8 +10,6 @@ const RowSubSubMenu = ({
   subSubCategories
 }) => {
 
-
-
   return (
     <ul className={`sub-sub-menu ${isExpandedClassName}`}>
       {subSubCategories.map((subSubCategory, index) => (

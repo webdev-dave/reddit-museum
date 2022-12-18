@@ -44,13 +44,13 @@ const Media = ({ post, galleryStackClassName }) => {
 
   return (
     <div
-      className={`media-wrapper ${
+      className={`media-container ${(isLoaded && !post.isYoutubeVideo) ? "loaded" : ""} ${
         galleryStackClassName ? galleryStackClassName : ""
       }`}
       style={mediaWrapperStyles}
       ref={mediaRef}
     >
-      <div className={`loading-container ${(isLoaded && !post.isYoutubeVideo) ? "loaded" : ""}`}>
+      <div className={`loading-skeleton-container loading-skeleton-animation ${(isLoaded && !post.isYoutubeVideo) ? "loaded" : ""}`}>
         <div className="icon-wrapper">{loadingIcon}</div>
         <h5 className="loading-message">Loading...</h5>
       </div>

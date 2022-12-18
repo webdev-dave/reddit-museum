@@ -21,7 +21,7 @@
 }
 
 
-.sliding-stack .media-wrapper.hidden {
+.sliding-stack .media-container.hidden {
   position: absolute;
   top: 0;
   right: 100%;
@@ -29,19 +29,19 @@
 
 /* ---------------------------------------------------------- gallery animation */
 
-.media-wrapper.next-slide-in {
+.media-container.next-slide-in {
   animation: next-slide-in ease-in-out 0.5s forwards;
 }
 
-.media-wrapper.next-slide-out {
+.media-container.next-slide-out {
   animation: next-slide-out ease-in-out 0.5s forwards;
 }
 
-.media-wrapper.prev-slide-in {
+.media-container.prev-slide-in {
   animation: prev-slide-in ease-in-out 0.5s forwards;
 }
 
-.media-wrapper.prev-slide-out {
+.media-container.prev-slide-out {
   animation: prev-slide-out ease-in-out 0.5s forwards;
 }
 

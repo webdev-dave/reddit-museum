@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useEffect, useState } from "react";
 import { BiFullscreen, BiExitFullscreen } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   selectAllPosts,
   selectCurrentGenreName,
@@ -70,6 +71,7 @@ const alt = post.title.toLowerCase();
         ref={originRef}
         className="full-screen enter"
         onClick={() => {
+          console.log("click")
           setFsModeIsActive(!fsModeIsActive);
         }}
       >

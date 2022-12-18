@@ -58,9 +58,8 @@ h1.category-name {
     height: auto;
     margin: 0 auto;
     opacity: 1;
-    border: 1rem solid #fff;
+    /* border: 1.25rem solid #fff; */
     transition: opacity 0.2s ease-in-out;
-    
   }
 
   .post-container .media.loading {
@@ -73,20 +72,19 @@ h1.category-name {
   }
   
 
-  .post-container .media-wrapper {
+  .post-container .media-container {
     position: relative;
     width: 100%;
     margin: 0 auto;
-    background-color: black;
     display: flex;
     justify-content: center;
   }
 
-  /* .post-container .media-wrapper.loading {
-    
-  } */
+  .post-container .media-container.loaded {
+    background-color: black;
+  }
 
-  .media-wrapper .loading-container {
+  .media-container .loading-skeleton-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -97,42 +95,57 @@ h1.category-name {
     right: 0;
     z-index: 0;
     opacity: 1;
-    background-color: var(--charcoal);
-
+    border-radius: 3px;
+    /* background-color: var(--charcoal); */
   }
 
-  .loading-container.loaded {
+
+
+  .loading-skeleton-container.loaded {
     opacity: 0;
   }
 
-  .loading-container .icon-wrapper {
+  .loading-skeleton-container .icon-wrapper {
     position: absolute;
     width: 100%;
   }
 
-  .loading-container .icon-wrapper svg {
+  .loading-skeleton-container .icon-wrapper svg {
     display: block;
     margin: 0 auto;
     font-size: 10rem;
-    color: orange;
   }
 
 
 
-  .loading-container h5.loading-message {
-    position: absolute;
+  .loading-skeleton-container h5.loading-message {
+    display: none;
+    /* position: absolute;
     bottom: 0;
     left: 0;
+    font-size: 2rem;
+    font-weight: 700;
     opacity: 1;
-    color: black;
-    background-color: orange;
     padding: 0.5rem 1rem;
-    border-radius: 0 10px 0 0;
-
+    border-radius: 0 10px 0 0; */
   }
 
 
+  .loading-skeleton-animation {
+    animation: loading-skeleton 1.2s linear infinite alternate;
+  }
 
+  @keyframes loading-skeleton {
+     0% {
+      background-color: hsla(200 20% 70% / 0.7);
+      color: hsla(200 20% 60% / 0.7)
+     }
+
+     100% {
+      background-color: hsla(200 20% 90% / 0.7);
+      color: hsla(200 20% 85% / 0.7)
+     }
+  }
   
 
 

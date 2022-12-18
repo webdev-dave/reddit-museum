@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - fix post loading-container initial placement bug
 - get rid of any lag in embedGal transitions

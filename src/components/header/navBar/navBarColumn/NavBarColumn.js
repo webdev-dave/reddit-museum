@@ -10,18 +10,12 @@ import ColumnSubMenu from "./ColumnSubMenu";
 
 const NavBarColumn = () => {
   const [isExpandedArr, setIsExpandedArr] = useState(Array(navCategories.length).fill(false));
-  // const categoryRefs = useMemo(
-  //   () => Array.from({ length: navCategories.length }).map(() => createRef()),
-  //   []
-  // );
   const navBarRef = useRef();
     const handleClickInside = (index) => {
     setIsExpandedArr(
       isExpandedArr.map((el, idx) => (idx === index ? !el : el))
     );
   };
-
-
 
   return (
     <div className={`nav-bar-column`} ref={navBarRef}>

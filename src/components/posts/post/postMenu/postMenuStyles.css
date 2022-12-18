@@ -1,34 +1,39 @@
   button.full-screen.enter {
+  position: relative;
   float: right;
   margin-top: 0.8rem;
   border: none;
   padding: 0;
-  z-index: 11;
-}
-
-button.full-screen.enter {
   padding-top: 0.5rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
+  z-index: 11;
 }
+
+
 button.full-screen.enter .icon {
   font-size: 1.5rem;
   border: none;
 }
 
+.post-menu .text-section {
+  position: relative;
+}
 
 
-.post-menu h5 {
-  display: block;
+.post-menu .title-wrapper {
+  width: 70%;
   padding: 8rem 0 1.5rem 0;
+  margin: 0 auto;
+}
+
+.post-menu .title-wrapper h5 {
   letter-spacing: 0.8px;
   line-height: 4rem;
   font-size: 2.2rem;
   font-family: var(--poppins);
-  max-width: 70%;
-  margin: 0 auto;
-  overflow-x: auto;
-  overflow-y: hidden;
+  /* overflow-x: auto;
+  overflow-y: hidden; */
 }
 
 
@@ -58,3 +63,49 @@ button.full-screen.enter .icon {
 
 
 
+/* ----------------------------------------------- Text Loading Skeleton */
+
+.text-skeleton-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: hsl(0 0% 100%);
+  opacity: 1;
+  pointer-events: none;
+}
+
+.text-skeleton-container.loaded,
+.text-skeleton-container.loaded .text-skeleton {
+  display: none;
+}
+
+.text-skeleton {
+  min-width: 100%;
+  position: absolute;
+  bottom: 20%;
+  pointer-events: none;
+}
+
+.text-skeleton.author {
+  bottom: 3%;
+}
+
+.text-skeleton .child {
+  width: 65%;
+  height: 1.4rem;
+  margin: 0 auto;
+  margin-bottom: 0.7rem;
+  border-radius: 3px;
+}
+
+.text-skeleton .child:last-child {
+  width: 60%;
+}
+
+.text-skeleton.author .child {
+  width: 15%;
+  height: 0.8rem;
+}
