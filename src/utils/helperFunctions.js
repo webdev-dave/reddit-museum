@@ -79,7 +79,6 @@ export const sortGallery = (galleryOrder, initialGal) => {
 };
 
 const checkIfIsVideoUrl = (url) => {
-  console.log(url.slice(-3, url.length));
   if(url.slice(-3, url.length) === "mp4" || url.slice(8, 9) === "v"){
     return true
   }
