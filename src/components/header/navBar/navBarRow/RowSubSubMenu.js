@@ -7,16 +7,13 @@ const RowSubSubMenu = ({
   subCategory,
   isExpanded,
   isExpandedClassName,
-  subSubCategories,
-  subMenuWidth,
+  subSubCategories
 }) => {
 
-  const subSubMenuStyles =
-    subMenuWidth > 0 ? { left: `${subMenuWidth}px` } : {};
 
 
   return (
-    <ul className={`sub-sub-menu ${isExpandedClassName}`} style={subSubMenuStyles}>
+    <ul className={`sub-sub-menu ${isExpandedClassName}`}>
       {subSubCategories.map((subSubCategory, index) => (
         <li key={"sub-sub-category" + index} className={`sub-sub-category`}>
           <NavLink to={`/${category}/${subCategory}/${subSubCategory}/`} className={isExpandedClassName}>

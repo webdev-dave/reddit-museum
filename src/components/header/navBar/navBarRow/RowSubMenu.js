@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
 import { navSubCategories } from "../../../../utils/helperObjects";
@@ -10,21 +9,14 @@ import { FaAngleRight } from "react-icons/fa";
 const RowSubMenu = ({ category, isExpanded }) => {
   const [subSubMenuIsExpanded, setSubSubMenuIsExpanded] = useState(false);
   const subSubMenuIsExpandedClassName = subSubMenuIsExpanded ? "expanded" : "";
-  const [subMenuWidth, setSubMenuWidth] = useState(0);
-  const subMenuRef = useRef();
 
   useEffect(() => {
     !isExpanded && setSubSubMenuIsExpanded(false);
   }, [isExpanded]);
 
-  useEffect(() => {
-    setSubMenuWidth(subMenuRef.current.offsetWidth);
-    //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <ul
-      ref={subMenuRef}
       className={`sub-menu ${isExpanded ? "expanded" : "collapsed"}`}
     >
       {navSubCategories[category].map((subCategory, i) => {
@@ -62,7 +54,6 @@ const RowSubMenu = ({ category, isExpanded }) => {
               category={category}
               isExpanded={subSubMenuIsExpanded}
               isExpandedClassName={subSubMenuIsExpandedClassName}
-              subMenuWidth={subMenuWidth}
             />
           </li>
         );

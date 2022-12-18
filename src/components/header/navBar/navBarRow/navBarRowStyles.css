@@ -180,12 +180,13 @@ nav {
    "right" is set based on sub-menu-width and -
   "max-height" is set based on sub-menu-height */
   top: 0px;
+  right: 0px;
   overflow: hidden;
   white-space: nowrap;
   box-shadow: 7px 2px 15px 0px hsla(0 0% 0% / 0.2);
   border-radius: 0px 12px 12px 12px; 
   pointer-events: none;
-  transform: translateX(-100px);
+  transform: translateX(65%);
   transition: opacity var(--main-transition-time) var(--main-transition-type),
               transform var(--main-transition-time) var(--main-transition-type) ;
 }
@@ -194,7 +195,7 @@ nav {
 .nav-bar-row .sub-sub-parent.sub-category:hover ul.sub-sub-menu,
 .nav-bar-row .sub-sub-menu.expanded {
   opacity: 1;
-  transform: translateX(0px);
+  transform: translateX(100%);
   pointer-events: auto;
 }
 
