@@ -78,6 +78,14 @@ export const sortGallery = (galleryOrder, initialGal) => {
   }) : null;
 };
 
+const checkIfIsVideoUrl = (url) => {
+  console.log(url.slice(-3, url.length));
+  if(url.slice(-3, url.length) === "mp4" || url.slice(8, 9) === "v"){
+    return true
+  }
+  return false;
+}
+
 const getGalleryImgSrcUrl = (media, imgIndex) => {
   const fileExtension = media.fileType.slice(-3);
   return `https://i.redd.it/${media.id}.${fileExtension}`;
@@ -166,7 +174,7 @@ export const formatRedditDataChildren = (childrenArray) => {
               id: img.id,
               imgIndex: null,
               headerImg: "unknown",
-              isLocalVideo: false,
+              // isLocalVideo: false,
               mediaType: img.e,
               sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.y, img.s.x)},
               backupUrl: img.s.u,
@@ -192,8 +200,7 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
   const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
   return postsArr.map((post, index) => {
 
-
-    const isLocalVideo = post.srcUrl && post.srcUrl.slice(8, 9) === "v";
+    const isLocalVideo = post.srcUrl && checkIfIsVideoUrl(post.srcUrl);
     const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
     const youtubeId = isYoutubeVideo ? getYoutubeId(post.srcUrl) : "";
     const isGallery = post.isGallery;
