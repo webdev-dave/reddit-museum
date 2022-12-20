@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- when embedGal has media set of multiple sizes, make sure that all media are displayed in max dimensions
 - when using back arrow button to escape fullScreenMode, make sure that page doesn't autoscroll to top
 - make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away

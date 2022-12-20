@@ -11,6 +11,18 @@ const PostContainer = ({ post, postIndex }) => {
       ? "video"
       : ""
   }`;
+
+  const getTallestMediaSizeInGallery = (gallery) => {
+    const sizeDataArr = gallery.map(media => media.sizeData);
+    console.log(sizeDataArr);
+
+    const tallestMediaSize = null;
+    return tallestMediaSize;
+  }
+
+
+  post.isGallery && getTallestMediaSizeInGallery(post.gallery);
+
   return (
     <div className={className}>
       {!post.isGallery ? (

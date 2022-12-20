@@ -31,6 +31,10 @@ const postsSlice = createSlice({
             state.allPosts[genreName][postIndex].gallery[currentImageIndex].isCurrentlyDisplayed = true;
             state.allPosts[genreName][postIndex].gallery[prevImageIndex].isCurrentlyDisplayed = false;
         },
+        updateGalleryMediaSizes: (state, action) => {
+            const postIndex = action.payload.postIndex;
+            state.currentlyOnDisplay[postIndex].GalleryMediaSizes = [];
+        },
         updateIsSearching: (state, action) => {
             const isSearching = action.payload.value
             state.isSearching = isSearching;
