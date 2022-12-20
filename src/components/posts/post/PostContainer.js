@@ -13,10 +13,11 @@ const PostContainer = ({ post, postIndex }) => {
   }`;
 
   const getTallestMediaSizeInGallery = (gallery) => {
-    const sizeDataArr = gallery.map(media => media.sizeData);
-    console.log(sizeDataArr);
-
-    const tallestMediaSize = null;
+    const sizeDataArr = gallery.map(media => media.sizeData.aspectRatioQuotient);
+    //console.log(sizeDataArr);
+    const organizedSizeDataArr = sizeDataArr.sort((a,b) => b-a);
+    console.log(organizedSizeDataArr);
+    const tallestMediaSize = organizedSizeDataArr[0];
     return tallestMediaSize;
   }
 
