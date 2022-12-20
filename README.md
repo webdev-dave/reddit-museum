@@ -12,7 +12,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- figure out how to make repo work on my windows computer
 - make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - fix post loading-container initial placement bug
