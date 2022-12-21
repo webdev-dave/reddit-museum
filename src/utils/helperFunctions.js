@@ -31,6 +31,7 @@ export const returnMaximumOfTenArrayItems = (array) => {
   return array.slice(0, 11);
 }
 
+
 // export const createLoadingArray = (array) => {
 //   const loadingArray = [];
 //   for(let i = 1; i < array.length; i++ ){
@@ -146,14 +147,13 @@ const getYoutubeId = (url) => {
 
 
 export const formatRedditDataChildren = (childrenArray) => {
-  //console.log(childrenArray)
   return childrenArray.map(
     (child) => {
       //if isGallery, work on getting sizeData from gallery data
       const width = child.data.preview ? child.data.preview.images[0].source.width : false;
       const height = child.data.preview ? child.data.preview.images[0].source.height : false;
       const aspectRatioQuotient = getAspectRatioQuotient(width, height);
-      //console.log(getNewHeightBasedOnAspectRatio(aspectRatioQuotient, 400))
+      //console.log(child.data);
       return {
         sizeData: {width: width, height: height, aspectRatioQuotient: aspectRatioQuotient},
         isGallery: child.data.is_gallery ? true : false,
@@ -168,6 +168,7 @@ export const formatRedditDataChildren = (childrenArray) => {
         initialGallery:
           child.data.media_metadata ?
           Object.values(child.data.media_metadata).map((img, idx) => {
+            //console.log(img);
             return {
               fileType: img.m,
               id: img.id,
@@ -175,7 +176,7 @@ export const formatRedditDataChildren = (childrenArray) => {
               headerImg: "unknown",
               // isLocalVideo: false,
               mediaType: img.e,
-              sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.y, img.s.x)},
+              sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.x, img.s.y)},
               backupUrl: img.s.u,
               title: child.data.title,
             };

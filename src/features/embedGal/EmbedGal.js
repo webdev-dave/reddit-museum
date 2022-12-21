@@ -3,7 +3,7 @@ import { useState } from "react";
 import Media from "../../components/posts/post/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { updateGallery } from "../../components/posts/postsSlice";
+import { updateGalleryMediaOnDisplay } from "../../components/posts/postsSlice";
 
 const EmbedGal = ({ post }) => {
   const dispatch = useDispatch();
@@ -33,7 +33,7 @@ const EmbedGal = ({ post }) => {
     For example, FullScreenMode makes use of this in order to display 
     any given gallery's CURRENT IMAGE in full screen */
     dispatch(
-      updateGallery({
+      updateGalleryMediaOnDisplay({
         postIndex: postIndex,
         currentImageIndex: currentImageIndex + 1,
         prevImageIndex: currentImageIndex,
@@ -51,7 +51,7 @@ const EmbedGal = ({ post }) => {
     setSlideInClassName("prev-slide-in");
     setSlideOutClassName("prev-slide-out");
     dispatch(
-      updateGallery({
+      updateGalleryMediaOnDisplay({
         postIndex: postIndex,
         currentImageIndex: currentImageIndex - 1,
         prevImageIndex: currentImageIndex,

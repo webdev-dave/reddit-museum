@@ -18,6 +18,7 @@ const PostContainer = ({ post, postIndex }) => {
     const organizedSizeDataArr = sizeDataArr.sort((a,b) => b-a);
     console.log(organizedSizeDataArr);
     const tallestMediaSize = organizedSizeDataArr[0];
+    console.log(tallestMediaSize);
     return tallestMediaSize;
   }
 
@@ -27,7 +28,7 @@ const PostContainer = ({ post, postIndex }) => {
   return (
     <div className={className}>
       {!post.isGallery ? (
-        <Media post={post} />
+        <Media post={post}  />
       ) : post.isGallery && post.gallery ? (
         <EmbedGal post={post} />
       ) : (

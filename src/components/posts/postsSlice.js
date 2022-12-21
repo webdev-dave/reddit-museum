@@ -23,17 +23,23 @@ const postsSlice = createSlice({
             //state.currentlyOnDisplay = createLoadingArray(currentPosts);
             state.currentlyOnDisplay = currentPosts;
         },
-        updateGallery: (state, action)=>{
+        updateGalleryMediaOnDisplay: (state, action)=>{
             const genreName = state.currentGenreName;
             const postIndex = action.payload.postIndex;
-            const currentImageIndex = action.payload.currentImageIndex;
+            const galImageIndex = action.payload.currentImageIndex;
             const prevImageIndex = action.payload.prevImageIndex;
-            state.allPosts[genreName][postIndex].gallery[currentImageIndex].isCurrentlyDisplayed = true;
+            state.allPosts[genreName][postIndex].gallery[galImageIndex].isCurrentlyDisplayed = true;
             state.allPosts[genreName][postIndex].gallery[prevImageIndex].isCurrentlyDisplayed = false;
         },
-        updateGalleryMediaSizes: (state, action) => {
+        updateLargestMediaInGallery: (state, action) => {
+            const genreName =  action.payload.vauue.genreName;
             const postIndex = action.payload.postIndex;
-            state.currentlyOnDisplay[postIndex].GalleryMediaSizes = [];
+            const galImageIndex = action.payload.currentImageIndex;
+            const galleryArray = action.payload.galleryArray;
+            const sizeDataArr = galleryArray.map(media => media.sizeData.aspectRatioQuotient);
+            const organizedSizeDataArr = sizeDataArr.sort((a,b) => b-a);
+            const tallestMediaSize = organizedSizeDataArr[0];
+            state.allPosts[genreName][postIndex].gallery[galImageIndex].sizeData = {tallestMediaSize: tallestMediaSize};
         },
         updateIsSearching: (state, action) => {
             const isSearching = action.payload.value
@@ -70,6 +76,6 @@ export const selectSearchWord = (state) => state.posts.searchWord;
 
 
 
-export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGallery} = postsSlice.actions;
+export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGalleryMediaOnDisplay, updateLargestMediaInGallery} = postsSlice.actions;
 
 export default postsSlice.reducer;
