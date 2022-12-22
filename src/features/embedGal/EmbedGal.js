@@ -1,15 +1,20 @@
 import "./embedGalStyles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Media from "../../components/posts/post/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { updateGalleryMediaOnDisplay } from "../../components/posts/postsSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentGenrePosts, updateGalleryMediaOnDisplay, updateLargestMediaInGallery } from "../../components/posts/postsSlice";
 
-const EmbedGal = ({ post }) => {
+const EmbedGal = ({ propsPost }) => {
   const dispatch = useDispatch();
+  const postIndex = propsPost.postIndex;
+  const gallery = useSelector(selectCurrentGenrePosts)[postIndex].gallery;
+  
+  
+  useEffect(()=>{
+    dispatch(updateLargestMediaInGallery({galleryArray: propsPost.gallery, postIndex: postIndex}))
+  },[propsPost.gallery, dispatch, postIndex]);
 
-  const gallery = post.gallery;
-  const postIndex = post.postIndex;
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [slideOutImgIndex, setSlideOutImgIndex] = useState("");
@@ -70,6 +75,7 @@ const EmbedGal = ({ post }) => {
 
         <div className="sliding-stack">
           {gallery.map((media, imgIndex) => {
+            console.log(media)
             return (
               <Media
                 post={media}

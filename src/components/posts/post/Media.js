@@ -13,8 +13,10 @@ const Media = ({ post, galleryStackClassName }) => {
   const mediaRef = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
-  const mediaWrapperStyles =
-    (mediaHeight > 0 && !post.isYoutubeVideo) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
+  const mediaWrapperStyles = (!post.isYoutubeVideo && mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
+  
+    
+  //post.isGallery && console.log(mediaHeight);
   const isLoading = useSelector(selectLoadingStatus);
   const loadingIcon = post.isLocalVideo ? (
     <FaFilm />
@@ -35,12 +37,16 @@ const Media = ({ post, galleryStackClassName }) => {
   useEffect(() => {
     //set width and height of galleries
     const width = mediaRef.current.offsetWidth;
-    const aspectRatioQuotient = post.sizeData.aspectRatioQuotient;
+    const aspectRatioQuotient = post.isGallery ? post.sizeData.tallestMediaSize.aspectRatioQuotient : post.sizeData.aspectRatioQuotient;
     const height = getNewHeightBasedOnAspectRatio(aspectRatioQuotient, width);
+    post.isGallery && console.log(aspectRatioQuotient);
+    //post.isGallery && console.log(post.sizeData)
     if (width > 0 && height > 0) {
       setMediaHeight(height);
     }
-  }, [post.sizeData.aspectRatioQuotient, mediaHeight]);
+  }, [post, post.sizeData.aspectRatioQuotient, mediaHeight]);
+
+
 
   return (
     <div

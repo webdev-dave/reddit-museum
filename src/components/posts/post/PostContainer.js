@@ -12,25 +12,14 @@ const PostContainer = ({ post, postIndex }) => {
       : ""
   }`;
 
-  const getTallestMediaSizeInGallery = (gallery) => {
-    const sizeDataArr = gallery.map(media => media.sizeData.aspectRatioQuotient);
-    //console.log(sizeDataArr);
-    const organizedSizeDataArr = sizeDataArr.sort((a,b) => b-a);
-    console.log(organizedSizeDataArr);
-    const tallestMediaSize = organizedSizeDataArr[0];
-    console.log(tallestMediaSize);
-    return tallestMediaSize;
-  }
 
-
-  post.isGallery && getTallestMediaSizeInGallery(post.gallery);
 
   return (
     <div className={className}>
       {!post.isGallery ? (
         <Media post={post}  />
       ) : post.isGallery && post.gallery ? (
-        <EmbedGal post={post} />
+        <EmbedGal propsPost={post} />
       ) : (
         ""
       )}

@@ -176,9 +176,10 @@ export const formatRedditDataChildren = (childrenArray) => {
               headerImg: "unknown",
               // isLocalVideo: false,
               mediaType: img.e,
-              sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.x, img.s.y)},
+              sizeData: {width: img.s.y, height: img.s.x, aspectRatioQuotient: getAspectRatioQuotient(img.s.x, img.s.y), tallestMediaSize: {}},
               backupUrl: img.s.u,
               title: child.data.title,
+              isGallery: true,
             };
           }) : null,
 

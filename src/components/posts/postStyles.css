@@ -50,8 +50,14 @@ h1.category-name {
     /* box-shadow: 0px 1px 12.5px 0px rgba(255, 255, 255, 0.06); */
   }
 
-
-  /* -------------------------------------------------------------------------- Media Loading...  */
+  .post-container .media-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   .post-container .media {
     width: 100%;
@@ -61,6 +67,11 @@ h1.category-name {
     /* border: 1.25rem solid #fff; */
     transition: opacity 0.2s ease-in-out;
   }
+
+
+
+  /* -------------------------------------------------------------------------- Media Loading...  */
+
 
   .post-container .media.loading {
     opacity: 0;
@@ -72,13 +83,6 @@ h1.category-name {
   }
   
 
-  .post-container .media-container {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-  }
 
   .post-container .media-container.loaded {
     background-color: black;
