@@ -39,7 +39,6 @@ const Media = ({ post, galleryStackClassName }) => {
     const width = mediaRef.current.offsetWidth;
     const aspectRatioQuotient = post.isGallery ? post.sizeData.tallestMediaSize.aspectRatioQuotient : post.sizeData.aspectRatioQuotient;
     const height = getNewHeightBasedOnAspectRatio(aspectRatioQuotient, width);
-    post.isGallery && console.log(aspectRatioQuotient);
     //post.isGallery && console.log(post.sizeData)
     if (width > 0 && height > 0) {
       setMediaHeight(height);

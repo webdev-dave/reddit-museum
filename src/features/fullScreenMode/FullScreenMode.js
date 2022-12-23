@@ -43,6 +43,7 @@ const alt = post.title.toLowerCase();
 
   useEffect(() => {
     if (fsModeIsActive) {
+      
       fullScreenRef.current?.scrollIntoView({
         behavior: "auto",
         block: "center",
@@ -70,7 +71,6 @@ const alt = post.title.toLowerCase();
         ref={originRef}
         className="full-screen enter"
         onClick={() => {
-          console.log("click")
           setFsModeIsActive(!fsModeIsActive);
         }}
       >

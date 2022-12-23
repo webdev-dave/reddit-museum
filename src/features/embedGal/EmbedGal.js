@@ -10,7 +10,6 @@ const EmbedGal = ({ propsPost }) => {
   const postIndex = propsPost.postIndex;
   const gallery = useSelector(selectCurrentGenrePosts)[postIndex].gallery;
   
-  
   useEffect(()=>{
     dispatch(updateLargestMediaInGallery({galleryArray: propsPost.gallery, postIndex: postIndex}))
   },[propsPost.gallery, dispatch, postIndex]);
@@ -75,7 +74,6 @@ const EmbedGal = ({ propsPost }) => {
 
         <div className="sliding-stack">
           {gallery.map((media, imgIndex) => {
-            console.log(media)
             return (
               <Media
                 post={media}
