@@ -20,7 +20,8 @@ const FullScreenPage = () => {
             imgur: "https://i.imgur.com/"
         };
         const urlType = params.id.split("-")[0];
-        const mediaId = params.id.split("-")[1];
+        const mediaId = params.id.split("-")[-1];
+        console.log(mediaId)
         return baseUrl[urlType] + mediaId;
     }
 
@@ -39,7 +40,7 @@ const FullScreenPage = () => {
             <div className="media-wrapper">
                 <img
                     src={getMediaUrl()}
-                    alt={""}
+                    alt={"full screen img"}
                     className={`media full-screen`}
                     style={mediaStyles}
                 />
