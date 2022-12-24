@@ -12,17 +12,17 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
+- get rid of auto animation onLoad of gallery main-image
+- keep embededGal currentImgOnDisplayState when returning from fsPage
 - make multiSizedEmbededGal fit tallestMedia size onInitialLoad 
 - make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - fix post loading-container initial placement bug
 - get rid of any lag in embedGal transitions
-- get rid of auto animation onLoad of gallery main-image
 - create touch/swipe effect for gallery on mobile
 - add hover effect for hamburger menu button
 - add a collapse all button in the NavBarMenu
-- add zoom in/out buttons for image in full scree- remove desktop dropdown (and upload code to new git repo). Then style navBarMenu to work for desktop mode
-n mode (and make sure to allow default browser zoom to work - currently not working)
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
 - make sure that every genre loads a minimum of 35 images (if first request < 35 than automatically request and load the next batch or results)
 - add a share link button option
