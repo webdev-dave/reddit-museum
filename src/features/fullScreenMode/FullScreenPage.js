@@ -19,9 +19,9 @@ const FullScreenPage = () => {
             redd: "https://i.redd.it/",
             imgur: "https://i.imgur.com/"
         };
-        const urlType = params.id.split("-")[0];
-        const mediaId = params.id.split("-")[-1];
-        console.log(mediaId)
+        const paramsId = params.id
+        const urlType = paramsId.split("-")[0];
+        const mediaId = paramsId.split("-")[1];
         return baseUrl[urlType] + mediaId;
     }
 
