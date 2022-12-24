@@ -2,7 +2,7 @@
 
 
 
-body.freeze-scroll {
+body#freeze-scroll {
   overflow: hidden;
 
 }
