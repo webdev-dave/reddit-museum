@@ -3,7 +3,7 @@ import { BiExitFullscreen } from "react-icons/bi";
 import { useNavigate, useParams } from "react-router-dom";
 
 const FullScreenPage = () => {
-    const params = useParams();
+    const paramsId = useParams().id;
     const navigate = useNavigate();
     const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
     const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -19,7 +19,6 @@ const FullScreenPage = () => {
             redd: "https://i.redd.it/",
             imgur: "https://i.imgur.com/"
         };
-        const paramsId = params.id
         const urlType = paramsId.split("-")[0];
         const mediaId = paramsId.split("-")[1];
         return baseUrl[urlType] + mediaId;

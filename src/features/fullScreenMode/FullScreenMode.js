@@ -17,7 +17,6 @@ const FullScreenMode = ({ post }) => {
       ).imgIndex;
       return post.gallery[currentGalleryImageIndex].srcUrl;
     } else {
-      console.log(post.srcUrl);
       return post.srcUrl;
     }
   };
