@@ -34,6 +34,11 @@ const FullScreenMode = ({ post }) => {
       return post.srcUrl;
     }
   };
+  const getMediaId = (srcUrl) => {
+    const splitUrl = srcUrl.split("/");
+    const urlType = splitUrl[2].split(".")[1];
+    return `${urlType}-${splitUrl.slice(-1)}`
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,7 +64,7 @@ const FullScreenMode = ({ post }) => {
   }, [fsModeIsActive]);
 
   const exitFsMode = () => {
-    originRef.current?.scrollIntoView({
+    originRef.current.scrollIntoView({
       behavior: "auto",
       block: "end",
       inline: "center",
@@ -69,7 +74,7 @@ const FullScreenMode = ({ post }) => {
 
   return (
     <div>
-      <Link to={`fsm_${"l"}`}></Link>
+      <Link to={`fsm/${getMediaId(getSrcUrl())}`}>New FSM</Link>
       <button
         ref={originRef}
         className="full-screen enter"
