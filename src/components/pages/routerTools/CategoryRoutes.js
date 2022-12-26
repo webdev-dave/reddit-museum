@@ -9,7 +9,7 @@ const CategoryRoutes = () => {
 
   return (
     <Routes>
-      <Route path=":id/fsm/:id" element={<FullScreenPage />} />
+      <Route path=":id/fsm-:id" element={<FullScreenPage />} />
       <Route path=":id" element={<LoadPosts category={params.id} isSubSubCategory={false} parentInfo={false} />}>
         <Route path=":id" element={<LoadPosts category={params.id} isSubSubCategory={true} parentInfo={Object.values(params)[1]} />}>
           <Route path="*" element={<NotFound />} />
