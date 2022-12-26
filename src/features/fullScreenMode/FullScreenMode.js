@@ -30,7 +30,7 @@ const FullScreenMode = ({ post }) => {
 
   return (
     <button className="full-screen enter">
-      <Link to={`fsm-${getMediaId(getSrcUrl())}`} >
+      <Link to={`fsm-${getMediaId(getSrcUrl())}`}>
         <BiFullscreen className="icon" />
       </Link>
     </button>

@@ -27,6 +27,8 @@ const FullScreenPage = () => {
     return baseUrl[urlType] + mediaId;
   };
 
+  console.log(getMediaUrl())
+
   useEffect(() => {
     const handleResize = () => {
       setViewportHeight(window.innerHeight);

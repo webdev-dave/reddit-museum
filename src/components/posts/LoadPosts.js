@@ -36,8 +36,7 @@ const LoadPosts = ({ category, isSubSubCategory, parentInfo}) => {
     <main >
       {/* <h3>id = {id}</h3> */}
       {genrePath ? (
-        <>
-          {" "}
+    
           <div className="posts-section">
             <h1 className="category-name">
               {replaceUnderscoreAndCapitalizeFirstChar(category)}
@@ -51,7 +50,7 @@ const LoadPosts = ({ category, isSubSubCategory, parentInfo}) => {
             </h5>
             <Posts />
           </div>
-        </>
+        
       ) : (
         <NotFound />
       )}
