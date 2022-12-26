@@ -1,25 +1,17 @@
-  a.full-screen.enter {
+button.full-screen.enter {
+  color: #000;
   position: relative;
   float: right;
-  margin-top: 0.8rem;
-  border: none;
   padding: 0;
   padding-top: 0.5rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
-  z-index: 1;
-}
-
-
-a.full-screen.enter .icon {
-  font-size: 1.5rem;
-  border: none;
+  margin-top: 0.8rem;
 }
 
 .post-menu .text-section {
   position: relative;
 }
-
 
 .post-menu .title-wrapper {
   width: 70%;
@@ -35,8 +27,6 @@ a.full-screen.enter .icon {
   /* overflow-x: auto;
   overflow-y: hidden; */
 }
-
-
 
 .post-menu .author-url {
   text-align: center;
@@ -60,8 +50,6 @@ a.full-screen.enter .icon {
   font-size: 1rem;
   display: none;
 }
-
-
 
 /* ----------------------------------------------- Text Loading Skeleton */
 

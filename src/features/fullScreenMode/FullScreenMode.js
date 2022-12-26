@@ -9,7 +9,8 @@ import {
 //if type img return img, if type = video, return video
 const FullScreenMode = ({ post }) => {
   const currentGenreName = useSelector(selectCurrentGenreName);
-  const currentPost = useSelector(selectAllPosts)[currentGenreName][post.postIndex];
+  const currentPost =
+    useSelector(selectAllPosts)[currentGenreName][post.postIndex];
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
       const currentGalleryImageIndex = currentPost.gallery.find(
@@ -24,14 +25,15 @@ const FullScreenMode = ({ post }) => {
     const splitUrl = srcUrl.split("/");
     const urlType = splitUrl[2].split(".")[1];
     //const alt = post.title.toLowerCase().split(" ").join("_");
-    return `${urlType}-${splitUrl.slice(-1)}`
+    return `${urlType}-${splitUrl.slice(-1)}`;
   };
 
-
   return (
-    <div>
-      <Link to={`fsm-${getMediaId(getSrcUrl())}`} className="full-screen enter"><BiFullscreen className="icon" /></Link>
-    </div>
+    <button className="full-screen enter">
+      <Link to={`fsm-${getMediaId(getSrcUrl())}`} >
+        <BiFullscreen className="icon" />
+      </Link>
+    </button>
   );
 };
 

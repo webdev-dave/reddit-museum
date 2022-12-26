@@ -16,11 +16,7 @@ const PostMenu = ({ post }) => {
         {post.isLocalVideo || post.isYoutubeVideo ? (
           ""
         ) : (
-
           <FullScreenMode post={post} />
-
-
-
         )}
 
         <div className="text-section">

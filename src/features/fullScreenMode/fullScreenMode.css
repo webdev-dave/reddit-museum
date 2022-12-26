@@ -1,12 +1,17 @@
-/* full screen mode */
-
-
-
-body#freeze-scroll {
-  overflow: hidden;
+button.full-screen.enter {
+  margin-top: 0.8rem;
+  border: none;
+  z-index: 1;
 }
 
-.full-screen-container {
+button.full-screen.enter .icon {
+  font-size: 1.5rem;
+}
+
+
+/* -------------------------------------------------  full-screen-page */
+
+.full-screen-page {
   z-index: 101;
   position: absolute;
   left: 0;
@@ -18,22 +23,17 @@ body#freeze-scroll {
   align-items: center;
 }
 
-.full-screen-container button.exit {
-  border-left: 1px solid black;
-  padding: 4px;
-  margin: 0;
-  height: 100%;
+.full-screen-page button.full-screen.exit {
+  border: 0;
+  border-left: 1px solid #000;
+  line-height: 0;
+  background-color: rgb(240, 240, 240);
 }
 
-.full-screen-container button.exit .icon {
+.full-screen-page button.full-screen.exit .icon {
   font-size: 1.8rem;
 }
 
-/* .media-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .media.full-screen {
   top: 0;
