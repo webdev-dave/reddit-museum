@@ -13,6 +13,7 @@ const FullScreenMode = ({ post }) => {
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  console.log(viewportHeight)
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
@@ -21,10 +22,11 @@ const FullScreenMode = ({ post }) => {
       ? { height: "auto", width: `${viewportWidth}px` }
       : { height: `${viewportHeight}px`, width: "auto" };
 
-  const containerStyles =
-    window.innerWidth < 850
-      ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px`}
-      : { minHeight: "100%", minWidth: "100%" };
+  // const containerStyles =
+  //   window.innerWidth < 850
+  //     ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px`}
+  //     : { minHeight: "100%", minWidth: "100%" };
+  const containerStyles = { minHeight: "100vh", minWidth: "100vw" };
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
