@@ -23,7 +23,7 @@ const FullScreenMode = ({ post }) => {
 
   const containerStyles =
     window.innerWidth < 850
-      ? { minHeight: viewportHeight, minWidth: viewportWidth }
+      ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px` }
       : { minHeight: "100%", minWidth: "100%" };
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
@@ -90,7 +90,7 @@ const FullScreenMode = ({ post }) => {
               style={mediaStyles}
             />
           </div>
-          <button onClick={exitFsMode} className="fsm-button exit">
+          <button onClick={exitFsMode} className="fsm-button exit" style={{height: `${viewportHeight}px`}}>
             <BiExitFullscreen className="icon" />
           </button>
         </div>
