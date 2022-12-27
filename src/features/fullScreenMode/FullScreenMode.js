@@ -42,8 +42,12 @@ const FullScreenMode = ({ post }) => {
   };
 
   useEffect(()=>{
-    window.addEventListener("resize", handleResize);
-    return ()=> document.removeEventListener("resize", handleResize);
+    //this useEffect must be able to fire multiple times when fsModeIsActive state is true.
+    //This is because, the event listener below (besides for handling a viewport resize, also) handles a resize on mobile when the address bar is hidden/revealed
+    if(fsModeIsActive){
+      window.addEventListener("resize", handleResize);
+      return ()=> document.removeEventListener("resize", handleResize);
+    }
   })
 
   useEffect(() => {
