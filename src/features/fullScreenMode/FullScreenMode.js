@@ -12,7 +12,7 @@ const FullScreenMode = ({ post }) => {
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-  //const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   console.log(viewportHeight)
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
@@ -40,7 +40,7 @@ const FullScreenMode = ({ post }) => {
   };
   const handleResize = () => {
     setViewportHeight(window.innerHeight);
-    setViewportWidth(window.innerWidth);
+    //setViewportWidth(window.innerWidth);
   };
 
   useEffect(()=>{
