@@ -84,9 +84,9 @@ h1.category-name {
   
 
 
-  .post-container .media-container.loaded {
+  /* .post-container .media-container.loaded {
     background-color: black;
-  }
+  } */
 
   .media-container .loading-skeleton-container {
     display: flex;

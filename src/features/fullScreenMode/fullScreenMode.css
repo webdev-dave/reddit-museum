@@ -1,17 +1,23 @@
-button.full-screen.enter {
+body.freeze-scroll {
+  overflow: hidden;
+  background-color: #000;
+}
+
+button.fsm-button.enter {
   margin-top: 0.8rem;
   border: none;
   z-index: 1;
 }
 
-button.full-screen.enter .icon {
+button.fsm-button.enter .icon {
   font-size: 1.5rem;
 }
 
 
-/* -------------------------------------------------  full-screen-page */
+/* ------------------------------------------ Full Screen Container */
 
-.full-screen-page {
+
+.full-screen-container {
   z-index: 101;
   position: absolute;
   left: 0;
@@ -23,22 +29,19 @@ button.full-screen.enter .icon {
   align-items: center;
 }
 
-.full-screen-page button.full-screen.exit {
+button.fsm-button.exit {
   border: 0;
   border-left: 1px solid #000;
-  line-height: 0;
-  background-color: rgb(240, 240, 240);
+  padding: 4px;
+  margin: 0;
+  height: 100%;
 }
-
-.full-screen-page button.full-screen.exit .icon {
+button.fsm-button.exit .icon {
   font-size: 1.8rem;
 }
-
 
 .media.full-screen {
   top: 0;
   left: 0;
   margin: 0;
-  z-index: 10;
 }
-

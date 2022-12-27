@@ -12,12 +12,12 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- return to post location in page upon fsModeExit (and prevent main gallery page from reloading)
 - fix fsEnterButton padding-top when post is embededGal
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
+- allow sharing of image via injection of custom (sharedImg) gallery;
 - get rid of auto animation onLoad of gallery main-image
 - keep embededGal currentImgOnDisplayState when returning from fsPage
-- make multiSizedEmbededGal fit tallestMedia size onInitialLoad 
+- make multiSizedEmbededGal fit tallestMedia size onInitialLoad
 - make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - fix post loading-container initial placement bug

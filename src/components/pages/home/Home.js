@@ -2,7 +2,7 @@
 import { Navigate } from "react-router-dom";
 
 const Home = () => {
-  return (<Navigate to="/photography/street_photography" />);
+  return (<Navigate to="/photography/film" />);
   // return (
   //   <div className="home">
   //     <main className="posts-section">
