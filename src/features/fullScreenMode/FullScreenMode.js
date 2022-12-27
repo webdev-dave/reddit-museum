@@ -12,9 +12,9 @@ const FullScreenMode = ({ post }) => {
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   //const [containerStyles, setContainerStyles] = useState({});
-  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  //const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  console.log(viewportHeight)
+  //console.log(viewportHeight)
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
