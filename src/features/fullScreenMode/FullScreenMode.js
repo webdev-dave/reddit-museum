@@ -23,7 +23,7 @@ const FullScreenMode = ({ post }) => {
 
   const containerStyles =
     window.innerWidth < 850
-      ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px`, paddingBottom: `${viewportHeight}px`}
+      ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px`}
       : { minHeight: "100%", minWidth: "100%" };
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
