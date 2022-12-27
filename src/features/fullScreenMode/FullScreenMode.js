@@ -54,7 +54,7 @@ const FullScreenMode = ({ post }) => {
     if (fsModeIsActive) {
       fullScreenRef.current.scrollIntoView({
         behavior: "auto",
-        block: "center",
+        block: "end",
         inline: "center",
       });
       document.body.classList.add("freeze-scroll");
