@@ -1,6 +1,7 @@
 body.freeze-scroll {
   overflow: hidden;
   background-color: #000;
+  z-index: 100;
 }
 
 button.fsm-button.enter {
