@@ -19,8 +19,8 @@ const FullScreenMode = ({ post }) => {
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
   const mediaStyles =
     window.innerHeight >= window.innerWidth
-      ? { height: "auto", width: `${viewportWidth}px` }
-      : { height: `${viewportHeight}px`, width: "auto" };
+      ? { height: "auto", width: `100vw` }
+      : { height: `100vh`, width: "auto" };
 
   // const containerStyles =
   //   window.innerWidth < 850
@@ -99,7 +99,7 @@ const FullScreenMode = ({ post }) => {
               style={mediaStyles}
             />
           </div>
-          <button onClick={exitFsMode} className="fsm-button exit" style={{height: `${viewportHeight}px`}}>
+          <button onClick={exitFsMode} className="fsm-button exit" style={{height: `100vh`}}>
             <BiExitFullscreen className="icon" />
           </button>
         </div>
