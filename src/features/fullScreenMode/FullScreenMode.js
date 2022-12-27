@@ -11,9 +11,10 @@ const FullScreenMode = ({ post }) => {
   const originPostRef = useRef();
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
-  //const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
+  //const [containerStyles, setContainerStyles] = useState({});
+  const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  //console.log(viewportHeight)
+  console.log(viewportHeight)
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
@@ -22,11 +23,9 @@ const FullScreenMode = ({ post }) => {
       ? { height: "auto", width: `100vw` }
       : { height: `100vh`, width: "auto" };
 
-  // const containerStyles =
-  //   window.innerWidth < 850
-  //     ? { minHeight: `${viewportHeight}px`, minWidth: `${viewportWidth}px`}
-  //     : { minHeight: "100%", minWidth: "100%" };
-  const containerStyles = { minHeight: "100vh", minWidth: "100vw" };
+  const mobileContainerStyles = { minHeight: "102vh", minWidth: "100vw" };
+  const desktopContainerStyles = { minHeight: "102vh", minWidth: "100vw" };
+  const containerStyles = (window.innerWidth < 850) ? mobileContainerStyles : desktopContainerStyles;
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
@@ -39,18 +38,15 @@ const FullScreenMode = ({ post }) => {
     }
   };
   const handleResize = () => {
-    //setViewportHeight(window.innerHeight);
-    //setViewportWidth(window.innerWidth);
+    // window.innerWidth < 850
+    //   ? setContainerStyles(mobileContainerStyles)
+    //   : setContainerStyles(desktopContainerStyles);
   };
 
-  useEffect(()=>{
-    //this useEffect must be able to fire multiple times when fsModeIsActive state is true.
-    //This is because, the event listener below (besides for handling a viewport resize, also) handles a resize on mobile when the address bar is hidden/revealed
-    if(fsModeIsActive){
-      window.addEventListener("resize", handleResize);
-      return ()=> document.removeEventListener("resize", handleResize);
-    }
-  })
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => document.removeEventListener("resize", handleResize);
+  });
 
   useEffect(() => {
     if (fsModeIsActive) {
@@ -99,7 +95,11 @@ const FullScreenMode = ({ post }) => {
               style={mediaStyles}
             />
           </div>
-          <button onClick={exitFsMode} className="fsm-button exit" style={{height: `100vh`}}>
+          <button
+            onClick={exitFsMode}
+            className="fsm-button exit"
+            style={{ height: `100vh` }}
+          >
             <BiExitFullscreen className="icon" />
           </button>
         </div>
