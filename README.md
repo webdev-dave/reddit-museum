@@ -12,6 +12,8 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- return to post location in page upon fsModeExit (and prevent main gallery page from reloading)
+- fix fsEnterButton padding-top when post is embededGal
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - get rid of auto animation onLoad of gallery main-image
 - keep embededGal currentImgOnDisplayState when returning from fsPage

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BiFullscreen } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,6 +9,8 @@ import {
 
 //if type img return img, if type = video, return video
 const FullScreenMode = ({ post }) => {
+  
+  const [activeId, setActiveId] = useState("");
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
@@ -29,8 +32,8 @@ const FullScreenMode = ({ post }) => {
   };
 
   return (
-    <button className="full-screen enter">
-      <Link to={`fsm-${getMediaId(getSrcUrl())}`}>
+    <button className="full-screen enter" id={activeId} onClick={()=>setActiveId("active")}>
+      <Link to={`fsm/${getMediaId(getSrcUrl())}`}>
         <BiFullscreen className="icon" />
       </Link>
     </button>

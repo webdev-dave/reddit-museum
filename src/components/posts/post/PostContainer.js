@@ -1,7 +1,7 @@
-
 import Media from "./Media";
 import EmbedGal from "../../../features/embedGal/EmbedGal";
 import PostMenu from "./postMenu/PostMenu";
+
 
 const PostContainer = ({ post, postIndex }) => {
   const className = `post-container ${
@@ -12,12 +12,10 @@ const PostContainer = ({ post, postIndex }) => {
       : ""
   }`;
 
-
-
   return (
     <div className={className}>
       {!post.isGallery ? (
-        <Media post={post}  />
+        <Media post={post} />
       ) : post.isGallery && post.gallery ? (
         <EmbedGal propsPost={post} />
       ) : (
