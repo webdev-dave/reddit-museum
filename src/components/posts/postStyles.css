@@ -83,9 +83,8 @@ h1.category-name {
   }
   
 
-
   /* .post-container .media-container.loaded {
-    background-color: black;
+    background-color: var(--off-white);
   } */
 
   .media-container .loading-skeleton-container {
@@ -138,6 +137,12 @@ h1.category-name {
   .loading-skeleton-animation {
     animation: loading-skeleton 1.2s linear infinite alternate;
   }
+
+  .loading-skeleton-animation.loaded {
+    background-color: var(--off-white);
+    animation: none;
+  }
+
 
   @keyframes loading-skeleton {
      0% {

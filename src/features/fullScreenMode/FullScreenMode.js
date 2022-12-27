@@ -8,7 +8,7 @@ import {
 } from "../../components/posts/postsSlice";
 //if type img return img, if type = video, return video
 const FullScreenMode = ({ post }) => {
-  const originRef = useRef();
+  const originPostRef = useRef();
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
@@ -19,8 +19,8 @@ const FullScreenMode = ({ post }) => {
   window.innerHeight >= window.innerWidth
     ? { height: "auto", width: `${viewportWidth}px` }
     : { height: `${viewportHeight}px`, width: "auto" };
-const containerStyles = {height: "100%", width: "100%"}
-//const containerStyles = window.innerWidth < 850 ? {height: viewportHeight, width: viewportWidth} : {height: "100%", width: "100%"}
+
+const containerStyles = window.innerWidth < 850 ? {height: viewportHeight, width: viewportWidth} : {height: "100%", width: "100%"}
 const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
@@ -56,7 +56,7 @@ const alt = post.title.toLowerCase();
 
 
   const exitFsMode = () => {
-    originRef.current.scrollIntoView({
+    originPostRef.current.scrollIntoView({
       behavior: "auto",
       block: "end",
       inline: "center",
@@ -66,7 +66,7 @@ const alt = post.title.toLowerCase();
   return (
     <div>
       <button
-        ref={originRef}
+        ref={originPostRef}
         className="fsm-button enter"
         onClick={() => {
           setFsModeIsActive(true);
