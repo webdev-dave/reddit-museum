@@ -41,6 +41,11 @@ const FullScreenMode = ({ post }) => {
     setViewportWidth(window.innerWidth);
   };
 
+  useEffect(()=>{
+    window.addEventListener("resize", handleResize);
+    return ()=> document.removeEventListener("resize", handleResize);
+  })
+
   useEffect(() => {
     if (fsModeIsActive) {
       fullScreenRef.current.scrollIntoView({
@@ -48,11 +53,9 @@ const FullScreenMode = ({ post }) => {
         block: "center",
         inline: "center",
       });
-      window.addEventListener("resize", handleResize);
       document.body.classList.add("freeze-scroll");
       return () => {
         document.body.classList.remove("freeze-scroll");
-        document.removeEventListener("resize", handleResize);
       };
     }
   }, [fsModeIsActive]);
