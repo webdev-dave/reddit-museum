@@ -14,14 +14,18 @@ const FullScreenMode = ({ post }) => {
   const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   const currentGenreName = useSelector(selectCurrentGenreName);
-  const currentPost = useSelector(selectAllPosts)[currentGenreName][post.postIndex];
+  const currentPost =
+    useSelector(selectAllPosts)[currentGenreName][post.postIndex];
   const mediaStyles =
-  window.innerHeight >= window.innerWidth
-    ? { height: "auto", width: `${viewportWidth}px` }
-    : { height: `${viewportHeight}px`, width: "auto" };
+    window.innerHeight >= window.innerWidth
+      ? { height: "auto", width: `${viewportWidth}px` }
+      : { height: `${viewportHeight}px`, width: "auto" };
 
-const containerStyles = window.innerWidth < 850 ? {height: viewportHeight, width: viewportWidth} : {height: "100%", width: "100%"}
-const alt = post.title.toLowerCase();
+  const containerStyles =
+    window.innerWidth < 850
+      ? { minHeight: viewportHeight, minWidth: viewportWidth }
+      : { minHeight: "100%", minWidth: "100%" };
+  const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
       const currentGalleryImageIndex = currentPost.gallery.find(
@@ -36,7 +40,6 @@ const alt = post.title.toLowerCase();
     setViewportHeight(window.innerHeight);
     setViewportWidth(window.innerWidth);
   };
-
 
   useEffect(() => {
     if (fsModeIsActive) {
@@ -53,7 +56,6 @@ const alt = post.title.toLowerCase();
       };
     }
   }, [fsModeIsActive]);
-
 
   const exitFsMode = () => {
     originPostRef.current.scrollIntoView({
@@ -75,16 +77,18 @@ const alt = post.title.toLowerCase();
         <BiFullscreen className="icon" />
       </button>
       {fsModeIsActive && (
-        <div className="full-screen-container" ref={fullScreenRef} style={containerStyles}>
+        <div
+          className="full-screen-container"
+          ref={fullScreenRef}
+          style={containerStyles}
+        >
           <div className="media-wrapper">
-
-              <img
-                src={getSrcUrl()}
-                alt={alt}
-                className={`media full-screen`}
-                style={mediaStyles}
-              />
-      
+            <img
+              src={getSrcUrl()}
+              alt={alt}
+              className={`media full-screen`}
+              style={mediaStyles}
+            />
           </div>
           <button onClick={exitFsMode} className="fsm-button exit">
             <BiExitFullscreen className="icon" />
@@ -95,8 +99,6 @@ const alt = post.title.toLowerCase();
   );
 };
 export default FullScreenMode;
-
-
 
 // //if type img return img, if type = video, return video
 // const FullScreenMode = ({ post }) => {
@@ -133,7 +135,7 @@ export default FullScreenMode;
 //     // </button>
 //     <button
 //       className="full-screen enter"
-      
+
 //       onClick={handleEnterFsm}
 //     >
 //       <BiFullscreen className="icon" />
