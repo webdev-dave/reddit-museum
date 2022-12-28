@@ -11,10 +11,6 @@ const FullScreenMode = ({ post }) => {
   const originPostRef = useRef();
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
-  //const [containerStyles, setContainerStyles] = useState({});
-  //const [viewportHeight, setViewportHeight] = useState(window.innerHeight);
-  // const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
-  //console.log(viewportHeight)
   const currentGenreName = useSelector(selectCurrentGenreName);
   const currentPost =
     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
@@ -23,9 +19,10 @@ const FullScreenMode = ({ post }) => {
       ? { height: "auto", width: `100vw` }
       : { height: `100vh`, width: "auto" };
 
-  const mobileContainerStyles = { minHeight: "102vh", minWidth: "100vw" };
-  const desktopContainerStyles = { minHeight: "102vh", minWidth: "100vw" };
-  const containerStyles = (window.innerWidth < 850) ? mobileContainerStyles : desktopContainerStyles;
+  //const mobileContainerStyles = { minHeight: "100vh", minWidth: "100%" };
+  //const desktopContainerStyles = { minHeight: "100vh", minWidth: "100%"};
+  // const containerStyles = (window.innerWidth < 850) ? mobileContainerStyles : desktopContainerStyles;
+  const containerStyles = { minHeight: "100vh", minWidth: "100%"};
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
     if (currentPost && currentPost.isGallery) {
@@ -37,16 +34,8 @@ const FullScreenMode = ({ post }) => {
       return post.srcUrl;
     }
   };
-  const handleResize = () => {
-    // window.innerWidth < 850
-    //   ? setContainerStyles(mobileContainerStyles)
-    //   : setContainerStyles(desktopContainerStyles);
-  };
 
-  useEffect(() => {
-    window.addEventListener("resize", handleResize);
-    return () => document.removeEventListener("resize", handleResize);
-  });
+
 
   useEffect(() => {
     if (fsModeIsActive) {
