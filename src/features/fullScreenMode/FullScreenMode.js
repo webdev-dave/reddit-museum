@@ -12,16 +12,11 @@ const FullScreenMode = ({ post }) => {
   const fullScreenRef = useRef();
   const [fsModeIsActive, setFsModeIsActive] = useState(false);
   const currentGenreName = useSelector(selectCurrentGenreName);
-  const currentPost =
-    useSelector(selectAllPosts)[currentGenreName][post.postIndex];
+  const currentPost = useSelector(selectAllPosts)[currentGenreName][post.postIndex];
   const mediaStyles =
     window.innerHeight >= window.innerWidth
-      ? { height: "auto", width: `100vw` }
+      ? { height: "auto", width: `100%`}
       : { height: `100vh`, width: "auto" };
-
-  //const mobileContainerStyles = { minHeight: "100vh", minWidth: "100%" };
-  //const desktopContainerStyles = { minHeight: "100vh", minWidth: "100%"};
-  // const containerStyles = (window.innerWidth < 850) ? mobileContainerStyles : desktopContainerStyles;
   const containerStyles = { minHeight: "100vh", minWidth: "100%"};
   const alt = post.title.toLowerCase();
   const getSrcUrl = () => {
@@ -34,8 +29,6 @@ const FullScreenMode = ({ post }) => {
       return post.srcUrl;
     }
   };
-
-
 
   useEffect(() => {
     if (fsModeIsActive) {
@@ -97,48 +90,3 @@ const FullScreenMode = ({ post }) => {
   );
 };
 export default FullScreenMode;
-
-// //if type img return img, if type = video, return video
-// const FullScreenMode = ({ post }) => {
-
-//   const currentGenreName = useSelector(selectCurrentGenreName);
-//   const currentPost =
-//     useSelector(selectAllPosts)[currentGenreName][post.postIndex];
-//   // const getSrcUrl = () => {
-//   //   if (currentPost && currentPost.isGallery) {
-//   //     const currentGalleryImageIndex = currentPost.gallery.find(
-//   //       (galImg) => galImg.isCurrentlyDisplayed
-//   //     ).imgIndex;
-//   //     return post.gallery[currentGalleryImageIndex].srcUrl;
-//   //   } else {
-//   //     return post.srcUrl;
-//   //   }
-//   // };
-//   // const getMediaId = (srcUrl) => {
-//   //   const splitUrl = srcUrl.split("/");
-//   //   const urlType = splitUrl[2].split(".")[1];
-//   //   //const alt = post.title.toLowerCase().split(" ").join("_");
-//   //   return `${urlType}-${splitUrl.slice(-1)}`;
-//   // };
-
-//   const handleEnterFsm = () => {
-
-//   }
-
-//   return (
-//     // <button className="full-screen enter" id={activeId} onClick={()=>setActiveId("active")}>
-//     //   <Link to={`fsm/${getMediaId(getSrcUrl())}`}>
-//     //     <BiFullscreen className="icon" />
-//     //   </Link>
-//     // </button>
-//     <button
-//       className="full-screen enter"
-
-//       onClick={handleEnterFsm}
-//     >
-//       <BiFullscreen className="icon" />
-//     </button>
-//   );
-// };
-
-// export default FullScreenMode;
