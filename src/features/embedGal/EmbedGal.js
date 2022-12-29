@@ -66,7 +66,7 @@ const EmbedGal = ({ propsPost }) => {
   return (
     <div className="outer-gallery-container">
       <div className="gallery-container">
-        <button onClick={handlePrevious}>
+        <button onClick={handlePrevious} className="previous-btn">
           <FaAngleLeft
             className={`icon left ${currentImageIndex === 0 ? "first" : ""}`}
           />
@@ -90,7 +90,7 @@ const EmbedGal = ({ propsPost }) => {
           })}
         </div>
 
-        <button onClick={handleNext}>
+        <button onClick={handleNext} className="next-btn">
           <FaAngleRight
             className={`icon right ${
               currentImageIndex === finalImg ? "last" : ""

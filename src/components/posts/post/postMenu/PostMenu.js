@@ -2,7 +2,6 @@ import "./postMenuStyles.css";
 import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
 import { removeLongWords } from "../../../../utils/helperFunctions";
 import { useEffect, useState } from "react";
-import GalCounter from "../../../../features/embedGal/GalCounter";
 
 const PostMenu = ({ post }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,7 +13,6 @@ const PostMenu = ({ post }) => {
   return (
     <>
       <div className="post-menu">
-        {/* {post.isGallery && <GalCounter propsPost={post} />} */}
         {post.isLocalVideo || post.isYoutubeVideo ? (
           ""
         ) : (

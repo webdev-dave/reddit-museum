@@ -8,6 +8,7 @@
 
 
 .gallery-container {
+  position: relative;
   display: flex;
   align-content: center;
   justify-content: center;
@@ -100,10 +101,21 @@
 
 
 .gallery-container button {
-  position: relative;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+button.next-btn {
+  right: -1.2rem;
+  margin: auto 0;
+}
+
+button.previous-btn {
+  left: -1.2rem;
 }
 
 
@@ -120,6 +132,8 @@
   opacity: 1;
   transition: 0.8s;
 }
+
+
 
 
 
@@ -165,11 +179,10 @@ button .icon.last {
 /* ------------------------------------------------------------ Media Counter ------ */
 
 .media-counter {
-  /* display: absolute;
-  z-index: 14; */
   display: flex;
-  padding-top: 1rem;
+  padding-top: 1.4rem;
   justify-content: center;
+  margin-bottom: -2.2rem;
 }
 
 .media-counter .circle-icon {
