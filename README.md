@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- begin using git branching when working on new features
 - fix fsEnterButton padding-top when post is embededGal
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - allow sharing of image via injection of custom (sharedImg) gallery;

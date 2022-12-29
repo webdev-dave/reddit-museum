@@ -1,4 +1,5 @@
 button.fsm-button.enter {
+  /* position: absolute; */
   color: #000;
   position: relative;
   float: right;

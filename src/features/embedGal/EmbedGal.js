@@ -102,7 +102,7 @@ const EmbedGal = ({ propsPost }) => {
         {gallery.map((media, index) => (
           <div
             className={`circle-icon ${
-              index === currentImageIndex ? "current" : ""
+              media.isCurrentlyDisplayed ? "current" : ""
             }`}
             key={"circle-" + index}
           ></div>
