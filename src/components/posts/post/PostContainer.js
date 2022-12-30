@@ -15,7 +15,7 @@ const PostContainer = ({ post, postIndex }) => {
   return (
     <div className={className}>
       {!post.isGallery ? (
-        <Media post={post} />
+        <Media media={post} />
       ) : post.isGallery && post.gallery ? (
         <EmbedGal propsPost={post} />
       ) : (

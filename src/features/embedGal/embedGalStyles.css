@@ -19,6 +19,7 @@
 .gallery-container .sliding-stack {
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 
@@ -101,23 +102,10 @@
 
 
 .gallery-container button {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   border: none;
   cursor: pointer;
   padding: 0;
 }
-
-button.next-btn {
-  right: -1.2rem;
-  margin: auto 0;
-}
-
-button.previous-btn {
-  left: -1.2rem;
-}
-
 
 
 .gallery-container button .icon {
@@ -133,28 +121,14 @@ button.previous-btn {
   transition: 0.8s;
 }
 
-
-
-
-
-@media(width >= 900px) {
-/* Desktop */
-  .gallery-container button .icon {
-    font-size: 2rem;
-    min-width: 4rem;
-    min-height: 4rem;
-  }
-}
-
-
 .gallery-container button .icon.left {
-  left: -1.7rem;
+  left: -2.2rem;
   padding-right: 2px;
   
 }
 
 .gallery-container button .icon.right {
-  right: -1.7rem;
+  right: -2.2rem;
   padding-left: 2px;
 }
 
@@ -172,6 +146,27 @@ button .icon.last {
   transition: 0.25s;
 }
 
+
+@media(width >= 900px) {
+  /* Desktop */
+    .gallery-container button .icon {
+      font-size: 2rem;
+      min-width: 4rem;
+      min-height: 4rem;
+    }
+
+    .gallery-container button .icon.left {
+      left: -2.7rem;
+      
+    }
+    
+    .gallery-container button .icon.right {
+      right: -2.7rem;
+    }
+    
+  }
+  
+  
 
 
 

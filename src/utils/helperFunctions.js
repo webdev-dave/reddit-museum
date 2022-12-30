@@ -130,6 +130,14 @@ const getYoutubeId = (url) => {
   }
 }
 
+export const addLargestMediaSizeDataToGallerySizeData = (galleryArray, mediaIndex) => {
+  const sizeDataArr = galleryArray.map(media => media.sizeData);
+  const organizedSizeDataArr = sizeDataArr.sort((a,b) => b.aspectRatioQuotient - a.aspectRatioQuotient);          
+  const tallestMediaSize = organizedSizeDataArr[0];
+  const updatedSizeData = {...galleryArray[mediaIndex].sizeData, tallestMediaSize: tallestMediaSize }
+  return updatedSizeData;
+}
+
 
 
 
@@ -199,7 +207,7 @@ export const formatRedditDataChildren = (childrenArray) => {
 export const formatPosts = (posts, genreName, allowYoutube) => {
   //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
   const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
-  return postsArr.map((post, index) => {
+  return postsArr.map((post, postIndex) => {
 
     const isLocalVideo = post.srcUrl && checkIfIsVideoUrl(post.srcUrl);
     const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
@@ -208,10 +216,10 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
     const gallery = isGallery
       ? sortGallery(post.redditGalleryOrder, post.initialGallery)
       : [];
-    const updatedGallery = gallery.map(mediaObj => ({...mediaObj, isYoutubeVideo: isYoutubeVideo}));
+    const updatedGallery = gallery.map((mediaObj, mediaIndex) => ({...mediaObj, isYoutubeVideo: isYoutubeVideo, postIndex: postIndex, sizeData: addLargestMediaSizeDataToGallerySizeData(gallery, mediaIndex)}));
 
     return {
-      postIndex: index,
+      postIndex: postIndex,
       isGallery: isGallery,
       isLocalVideo: isLocalVideo ? true : false,
       isYoutubeVideo: isYoutubeVideo,

@@ -1,19 +1,15 @@
 import "./embedGalStyles.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Media from "../../components/posts/post/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCurrentGenrePosts, updateGalleryMediaOnDisplay, updateLargestMediaInGallery } from "../../components/posts/postsSlice";
+import { selectCurrentGenrePosts, updateGalleryMediaOnDisplay } from "../../components/posts/postsSlice";
 
 const EmbedGal = ({ propsPost }) => {
   const dispatch = useDispatch();
   const postIndex = propsPost.postIndex;
   const gallery = useSelector(selectCurrentGenrePosts)[postIndex].gallery;
   
-  useEffect(()=>{
-    dispatch(updateLargestMediaInGallery({galleryArray: propsPost.gallery, postIndex: postIndex}))
-  },[propsPost.gallery, dispatch, postIndex]);
-
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [slideOutImgIndex, setSlideOutImgIndex] = useState("");
@@ -23,6 +19,8 @@ const EmbedGal = ({ propsPost }) => {
   const [slideInClassName, setSlideInClassName] = useState("next-slide-in");
   const [slideOutClassName, setSlideOutClassName] = useState("");
   const finalImg = gallery.length - 1;
+
+  
 
   const handleNext = () => {
     if (currentImageIndex === finalImg) {
@@ -76,7 +74,7 @@ const EmbedGal = ({ propsPost }) => {
           {gallery.map((media, imgIndex) => {
             return (
               <Media
-                post={media}
+                media={media}
                 key={`gal-${postIndex}-img${imgIndex}`}
                 galleryStackClassName={` ${imgIndex === 0 ? "main" : ""} ${
                   imgIndex === currentImageIndex

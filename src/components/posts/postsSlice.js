@@ -31,16 +31,6 @@ const postsSlice = createSlice({
             state.allPosts[genreName][postIndex].gallery[currentImageIndex].isCurrentlyDisplayed = true;
             state.allPosts[genreName][postIndex].gallery[prevImageIndex].isCurrentlyDisplayed = false;
         },
-        updateLargestMediaInGallery: (state, action) => {
-            const genreName =  state.currentGenreName;
-            const postIndex = action.payload.postIndex;
-            const galleryArray = action.payload.galleryArray;
-            const sizeDataArr = galleryArray.map(media => media.sizeData);
-            const organizedSizeDataArr = sizeDataArr.sort((a,b) => b.aspectRatioQuotient - a.aspectRatioQuotient);
-            const tallestMediaSize = organizedSizeDataArr[0];
-            const updatedGalleryArray = galleryArray.map(media => ({...media, sizeData: {...media.sizeData, tallestMediaSize: tallestMediaSize}}));
-            state.allPosts[genreName][postIndex].gallery = updatedGalleryArray;
-        },
         updateIsSearching: (state, action) => {
             const isSearching = action.payload.value
             state.isSearching = isSearching;
@@ -76,6 +66,6 @@ export const selectSearchWord = (state) => state.posts.searchWord;
 
 
 
-export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGalleryMediaOnDisplay, updateLargestMediaInGallery} = postsSlice.actions;
+export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGalleryMediaOnDisplay } = postsSlice.actions;
 
 export default postsSlice.reducer;
