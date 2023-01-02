@@ -49,9 +49,13 @@ export const replaceUnderscoreAndCapitalizeFirstChar = (string) => {
   //(string.charAt(0).toUpperCase() + string.substring(1));
 };
 
+const removeNsfw = (postsArr) => postsArr.filter(post => post.thumbnail !== "nsfw"); 
 
 
-// --------------------------------------------------------- Medium Functions ----
+
+
+
+// --------------------------------------------------------- Medium Sized Functions ----
 // ------------
 // ------------
 // ------------
@@ -142,7 +146,7 @@ export const addLargestMediaSizeDataToGallerySizeData = (galleryArray, mediaInde
 
 
 
-// --------------------------------------------------------- Large Functions ----
+// --------------------------------------------------------- Large Sized Functions ----
 // ------------
 // ------------
 // ------------
@@ -203,12 +207,13 @@ export const formatRedditDataChildren = (childrenArray) => {
   );
 }
 
-
 export const formatPosts = (posts, genreName, allowYoutube) => {
-  //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
-  const postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(posts.filter((post)=> isHostedOnRedditOrYoutube(post))) : posts.filter((post)=> isHostedOnReddit(post));
-  return postsArr.map((post, postIndex) => {
 
+  let postsArr = removeNsfw(posts);
+  //when embedding youtube iframes, page performance slowes down dramatically hence the use of returnMaximumOfTenArrayItems()
+  //else removes all media that isn't hosted on reddit 
+  postsArr = allowYoutube ?  returnMaximumOfTenArrayItems(postsArr.filter((post)=> isHostedOnRedditOrYoutube(post))) : postsArr.filter((post)=> isHostedOnReddit(post));
+  return postsArr.map((post, postIndex) => {
     const isLocalVideo = post.srcUrl && checkIfIsVideoUrl(post.srcUrl);
     const isYoutubeVideo = (getYoutubeId(post.srcUrl) !== false) ? true : false;
     const youtubeId = isYoutubeVideo ? getYoutubeId(post.srcUrl) : "";
