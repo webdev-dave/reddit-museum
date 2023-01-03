@@ -12,7 +12,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- remove nsfw media from galleries
 - get rid of auto animation onLoad of gallery main-image
 - create touch/swipe effect for gallery on mobile
 - begin using git branching when working on new features
