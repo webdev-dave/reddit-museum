@@ -13,7 +13,7 @@ const Media = ({ media, galleryStackClassName }) => {
   const mediaRef = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
-  const mediaWrapperStyles = (!media.isYoutubeVideo && mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {};
+  const containerStyles = (!media.isYoutubeVideo && mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {minHeight: "25rem"};
   
     
   //post.isGallery && console.log(mediaHeight);
@@ -33,7 +33,7 @@ const Media = ({ media, galleryStackClassName }) => {
       setIsLoaded(false);
     }
   }, [isLoading]);
-
+  
   const handleSetMediaHeight = () => {
     const width = mediaRef.current.offsetWidth;
     const aspectRatioQuotient = media.isGallery ? media.sizeData.tallestMediaSize.aspectRatioQuotient : media.sizeData.aspectRatioQuotient;
@@ -59,10 +59,10 @@ const Media = ({ media, galleryStackClassName }) => {
       className={`media-container ${(isLoaded && !media.isYoutubeVideo) ? "loaded" : ""} ${
         galleryStackClassName ? galleryStackClassName : ""
       }`}
-      style={mediaWrapperStyles}
+      style={containerStyles}
       ref={mediaRef}
     >
-      <div className={`loading-skeleton-container loading-skeleton-animation ${(isLoaded && !media.isYoutubeVideo) ? "loaded" : ""}`}>
+      <div style={containerStyles} className={`loading-skeleton-container loading-skeleton-animation ${(isLoaded && !media.isYoutubeVideo) ? "loaded" : ""}`}>
         <div className="icon-wrapper">{loadingIcon}</div>
         <h5 className="loading-message">Loading...</h5>
       </div>

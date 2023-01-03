@@ -12,7 +12,6 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- get rid of auto animation onLoad of gallery main-image
 - create touch/swipe effect for gallery on mobile
 - begin using git branching when working on new features
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
