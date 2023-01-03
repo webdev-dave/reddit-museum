@@ -1,6 +1,6 @@
 import "./embedGalStyles.css";
 import { useState } from "react";
-import Media from "../../components/posts/post/Media";
+import Media from "../../components/posts/post/media/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentGenrePosts, updateGalleryMediaOnDisplay } from "../../components/posts/postsSlice";

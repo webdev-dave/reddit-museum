@@ -87,6 +87,10 @@ h1.category-name {
     background-color: var(--off-white);
   } */
 
+  .media-container {
+    width: 100%;
+  }
+
   .media-container .loading-skeleton-container {
     display: flex;
     flex-direction: column;

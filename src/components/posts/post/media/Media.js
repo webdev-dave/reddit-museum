@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import { useSelector } from "react-redux";
-import { selectLoadingStatus } from "../../../features/apiRequests/redditApiRequestSlice";
-import { getNewHeightBasedOnAspectRatio } from "../../../utils/helperFunctions";
-import EmbedYoutube from "../../../features/embedYoutube/EmbedYoutube";
-import { FaRegImage, FaFilm, FaYoutube } from "react-icons/fa";
+import { selectLoadingStatus } from "../../../../features/apiRequests/redditApiRequestSlice";
+import { getNewHeightBasedOnAspectRatio } from "../../../../utils/helperFunctions";
+import EmbedYoutube from "../../../../features/embedYoutube/EmbedYoutube";
+import MediaLoadingSkeleton from "./MediaLoadingSkeleton";
 
 const Media = ({ media, galleryStackClassName }) => {
   const src = media.srcUrl;
@@ -13,18 +13,12 @@ const Media = ({ media, galleryStackClassName }) => {
   const mediaRef = useRef();
   const [isLoaded, setIsLoaded] = useState(false);
   const [mediaHeight, setMediaHeight] = useState(0);
-  const containerStyles = (!media.isYoutubeVideo && mediaHeight > 0) ? { minHeight: `${mediaHeight}px`, width: "100%" } : {minHeight: "25rem"};
-  
-    
-  //post.isGallery && console.log(mediaHeight);
+  const containerStyles =
+    !media.isYoutubeVideo && mediaHeight > 0
+      ? { minHeight: `${mediaHeight}px` }
+      : { minHeight: "25rem" };
   const isLoading = useSelector(selectLoadingStatus);
-  const loadingIcon = media.isLocalVideo ? (
-    <FaFilm />
-  ) : media.isYoutubeVideo ? (
-    <FaYoutube />
-  ) : (
-    <FaRegImage />
-  );
+
   const mediaClassName = `media ${!isLoaded ? "loading" : "loaded"}`;
 
   useEffect(() => {
@@ -33,39 +27,41 @@ const Media = ({ media, galleryStackClassName }) => {
       setIsLoaded(false);
     }
   }, [isLoading]);
-  
+
   const handleSetMediaHeight = () => {
     const width = mediaRef.current.offsetWidth;
-    const aspectRatioQuotient = media.isGallery ? media.sizeData.tallestMediaSize.aspectRatioQuotient : media.sizeData.aspectRatioQuotient;
+    const aspectRatioQuotient = media.isGallery
+      ? media.sizeData.tallestMediaSize.aspectRatioQuotient
+      : media.sizeData.aspectRatioQuotient;
     const height = getNewHeightBasedOnAspectRatio(aspectRatioQuotient, width);
     setMediaHeight(height);
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     handleSetMediaHeight();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
   useEffect(() => {
     //this updates media height if viewport height changes
     const handleResize = () => handleSetMediaHeight();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize)
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   });
-
-
 
   return (
     <div
-      className={`media-container ${(isLoaded && !media.isYoutubeVideo) ? "loaded" : ""} ${
-        galleryStackClassName ? galleryStackClassName : ""
-      }`}
+      className={`media-container ${
+        isLoaded && !media.isYoutubeVideo ? "loaded" : ""
+      } ${galleryStackClassName ? galleryStackClassName : ""}`}
       style={containerStyles}
       ref={mediaRef}
     >
-      <div style={containerStyles} className={`loading-skeleton-container loading-skeleton-animation ${(isLoaded && !media.isYoutubeVideo) ? "loaded" : ""}`}>
-        <div className="icon-wrapper">{loadingIcon}</div>
-        <h5 className="loading-message">Loading...</h5>
-      </div>
+      <MediaLoadingSkeleton
+        media={media}
+        containerStyles={containerStyles}
+        isLoaded={isLoaded}
+      />
+
       {!media.isLocalVideo && !media.isYoutubeVideo ? (
         <img
           src={src}

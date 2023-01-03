@@ -12,10 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- create touch/swipe effect for gallery on mobile
-- begin using git branching when working on new features
-- add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - allow sharing of image via injection of custom (sharedImg) gallery;
+- create touch/swipe effect for gallery on mobile
+- add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - fix post loading-container initial placement bug
 - make loading skeleton it's own component that changes based on a global redux isLoaded state (or experiment with useContext)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away

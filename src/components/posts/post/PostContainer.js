@@ -1,4 +1,4 @@
-import Media from "./Media";
+import Media from "./media/Media";
 import EmbedGal from "../../../features/embedGal/EmbedGal";
 import PostMenu from "./postMenu/PostMenu";
 
