@@ -40,7 +40,7 @@ const Media = ({ media, galleryStackClassName }) => {
   useEffect(() => {
     handleSetMediaHeight();
     //eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [media]);
   useEffect(() => {
     //this updates media height if viewport height changes
     const handleResize = () => handleSetMediaHeight();
