@@ -10,6 +10,7 @@ import Big from "big.js";
 // ------------
 // ------------
 
+
 export const getAspectRatioQuotient = (width, height) => {
   return isNaN(height / width) ? false : Big(height).div(width).toNumber();
 }
