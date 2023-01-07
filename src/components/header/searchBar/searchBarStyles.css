@@ -27,8 +27,10 @@
   transition: transform 100ms ease-in-out;
 }
 
-.search-container button:hover .icon {
-  transform:scale(1.15);
+@media(width >= 1000px){
+  .search-container button:hover .icon {
+    transform:scale(1.15);
+  }
 }
 
 .search-container .input-container {
