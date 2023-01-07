@@ -8,7 +8,7 @@
   --header-height: 80px;
 }
 
-.side-menu-container button {
+button.hamburger {
   position: relative;
   z-index: 21;
   display: flex;
@@ -19,14 +19,19 @@
   background-color: rgba(0, 0, 0, 0);
   color: var(--pink);
   border: none;
-  transition: all 0.3s ease;
 }
 
-.side-menu-container button .icon {
+button.hamburger .icon {
   font-size: 3rem;
+  transition: transform 100ms ease-in-out;
 }
 
-.side-menu-container button.expanded {
+button.hamburger:hover .icon {
+  color: hsl(332 57% 44%);
+  transform:scale(1.15);
+}
+
+button.hamburger.expanded {
   transform: rotate(180deg);
   font-weight: 700;
 }

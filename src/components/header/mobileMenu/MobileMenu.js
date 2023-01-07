@@ -35,7 +35,7 @@ const MobileMenu = () => {
     <div className="side-menu-container" ref={sideMenuRef}>
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={expandedClassName}
+        className={expandedClassName + " hamburger"}
       >
         {isExpanded ? <FaTimes className="icon" /> : <FaBars className="icon" />}
       </button>

@@ -24,17 +24,12 @@
 .search-container .icon {
   font-size: 3rem;
   color: var(--pink);
-  transition: font-size 100ms ease-out;
+  transition: transform 100ms ease-in-out;
 }
 
 .search-container button:hover .icon {
-  font-size: 3.3rem;
+  transform:scale(1.15);
 }
-
-.search-container button:active .icon {
-  font-size: 2.9rem;
-}
-
 
 .search-container .input-container {
   position: absolute;
