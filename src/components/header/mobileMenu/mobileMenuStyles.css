@@ -26,15 +26,19 @@ button.hamburger .icon {
   transition: transform 100ms ease-in-out;
 }
 
-button.hamburger:hover .icon {
-  color: hsl(332 57% 44%);
-  transform:scale(1.15);
+
+@media (width >= 1000px) {
+  button.hamburger:hover .icon {
+    transform:scale(1.15);
+  }
 }
 
 button.hamburger.expanded {
   transform: rotate(180deg);
   font-weight: 700;
 }
+
+
 
 .nav-bar-container {
   z-index: 20;
