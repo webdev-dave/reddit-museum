@@ -2,22 +2,55 @@ import "./postMenuStyles.css";
 import FullScreenMode from "../../../../features/fullScreenMode/FullScreenMode";
 import { removeLongWords } from "../../../../utils/helperFunctions";
 import { useEffect, useState } from "react";
+import { FaShareAlt } from "react-icons/fa";
 
 const PostMenu = ({ post }) => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [shareButtonIsActive, setShareButtonIsActive] = useState(false);
   const credits = post.credits;
   useEffect(() => {
     post.title ? setIsLoaded(true) : setIsLoaded(false);
   }, [post.title]);
 
+  const handleShareButton = () => {
+    navigator.clipboard.writeText(post.srcUrl);
+    setShareButtonIsActive(true);
+  };
+  console.log(shareButtonIsActive);
+
+  useEffect(() => {
+    if (shareButtonIsActive) {
+      const resetShareButtonState = setTimeout(() => {
+        setShareButtonIsActive(false);
+      }, 1000);
+      return clearTimeout(() => setShareButtonIsActive(resetShareButtonState));
+    }
+
+    //return clearTimeout(timeout);
+  }, [shareButtonIsActive]);
+
   return (
     <>
       <div className="post-menu">
-        {post.isLocalVideo || post.isYoutubeVideo ? (
+        <div className="actions-container">
+          <div className="share-button-container">
+            <button onClick={handleShareButton} className={"share-button"}>
+              <FaShareAlt class="icon"/>
+            </button>
+            <p
+              className={`copied-alert ${shareButtonIsActive ? "active" : ""}`}
+            >
+              copied to clipboard
+            </p>
+          </div>
+          {post.isLocalVideo || post.isYoutubeVideo ? (
           ""
         ) : (
           <FullScreenMode post={post} />
         )}
+        </div>
+
+
 
         <div className="text-section">
           <div

@@ -12,7 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- add a share link button option
+- generate custom share link on click of media shareButton
 - allow sharing of image via injection of custom (sharedImg) gallery;
 - create touch/swipe effect for gallery on mobile
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)

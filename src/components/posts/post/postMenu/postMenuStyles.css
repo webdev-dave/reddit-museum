@@ -1,18 +1,67 @@
-button.fsm-button.enter {
-  /* position: absolute; */
-  color: #000;
-  position: relative;
+
+.actions-container {
+  display: flex;
+  align-items: center;
   float: right;
-  padding: 0;
-  padding-top: 0.2rem;
-  padding-left: 1rem;
-  padding-bottom: 1rem;
-  margin-top: 0.8rem;
 }
 
-.post-menu .text-section {
+.actions-container button {
+  
+  border: none;
+  padding: 1rem;
+  
+}
+
+.share-button-container {
   position: relative;
 }
+
+button.share-button .icon {
+  font-size: 1.5rem;
+}
+
+
+p.copied-alert {
+  display: none;
+}
+
+p.copied-alert.active {
+  display: inline;
+  position: absolute;
+  bottom: 0;
+  right: -6rem;
+  transform: translateY(90%);
+  white-space: nowrap;
+  opacity: 0;
+  background-color: #f2c777;
+  padding: 0.5rem;
+  border: 1px solid #000;
+  animation: text-alert 1.3s 1;
+}
+
+@keyframes text-alert {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+button.fsm-button.enter {
+  color: #000;
+  margin: 0;
+  padding-right: 0;
+}
+
+button.fsm-button.enter .icon {
+  font-size: 1.8rem;
+}
+
+
 
 .post-menu .title-wrapper {
   width: 70%;
