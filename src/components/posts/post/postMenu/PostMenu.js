@@ -13,7 +13,7 @@ const PostMenu = ({ post }) => {
   }, [post.title]);
 
   const handleShareButton = () => {
-    navigator.clipboard.writeText(post.srcUrl);
+    navigator.clipboard.writeText(post.credits.permalink);
     setShareButtonIsActive(true);
   };
 

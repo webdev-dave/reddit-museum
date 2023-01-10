@@ -10,11 +10,14 @@ import { genresObject } from "../../../utils/helperObjects";
 import Posts from "../../posts/Posts";
 import NotFound from "../notFound/NotFound";
 import "../../posts/postStyles.css";
+import SharedPost from "../../../features/sharedPost/SharedPost";
+
 
 const LoadArtGallery = () => {
   const dispatch = useDispatch();
   const params = useParams();
-  const pathnameArr = window.location.href.split("#")[1].split("/");
+  const href = window.location.href;
+  const pathnameArr = href.split("#")[1].split("/");
   const category = pathnameArr[1];
   const subCategory = pathnameArr[2];
   const subSubCategory = pathnameArr.length > 3 ? pathnameArr[3] : false;
@@ -22,6 +25,13 @@ const LoadArtGallery = () => {
     genresObject[subSubCategory] && genresObject[subSubCategory].path
       ? true
       : false;
+  const secondHashArr = href.split("#")[2].split("-");
+  const isSharedPost = secondHashArr.includes("shared");
+  //console.log(secondHashArr)
+  //console.log("isSharedPost", isSharedPost);
+  
+
+
   const genreName = params.id;
   const path =
     genresObject[genreName] && genresObject[genreName].path
@@ -40,6 +50,7 @@ const LoadArtGallery = () => {
     <main>
       {path ? (
         <div className="posts-section">
+          
           <h1 className="category-name">
             {replaceUnderscoreAndCapitalizeFirstChar(category)}
           </h1>
@@ -51,6 +62,7 @@ const LoadArtGallery = () => {
               {replaceUnderscoreAndCapitalizeFirstChar(genreName)}
             </em>
           </h5>
+          {isSharedPost && <SharedPost/>}
           <Posts />
         </div>
       ) : (

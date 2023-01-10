@@ -202,6 +202,7 @@ export const formatRedditDataChildren = (childrenArray) => {
         authorUrl: "https://www.reddit.com/user/" + child.data.author,
         date: child.data.created_utc,
         redditPostUrl: "https://www.reddit.com" + child.data.permalink,
+        permalink: child.data.permalink,
         redditMediaViewer: child.data.url,
       };
     }
@@ -238,6 +239,7 @@ export const formatPosts = (posts, genreName, allowYoutube) => {
         author: post.author,
         authorUrl: post.authorUrl,
         redditPostUrl: post.redditPostUrl,
+        permalink: post.permalink,
       },
       genreName: genreName,
       fsModeIsActive: false,
