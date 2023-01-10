@@ -16,7 +16,6 @@ const PostMenu = ({ post }) => {
     navigator.clipboard.writeText(post.srcUrl);
     setShareButtonIsActive(true);
   };
-  console.log(shareButtonIsActive);
 
   useEffect(() => {
     if (shareButtonIsActive) {
