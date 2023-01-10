@@ -34,7 +34,7 @@ const PostMenu = ({ post }) => {
         <div className="actions-container">
           <div className="share-button-container">
             <button onClick={handleShareButton} className={"share-button"}>
-              <FaShareAlt class="icon"/>
+              <FaShareAlt className="icon"/>
             </button>
             <p
               className={`copied-alert ${shareButtonIsActive ? "active" : ""}`}

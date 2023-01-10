@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom";
 import {
   changeGenre,
   fetchRedditInfo,
-} from "../../features/apiRequests/redditApiRequestSlice";
-import { replaceUnderscoreAndCapitalizeFirstChar } from "../../utils/helperFunctions";
-import { genresObject } from "../../utils/helperObjects";
-import Posts from "./Posts";
-import NotFound from "../pages/notFound/NotFound";
-import "./postStyles.css";
+} from "../../../features/apiRequests/redditApiRequestSlice";
+import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../utils/helperFunctions";
+import { genresObject } from "../../../utils/helperObjects";
+import Posts from "../../posts/Posts";
+import NotFound from "../notFound/NotFound";
+import "../../posts/postStyles.css";
 
-const LoadPosts = () => {
+const LoadArtGallery = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const pathnameArr = window.location.href.split("#")[1].split("/");
@@ -60,4 +60,4 @@ const LoadPosts = () => {
   );
 };
 
-export default LoadPosts;
+export default LoadArtGallery;

@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
 import NotFound from "../notFound/NotFound";
-import LoadPosts from "../../posts/LoadPosts";
+import ArtGallery from "../../pages/artGallery/ArtGallery";
 
 const CategoryRoutes = () => {
 
   return (
     <Routes>
-      <Route path=":id" element={<LoadPosts />}>
-        <Route path=":id" element={<LoadPosts  />}>
+      <Route path=":id" element={<ArtGallery />}>
+        <Route path=":id" element={<ArtGallery  />}>
           <Route path="*" element={<NotFound />} />
         </Route>
       </Route>
