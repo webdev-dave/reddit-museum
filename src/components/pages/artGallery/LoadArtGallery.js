@@ -25,10 +25,10 @@ const LoadArtGallery = () => {
     genresObject[subSubCategory] && genresObject[subSubCategory].path
       ? true
       : false;
-  const secondHashArr = href.split("#")[2].split("-");
-  const isSharedPost = secondHashArr.includes("shared");
-  //console.log(secondHashArr)
-  //console.log("isSharedPost", isSharedPost);
+
+  const secondHashArr = isSubSubCategory && href.split("#")[2].split("-");
+  const isSharedPost = isSubSubCategory && secondHashArr.includes("shared");
+
   
 
 
