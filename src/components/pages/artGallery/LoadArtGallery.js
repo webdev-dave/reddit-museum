@@ -28,10 +28,6 @@ const LoadArtGallery = () => {
 
   const secondHashArr = isSubSubCategory && href.split("#")[2].split("-");
   const isSharedPost = isSubSubCategory && secondHashArr.includes("shared");
-
-  
-
-
   const genreName = params.id;
   const path =
     genresObject[genreName] && genresObject[genreName].path
