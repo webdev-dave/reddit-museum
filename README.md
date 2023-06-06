@@ -50,7 +50,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## Potential Extra Features
 
-- allow users to add custom genres by adding a new genreName and pasting in a link of their favorite subreddit's. This could effectively turn this project into a custom gallery tool / bulletin-board by allowing the users to cast their favorite subreddit's to their TV thereby turning the tv into a gallery / bulletin center-piece with the capacity to shuffle and display content based on the user's choices. All these customizations should be stored and saved to a user's account. This will require figuring out how to create and store user accounts and their corresponding info).
+- allow users to add custom genres by adding a new genreName and pasting in a link of their favorite subreddit's. This could effectively turn this project into a custom gallery tool / bulletin-board by allowing the users to cast their favorite subreddit's to their TV thereby turning the tv into a gallery / bulletin center-piece with the capacity to shuffle and display content based on the user's choices. All these customizations should be stored and saved to a user's account. This will require figuring out how to create and store user accounts and their corresponding info.
 - merge multiple subreddit's of similar genres in same "genre page"
 - change image resolution from default
 - download img button
