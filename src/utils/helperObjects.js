@@ -11,7 +11,7 @@ export const genresObject = {
     design: {path: "/r/DesignPorn/", allowYoutubeVideos: false},
     digital_paintings: {path: "/r/DigitalPainting/", allowYoutubeVideos: false},
     drawings: {path: "/r/drawing/", allowYoutubeVideos: false},
-    film: {path: "/r/filmphotography/", allowYoutubeVideos: false},
+    film: {path: "/r/filmphotos/", allowYoutubeVideos: false},
     general_mix_1: {path: "/r/museum/", allowYoutubeVideos: false},
     impressionism: {path: "/r/impressionism/", allowYoutubeVideos: false},
     mixed_paintings: {path: "/r/ArtPorn/", allowYoutubeVideos: false},
