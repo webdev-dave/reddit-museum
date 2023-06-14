@@ -24,7 +24,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - add a chromecast / cast to tv option
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - make videos stop playing automatically when user scrolls out of sight
-- create video banner like MET website for homepage
+- create video banner like MET website for homepage. Then add a homepage option to navBar
 - on desktop it is difficult to view total portrait images + their title's at once on screen. Perhaps solve this by making a side poster (like in museums) where the title and additional info can go. Perhaps also incorporate some creative 3D art/photo frame animations
 - design homepage
 - create footer?
