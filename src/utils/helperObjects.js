@@ -24,7 +24,7 @@ export const genresObject = {
     sculptures: {path: "/r/SculpturePorn/", allowYoutubeVideos: false},
     short_films: {path: "/r/ShortFilm/", allowYoutubeVideos: true},
     street_art: {path: "/r/StreetArtPorn/", allowYoutubeVideos: false},
-    street_photography: {path: "/r/streetphotography/", allowYoutubeVideos: false},
+    street_photography: {path: "/r/ActualStreetPhotos/", allowYoutubeVideos: false},
     surrealism: {path: "/r/surrealism/", allowYoutubeVideos: false},
     psychedelic_visuals: {path: "/r/TrippyGIFs/", allowYoutubeVideos: false},
     wildlife: {path: "/r/wildlifephotography/", allowYoutubeVideos: false},
