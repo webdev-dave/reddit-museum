@@ -17,13 +17,13 @@
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .main-banner h1 {
   /* margin:  4rem 0; */
   color: white;
-  font-size: 6rem;
+  font-size: 5.5vw;
   font-weight: 700;
   
 }
@@ -31,15 +31,29 @@
 #videoContainer {
   width: 100%;
   overflow: hidden;
-  display: block;
-  height: 500px;
-
+  /* display: block; */
+  height: 30vw;
 }
+
+
 
 #videoContainer video {
-  margin-top: -280px;
+  margin-top: -15vw;
+  width: 100%;
+  min-height: 100%;
   filter: brightness(40%);
+  
 }
+
+
+/* @media (width <= 1000px) {
+  #videoContainer video {
+ 
+
+  }
+} */
+
+
 
 .userAlert {
     display: flex;
