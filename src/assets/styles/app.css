@@ -26,11 +26,13 @@ font-family: 'IBM Plex Sans', sans-serif;
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  height: 100%;
 }
 
 body {
   font-family: var(--main-font);
   background-color: var(--pink);
+  height: 100%;
 }
 
 .app {

@@ -23,6 +23,7 @@ const MainBanner = () => {
       <div id="headerContainer">
         <h1>Welcome to the Reddit Museum</h1>
       </div>
+      
       {/* <div className="userAlert">
         <FaExclamationTriangle className="icon" />
         <p>
