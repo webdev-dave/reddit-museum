@@ -1,13 +1,11 @@
 .main-banner {
   position: relative;
   width: 100%;
-
 }
 
 .main-banner img {
   width: 100%;
 }
-
 
 .main-banner #headerContainer {
   position: absolute;
@@ -25,56 +23,58 @@
   color: white;
   font-size: 5.5vw;
   font-weight: 700;
-  
 }
 
 #videoContainer {
   width: 100%;
   overflow: hidden;
-  /* display: block; */
   height: 30vw;
 }
 
-
-
 #videoContainer video {
   margin-top: -15vw;
-  width: 100%;
+  /* width: 100%; */
   min-height: 100%;
   filter: brightness(40%);
-  
+  min-width: 100%;
 }
 
-
-/* @media (width <= 1000px) {
-  #videoContainer video {
- 
-
+@media (width <= 1200px) {
+  #videoContainer {
+    min-height: 50vh;
   }
-} */
 
+  #videoContainer video {
+    margin-top: -5vh;
+    width: 100vh;
+  }
 
+  .main-banner h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    padding: 0 10%;
+    line-height: 2ch;
+  }
+}
 
 .userAlert {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--yellow);
-    padding: 5%;
-  }
-  .userAlert .icon {
-    font-size: 4rem;
-    margin-bottom: 2rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--yellow);
+  padding: 5%;
+}
+.userAlert .icon {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
 
-  .userAlert h3 {
-    font-size: 2.5rem;
-    font-weight: 600;
-  }
+.userAlert h3 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
 
-  .userAlert p {
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  
-  
+.userAlert p {
+  font-size: 1.5rem;
+  text-align: center;
+}
