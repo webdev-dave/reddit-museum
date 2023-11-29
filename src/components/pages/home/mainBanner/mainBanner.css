@@ -1,3 +1,32 @@
+.main-banner {
+  position: relative;
+  width: 100%;
+
+}
+
+.main-banner img {
+  width: 100%;
+}
+
+
+.main-banner h1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  font-size: 7rem;
+  font-weight: 700;
+  /* text-align: center; */
+  margin:  4rem auto;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+#videoBanner {
+  filter: brightness(40%);
+}
 
 .userAlert {
     display: flex;

@@ -42,15 +42,6 @@ header {
 }
 
 
-h1 {
-  display: block;
-  width: fit-content;
-  color: black;
-  font-size: 7rem;
-  font-weight: 700;
-  text-align: center;
-  margin:  4rem auto;
-}
 
 h3 {
   font-size: 3.5rem;
@@ -93,15 +84,4 @@ main {
   width: 200px;
 }
 
-/* -------------------------------------------------------- Main Banner */
-
-.main-banner {
-  width: 100%;
-  margin-top: 160px;
-
-}
-
-.main-banner img {
-  width: 100%;
-}
 
