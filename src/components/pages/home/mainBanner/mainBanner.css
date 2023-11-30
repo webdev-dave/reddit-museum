@@ -1,16 +1,10 @@
-
 /* To Do:
-1. Center Horizontal Cropping for video 
+1. Figure out how to auto center video vertically
 2. ask Leo about how to ensure video banner quality is not lost on live online version of the app
 */
 
-
 .main-banner {
   position: relative;
-  width: 100%;
-}
-
-.main-banner img {
   width: 100%;
 }
 
@@ -31,40 +25,30 @@
   font-weight: 700;
 }
 
-#videoContainer {
+.main-banner #videoContainer {
+  display: block;
   width: 100%;
-  max-height: 75vh;
+  height: 65vh;
   overflow: hidden;
 }
 
 #videoContainer video {
-  min-height: 100%;
+  position: relative;
+  left: 50%;
+  bottom: 50%;
+  transform: translateX(-50%);
   min-width: 100%;
-  margin-top: 0;
+  max-width: 500%;
   filter: brightness(40%);
 }
 
-@media (width > 1500px){
+@media (width > 2000px){
   #videoContainer video {
-    margin-top: -8vw;
+    bottom: 20vw;
   }
 }
 
-@media (width > 2500px){
-  #videoContainer video {
-    margin-top: -15vw;
-  }
-}
-
-@media (width <= 1200px) {
-  .main-banner {
-    min-height: 50vh;
-  }
-
-  #videoContainer video {
-    width: 130%;
-  }
-
+@media (width <= 1400px) {
   .main-banner h1 {
     font-size: 4rem;
     text-align: center;
@@ -73,22 +57,9 @@
   }
 }
 
-@media (width <= 650px){
-  #videoContainer video {
-    /* margin-top: -8%; */
-    width: 170%;
-  }
-
+@media (width <= 750px) {
   .main-banner h1 {
     font-size: 3.5rem;
-  }
-}
-
-@media (width <= 550px){
-
-  #videoContainer video {
-    margin-top: -8%;
-    width: 240%;
   }
 }
 

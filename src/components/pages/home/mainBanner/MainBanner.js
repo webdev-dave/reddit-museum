@@ -9,11 +9,9 @@ const MainBanner = () => {
       {/* <img src={headerImg} alt="" /> */}
       <div id="videoContainer">
         <video
-          id="videoBanner"
-          autoPlay={"autoplay"}
           muted
           loop
-          width="100%"
+          controls
           height=""
         >
           <source src={videoBanner} type="video/mp4" />
