@@ -10,9 +10,8 @@ const MainBanner = () => {
       <div id="videoContainer">
         <video
           muted
+          autoPlay
           loop
-          controls
-          height=""
         >
           <source src={videoBanner} type="video/mp4" />
         </video>
