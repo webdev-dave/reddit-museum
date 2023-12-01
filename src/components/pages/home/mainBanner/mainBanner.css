@@ -52,7 +52,8 @@
 }
 
 @media (width > 2000px){
-  #videoContainer video {
+  #videoContainer video,
+  #videoContainer #thumbnail {
     bottom: 20vw;
   }
 }
