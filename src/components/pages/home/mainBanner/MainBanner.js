@@ -1,26 +1,29 @@
-//import headerImg from "../../../../assets/localMedia/headerImg.png";
+import thumbnail from "../../../../assets/localMedia/video_banner_thumbnail.png";
 import videoBanner from "../../../../assets/localMedia/video_banner.mp4";
 import "./mainBanner.css";
+import { useState } from "react";
 // import { FaExclamationTriangle } from "react-icons/fa";
 
 const MainBanner = () => {
+  const [videoIsLoaded, setVideoIsLoaded] = useState(false);
+
   return (
     <div className="main-banner">
       {/* <img src={headerImg} alt="" /> */}
       <div id="videoContainer">
-        <video
-          muted
-          autoPlay
-          loop
-        >
-          <source src={videoBanner} type="video/mp4" />
-        </video>
+        <img
+          src={thumbnail}
+          alt="video banner thumbnail"
+          id="thumbnail"
+          className={videoIsLoaded ? "hide" : ""}
+        />
+        <video muted autoPlay loop src={videoBanner} type="video/mp4" onCanPlay={()=>setVideoIsLoaded(true)}></video>
       </div>
 
       <div id="headerContainer">
         <h1>Welcome to the Reddit Museum</h1>
       </div>
-      
+
       {/* <div className="userAlert">
         <FaExclamationTriangle className="icon" />
         <p>
