@@ -43,6 +43,13 @@ header {
   position: absolute;
 }
 
+h1 {
+  color: black;
+  font-size: 7rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 
 
 h3 {
