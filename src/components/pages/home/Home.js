@@ -1,4 +1,5 @@
 import MainBanner from "./mainBanner/MainBanner";
+import GalleriesShelf from "./galleriesShelf/GalleriesShelf";
 //import { Navigate } from "react-router-dom";
 
 const Home = () => {
@@ -6,7 +7,8 @@ const Home = () => {
   return (
     <div className="home">
       <main className="posts-section">
-        <MainBanner />
+        <MainBanner /> 
+        <GalleriesShelf/>
       </main>
     </div>
   );
