@@ -6,3 +6,20 @@
     font-size: 3rem;
     font-weight: 600;
 }
+
+.galleriesShelf {
+    background-color: black;
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    overflow: scroll;
+    margin: 1rem 0;
+}
+
+.galleriesShelf .galleryFrame {
+    height: 400px;
+    width: 400px;
+    background-color: aqua;
+    margin: 10px;
+    
+}
