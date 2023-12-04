@@ -1,13 +1,13 @@
-.shelfWrapper {
+.sliderWrapper {
     padding: 2%;
 }
 
-.shelfWrapper h2 {
+.sliderWrapper h2 {
     font-size: 3rem;
     font-weight: 600;
 }
 
-.galleriesShelf {
+.slider {
     background-color: black;
     width: 100%;
     min-height: 30px;
@@ -16,7 +16,8 @@
     margin: 1rem 0;
 }
 
-.galleriesShelf .galleryFrame {
+.slider .slide {
+    flex-shrink: 0;
     height: 400px;
     width: 400px;
     background-color: aqua;

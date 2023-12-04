@@ -1,17 +1,17 @@
 import "./galleriesShelf.css";
 
 const GalleriesShelf = () => {
-  const galleryFrame = <li className="galleryFrame"></li>;
-  const galleryFrames = [];
+  const slide = "slide";
+  const slides = [];
   for (let i = 0; i < 5; i++) {
-    galleryFrames.push(galleryFrame);
+    slides.push(slide);
   }
-  console.log(galleryFrames);
+  console.log(slides);
   return (
-    <div className="shelfWrapper">
+    <div className="sliderWrapper">
       <h2>Now on View</h2>
-      <ul className="galleriesShelf">{galleryFrames.map((gf, index) => (
-        <li key={"galleryFrame-" + index}>{gf}</li>
+      <ul className="slider">{slides.map((s, index) => (
+        <li className="slide" key={"slide-" + index}>{s}</li>
       ))}</ul>
     </div>
   );
