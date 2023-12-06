@@ -2,6 +2,9 @@ import "./galleriesShelf.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRef } from "react";
 
+//To Do:
+//need to animate scroll button sliding direction so that the animation "feels" correct
+
 const GalleriesShelf = () => {
   const slide = "slide";
   const slides = [];
