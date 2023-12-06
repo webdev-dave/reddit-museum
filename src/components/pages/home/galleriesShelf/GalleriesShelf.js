@@ -22,8 +22,6 @@ const GalleriesShelf = () => {
     sliderRef.current.scrollLeft -= slideWidth;
   }
 
-
-  console.log(slides);
   return (
     <div className="shelfContainer">
       <h2>Now on View</h2>
