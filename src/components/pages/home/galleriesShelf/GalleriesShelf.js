@@ -9,17 +9,26 @@ const GalleriesShelf = () => {
   const slide = "slide";
   const slides = [];
   const slideWidth = 400;
+  const sliderRef = useRef();
+
   for (let i = 0; i < 7; i++) {
     slides.push(slide);
   };
-  const sliderRef = useRef();
 
   const handleRightClick = () => {
-    sliderRef.current.scrollLeft += slideWidth;
+    sliderRef.current.scrollBy({
+      left: slideWidth,
+      top: 0,
+      behavior: 'smooth'
+  });
   }
 
   const handleLeftClick = () => {
-    sliderRef.current.scrollLeft -= slideWidth;
+    sliderRef.current.scrollBy({
+      left: -slideWidth,
+      top: 0,
+      behavior: 'smooth'
+  });
   }
 
   return (
@@ -30,7 +39,7 @@ const GalleriesShelf = () => {
         <ul className="slider" ref={sliderRef}>
           {slides.map((s, index) => (
             <li className="slide" key={"slide-" + index}>
-              <p>{s}</p>
+              <p>{s +" "+ index}</p>
             </li>
           ))}
         </ul>

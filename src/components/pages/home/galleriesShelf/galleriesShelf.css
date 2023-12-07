@@ -32,12 +32,13 @@
     justify-content: flex-start;
     overflow-x: scroll;
     margin: 1rem;
-}
-
-.slider {
+    transition: all;
+    /* hide scrollBar */
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
+
+
 .slider::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
