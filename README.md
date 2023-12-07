@@ -12,7 +12,9 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- design a carousel slider for mobile
 - build a more simple postGal
+- make postGal activate on touch for mobile
 - generate custom share link on click of media shareButton
 - allow sharing of image via injection of custom (sharedImg) gallery;
 - create touch/swipe effect for gallery on mobile
