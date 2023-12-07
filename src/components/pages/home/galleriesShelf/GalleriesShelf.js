@@ -4,7 +4,6 @@ import { useRef, useState, useEffect } from "react";
 import Slide from "./Slide/Slide";
 
 
-//something is slightly off in accuracy of slider. probably has something to do with the way slideWidth is being calculated
 
 const GalleriesShelf = () => {
   const slide = "slide";
