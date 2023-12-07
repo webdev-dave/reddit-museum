@@ -1,6 +1,7 @@
 import "./galleriesShelf.css";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import Slide from "./Slide/Slide";
 
 //To Do:
 //need to animate scroll button sliding direction so that the animation "feels" correct
@@ -8,8 +9,20 @@ import { useRef } from "react";
 const GalleriesShelf = () => {
   const slide = "slide";
   const slides = [];
-  const slideWidth = 400;
+  const [slideWidth, setSlideWidth] = useState("400");
   const sliderRef = useRef();
+
+  useEffect(()=>{
+    const updatedSlideWidth = sliderRef.current.scrollWidth / slides.length;
+    setSlideWidth(updatedSlideWidth);
+    console.log(updatedSlideWidth);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+
+  const updateSlideWidth = (updatedSlideWidth) => {
+    setSlideWidth(updatedSlideWidth);
+  }
 
   for (let i = 0; i < 7; i++) {
     slides.push(slide);
@@ -38,9 +51,7 @@ const GalleriesShelf = () => {
         <button id="slideLeft" onClick={handleLeftClick}>{<FaAngleLeft className="icon" />}</button>
         <ul className="slider" ref={sliderRef}>
           {slides.map((s, index) => (
-            <li className="slide" key={"slide-" + index}>
-              <p>{s +" "+ index}</p>
-            </li>
+            <Slide slide={s} index={index} key={"slide-" + index} updateSlideWidth={updateSlideWidth} />
           ))}
         </ul>
         <button id="slideRight" onClick={handleRightClick}>{<FaAngleRight className="icon" />}</button>
