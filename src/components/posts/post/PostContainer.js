@@ -1,5 +1,5 @@
 import Media from "./media/Media";
-import EmbedGal from "../../../features/embedGal/EmbedGal";
+import PostGal from "../../../features/postGal/PostGal";
 import PostMenu from "./postMenu/PostMenu";
 
 
@@ -17,7 +17,7 @@ const PostContainer = ({ post, postIndex }) => {
       {!post.isGallery ? (
         <Media media={post} />
       ) : post.isGallery && post.gallery ? (
-        <EmbedGal propsPost={post} />
+        <PostGal propsPost={post} />
       ) : (
         ""
       )}

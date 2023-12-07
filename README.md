@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- build a more simple postGal
 - generate custom share link on click of media shareButton
 - allow sharing of image via injection of custom (sharedImg) gallery;
 - create touch/swipe effect for gallery on mobile
