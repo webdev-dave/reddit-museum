@@ -3,8 +3,6 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRef, useState, useEffect } from "react";
 import Slide from "./Slide/Slide";
 
-//To Do:
-//need to animate scroll button sliding direction so that the animation "feels" correct
 
 const GalleriesShelf = () => {
   const slide = "slide";
@@ -15,7 +13,6 @@ const GalleriesShelf = () => {
   useEffect(()=>{
     const updatedSlideWidth = sliderRef.current.scrollWidth / slides.length;
     setSlideWidth(updatedSlideWidth);
-    console.log(updatedSlideWidth);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
