@@ -1,19 +1,19 @@
-.shelfContainer {
+.carouselContainer {
     padding: 2%;
 }
 
-.shelfContainer h2 {
+.carouselContainer h2 {
     font-size: 3rem;
     padding-left: 5rem;
     font-weight: 600;
 }
 
-.sliderContainer {
+.carousel {
     display: flex;
     align-items: center;
 }
 
-.sliderContainer button {
+.carousel button {
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -24,7 +24,7 @@
     justify-content: center;
 }
 
-.slider {
+.slides {
     background-color: black;
     width: 100%;
     min-height: 30px;
@@ -39,11 +39,11 @@
 }
 
 
-.slider::-webkit-scrollbar { 
+.slides::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
 
-.slider .slide {
+.slides .slide {
     flex-shrink: 0;
     height: 400px;
     width: 400px;
