@@ -3,7 +3,8 @@ import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useRef, useState, useEffect } from "react";
 import Slide from "./Slide/Slide";
 
-
+//To Do
+//Rename Galleries Shelf?
 
 const GalleriesShelf = () => {
   const slide = "slide";
@@ -11,6 +12,7 @@ const GalleriesShelf = () => {
   const [slideWidth, setSlideWidth] = useState("400");
   const sliderRef = useRef();
 
+  
   useEffect(()=>{
     const updatedSlideWidth = sliderRef.current.scrollWidth / slides.length;
     setSlideWidth(updatedSlideWidth);
