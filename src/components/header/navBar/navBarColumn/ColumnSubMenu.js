@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { replaceUnderscoreAndCapitalizeFirstChar } from "../../../../utils/helperFunctions";
