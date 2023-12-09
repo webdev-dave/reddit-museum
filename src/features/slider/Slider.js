@@ -1,11 +1,11 @@
-import "./postGalStyles.css";
+import "./slider.css";
 import { useState } from "react";
 import Media from "../../components/posts/post/media/Media";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentGenrePosts, updateGalleryMediaOnDisplay } from "../../components/posts/postsSlice";
 
-const PostGal = ({ propsPost }) => {
+const Slider = ({ propsPost }) => {
   const dispatch = useDispatch();
   const postIndex = propsPost.postIndex;
   const gallery = useSelector(selectCurrentGenrePosts)[postIndex].gallery;
@@ -110,4 +110,4 @@ const PostGal = ({ propsPost }) => {
   );
 };
 
-export default PostGal;
+export default Slider;

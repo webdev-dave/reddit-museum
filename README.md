@@ -12,6 +12,8 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- cleanup redditAPIRequest
+- make carousel load live gallery images
 - design a carousel slider for mobile
 - build a more simple postGal
 - make postGal activate on touch for mobile
@@ -21,7 +23,7 @@ A digital art gallery that displays art collected from the various artistic encl
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - add a collapse all button in the NavBarMenu
-- add search button (and map to enter button) to activate search, also show amount of search results on the top of the search results page
+- add search button (and map to enter button) to activate search, also show amount of search results on the top of page
 - make sure that every genre loads a minimum of X images (if first request < X than automatically request and load the next batch or results)
 - if specific subreddits are offline, create a system that automtically hides the paired gallery from the navBars
 - add a chromecast / cast to tv option
