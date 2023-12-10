@@ -62,7 +62,7 @@ const Slider = ({ propsPost }) => {
   };
 
   return (
-    <div className="outer-gallery-container">
+    <div className="outer-gallery-container" >
       <div className="gallery-container">
         <button onClick={handlePrevious} className="previous-btn">
           <FaAngleLeft

@@ -25,8 +25,6 @@ const Posts = () => {
     dispatch(updateGenrePosts({ genreName: genreName, posts: formattedPosts }));
   }, [dispatch, rawPostsArr, genreName]);
 
-
-  
   return currentlyOnDisplay.map((post, postIndex) => (
     <PostContainer
       post={post}
