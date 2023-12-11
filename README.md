@@ -12,6 +12,7 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
+- add margin-bottom for last gallery post
 - cleanup redditAPIRequest
 - make carousel load live gallery images
 - design a carousel slider for mobile

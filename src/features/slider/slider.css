@@ -110,6 +110,12 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  z-index: 10;
+  transition: transform 45ms;
+}
+
+.gallery-container button:active {
+  transform: scale(0.95);
 }
 
 
