@@ -39,7 +39,7 @@ const LoadArtGallery = () => {
   return (
     <main>
       {path ? (
-        <div className="posts-section">
+        <div className="posts-container">
           <h1 className="category-name">
             {replaceUnderscoreAndCapitalizeFirstChar(category)}
           </h1>

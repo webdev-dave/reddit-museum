@@ -19,6 +19,12 @@
 
 /* -------------------------------------------------------- posts section */
 
+
+.posts-container {
+  padding-bottom: 5rem;
+}
+
+
 h1.category-name {
     font-size: 4rem;
     margin: 7.5rem auto 2rem auto;
@@ -30,12 +36,12 @@ h1.category-name {
     } 
   }
   
-  .posts-section h5.sub-category-name {
+  .posts-container h5.sub-category-name {
     font-style: italic;
     margin-bottom: 10rem;
   }
   
-  .posts-section h5.sub-category-name .em {
+  .posts-container h5.sub-category-name .em {
     font-style: normal;
     font-weight: 600;
   }

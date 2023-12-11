@@ -12,22 +12,20 @@ A digital art gallery that displays art collected from the various artistic encl
 
 ## To Do List
 
-- add margin-bottom for last gallery post
 - rename slider classNames
 - cleanup redditAPIRequest
 - make carousel load live gallery images
 - design a carousel slider for mobile
 - build a more simple postGal
-- [make postGal activate on touch for mobile](https://css-tricks.com/simple-swipe-with-vanilla-javascript/)
+- [make slider touch sensitive/active for mobile](https://css-tricks.com/simple-swipe-with-vanilla-javascript/)
 - generate custom share link on click of media shareButton
-- allow sharing of image via injection of custom (sharedImg) gallery;
-- create touch/swipe effect for gallery on mobile
+- allow sharing of image via injection of custom (sharedImg) gallery
 - add zoom in/out buttons for image in fsMode (and make sure to allow default browser zoom to work - currently not working)
 - make localHostedVideo's and embeddedYoutubeVideo's stop playing automatically on scroll-away
 - add a collapse all button in the NavBarMenu
 - add search button (and map to enter button) to activate search, also show amount of search results on the top of page
 - make sure that every genre loads a minimum of X images (if first request < X than automatically request and load the next batch or results)
-- if specific subreddits are offline, create a system that automtically hides the paired gallery from the navBars
+- if specific subreddits are offline, create a system that automatically hides the paired gallery from the navBars
 - add a chromecast / cast to tv option
 - create slide show option that plays art of selected gallery on selected time interval (2sec, 5sec, 10sec)
 - make videos stop playing automatically when user scrolls out of sight
