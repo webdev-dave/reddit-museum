@@ -31,13 +31,13 @@
 
 /* ---------------------------------------------------------- gallery animation */
 
-.media-container.next-slide-in {
-  animation: next-slide-in ease-in-out 0.5s forwards;
-}
-
 .media-container.next-slide-in.main {
   /* this prevents slide animation from firing onInitialLoading of gallery "main" media (at index 0) */
   animation: none;
+}
+
+.media-container.next-slide-in {
+  animation: next-slide-in ease-in-out 0.5s forwards;
 }
 
 .media-container.next-slide-out {
