@@ -23,7 +23,7 @@ const postsSlice = createSlice({
             //state.currentlyOnDisplay = createLoadingArray(currentPosts);
             state.currentlyOnDisplay = currentPosts;
         },
-        updateGalleryMediaOnDisplay: (state, action)=>{
+        updateSliderMediaOnDisplay: (state, action)=>{
             const genreName = state.currentGenreName;
             const postIndex = action.payload.postIndex;
             const currentImageIndex = action.payload.currentImageIndex;
@@ -66,6 +66,6 @@ export const selectSearchWord = (state) => state.posts.searchWord;
 
 
 
-export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateGalleryMediaOnDisplay } = postsSlice.actions;
+export const { updateGenrePosts, updateIsSearching, search, updateFullScreenMode, updateSliderMediaOnDisplay } = postsSlice.actions;
 
 export default postsSlice.reducer;
